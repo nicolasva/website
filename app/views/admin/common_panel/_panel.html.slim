@@ -1,0 +1,7 @@
+.btn-group
+  = link_to "Retourner à la liste des catégorie", admin_title_index_path, class: "btn btn-default"
+.btn-group
+  = link_to "Modifier le nom de la catégorie", edit_admin_title_path(@category), class: 'btn btn-default', remote: true
+- unless request.path.scan(/^.{1,}(contents|annoncments).{1,}$/) == Array.new
+  .btn-group
+    = link_content_or_annoncment?(request.path.scan(/^.{1,}(contents|annoncments).{1,}$/)[0][0], @category.title)

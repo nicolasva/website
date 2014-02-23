@@ -1,0 +1,33 @@
+- model_class = Annoncment
+
+.page-header
+  .row
+    .col-md-2
+      h1= t '.title', default: model_class.model_name.human.titleize
+    .col-md-10
+      .pull-right
+        .btn-toolbar
+          = render(:partial => "/admin/common_panel/panel")
+          .btn-group
+            = link_to "Editer cette annonce", edit_admin_title_annoncment_path(@category.title, @annoncment.title), class: "btn btn-default"
+
+.row
+  dl.dl-horizontal
+    dt= model_class.human_attribute_name(:category_id) + ":"
+    dd= @annoncment.category.title
+    dt= model_class.human_attribute_name(:title) + ":"
+    dd= @annoncment.title
+    dt= model_class.human_attribute_name(:description) + ":"
+    dd= @annoncment.description
+    dt= model_class.human_attribute_name(:photo) + ":"
+    dd
+      .row.photo_master
+        - if @photo_master.nil?
+          = "Il n'y a pas d'image définit en tant que master"
+        - else
+          = image_tag(@photo_master.photo.url(:thumb))
+      .row
+        ul.list-inline.ul_photo
+          - @annoncment.photos.each do |photo|
+            = content_tag_for :li, photo do
+              = image_tag(photo.photo.url(:thumb), class: "photo_annoncment")

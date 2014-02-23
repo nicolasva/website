@@ -1,0 +1,5 @@
+= simple_form_for [:admin, @category], url: url, method: method, remote: true  do |f|
+  = f.input :title
+  = f.input :english_title
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'

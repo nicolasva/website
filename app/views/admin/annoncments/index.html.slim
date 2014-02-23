@@ -1,0 +1,25 @@
+- model_class = Annoncment
+.page-header
+  h1 = t(".title")
+
+table.table.table-striped
+  thead
+    tr
+      th= model_class.human_attribute_name(:title)
+      th= model_class.human_attribute_name(:description)
+
+ul#sortable_annoncments_list.list-unstyled.annoncments_list
+  - @annoncments.each do |annoncment|
+    = content_tag_for :li, annoncment do
+      table.table.table-striped
+        tr
+          td= annoncment.title
+          td= truncate(annoncment.description, length: 90)
+          td= truncate(annoncment.english_description, length: 90)
+          td
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_title_annoncment_path(@category.title, annoncment.title), :class => 'btn btn-mini btn-primary'
+            '
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_title_annoncment_path(@category.title, annoncment.title), :confirm => t("admin.common.confirm_delete"), :method => :delete, :class => "btn btn-mini btn-danger"
+
+
+= link_to t('.new', :default => t("helpers.links.new")), new_admin_title_annoncment_path(@category.title), :class => 'btn btn-primary'

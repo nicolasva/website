@@ -1,0 +1,4 @@
+fr:
+  activemodel:
+      errors:
+        <<: &errors

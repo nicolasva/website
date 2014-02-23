@@ -1,0 +1,28 @@
+fr:
+  activerecord:
+    models:
+      category: Categorie
+      context: Context
+    attributes:
+      category:
+        title: Titre
+        created_at: Crée le
+        updated_at: Mise à jour le
+        homepage: Page Principal
+        position: Position
+        english_title: Titre en anglais
+      content:
+        description: Description
+        category_id: Id de la catégorie
+        created_at: Crée le
+        updated_at: Mise à jour le
+        english_description: Description en anglais
+        position: Position
+        uuid: Uuid
+        border: Bordure
+        border_style: Style de la bordure
+        border_color: Couleur de la bordure
+        background_color: Arrière plan
+        background_image: Image d'arrière plan
+        background_image_cache: Cache de l'image d'arrière plan
+

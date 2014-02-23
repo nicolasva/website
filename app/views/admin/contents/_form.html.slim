@@ -1,0 +1,30 @@
+= simple_form_for [:admin, @category, @content], url: url  do |f|
+  = f.input :description, :as => :ckeditor
+  = f.input :english_description, :as => :ckeditor
+  = f.input :border, collection: 0..100
+  = f.input :border_style, collection: ["none", "solid", "dashed", "dotted", "double", "groove", "ridge", "inset", "outset", "inherit"]
+  = f.input :no_background_image
+  .background_image
+    .row
+      .col-md-6
+        = f.input :background_image
+        = f.input :background_image_cache, as: :hidden
+      .col-md-6
+        = f.input :no_repeat
+    - unless @content.new_record?
+      .row
+        .col-md-5
+          = image_tag(@content.background_image.url(:thumb))
+        .col-md-2
+          #id_hide
+            = f.input :delete_background_image, as: :boolean, :input_html => { :value => false}
+          = link_to "", "#", id: "id_drop_background_image", class: "grid_button_not_delete"
+          = link_to "", "#", id: "id_drop_background_image", class: "grid_button_delete" 
+  .row
+    = f.label :border_color
+    = f.input :border_color, as: 'hidden'
+    //add action permit for controller
+    #colorSelector
+      div style="background-color: #{@content.border_color}"
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'

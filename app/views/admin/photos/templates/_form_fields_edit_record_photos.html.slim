@@ -1,0 +1,5 @@
+- @annoncment.photos.each do |photo|
+  = f.fields_for(:photos, photo) do |f_photo|
+    .row
+      .col-md-12.annoncment_photos
+        = render(:partial => "/admin/photos/templates/form_input_photos", :locals => { f_photo: f_photo , photo: photo })

@@ -1,0 +1,24 @@
+@mixin drop_button {
+  background: url("/assets/button_delete/grid_delete_button.jpg");
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+}
+
+.grid_button_not_delete {
+  @include drop_button;
+  cursor: pointer;
+  padding: 13.7px 35px 17px;
+  background-position: 0px -105px;
+}
+
+.grid_button_delete {
+  @include drop_button;
+  cursor: pointer;
+  padding: 14.7px 39px 47px;
+  background-position: -89px -90px;
+  display: none;
+}
+
+#id_hide {
+  display: none;
+} 

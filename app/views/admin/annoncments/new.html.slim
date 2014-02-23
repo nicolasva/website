@@ -1,0 +1,14 @@
+- model_class = Annoncment
+
+.page-header
+  .row
+    .col-md-2
+      h1 New annoncment
+    .col-md-10
+      .pull-right
+        .btn-toolbar
+          = render(:partial => "/admin/common_panel/panel")
+
+.row
+  == render(:partial => "/admin/annoncments/form", :locals => { :url => "/admin/categories/#{@category.title}/annoncments" })
+

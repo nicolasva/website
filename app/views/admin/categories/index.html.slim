@@ -1,0 +1,22 @@
+- model_class = Category
+.page-header
+  h1
+    = t(".title")
+
+= form_tag :action => 'homepage', :controller => 'categories' do
+  table.table.table-striped
+    thead
+      tr
+        th= model_class.human_attribute_name(:title)
+        th= model_class.human_attribute_name(:english_title)
+        th= model_class.human_attribute_name(:content_or_annoncment)
+        th= model_class.human_attribute_name(:homepage)
+        th= t '.actions', :default => t("helpers.actions")
+  ul#sortable.list-unstyled.category_list
+    - @categories.each do |category|
+      = render(:partial => "/admin/categories/list_category", :locals => { :category => category })
+  .row
+    .col-md-10
+      = link_to t(".new", :default => t("helpers.links.new")), new_admin_title_path, :class => 'btn btn-primary', remote: true
+    .col-md-2
+      = submit_tag t(".valid"), :class => "btn btn-success"

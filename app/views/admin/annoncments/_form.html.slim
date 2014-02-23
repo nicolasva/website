@@ -1,0 +1,12 @@
+= simple_form_for [:admin, @category, @annoncment], url: url do |f|
+  = f.input :title
+  = f.input :description, as: :ckeditor
+  = f.input :english_description, as: :ckeditor
+  - if @annoncment.new_record? || @annoncment.photos.first.nil?
+    = render(:partial => "/admin/photos/templates/form_fields_new_record_photos", :locals => { f: f})
+  - else
+    = render(:partial => "/admin/photos/templates/form_fields_edit_record_photos", :locals => { f: f})
+  .row
+    = link_to "Ajouter une autre photo", admin_title_photos_add_form_photo_path(@category.title), class: 'btn btn-mini btn-warning', remote: true
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
