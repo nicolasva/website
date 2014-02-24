@@ -1,6 +1,6 @@
 module Admin
   class SubmenusController < AdminController
-    before_action :set_submenu, only: [:show, :edit, :update, :destroy]
+    before_action :set_submenu, only: [:show, :edit, :update, :destroy, :update_success]
     before_action :load_category_by_title
     
     def index
@@ -35,11 +35,18 @@ module Admin
       end
     end
 
+    def update_success
+      @submenu_id = @submenu.id
+    end
+
     def update
-      if @submenu.update(submenu_params)
-        redirect_to admin_title_title_submenus_path(@category.title, @submenu.title), notice: "Submenu was successfully updated"
-      else
-        render action: 'edit'
+      respond_to do |format|
+        if @submenu.update(submenu_params)
+          format.html { redirect_to admin_title_title_submenu_path(@category.title, @submenu.title), notice: "Submenu was successfully updated" }
+          format.js { redirect_to(:action => :update_success, :title_id => @category.title, :title_submenu_id => @submenu.title, :format => :js) }
+        else
+          format.html { render action: 'edit' }
+        end
       end
     end
 
@@ -50,7 +57,7 @@ module Admin
 
     private
       def set_submenu
-        @submenu = Submenu.find_by_title(params[:id])
+        @submenu = Submenu.find_by_title(params[:title_submenu_id].nil? ? params[:id] : params[:title_submenu_id])
       end
 
       def submenu_params

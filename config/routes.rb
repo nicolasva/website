@@ -18,7 +18,11 @@ WebsiteFrancisFerrari::Application.routes.draw do
       match "categories/annoncments/sort" => "annoncments#sort", :via => "GET"
     end
     resources :categories, :as => "title" do
+      scope do
+        match "submenus/:title_submenu_id/update_success" => "submenus#update_success", :via => "GET"
+      end
       resources :submenus, :as => "title_submenu" do
+        get :update_success, :on => :member
         resources :contents do
           get :sort, :on => :collection
         end
