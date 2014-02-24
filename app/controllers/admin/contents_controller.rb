@@ -19,7 +19,11 @@ module Admin
       @content = @category.contents.new(content_params)
 
       if @content.save
-        redirect_to admin_title_content_path(@category.title, @content.uuid), notice: "Content was successfully created"
+        if @submenu.nil?
+          redirect_to admin_title_content_path(@category.title, @content.uuid), notice: "Content was successfully created"
+        else
+          redirect_to admin_title_title_submenu_content_path(@category.title, @submenu.title, @content.uuid), notice: "Content was successfully created"
+        end
       else
         render action: 'new'
       end

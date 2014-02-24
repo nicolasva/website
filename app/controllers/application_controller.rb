@@ -10,10 +10,19 @@ class ApplicationController < ActionController::Base
 
 
   def load_category_by_title
-      @category = params[:title_submenu_id].nil? ? Category.find_by_title(params[:title_id]) : Category.find_by_title(params[:title_id]).submenus.find_by_title(params[:title_submenu_id])
+    #@category = params[:title_submenu_id].nil? ? Category.find_by_title(params[:title_id]) : Category.find_by_title(params[:title_id]).submenus.find_by_title(params[:title_submenu_id])
+    @category = Category.find_by_title(params[:title_id])
+    @category = load_submenu_by_title(@category) unless params[:title_submenu_id].nil?
   end
 
   def load_annoncment_by_title
-    @annoncment = params[:title_submenu_id].nil? ? Annoncment.find_by_title(params[:annoncment_id]) : Annoncment.find_by_title(params[:annoncment_id]).submenus.find_by_title(params[:title_submenu_id])
+    @annoncment = Annoncment.find_by_title(params[:annoncment_id])
+    @annoncment = load_annoncment_by_title(@annoncment) unless params[:title_submenu_id].nil?
   end
+
+  def load_submenu_by_title(model)
+    @submenu = Submenu.find_by_title(params[:title_submenu_id])
+  end
+
+
 end

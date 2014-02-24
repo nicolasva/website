@@ -10,4 +10,4 @@
           = render(:partial => "/admin/common_panel/panel")
 
 .row
-  = render(:partial => "/admin/contents/form", :locals => { :url => "/admin/categories/#{@category.title}/contents" })
+  = render(:partial => "/admin/contents/form", :locals => { :url => url_form_new_content })

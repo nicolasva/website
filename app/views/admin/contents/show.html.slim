@@ -14,6 +14,6 @@
 .row
   dl.dl-horizontal 
     dt= model_class.human_attribute_name(:category_id) + ":"
-    dd= @content.category.title
+    dd= look_category
   .col-md-12.content_description
     = @content.description.html_safe
