@@ -2,6 +2,7 @@ class Annoncment < ActiveRecord::Base
   attr_accessor :photos_attributes, :photos_master
   after_save :save_with_image_master
   belongs_to :category
+  belongs_to :submenu
   has_one :background, as: :backgroundstyles, dependent: :destroy
   has_many :photos
   accepts_nested_attributes_for :background

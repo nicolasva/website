@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223200825) do
+ActiveRecord::Schema.define(version: 20140224150655) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 20140223200825) do
     t.text     "english_description", default: ""
     t.integer  "category_id"
     t.integer  "position",            default: 0,  null: false
+    t.integer  "submenu_id"
   end
 
   add_index "annoncments", ["category_id"], name: "annoncments_category_id_to_category"
+  add_index "annoncments", ["submenu_id"], name: "annoncments_submenu_id_to_submenus"
 
   create_table "backgrounds", force: true do |t|
     t.integer "border",                default: 0,             null: false
@@ -78,7 +80,10 @@ ActiveRecord::Schema.define(version: 20140223200825) do
     t.string   "background_image_cache"
     t.boolean  "no_repeat",              default: false,         null: false
     t.boolean  "no_background_image",    default: true,          null: false
+    t.integer  "submenu_id"
   end
+
+  add_index "contents", ["submenu_id"], name: "contents_submenu_id_to_submenus"
 
   create_table "photos", force: true do |t|
     t.string  "photo"

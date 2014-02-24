@@ -26,6 +26,12 @@ WebsiteFrancisFerrari::Application.routes.draw do
         resources :contents do
           get :sort, :on => :collection
         end
+        resources :annoncments do
+          get :sort, :on => :collection
+          resources :photos do
+            get :add_form_photo, :on => :collection
+          end
+        end
       end 
       resources :contents do
         get :sort, :on => :collection
