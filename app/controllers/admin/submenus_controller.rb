@@ -45,7 +45,7 @@ module Admin
 
     def destroy
       @submenu.destroy
-      redirect_to admin_title_title_submenu_path(@category.title), notice: "Submenu was successfully destroyed"
+      redirect_to admin_title_title_submenu_index_path(@category.title), notice: "Submenu was successfully destroyed"
     end
 
     private
