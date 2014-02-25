@@ -31,7 +31,11 @@ module Admin
       @annoncment = @category.annoncments.new(annoncment_params)
 
       if @annoncment.save
-        redirect_to admin_title_annoncment_path(@category.title, @annoncment.title), notice: "Annoncment was successfully created"
+        if @submenu.nil?
+          redirect_to admin_title_annoncment_path(@category.title, @annoncment.title), notice: "Annoncment was successfully created"
+        else
+          redirect_to admin_title_title_submenu_annoncment_path(@category.title, @submenu.title, @annoncment.title), notice: "Annoncment was successfully created"
+        end  
       else
         render action: 'new'
       end
@@ -39,7 +43,11 @@ module Admin
 
     def update
       if @annoncment.update_with_background_image(annoncment_params)
-        redirect_to admin_title_annoncment_path(@category.title, @annoncment.title), notice: "Annoncment was successfully updated"
+        if @submenu.nil?
+          redirect_to admin_title_annoncment_path(@category.title, @annoncment.title), notice: "Annoncment was successfully updated"
+        else
+          redirect_to admin_title_title_submenu_annoncment_path(@category.title, @submenu.title, @Annoncment.title)
+        end
       else
         render action: 'edit'
       end
@@ -47,7 +55,11 @@ module Admin
 
     def destroy
       @annoncment.destroy
-      redirect_to admin_title_annoncments_path(@category.annoncment.title), notice: "Annoncment was successfully destroyed"
+      if @submenu.nil?
+        redirect_to admin_title_annoncments_path(@category.title), notice: "Annoncment was successfully destroyed"
+      else
+        redirect_to admin_title_title_submenu_annoncments_path(@category.title, @submenu.title)
+      end
     end
 
     def sort

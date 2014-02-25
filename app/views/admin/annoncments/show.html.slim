@@ -9,7 +9,7 @@
         .btn-toolbar
           = render(:partial => "/admin/common_panel/panel")
           .btn-group
-            = link_to "Editer cette annonce", edit_admin_title_annoncment_path(@category.title, @annoncment.title), class: "btn btn-default"
+            = link_to "Editer cette annonce", link_edit_admin_annoncment_path(@annoncment), class: "btn btn-default"
 
 .row
   dl.dl-horizontal

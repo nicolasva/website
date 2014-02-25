@@ -17,9 +17,9 @@ ul#sortable_annoncments_list.list-unstyled.annoncments_list
           td= truncate(annoncment.description, length: 90)
           td= truncate(annoncment.english_description, length: 90)
           td
-            = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_title_annoncment_path(@category.title, annoncment.title), :class => 'btn btn-mini btn-primary'
+            = link_to t('.edit', :default => t("helpers.links.edit")), link_edit_admin_annoncment_path(annoncment), :class => 'btn btn-mini btn-primary'
             '
-            = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_title_annoncment_path(@category.title, annoncment.title), :confirm => t("admin.common.confirm_delete"), :method => :delete, :class => "btn btn-mini btn-danger"
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), link_destroy_admin_annoncment_path(annoncment), :confirm => t("admin.common.confirm_delete"), :method => :delete, :class => "btn btn-mini btn-danger"
 
 
-= link_to t('.new', :default => t("helpers.links.new")), new_admin_title_annoncment_path(@category.title), :class => 'btn btn-primary'
+= link_to t('.new', :default => t("helpers.links.new")), link_new_admin_title_annoncment_path, :class => 'btn btn-primary'
