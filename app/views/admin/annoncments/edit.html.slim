@@ -9,6 +9,6 @@
         .btn-toolbar
           = render(:partial => "/admin/common_panel/panel")
 
-= render(:partial => "/admin/annoncments/form" , :locals => { :url => "/admin/categories/#{@category.title}/annoncments/#{@annoncment.title}" })
+= render(:partial => "/admin/annoncments/form" , :locals => { :url => url_form_edit_annoncment_path })
 
 

@@ -46,7 +46,7 @@ module Admin
         if @submenu.nil?
           redirect_to admin_title_annoncment_path(@category.title, @annoncment.title), notice: "Annoncment was successfully updated"
         else
-          redirect_to admin_title_title_submenu_annoncment_path(@category.title, @submenu.title, @Annoncment.title)
+          redirect_to admin_title_title_submenu_annoncment_path(@category.title, @submenu.title, @annoncment.title)
         end
       else
         render action: 'edit'
