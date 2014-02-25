@@ -19,8 +19,8 @@ ul#sortable_contents_list.list-unstyled.contents_list
           td= truncate(content.description, length: 90)
           td= truncate(content.english_description, length: 90)
           td
-            = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_title_content_path(@category.title, content.uuid), :class => 'btn btn-mini'
+            = link_to t('.edit', :default => t("helpers.links.edit")), link_edit_admin_content_path(content), :class => 'btn btn-mini btn-primary'
             '
-            = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_title_content_path(@category.title, content.uuid), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), link_destroy_admin_content_path(content), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
 
-= link_to t('.new', :default => t("helpers.links.new")), link_admin_content_path 
+= link_to t('.new', :default => t("helpers.links.new")), link_admin_content_path, :class => 'btn btn-primary'

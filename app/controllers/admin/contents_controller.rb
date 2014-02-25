@@ -31,7 +31,11 @@ module Admin
 
     def update
       if @content.update_with_background_image(content_params)
-        redirect_to admin_title_content_path(@category.title, @content.uuid), notice: "Content was successfully updated."
+        if @submenu.nil?
+          redirect_to admin_title_content_path(@category.title, @content.uuid), notice: "Content was successfully updated."
+        else
+          redirect_to admin_title_title_submenu_content_path(@category.title, @submenu.title, @content.uuid), notice: "Content was successfully updated"
+        end
       else
         render action: 'edit'
       end
