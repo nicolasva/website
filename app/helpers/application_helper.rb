@@ -5,4 +5,12 @@ module ApplicationHelper
     hash_link_content_or_annoncment["annoncments"] = link_to("Retourner a la liste du annonces", @submenu.nil? ? admin_title_annoncments_path(category_title) : admin_title_title_submenu_annoncments_path(category_title, @submenu.title), class: "btn btn-default") 
     return hash_link_content_or_annoncment[value]
   end
+
+  def contents_or_annoncments?(contents_or_annoncment)
+    return contents_or_annoncment.nil? ? true : contents_or_annoncment.content_or_annoncment
+  end
+
+  def home_page_submenu?(homepage_submenu)
+    return homepage_submenu.nil? ? false : homepage_submenu.homepage
+  end
 end

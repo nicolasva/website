@@ -1,4 +1,6 @@
 WebsiteFrancisFerrari::Application.routes.draw do
+  resources :homepage_submenus
+
   resources :contents_or_annoncments
 
   mount Ckeditor::Engine => '/ckeditor'
@@ -24,6 +26,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
         match "submenus/:title_submenu_id/update_success" => "submenus#update_success", :via => "GET"
       end
       resources :submenus, :as => "title_submenu" do
+        post :content_or_annoncment_homepage, :on => :collection
         get :update_success, :on => :member
         resources :contents do
           get :sort, :on => :collection

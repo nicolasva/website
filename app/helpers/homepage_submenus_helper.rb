@@ -1,0 +1,2 @@
+module HomepageSubmenusHelper
+end

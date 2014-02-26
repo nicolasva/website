@@ -1,0 +1,17 @@
+h1 Listing homepage_submenus
+
+table
+  tr
+    th
+    th
+    th
+
+  - @homepage_submenus.each do |homepage_submenu|
+    tr
+      td = link_to 'Show', homepage_submenu
+      td = link_to 'Edit', edit_homepage_submenu_path(homepage_submenu)
+      td = link_to 'Destroy', homepage_submenu, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Homepage submenu', new_homepage_submenu_path

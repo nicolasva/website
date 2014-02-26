@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140225201926) do
+ActiveRecord::Schema.define(version: 20140226091429) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -89,6 +89,14 @@ ActiveRecord::Schema.define(version: 20140225201926) do
     t.boolean  "content_or_annoncment",        default: true, null: false
     t.integer  "contents_or_annoncments_id"
     t.string   "contents_or_annoncments_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "homepage_submenus", force: true do |t|
+    t.boolean  "homepage",               default: false, null: false
+    t.integer  "homepage_submenus_id"
+    t.string   "homepage_submenus_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -50,6 +50,11 @@ module Admin
       end
     end
 
+    def content_or_annoncment_homepage
+      Rails.logger.info params[:submenu]
+      dfdsfdsfds
+    end
+
     def destroy
       @submenu.destroy
       redirect_to admin_title_title_submenu_index_path(@category.title), notice: "Submenu was successfully destroyed"
