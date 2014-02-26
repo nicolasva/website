@@ -1,0 +1,17 @@
+h1 Listing contents_or_annoncments
+
+table
+  tr
+    th
+    th
+    th
+
+  - @contents_or_annoncments.each do |contents_or_annoncment|
+    tr
+      td = link_to 'Show', contents_or_annoncment
+      td = link_to 'Edit', edit_contents_or_annoncment_path(contents_or_annoncment)
+      td = link_to 'Destroy', contents_or_annoncment, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Contents or annoncment', new_contents_or_annoncment_path

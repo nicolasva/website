@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224150655) do
+ActiveRecord::Schema.define(version: 20140225201926) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -84,6 +84,14 @@ ActiveRecord::Schema.define(version: 20140224150655) do
   end
 
   add_index "contents", ["submenu_id"], name: "contents_submenu_id_to_submenus"
+
+  create_table "contents_or_annoncments", force: true do |t|
+    t.boolean  "content_or_annoncment",        default: true, null: false
+    t.integer  "contents_or_annoncments_id"
+    t.string   "contents_or_annoncments_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "photos", force: true do |t|
     t.string  "photo"
