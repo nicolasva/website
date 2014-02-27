@@ -16,16 +16,12 @@
           tbody
             tr
               td= submenu.title
-              td= select_tag "submenu[contents_or_annoncments_attributes][#{submenu.id}]", options_for_select([["Content", true], ["Annoncment", false]], selected: contents_or_annoncments?(submenu.contents_or_annoncment))
+              td= select_tag "submenu[contents_or_annoncments_attributes][#{submenu.id}]", options_for_select([["Content", true], ["Annoncment", false]], selected: contents_or_annoncments?(submenu.contents_or_annoncment)), class: "content_or_annoncment"
               td= radio_button "submenu[homepage_submenus_attributes]", "", submenu.id, :checked => home_page_submenu?(submenu.homepage_submenu)
               td
-                = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_title_title_submenu_path(@category.title, submenu.title), :class => 'btn btn-mini', remote: true
+                = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_title_title_submenu_path(@category.title, submenu.title), :class => 'btn btn-mini btn-primary', remote: true
                 '
                 = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_title_title_submenu_path(@category.title, submenu.title), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete")))}, :class => "btn btn-mini btn-danger"
-                '
-                = link_to "Les contenus", admin_title_title_submenu_contents_path(@category.title, submenu.title), class: 'btn btn-mini btn-warning'
-                '
-                = link_to "les annonces", admin_title_title_submenu_annoncments_path(@category.title, submenu.title), class: 'btn btn-mini btn-warning'
                 '
                 - if submenu.contents_or_annoncment.nil? || submenu.contents_or_annoncment.content_or_annoncment
                   = submit_tag "Les contenus", name: "content_list_submenu_title_#{submenu.title}", class: 'btn btn-mini btn-warning'
