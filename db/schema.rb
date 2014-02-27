@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227163538) do
+ActiveRecord::Schema.define(version: 20140227184203) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140227163538) do
     t.datetime "updated_at"
     t.integer  "position",      default: 1
     t.string   "english_title", default: "english title"
+    t.boolean  "sub_menu",      default: false
   end
 
   create_table "ckeditor_assets", force: true do |t|
