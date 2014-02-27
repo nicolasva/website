@@ -31,20 +31,23 @@ module Admin
     end
 
     def homepage
+      Category.content_or_annoncment(params[:category][:contents_or_annoncments_attributes])
+      Category.homepage_submenu(params[:category][:homepage_submenus_attributes]) unless params[:category][:homepage_submenus_attributes].nil?
       #@category = Category.find(category_params[:homepage].first)
       #@category = Category.find(category_params)
       
       #if Category.set_homepage_and_content(category_params)
-      #  notice = "Homepage was successfully defined"
+      notice = "Homepage was successfully defined"
         #redirection_url(notice)
-      #  params.keys.each do |k|
+      params.keys.each do |k|
           #Rails.logger.info k
-      #    redirection_url(k,notice)
-      #  end
+        redirection_url(k,notice)
+      end
       #else
       #  notice = "Homepage was not successfully defined" 
       #  redirect_to admin_title_index_path, notice: notice 
       #end
+
     end
 
     def update
@@ -84,9 +87,7 @@ module Admin
                                          :homepage,
                                          :position,
                                          homepage: [],
-                                        ).tap do |content_or_annoncment|
-                                          content_or_annoncment[:content_or_annoncment] = params[:category][:content_or_annoncment]
-                                        end
+                                        )
       end
   end
 end

@@ -11,6 +11,8 @@ module Admin
             redirect_to admin_title_contents_path(params_array.last), notice: notice
           when "annoncment"
             redirect_to admin_title_annoncments_path(params_array.last), notice: notice
+          when "allcategory"
+            redirect_to admin_title_index_path, notice: notice
         end
       end
   end
