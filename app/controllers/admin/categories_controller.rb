@@ -33,17 +33,18 @@ module Admin
     def homepage
       #@category = Category.find(category_params[:homepage].first)
       #@category = Category.find(category_params)
-      if Category.set_homepage_and_content(category_params)
-        notice = "Homepage was successfully defined"
+      
+      #if Category.set_homepage_and_content(category_params)
+      #  notice = "Homepage was successfully defined"
         #redirection_url(notice)
-        params.keys.each do |k|
+      #  params.keys.each do |k|
           #Rails.logger.info k
-          redirection_url(k,notice)
-        end
-      else
-        notice = "Homepage was not successfully defined" 
-        redirect_to admin_title_index_path, notice: notice 
-      end
+      #    redirection_url(k,notice)
+      #  end
+      #else
+      #  notice = "Homepage was not successfully defined" 
+      #  redirect_to admin_title_index_path, notice: notice 
+      #end
     end
 
     def update

@@ -4,8 +4,8 @@
       tr
         td= category.title
         td= category.english_title
-        td= select_tag "category[content_or_annoncment][#{category.id}]", options_for_select([["Content", true], ["Annoncment", false]], selected: category.content_or_annoncment), class: "content_or_annoncment"
-        td= radio_button "category[homepage]", "", category.id, :checked => category.homepage ? true : false
+        td= select_tag "category[contents_or_annoncments_attributes][#{category.id}]", options_for_select([["Content", true], ["Annoncment", false]], selected: contents_or_annoncments?(category.contents_or_annoncment)), class: "content_or_annoncment"
+        td= radio_button "category[homepage_submenus_attributes]", "", category.id, :checked => home_page_submenu?(category.homepage_submenu) 
         td
           = link_to "les sous-menu", admin_title_title_submenu_index_path(category.title), class: 'btn btn-mini btn-success'
           '
