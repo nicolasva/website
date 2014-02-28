@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227184203) do
+ActiveRecord::Schema.define(version: 20140228190646) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -27,15 +27,34 @@ ActiveRecord::Schema.define(version: 20140227184203) do
   add_index "annoncments", ["category_id"], name: "annoncments_category_id_to_category"
   add_index "annoncments", ["submenu_id"], name: "annoncments_submenu_id_to_submenus"
 
+  create_table "background_annoncments", force: true do |t|
+    t.integer  "annoncment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "background_annoncments", ["annoncment_id"], name: "background_annoncment_id_to_annoncments"
+
+  create_table "background_contents", force: true do |t|
+    t.integer  "content_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "background_contents", ["content_id"], name: "background_content_id_to_contents"
+
   create_table "backgrounds", force: true do |t|
-    t.integer "border",                default: 0,             null: false
-    t.string  "border_style",          default: "solid",       null: false
-    t.string  "border_color",          default: "transparent", null: false
-    t.string  "background_color",      default: "transparent"
+    t.integer "border",                 default: 0,             null: false
+    t.string  "border_style",           default: "solid",       null: false
+    t.string  "border_color",           default: "transparent", null: false
+    t.string  "background_color",       default: "transparent"
     t.string  "background_image"
     t.string  "cached_path"
     t.integer "backgroundstyles_id"
     t.string  "backgroundstyles_type"
+    t.boolean "no_background_image",    default: false
+    t.boolean "no_repeat",              default: false
+    t.string  "background_image_cache"
   end
 
   create_table "categories", force: true do |t|

@@ -28,7 +28,7 @@ jQuery ->
     return false
 
 jQuery ->
-  $(document).on 'click', '#content_no_background_image', (e) ->
+  $(document).on 'click', '#content_background_attributes_0_no_background_image', (e) ->
     if $(e.target).is(':checked')
       $(".background_image").hide()
     else 

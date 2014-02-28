@@ -1,4 +1,8 @@
 WebsiteFrancisFerrari::Application.routes.draw do
+  resources :background_contents
+
+  resources :background_annoncments
+
   resources :homepage_submenus
 
   resources :contents_or_annoncments

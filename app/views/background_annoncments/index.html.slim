@@ -1,0 +1,17 @@
+h1 Listing background_annoncments
+
+table
+  tr
+    th
+    th
+    th
+
+  - @background_annoncments.each do |background_annoncment|
+    tr
+      td = link_to 'Show', background_annoncment
+      td = link_to 'Edit', edit_background_annoncment_path(background_annoncment)
+      td = link_to 'Destroy', background_annoncment, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Background annoncment', new_background_annoncment_path

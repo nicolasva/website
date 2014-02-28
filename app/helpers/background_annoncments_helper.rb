@@ -1,0 +1,2 @@
+module BackgroundAnnoncmentsHelper
+end

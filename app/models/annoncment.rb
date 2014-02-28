@@ -1,5 +1,5 @@
 class Annoncment < ActiveRecord::Base
-  attr_accessor :photos_attributes, :photos_master
+  attr_accessor :delete_background_image, :photos_attributes, :photos_master
   after_save :save_with_image_master
   belongs_to :category
   belongs_to :submenu
@@ -22,7 +22,9 @@ class Annoncment < ActiveRecord::Base
     end
   end
 
+
   def update_with_background_image(annoncment_params)
+    update_with_background_background_image(annoncment_params)
     annoncment_params["photos_attributes"].each do |key, value|
       if !value["drop_photo"].nil? && value["drop_photo"].to_i
         id = value["id"].to_i

@@ -79,10 +79,10 @@ module Admin
                                         :border_color,
                                         :background_color,
                                         :background_image,
-                                        :background_image_cache,
-                                        :delete_background_image,
+                                        :background_image_cache, 
                                         :no_repeat,
-                                        :no_background_image
+                                        :no_background_image,
+                                        background_attributes: [:border, :border_style, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color]
                                        )
       end
   end

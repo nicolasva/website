@@ -81,7 +81,8 @@ module Admin
                                            :english_description,
                                            :master_image,
                                            photos_attributes: [:photo, :master_image, :photo_cache, :annoncment_id],
-                                           photos: [:master_image]
+                                           photos: [:master_image],
+                                           background_attributes: [:border, :border_style, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color]
                                           ).tap do |annoncment|
                                             annoncment[:photos_attributes] = params[:annoncment][:photos_attributes]
                                             annoncment[:photos_master] = params[:annoncment][:photos_master]

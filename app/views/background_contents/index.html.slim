@@ -1,0 +1,17 @@
+h1 Listing background_contents
+
+table
+  tr
+    th
+    th
+    th
+
+  - @background_contents.each do |background_content|
+    tr
+      td = link_to 'Show', background_content
+      td = link_to 'Edit', edit_background_content_path(background_content)
+      td = link_to 'Destroy', background_content, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Background content', new_background_content_path
