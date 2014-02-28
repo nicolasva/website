@@ -33,6 +33,7 @@ module Admin
     def homepage
       Category.content_or_annoncment(params[:category][:contents_or_annoncments_attributes])
       Category.homepage_submenu(params[:category][:homepage_submenus_attributes]) unless params[:category][:homepage_submenus_attributes].nil?
+      Category.sub_menu(params[:category][:sub_menu])
       #@category = Category.find(category_params[:homepage].first)
       #@category = Category.find(category_params)
       

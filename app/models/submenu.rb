@@ -6,6 +6,7 @@ class Submenu < ActiveRecord::Base
   validates_presence_of :title
   has_one :homepage_submenu, as: :homepage_submenus, dependent: :destroy
 
+  scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
   def self.content_or_annoncment(contents_or_annoncments)
     contents_or_annoncments.each do |key, value|
       #submenu = Submenu.find(key)

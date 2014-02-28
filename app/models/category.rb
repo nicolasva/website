@@ -36,6 +36,16 @@ class Category < ActiveRecord::Base
     end
   end
 
+  def self.sub_menu(hash_sub_menu)
+    Category.update_all(:sub_menu => false)
+    hash_sub_menu.each do |key, value|
+     hash_category = Hash.new
+     hash_category[:sub_menu] = true
+     category = Category.find(key) 
+     category.update(hash_category)
+    end
+  end
+
   def self.set_homepage_and_content(category_params)
     hash_content_or_annoncment = Hash.new
     Category.update_all(:homepage => false)

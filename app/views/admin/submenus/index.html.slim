@@ -9,6 +9,9 @@
     thead
       tr
         th= model_class.human_attribute_name(:title)
+        th= ContentsOrAnnoncment.human_attribute_name(:content_or_annoncment)
+        th= HomepageSubmenu.human_attribute_name(:homepage)
+        th= t '.actions', :default => t("helpers.actions")
   ul#sortable.list-unstyled.submenus_list
     - @submenus.each do |submenu|
       = render(:partial => '/admin/submenus/show', :locals => { :submenu => submenu})

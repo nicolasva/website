@@ -9,8 +9,9 @@
       tr
         th= model_class.human_attribute_name(:title)
         th= model_class.human_attribute_name(:english_title)
-        th= model_class.human_attribute_name(:content_or_annoncment)
-        th= model_class.human_attribute_name(:homepage)
+        th= model_class.human_attribute_name(:sub_menu)
+        th= ContentsOrAnnoncment.human_attribute_name(:content_or_annoncment)
+        th= HomepageSubmenu.human_attribute_name(:homepage)
         th= t '.actions', :default => t("helpers.actions")
   ul#sortable.list-unstyled.category_list
     - @categories.each do |category|
