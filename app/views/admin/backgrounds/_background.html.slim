@@ -10,7 +10,7 @@
           = f_background.input :background_image_cache, as: :hidden
         .col-md-6
           = f_background.input :no_repeat
-      - unless model.new_record? || !model.background.nil?
+      - unless model.new_record? || !model.nil? || !model.background.nil? 
         .row
           .col-md-5
             = image_tag(model.background.background_image.url(:thumb))
@@ -23,4 +23,4 @@
     = f_background.label :border_color
     = f_background.input :border_color, as: 'hidden'
     #colorSelector
-      div style="background-color: #{model.new_record? ? "white" : model.border_color}"
+      div style="background-color: #{model.new_record? || model.background.nil? ? "white" : model.background.border_color}"
