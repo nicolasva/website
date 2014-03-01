@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140228190646) do
+ActiveRecord::Schema.define(version: 20140301084200) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -83,21 +83,13 @@ ActiveRecord::Schema.define(version: 20140228190646) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
 
   create_table "contents", force: true do |t|
-    t.text     "description",                                    null: false
+    t.text     "description",                      null: false
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "english_description"
-    t.integer  "position",               default: 1,             null: false
-    t.string   "uuid",                   default: "",            null: false
-    t.integer  "border",                 default: 0,             null: false
-    t.string   "border_style",           default: "solid",       null: false
-    t.string   "border_color",           default: "transparent", null: false
-    t.string   "background_color",       default: "transparent"
-    t.string   "background_image"
-    t.string   "background_image_cache"
-    t.boolean  "no_repeat",              default: false,         null: false
-    t.boolean  "no_background_image",    default: true,          null: false
+    t.integer  "position",            default: 1,  null: false
+    t.string   "uuid",                default: "", null: false
     t.integer  "submenu_id"
   end
 
