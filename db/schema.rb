@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301084200) do
+ActiveRecord::Schema.define(version: 20140305090136) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20140301084200) do
   end
 
   add_index "background_annoncments", ["annoncment_id"], name: "background_annoncment_id_to_annoncments"
+
+  create_table "background_by_defaults", force: true do |t|
+    t.string   "title",                      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "uuid"
+    t.boolean  "activation", default: false
+  end
 
   create_table "background_contents", force: true do |t|
     t.integer  "content_id"

@@ -1,0 +1,17 @@
+h1 Listing background_by_defaults
+
+table
+  tr
+    th
+    th
+    th
+
+  - @background_by_defaults.each do |background_by_default|
+    tr
+      td = link_to 'Show', background_by_default
+      td = link_to 'Edit', edit_background_by_default_path(background_by_default)
+      td = link_to 'Destroy', background_by_default, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Background by default', new_background_by_default_path

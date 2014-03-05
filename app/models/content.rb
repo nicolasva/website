@@ -6,7 +6,6 @@ class Content < ActiveRecord::Base
   belongs_to :submenu
   has_one :background, as: :backgroundstyles, dependent: :destroy
   accepts_nested_attributes_for :background
-
  
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
 

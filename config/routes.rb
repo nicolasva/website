@@ -1,12 +1,4 @@
 WebsiteFrancisFerrari::Application.routes.draw do
-  resources :background_contents
-
-  resources :background_annoncments
-
-  resources :homepage_submenus
-
-  resources :contents_or_annoncments
-
   mount Ckeditor::Engine => '/ckeditor'
   scope do
     match "contents/:id" => "contents#show", :via => "GET"
@@ -22,6 +14,9 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do 
+    resources :background_by_defaults do
+      post :activation, :on => :collection
+    end
     scope do 
       match "categories/annoncments/sort" => "annoncments#sort", :via => "GET"
     end

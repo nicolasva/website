@@ -1,0 +1,30 @@
+- model_class = BackgroundByDefault 
+
+.page-header
+  h1
+    = t(".title")
+
+= form_tag :action => 'activation', :controller => "background_by_defaults"
+  table.table.table-striped
+      tr
+        th= model_class.human_attribute_name(:title)
+        th= model_class.human_attribute_name(:activation)
+        th= t '.actions', :default => t("helpers.actions")
+      - @background_by_defaults.each do |background_by_default|
+        tr
+          td
+            = background_by_default.title
+          td
+            = radio_button "background_by_defaults[activation]", background_by_default.id, checked: background_by_default.activation
+          td
+            = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_background_by_default_path(background_by_default.uuid)
+            '
+            = link_to "Show", admin_background_by_default_path(background_by_default.uuid)
+            '
+            = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_background_by_default_path(background_by_default.uuid), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
+
+  .row
+    .col-md-10
+      = link_to t(".new", :default => t("helpers.links.new")), new_admin_background_by_default_path, class: 'btn btn-primary'
+    .col-md-2
+      = submit_tag t(".valid"), name: "activation_background_by_defaults_activate", class: "btn btn-success"

@@ -1,0 +1,2 @@
+module BackgroundByDefaultsHelper
+end
