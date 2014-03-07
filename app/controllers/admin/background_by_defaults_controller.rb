@@ -7,6 +7,10 @@ module Admin
     end  
 
     def show
+      respond_to do |format|
+        format.html
+        format.json { render json: @background_by_default.to_json(:include => :background) }
+      end
     end
 
     def new
@@ -41,7 +45,7 @@ module Admin
     end
 
     def activation
-
+      BackgroundByDefault.activation!(params[:background_by_defaults][:activation]) 
     end
 
     private
@@ -52,6 +56,7 @@ module Admin
       def background_by_default_params
         params.require(:background_by_default).permit(:id,
                                                       :title,
+                                                      :activation,
                                                       activation: [],
                                                       background_attributes: [:border, :border_style, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color]
                                                      )

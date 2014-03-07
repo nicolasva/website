@@ -2,6 +2,7 @@ fr:
   admin:
     common: 
       confirm_delete: Etes vous sur ?
+      valid: Valider
     photos:
       templates:
         form_input_photos:
@@ -10,7 +11,6 @@ fr:
           image_master: Image par défaut ?
     categories:
       index:
-        valid: Valider
         title: Liste des catégories pour le menu
     annoncments:
       index:

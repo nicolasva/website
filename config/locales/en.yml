@@ -2,6 +2,7 @@ en:
   admin:
     common:
       confirm_delete: Are you sure ?
+      valid: Submit
     photos:
       templates:
         form_input_photos:
@@ -10,7 +11,6 @@ en:
           image_master: Master image ?
     categories:
       index:
-        valid: Submit
         title: Category list for the menu
     annoncments:
       index:
