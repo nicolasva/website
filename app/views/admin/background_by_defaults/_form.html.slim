@@ -1,4 +1,4 @@
-= simple_form_for [:admin, @background_by_default] do |f|
+= simple_form_for [:admin, @background_by_default], url: url do |f|
   = f.input :title
   = f.input :activation
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @background_by_default.new_record? || @background_by_default.background.nil? ? Background.new : @background_by_default.background, model: @background_by_default })

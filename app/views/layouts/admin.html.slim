@@ -28,6 +28,14 @@ html lang="en"
             span.icon-bar
             span.icon-bar
           a.navbar-brand href="#"WebsiteFrancisFerrari
+          ul
+            li
+              = link_to "Personnaliser la page web", "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
+              ul.menu_look.dropdown-menu(aria-labelledby="drop2" role="menu")
+                li(role="presentation")
+                  = link_to "Arrière plan du site", admin_background_by_defaults_path, "tabindex" => "-1", "role" => "menuitem"
+                li(role="presentation")
+                  = link_to "Header du site", admin_header_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
           .nav-collapse.collapse.navbar-responsive-collapse
             ul.nav.navbar-nav
               li= link_to "Link 1", "/path1"

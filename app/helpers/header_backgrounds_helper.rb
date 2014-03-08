@@ -1,0 +1,2 @@
+module HeaderBackgroundsHelper
+end

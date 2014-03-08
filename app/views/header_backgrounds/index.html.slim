@@ -1,0 +1,17 @@
+h1 Listing header_backgrounds
+
+table
+  tr
+    th
+    th
+    th
+
+  - @header_backgrounds.each do |header_background|
+    tr
+      td = link_to 'Show', header_background
+      td = link_to 'Edit', edit_header_background_path(header_background)
+      td = link_to 'Destroy', header_background, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Header background', new_header_background_path
