@@ -20,12 +20,10 @@ module Admin
     def create
       @header_background = HeaderBackground.new(header_background_params)
 
-      respond_to do |format|
-        if @header_background.save
-          redirect_to admin_header_background_path(@header_background.uuid), notice: 'Header background was successfully created.'
-        else
-          render action: 'new'
-        end
+      if @header_background.save
+        redirect_to admin_header_background_path(@header_background.uuid), notice: 'Header background was successfully created.'
+      else
+        render action: 'new'
       end
     end
 
@@ -44,7 +42,7 @@ module Admin
 
     private
       def set_header_background
-        @header_background = HeaderBackground.find(params[:id])
+        @header_background = HeaderBackground.find_by_uuid(params[:id])
       end
 
       def header_background_params

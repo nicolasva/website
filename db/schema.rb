@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308092230) do
+ActiveRecord::Schema.define(version: 20140308151156) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -112,10 +112,11 @@ ActiveRecord::Schema.define(version: 20140308092230) do
   end
 
   create_table "header_backgrounds", force: true do |t|
-    t.string   "title",      null: false
-    t.string   "uuid",       null: false
+    t.string   "title",                      null: false
+    t.string   "uuid",                       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "activation", default: false
   end
 
   create_table "homepage_submenus", force: true do |t|
