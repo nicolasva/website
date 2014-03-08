@@ -7,6 +7,10 @@ module Admin
     end
 
     def show
+      respond_to do |format|
+        format.html
+        format.json { render json: @footer_background.to_json(:include => :background) }
+      end
     end
 
     def new
@@ -20,7 +24,7 @@ module Admin
       @footer_background = FooterBackground.new(footer_background_params)
       
       if @footer_background.save
-        redirect_to admin_footer_backgrounds_path(@footer_background.uuid), notice: 'Footer background was successfully created.'
+        redirect_to admin_footer_background_path(@footer_background.uuid), notice: 'Footer background was successfully created.'
       else
         render action: 'new'
       end
@@ -28,7 +32,7 @@ module Admin
 
     def update
       if @footer_background.update(footer_background_params)
-        redirect_to admin_footer_backgrounds_path(@footer_background.uuid), notice: 'Footer background was successfully updated.'
+        redirect_to admin_footer_background_path(@footer_background.uuid), notice: 'Footer background was successfully updated.'
       else
         render action: 'edit'
       end
@@ -41,7 +45,7 @@ module Admin
 
     private
     def set_footer_background
-      @footer_background = FooterBackground.find(params[:id])
+      @footer_background = FooterBackground.find_by_uuid(params[:id])
     end
 
     def footer_background_params
