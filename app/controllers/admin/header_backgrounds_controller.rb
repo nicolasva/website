@@ -7,6 +7,10 @@ module Admin
     end
 
     def show
+      respond_to do |format|
+        format.html
+        format.json { render json: @header_background.to_json(:include => :background)}
+      end
     end
 
     def new
@@ -37,6 +41,11 @@ module Admin
 
     def destroy
       notice = @header_background.destroy ? "Header background was successfully deleted" : "Header background was not successfully deleted"
+      redirect_to admin_header_backgrounds_path, notice: notice
+    end
+
+    def activation
+      notice = HeaderBackground.activation!(params[:header_backgrounds][:activation]) ? "Header background was successfully defined" : "Header background was not successfully defined"
       redirect_to admin_header_backgrounds_path, notice: notice
     end
 

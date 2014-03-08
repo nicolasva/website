@@ -1,15 +1,15 @@
-class BackgroundByDefault < ActiveRecord::Base
-  before_save :generate_uuid  
+class FooterBackground < ActiveRecord::Base
+  before_save :generate_uuid
   has_one :background, as: :backgroundstyles, dependent: :destroy
   before_save :set_activation_by_default?
   accepts_nested_attributes_for :background
 
   def self.activation!(activation)
     hash_activation = Hash.new
-    background_by_default_id = activation.first
+    footer_background_id = activation.first
     hash_activation[:activation] = true
-    background_by_default = BackgroundByDefault.find(background_by_default_id)
-    return background_by_default.update(hash_activation)
+    footer_background = FooterBackground.find(footer_background_id)
+    return footer_background.update(hash_activation)
   end
 
   def generate_uuid
@@ -23,6 +23,6 @@ class BackgroundByDefault < ActiveRecord::Base
   end
 
   def set_activation_by_default
-    BackgroundByDefault.update_all(:activation => false)
+    FooterBackground.update_all(:activation => false)
   end
 end

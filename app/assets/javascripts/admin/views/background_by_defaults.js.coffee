@@ -6,7 +6,7 @@ $(document).ready ->
   if exp_background_by_default_url.test(location_href) && exp_background_by_default_edit.test(location_href) == false
     exp_background_by_defaults = new RegExp("^.{1,}\/background_by_defaults\/(.{1,})$","g")
 
-    background_by_defaults_uuid = exp_background_by_defaults.exec(location.href)[1]
+    background_by_defaults_uuid = exp_background_by_defaults.exec(location_href)[1]
     $.getJSON("/admin/background_by_defaults/"+background_by_defaults_uuid, (data) ->
       $(".background_by_default").css("background-color", data.background.background_color)
       $(".background_by_default").css("background", "url('"+data.background.background_image.url+" "+ if data.background.no_repeat is true then + 'no_repeat' else '' +"')") unless data.background.no_background_image

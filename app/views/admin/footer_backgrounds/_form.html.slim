@@ -1,0 +1,6 @@
+= simple_form_for [:admin, @footer_background], url: url do |f|
+  = f.input :title
+  = f.input :activation
+  = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @footer_background.new_record? || @footer_background.background.nil? ? Background.new : @footer_background.background, model: @footer_background })
+  .form_actions
+    = f.button :submit, :class => 'btn-primary'

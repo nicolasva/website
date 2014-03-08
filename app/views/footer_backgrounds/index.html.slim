@@ -1,0 +1,17 @@
+h1 Listing footer_backgrounds
+
+table
+  tr
+    th
+    th
+    th
+
+  - @footer_backgrounds.each do |footer_background|
+    tr
+      td = link_to 'Show', footer_background
+      td = link_to 'Edit', edit_footer_background_path(footer_background)
+      td = link_to 'Destroy', footer_background, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Footer background', new_footer_background_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308151156) do
+ActiveRecord::Schema.define(version: 20140308185525) do
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -107,6 +107,14 @@ ActiveRecord::Schema.define(version: 20140308151156) do
     t.boolean  "content_or_annoncment",        default: true, null: false
     t.integer  "contents_or_annoncments_id"
     t.string   "contents_or_annoncments_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "footer_backgrounds", force: true do |t|
+    t.string   "uuid",       null: false
+    t.string   "title",      null: false
+    t.boolean  "activation", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

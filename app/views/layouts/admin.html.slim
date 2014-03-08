@@ -30,6 +30,8 @@ html lang="en"
           a.navbar-brand href="#"WebsiteFrancisFerrari
           ul
             li
+              = link_to "Administrer le contenu du site", admin_title_index_path, class: 'navbar-brand'
+            li
               = link_to "Personnaliser la page web", "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
               ul.menu_look.dropdown-menu(aria-labelledby="drop2" role="menu")
                 li(role="presentation")
