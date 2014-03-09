@@ -1,0 +1,17 @@
+h1 Listing menu_backgrounds
+
+table
+  tr
+    th
+    th
+    th
+
+  - @menu_backgrounds.each do |menu_background|
+    tr
+      td = link_to 'Show', menu_background
+      td = link_to 'Edit', edit_menu_background_path(menu_background)
+      td = link_to 'Destroy', menu_background, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Menu background', new_menu_background_path

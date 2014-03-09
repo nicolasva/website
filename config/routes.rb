@@ -1,6 +1,4 @@
 WebsiteFrancisFerrari::Application.routes.draw do
-  resources :footer_backgrounds
-
   mount Ckeditor::Engine => '/ckeditor'
   scope do
     match "contents/:id" => "contents#show", :via => "GET"
@@ -15,7 +13,10 @@ WebsiteFrancisFerrari::Application.routes.draw do
 
   root :to => "home#index"
 
-  namespace :admin do   
+  namespace :admin do
+    resources :menu_backgrounds do
+      post :activation, :on => :collection
+    end
     resources :footer_backgrounds do
       post :activation, :on => :collection
     end
