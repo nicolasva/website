@@ -43,6 +43,11 @@ module Admin
       redirect_to admin_footer_backgrounds_path
     end
 
+    def activation
+      notice = FooterBackground.activation!(params[:footer_background][:activation]) ? "Footer Background was successfully defined" : "Footer Background was not successfully defined"
+      redirect_to admin_footer_backgrounds_path, notice: notice
+    end
+
     private
     def set_footer_background
       @footer_background = FooterBackground.find_by_uuid(params[:id])

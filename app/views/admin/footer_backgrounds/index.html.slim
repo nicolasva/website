@@ -15,7 +15,7 @@
         td
           = footer_background.title 
         td
-          = radio_button "footer_backgrounds[activation]", "", footer_background.id, checked: footer_background.activation
+          = radio_button "footer_background[activation]", "", footer_background.id, checked: footer_background.activation
         td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_footer_background_path(footer_background.uuid), class: 'btn btn-mini btn-primary'
           '

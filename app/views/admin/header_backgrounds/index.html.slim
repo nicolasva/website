@@ -15,7 +15,7 @@
           td
             = header_background.title
           td
-            = radio_button "header_backgrounds[activation]", "", header_background.id, checked: header_background.activation
+            = radio_button "header_background[activation]", "", header_background.id, checked: header_background.activation
           td
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_header_background_path(header_background.uuid), class: 'btn btn-mini btn-primary'
             '

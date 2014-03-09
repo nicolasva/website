@@ -45,7 +45,7 @@ module Admin
     end
 
     def activation
-      notice = BackgroundByDefault.activation!(params[:background_by_defaults][:activation]) ? "The Background was successfully defined" : "The Background was not successfully defined"
+      notice = BackgroundByDefault.activation!(params[:background_by_default][:activation]) ? "The Background was successfully defined" : "The Background was not successfully defined"
       redirect_to admin_background_by_defaults_path, notice: notice
     end
 

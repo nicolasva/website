@@ -45,7 +45,7 @@ module Admin
     end
 
     def activation
-      notice = HeaderBackground.activation!(params[:header_backgrounds][:activation]) ? "Header background was successfully defined" : "Header background was not successfully defined"
+      notice = HeaderBackground.activation!(params[:header_background][:activation]) ? "Header background was successfully defined" : "Header background was not successfully defined"
       redirect_to admin_header_backgrounds_path, notice: notice
     end
 
