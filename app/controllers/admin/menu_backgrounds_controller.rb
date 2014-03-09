@@ -6,7 +6,11 @@ module Admin
       @menu_backgrounds = MenuBackground.all
     end
 
-    def show
+    def show 
+      respond_to do |format|
+        format.html
+        format.json { render json: @menu_background.to_json(:include => :background) }
+      end
     end
 
     def new
@@ -40,7 +44,7 @@ module Admin
     end
 
     def activation
-      notice = MenuBackground.activation!(params[:menu_backgrounds][:activation]) ? "The Menu Background was successfully defined" : "The Menu Background was not successfully defined"
+      notice = MenuBackground.activation!(params[:menu_background][:activation]) ? "The Menu Background was successfully defined" : "The Menu Background was not successfully defined"
       redirect_to admin_menu_backgrounds_path, notice: notice
     end
 

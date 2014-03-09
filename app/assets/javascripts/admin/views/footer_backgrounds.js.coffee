@@ -1,6 +1,6 @@
 jQuery ->
   $(document).ready ->
-    location_href = windows.location.href
+    location_href = window.location.href
     exp_footer_background_url = new RegExp("^.{1,}(footer_backgrounds).{1,}$","g")
     exp_footer_background_edit = new RegExp("^.{1,}(edit)$","g")
 
