@@ -1,0 +1,31 @@
+- model_class = MenuBackground
+
+.page-header
+  h1
+    = t(".title")
+
+= form_tag :action => 'activation', :controller => "menu_backgrounds"
+  table.table.table-striped
+    tr
+      th= model_class.human_attribute_name(:title)
+      th= model_class.human_attribute_name(:activation)
+      th= t '.actions', :default => t("helpers.actions")
+    - @menu_backgrounds.each do |menu_background|
+      tr
+        td
+          = menu_background.title
+        td
+          = radio_button 'menu_background[:activation]', '', menu_background.id, checked: menu_background.activation
+        td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_menu_background_path(menu_background.uuid), class: 'btn btn-mini btn-primary'
+          '
+          = link_to "Show", admin_menu_background_path(menu_background.uuid), class: "btn btn-mini btn-success"
+          '
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_menu_background_path(menu_background.uuid), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
+
+
+  .row
+    .col-md-10
+      = link_to t(".new", :default => t("helpers.links.new")), new_admin_menu_background_path, class: 'btn btn-primary'
+    .col-md-2
+      = submit_tag t("admin.common.valid"), name: "activation_menu_backgrounds_activate", class: "btn btn-success"

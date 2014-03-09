@@ -1,4 +1,6 @@
 WebsiteFrancisFerrari::Application.routes.draw do
+  resources :aligns
+
   mount Ckeditor::Engine => '/ckeditor'
   scope do
     match "contents/:id" => "contents#show", :via => "GET"

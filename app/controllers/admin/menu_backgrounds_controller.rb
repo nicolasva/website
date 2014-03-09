@@ -1,5 +1,5 @@
 module Admin
-  class MenuBackgroundsController < Application
+  class MenuBackgroundsController < AdminController
     before_action :set_menu_background, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -36,6 +36,11 @@ module Admin
 
     def destroy
       notice = @menu_background.destroy ? "Menu background was successfully deleted" : "Menu background was not successfully deleted"
+      redirect_to admin_menu_backgrounds_path, notice: notice
+    end
+
+    def activation
+      notice = MenuBackground.activation!(params[:menu_backgrounds][:activation]) ? "The Menu Background was successfully defined" : "The Menu Background was not successfully defined"
       redirect_to admin_menu_backgrounds_path, notice: notice
     end
 

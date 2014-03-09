@@ -1,0 +1,17 @@
+h1 Listing aligns
+
+table
+  tr
+    th
+    th
+    th
+
+  - @aligns.each do |align|
+    tr
+      td = link_to 'Show', align
+      td = link_to 'Edit', edit_align_path(align)
+      td = link_to 'Destroy', align, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Align', new_align_path

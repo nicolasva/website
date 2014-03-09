@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308185525) do
+ActiveRecord::Schema.define(version: 20140309102902) do
+
+  create_table "aligns", force: true do |t|
+    t.integer  "align",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "annoncments", force: true do |t|
     t.string   "title",                            null: false
@@ -131,6 +137,14 @@ ActiveRecord::Schema.define(version: 20140308185525) do
     t.boolean  "homepage",               default: false, null: false
     t.integer  "homepage_submenus_id"
     t.string   "homepage_submenus_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "menu_backgrounds", force: true do |t|
+    t.string   "uuid",                       null: false
+    t.string   "title",                      null: false
+    t.boolean  "activation", default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
