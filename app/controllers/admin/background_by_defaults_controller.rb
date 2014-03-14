@@ -40,7 +40,7 @@ module Admin
 
     def destroy
       if @background_by_default.destroy
-        redirect_to admin_background_by_default_path(@background_by_default.uuid), notice: "Background by default was successfully destroyed"
+        redirect_to  admin_background_by_defaults_path, notice: "Background by default was successfully destroyed"
       end
     end
 

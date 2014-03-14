@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309102902) do
+ActiveRecord::Schema.define(version: 20140309195310) do
 
   create_table "aligns", force: true do |t|
-    t.integer  "align",      null: false
+    t.integer  "align",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "aligns_id"
+    t.string   "aligns_type"
   end
 
   create_table "annoncments", force: true do |t|
@@ -158,6 +160,14 @@ ActiveRecord::Schema.define(version: 20140309102902) do
   end
 
   add_index "photos", ["annoncment_id"], name: "photos_annoncment_id_to_photo"
+
+  create_table "sub_menu_backgrounds", force: true do |t|
+    t.string   "uuid",                       null: false
+    t.string   "title",                      null: false
+    t.boolean  "activation", default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "submenus", force: true do |t|
     t.string   "title"

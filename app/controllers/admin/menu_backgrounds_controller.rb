@@ -6,6 +6,14 @@ module Admin
       @menu_backgrounds = MenuBackground.all
     end
 
+    def get_activation
+      @menu_background = MenuBackground.find_by_activation(true)
+
+      respond_to do |format|
+        format.json { render json: @menu_background.to_json(:include => :align) }
+      end
+    end
+
     def show 
       respond_to do |format|
         format.html
@@ -58,6 +66,7 @@ module Admin
                                                 :title,
                                                 :activation,
                                                 activation: [],
+                                                align_attributes: [:align],
                                                 background_attributes: [:border, :border_style, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color]
                                                )
       end

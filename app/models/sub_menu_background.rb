@@ -1,5 +1,5 @@
-class MenuBackground < ActiveRecord::Base
-  before_save :generate_uuid
+class SubMenuBackground < ActiveRecord::Base
+  before_save :generate_uuid  
   has_one :background, as: :backgroundstyles, dependent: :destroy 
   has_one :align, as: :aligns, dependent: :destroy
   before_save :set_activation_by_default?
@@ -8,10 +8,10 @@ class MenuBackground < ActiveRecord::Base
 
   def self.activation!(activation)
     hash_activation = Hash.new
-    menu_background_id = activation.first
+    background_by_default_id = activation.first
     hash_activation[:activation] = true
-    menu_background = MenuBackground.find(menu_background_id)
-    return menu_background.update(hash_activation)
+    background_by_default = SubMenuBackground.find(background_by_default_id)
+    return background_by_default.update(hash_activation)
   end
 
   def generate_uuid
@@ -25,6 +25,6 @@ class MenuBackground < ActiveRecord::Base
   end
 
   def set_activation_by_default
-    MenuBackground.update_all(:activation => false)
+    SubMenuBackground.update_all(:activation => false)
   end
 end

@@ -16,8 +16,12 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
+    resources :sub_menu_backgrounds do
+      post :activation, :on => :collection
+    end
     resources :menu_backgrounds do
       post :activation, :on => :collection
+      get :get_activation, :on => :collection
     end
     resources :footer_backgrounds do
       post :activation, :on => :collection

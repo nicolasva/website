@@ -1,6 +1,7 @@
 = simple_form_for [:admin, @menu_background], url: url do |f|
   = f.input :title
   = f.input :activation
+  = render(:partial => "/admin/aligns/form", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.align.nil? ? Align.new : @menu_background.align, model: @menu_background })
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.background.nil? ? Background.new : @menu_background.background, model: @menu_background })
   .form-actions
     = f.button :submit, :class => 'btn-primary'
