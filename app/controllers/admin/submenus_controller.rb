@@ -1,7 +1,7 @@
 module Admin
   class SubmenusController < AdminController
+    before_action :load_category_by_title 
     before_action :set_submenu, only: [:show, :edit, :update, :destroy, :update_success]
-    before_action :load_category_by_title
     
     def index
       @submenus = @category.submenus.order(:position, :created_at)
@@ -73,13 +73,13 @@ module Admin
     end
 
     private
-      def set_submenu
-        @submenu = @category.submenus.find_by_title(params[:title_submenu_id].nil? ? params[:id] : params[:title_submenu_id])
-      end
+     def set_submenu
+       @submenu = @category.submenus.find_by_title(params[:title_submenu_id].nil? ? params[:id] : params[:title_submenu_id])
+     end
 
      def submenu_params
         params.require(:submenu).permit(:id,
                                        :title)
-      end
+     end
   end
 end

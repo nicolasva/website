@@ -17,7 +17,7 @@ jQuery ->
         else
           $.getJSON("/admin/menu_backgrounds/get_activation", (menu) -> 
             #console.log data.align.align
-            if menu.align.align is data.align.align then $(".background_image").hide() else $(".background_image").show()
+            if menu.align.align is data.align.align then $(".all_background_image").hide() else $(".all_background_image").show()
             #$(".background_image").hide()
           )
       )
@@ -25,5 +25,7 @@ jQuery ->
 jQuery ->
   $(document).on 'click', '#sub_menu_background_align_attributes_align', (e) ->
     $.getJSON("/admin/menu_backgrounds/get_activation", (menu) -> 
-      if parseInt($(e.target).attr("value")) is parseInt(menu.align.align) then $(".background_image").hide() else $(".background_image").show()
+      if parseInt($(e.target).attr("value")) is parseInt(menu.align.align) then $(".all_background_image").hide() else $(".all_background_image").show()
     )
+
+
