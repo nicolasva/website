@@ -3,7 +3,7 @@
     = f_background.input :border, collection: 0..100
     = f_background.input :border_style, collection: ["none", "solid", "dashed", "dotted", "double", "groove", "ridge", "inset", "outset", "inherit"]
     .all_background_image
-      = f_background.input :no_background_image
+      = f_background.input :no_background_image, input_html: { class: "no_background_image" }
       .background_image
         .row
           .col-md-6
@@ -11,7 +11,7 @@
             = f_background.input :background_image_cache, as: :hidden
           .col-md-6
             = f_background.input :no_repeat
-        - unless model.new_record? || !model.nil? || !model.background.nil? 
+        - if !model.new_record? && !model.background.background_image.url(:thumb).nil?
           .row
             .col-md-5
               = image_tag(model.background.background_image.url(:thumb))
