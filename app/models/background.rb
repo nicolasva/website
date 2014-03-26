@@ -5,7 +5,12 @@ class Background < ActiveRecord::Base
   mount_uploader :background_image, BackgroundImageUploader
   
   def delete_image?
-    #Rails.logger.info "-=-=-=-=-=-=-=-=-delete_background_image-=-=-=-=-=-=-=-#{self.delete_background_image}-=-=-=-=-=-=-"
-    #fvdsvdfvdfvdfvdf
+    drop_image!  if self.delete_background_image.to_i == 0
+  end
+
+  private
+  def drop_image!
+    self.background_image = ""
+    self.background_image_cache = ""
   end
 end

@@ -13,12 +13,4 @@ class Content < ActiveRecord::Base
     uuid = UUID.new
     self.uuid = uuid.generate
   end
-
-  def update_with_background_image(content_params)
-    if content_params["background_attributes"]["delete_background_image"].nil? && content_params["background_attributes"]["delete_background_image"] = "0"
-      content_params["background_attributes"]["background_image"] = ""
-      content_params["background_attributes"]["background_image_cache"] = ""
-    end
-    self.update(content_params)
-  end
 end

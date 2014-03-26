@@ -5,8 +5,16 @@ WebsiteFrancisFerrari::Application.routes.draw do
   scope do
     match "contents/:id" => "contents#show", :via => "GET"
   end
+
+  resources :background_by_defaults
   
   resources :categories, :as => "title" do
+    resources :submenu, :as => "title_submenu" do
+      resources :contents
+      resources :annoncments do
+        resources :photos
+      end
+    end
     resources :contents
     resources :annoncments do
       resources :photos

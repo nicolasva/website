@@ -3,9 +3,14 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :load_category
+  before_filter :load_menu_background
 
   def load_category
     @category_all = Category.all
+  end
+
+  def load_menu_background
+    @menu_background = MenuBackground.exists?(:activation => true) ? MenuBackground.find_by_activation(true) : MenuBackground.order(:id).first
   end
 
 

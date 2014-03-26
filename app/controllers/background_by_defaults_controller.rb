@@ -4,7 +4,10 @@ class BackgroundByDefaultsController < ApplicationController
   # GET /background_by_defaults
   # GET /background_by_defaults.json
   def index
-    @background_by_defaults = BackgroundByDefault.all
+    @background_by_default = BackgroundByDefault.find_by_activation(true)
+    respond_to do |format|
+      format.json { render json: @background_by_default.to_json(:include => :background) }
+    end
   end
 
   # GET /background_by_defaults/1

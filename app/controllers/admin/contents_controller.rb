@@ -30,7 +30,7 @@ module Admin
     end
 
     def update
-      if @content.update_with_background_image(content_params)
+      if @content.update(content_params)
         if @submenu.nil?
           redirect_to admin_title_content_path(@category.title, @content.uuid), notice: "Content was successfully updated."
         else
@@ -64,7 +64,6 @@ module Admin
     end
 
     private
-
       def set_content
         @content = Content.find_by_uuid(params[:id])
       end
