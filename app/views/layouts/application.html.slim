@@ -39,23 +39,23 @@ html lang="en"
                   - else
                     = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
 
+
     section class='container content margin-container'
       .row
         - if @menu_background.align.align.to_i == 1
-          .col-md-3
-            .collapse.navbar-collapse.navbar-ex1-collapse
-              ul.list-unstyled
-                - @category_all.each do |categorie|
-                  = content_tag_for :li, categorie do
-                    - if categorie.sub_menu
-                      = link_to categorie.title, "#", class: 'dropdown-toggle', "data-toggle" => 'dropdown'
-                      ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
-                        - categorie.submenus.each do |sub_menu|
-                          = content_tag_for :li, sub_menu, role: "sub_menu" do
-                              = link_to sub_menu.title, url_contents_or_annoncments(sub_menu) 
-                    - else
-                      = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
-          .col-md-9
+          .col-lg-3
+            ul.nav.navbar-nav
+              - @category_all.each do |categorie|
+                = content_tag_for :li, categorie do
+                  - if categorie.sub_menu
+                    = link_to categorie.title, "#", class: 'dropdown-toggle', "data-toggle" => 'dropdown'
+                    ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
+                      - categorie.submenus.each do |sub_menu|
+                        = content_tag_for :li, sub_menu, role: "sub_menu" do
+                            = link_to sub_menu.title, url_contents_or_annoncments(sub_menu) 
+                  - else
+                    = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+          .col-lg-9
             = bootstrap_flash
             = yield
         - if @menu_background.align.align.to_i == 2
