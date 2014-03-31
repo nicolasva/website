@@ -61,12 +61,12 @@ html lang="en"
             = yield
         - else
           - if @menu_background.align.align.to_i == 2
-            .col-md-9 
+            .col-lg-9 
               = bootstrap_flash
               = yield 
-            .col-md-3
-              .collapse.navbar-collapse.navbar-ex1-collapse
-                ul.nav.navbar-nav
+            .col-lg-3
+              .well.sidebar-nav
+                ul.nav.nav-list
                   - @category_all.each do |categorie|
                     = content_tag_for :li, categorie do
                       - if categorie.sub_menu
