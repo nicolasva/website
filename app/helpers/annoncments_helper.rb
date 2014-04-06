@@ -22,4 +22,8 @@ module AnnoncmentsHelper
   def url_form_edit_annoncment_path
     return @submenu.nil? ? "/admin/categories/#{@category.title}/annoncments/#{@annoncment.title}" : "/admin/categories/#{@category.title}/submenus/#{@submenu.title}/annoncments/#{@annoncment.title}" 
   end
+
+  def url_annoncment_show(annoncment)
+    return annoncment.submenu.nil? ? title_annoncment_path(annoncment.category.title, annoncment.title) : title_title_submenu_annoncment_path(annoncment.submenu.category.title, annoncment.submenu.title, annoncment.title)
+  end
 end

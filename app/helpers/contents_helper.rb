@@ -3,6 +3,10 @@ module ContentsHelper
     @submenu.nil? ? new_admin_title_content_path(@category.title) : new_admin_title_title_submenu_content_path(@category.title, @submenu.title)
   end
 
+  def col_boostrap(contents)
+    return contents.length > 1 ? "col-md-6" : "col-md-12"
+  end
+
   def url_form_new_content
     @submenu.nil? ? "/admin/categories/#{@category.title}/contents" : "/admin/categories/#{@category.title}/submenus/#{@submenu.title}/contents"
   end

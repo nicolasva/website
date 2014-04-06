@@ -4,14 +4,20 @@ WebsiteFrancisFerrari::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   scope do
     match "contents/:id" => "contents#show", :via => "GET"
+    match "contents/:uuid/backgrounds" => "backgrounds#index", :via => "GET"
+    match "annoncments/:title_annoncment_id/backgrounds" => "backgrounds#index", :via => "GET"
   end
 
+  resources :sub_menu_backgrounds
   resources :background_by_defaults
-  
+  resources :menu_backgrounds
   resources :categories, :as => "title" do
     resources :submenu, :as => "title_submenu" do
-      resources :contents
-      resources :annoncments do
+      resources :contents, :as => "uuid" do
+        resources :backgrounds
+      end
+      resources :annoncments, :as => "title_annoncment" do
+        resources :backgrounds
         resources :photos
       end
     end

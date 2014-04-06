@@ -4,7 +4,12 @@ class SubMenuBackgroundsController < ApplicationController
   # GET /sub_menu_backgrounds
   # GET /sub_menu_backgrounds.json
   def index
-    @sub_menu_backgrounds = SubMenuBackground.all
+    @sub_menu_background = SubMenuBackground.find_by_activation(true)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @sub_menu_background.to_json(:include => :background) }
+    end
   end
 
   # GET /sub_menu_backgrounds/1

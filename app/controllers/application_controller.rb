@@ -4,9 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :load_category
   before_filter :load_menu_background
+  before_filter :load_sub_menu_background
 
   def load_category
     @category_all = Category.all
+  end
+
+  def load_sub_menu_background
+    @sub_menu_background = SubMenuBackground.exists?(:activation => true) ? SubMenuBackground.find_by_activation(true) : SubMenuBackground.order(:id).first
   end
 
   def load_menu_background

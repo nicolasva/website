@@ -4,7 +4,12 @@ class MenuBackgroundsController < ApplicationController
   # GET /menu_backgrounds
   # GET /menu_backgrounds.json
   def index
-    @menu_backgrounds = MenuBackground.all
+    @menu_background = MenuBackground.find_by_activation(true)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @menu_background.to_json(:include => :background) }
+    end
   end
 
   # GET /menu_backgrounds/1
