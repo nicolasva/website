@@ -1,4 +1,3 @@
-= contents.length
 ul#content_list.row.list-inline.contents
   - contents.each do |content|
     = content_tag_for :li, content, class: "#{col_boostrap(contents)} #{content.uuid}" do

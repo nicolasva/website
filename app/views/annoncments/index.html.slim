@@ -1,10 +1,1 @@
-.row
-  ul#content_list.row.list-inline
-    - @annoncments.each do |annoncment|
-      = content_tag_for :li, annoncment, class: "col-md-6" do
-        h1 
-          = annoncment.title
-        = annoncment.description.html_safe
-        br
-        - annoncment.photos.where(:master_image => true).each do |photo|
-          = link_to image_tag(photo.photo.url(:thumb)), admin_title_annoncment_photos_path(annoncment.category.title, annoncment.id)
+= render(:partial => "/partials/annoncments_lists", locals: {annoncments: @annoncments})

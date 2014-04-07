@@ -13,8 +13,8 @@ class Category < ActiveRecord::Base
     contents_or_annoncments.each do |key, value|
       #submenu = Submenu.find(key)
       #submenu.contents_or_annoncment.set_content_or_annoncment!(value)
-      if ContentsOrAnnoncment.exists?(:contents_or_annoncments_id => contents_or_annoncments.first, :contents_or_annoncments_type => contents_or_annoncments_type)
-        contents_or_annoncment = ContentsOrAnnoncment.where(:contents_or_annoncments_id => contents_or_annoncments.first, :contents_or_annoncments_type => contents_or_annoncments_type).first
+      if ContentsOrAnnoncment.exists?(:contents_or_annoncments_id => key, :contents_or_annoncments_type => contents_or_annoncments_type)
+        contents_or_annoncment = ContentsOrAnnoncment.where(:contents_or_annoncments_id => key, :contents_or_annoncments_type => contents_or_annoncments_type).first
         contents_or_annoncment.update(:content_or_annoncment => value)
       else
         hash_contents_or_annoncment = Hash.new

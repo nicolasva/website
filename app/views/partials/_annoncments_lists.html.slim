@@ -3,7 +3,7 @@ ul#annoncment_list.row.annoncments
     = content_tag_for :li, annoncment do
       = link_to(url_annoncment_show(annoncment)) do
         .col-md-3
-          = "12/12/2014 - 12/11/2014"
+          = "#{annoncment.date_to} - #{annoncment.date_at}"
         .col-md-3
           - if annoncment.first.photos.exists?
             = image_tag(annoncment.photo.where(:master => true).photo.url(:thumb))

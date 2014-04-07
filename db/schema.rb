@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140309195310) do
+ActiveRecord::Schema.define(version: 20140406212302) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20140309195310) do
     t.integer  "category_id"
     t.integer  "position",            default: 0,  null: false
     t.integer  "submenu_id"
+    t.datetime "date_at"
+    t.datetime "date_to"
   end
 
   add_index "annoncments", ["category_id"], name: "annoncments_category_id_to_category"
