@@ -1,13 +1,16 @@
-ul#annoncment_list.row.annoncments
+ul#annoncment_list.row.list-unstyled.annoncments
   - @annoncments.each do |annoncment|
-    = content_tag_for :li, annoncment do
+    = content_tag_for :li, annoncment, :class => "row" do
       = link_to(url_annoncment_show(annoncment)) do
         .col-md-3
           = "#{annoncment.date_to} - #{annoncment.date_at}"
-        .col-md-3
-          - if annoncment.first.photos.exists?
-            = image_tag(annoncment.photo.where(:master => true).photo.url(:thumb))
+        .col-md-6
+          - if annoncment.photos.exists?
+            - if annoncment.photos.where(:master_image => true).exists?
+              = image_tag(annoncment.photos.where(:master_image => true).first.photo.url(:thumb))
+            - else
+              = image_tag(annoncment.photos.first.photo.url(:thumb))
           - else
-            = image_tag("/assets/img_by_default/img_by_default.jpg")
+            = image_tag("/assets/img_by_default/img_by_default.jpg", :width => "130", :height => "130")
         .col-md-3
           = annoncment.title
