@@ -1,5 +1,7 @@
-p#notice = notice
-
-= link_to 'Edit', edit_title_annoncment_path(@category.title, @annoncment.title)
-'|
-= link_to 'Back', title_annoncments_path(@category.title)
+.row.show-grid.annoncment.classified
+  .row
+    = @annoncment.title
+  .row
+    = "#{@annoncment.date_at} - #{@annoncment.date_to}"
+  .row
+    = @annoncment.description

@@ -78,9 +78,8 @@ html lang="en"
                       - else
                         = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
           - else
-            .col-md-12 
-              = bootstrap_flash
-              = yield 
+            = bootstrap_flash
+            = yield 
 
       footer
         p &copy; Sailfast 2013

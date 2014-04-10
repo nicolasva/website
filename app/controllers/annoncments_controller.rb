@@ -64,7 +64,7 @@ class AnnoncmentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_annoncment
-      @annoncment = Annoncment.find(params[:id])
+      @annoncment = parent.annoncments.find_by_title(params[:id])
     end
 
     def parent
