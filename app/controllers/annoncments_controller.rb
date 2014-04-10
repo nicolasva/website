@@ -4,7 +4,7 @@ class AnnoncmentsController < ApplicationController
   # GET /annoncments
   # GET /annoncments.json
   def index
-    @annoncments = category.annoncments
+    @annoncments = parent.annoncments
   end
 
   # GET /annoncments/1
@@ -67,9 +67,12 @@ class AnnoncmentsController < ApplicationController
       @annoncment = Annoncment.find(params[:id])
     end
 
+    def parent
+        return parent? ? Submenu.find_by_title(params[:title_submenu_id]) : Category.find_by_title(params[:title_id])
+    end
 
-    def category
-      Category.find_by_title(params[:title_id])
+    def parent?
+      return !request.url.scan(/^.{1,}(submenu).{1,}$/).empty?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
