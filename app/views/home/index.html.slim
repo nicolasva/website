@@ -1,4 +1,4 @@
-- unless @contents.empty?
+- unless @contents.nil? && @contents.empty?
   = render(:partial => "/partials/contents_lists", locals: {contents: @contents})
 - else
   = render(:partial => "/partials/annoncments_lists", locals: {annoncments: @annoncments})
