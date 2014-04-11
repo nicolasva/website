@@ -45,12 +45,25 @@ html lang="en"
                   = link_to "Menu du site", admin_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
                 li(role="presentation")
                   = link_to "Sous-menu su site", admin_sub_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
+          .nav-collapse.collapse.navbar-responsive-collapse
+            ul.nav.navbar-nav
+              li= link_to "Link 1", "/path1"
+              li= link_to "Link 2", "/path2"
+              li= link_to "Link 3", "/path3"
 
     .container
       .row
-        .col-lg-12
+        .col-lg-9
           = bootstrap_flash
           = yield
+        .col-lg-3
+          .well.sidebar-nav
+            h3 Sidebar
+            ul.nav.nav-list
+              li.nav-header Sidebar
+              li= link_to "Link 1", "/path1"
+              li= link_to "Link 2", "/path2"
+              li= link_to "Link 3", "/path3"
 
       footer
         p &copy; Sailfast 2013

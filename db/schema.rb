@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406212302) do
+ActiveRecord::Schema.define(version: 20140411083636) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -143,6 +143,12 @@ ActiveRecord::Schema.define(version: 20140406212302) do
     t.string   "homepage_submenus_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "locakables", force: true do |t|
+    t.boolean "lockable",       default: true, null: false
+    t.integer "lockables_id"
+    t.string  "lockables_type"
   end
 
   create_table "menu_backgrounds", force: true do |t|
