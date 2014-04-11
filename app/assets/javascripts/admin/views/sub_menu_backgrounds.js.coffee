@@ -12,7 +12,7 @@ jQuery ->
       $.getJSON("/admin/sub_menu_backgrounds/"+sub_menu_backgrounds_uuid, (data) ->
         if exp_sub_menu_background_edit.test(location_href) == false
           $(".sub_menu_background").css("background-color", data.background.background_color)
-          $(".sub_menu_background").css("background", "url('"+data.background.background_image.url+" "+ if data.background.no_repeat is true then + 'no_repeat' else '' +"')") unless data.background.no_background_image
+          $(".sub_menu_background").css("background", "url('"+data.background.background_image.url+" "+ if data.background.no_repeat is true then + 'no-repeat' else '' +"')") unless data.background.no_background_image
           $(".sub_menu_background").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
         else
           $.getJSON("/admin/menu_backgrounds/get_activation", (menu) -> 

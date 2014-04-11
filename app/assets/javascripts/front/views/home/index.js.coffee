@@ -16,7 +16,7 @@ jQuery ->
               $(value).css("background-color", val.background_color)
             else
               $(value).css("background-image", "url(#{val.background_image})")
-            $(value).css("background-repeat", if value.no_repeat is true then "repeat" else "no-repeat")
+              $(value).css("background-repeat", if value.no_repeat is true then "no-repeat" else "repeat")
           error: ->
             alert("error load personnalize contents")
         })
