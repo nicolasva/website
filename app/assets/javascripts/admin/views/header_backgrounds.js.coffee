@@ -9,6 +9,6 @@ $(document).ready ->
     header_backgrounds_uuid = exp_header_backgrounds.exec(location_href)[1]
     $.getJSON("/admin/header_backgrounds/"+header_backgrounds_uuid, (data) -> 
       console.log $(".header_background").css("background-color", data.background.background_color)
-      $(".header_background").css("background", "url('"+data.background.background_image.url+" "+ if data.background.no_repeat is true then + 'no-repeat' else '' +"')") unless data.background.no_background_image
+      $(".header_background").css("background", "url('"+data.background.background_image.url+"') " + if data.background.no_repeat is true then + 'no-repeat' else '') unless data.background.no_background_image
       $(".header_background").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
     )

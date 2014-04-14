@@ -16,7 +16,7 @@ class BackgroundImageUploader < CarrierWave::Uploader::Base
     "uploads/contents/background_image/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  process :resize_to_fill => [300, 300]
+  process :resize_to_fill => [1024, 1024]
 
   version :thumb do
      process :resize_to_fit => [130, 130]

@@ -6,11 +6,13 @@
       = f_background.input :no_background_image, input_html: { class: "no_background_image" }
       .background_image
         .row
-          .col-md-6
+          .col-md-4
             = f_background.input :background_image
             = f_background.input :background_image_cache, as: :hidden
-          .col-md-6
+          .col-md-4
             = f_background.input :no_repeat
+          .col-md-4
+            = f_background.input :align, collection: Background::ARRAY_ALIGN 
         - if !model.new_record? && !model.background.background_image.url(:thumb).nil?
           .row
             .col-md-5

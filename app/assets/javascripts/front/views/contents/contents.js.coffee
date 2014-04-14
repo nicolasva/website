@@ -7,6 +7,6 @@ jQuery ->
         $.getJSON("/contents/"+uuid+"/backgrounds", (data) ->
           unless _.isNull(data)
             $(value).css("background-color", data.background_color)
-            $(value).css("background", "url('"+data.background_image.url+" "+ if data.no_repeat is true then  'no-repeat' else '' +"')") unless data.no_background_image
+            $(value).css("background", "url('"+data.background_image.url+"') "+ if data.no_repeat is true then  'no-repeat' else '') unless data.no_background_image
             $(value).css("border", data.border+" "+data.border_style+" "+data.border_color)
         )
