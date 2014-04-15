@@ -81,7 +81,7 @@ module Admin
                                         :background_image_cache, 
                                         :no_repeat,
                                         :no_background_image,
-                                        background_attributes: [:border, :border_style, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color]
+                                        background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color, :align]
                                        )
       end
   end
