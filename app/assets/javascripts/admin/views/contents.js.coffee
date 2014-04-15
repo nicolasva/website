@@ -12,7 +12,6 @@ jQuery ->
       $("#content_border_color").attr("value", '#' + hex)
   })
 
-
 jQuery ->
   $(document).on  'click', '.grid_button_not_delete', (e) ->
     $("#content_delete_background_image").attr("value", true)
