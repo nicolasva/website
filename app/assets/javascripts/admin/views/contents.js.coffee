@@ -1,16 +1,16 @@
-jQuery ->
-  $('#colorSelector').ColorPicker({
-    color: $("#colorSelector").children().first().css("background-color"),
-    onShow: (colpkr) ->
-      $(colpkr).fadeIn(500)
-      return false
-    onHide: (colpkr) ->
-      $(colpkr).fadeOut(500)
-      return false
-    onChange: (hsb, hex, rgb) ->
-      $('#colorSelector div').css('backgroundColor', '#' + hex)
-      $("#content_border_color").attr("value", '#' + hex)
-  })
+#jQuery ->
+#  $('#colorSelector').ColorPicker({
+#    color: $("#colorSelector").children().first().css("background-color"),
+#    onShow: (colpkr) ->
+#      $(colpkr).fadeIn(500)
+#      return false
+#    onHide: (colpkr) ->
+#      $(colpkr).fadeOut(500)
+#      return false
+#    onChange: (hsb, hex, rgb) ->
+#      $('#colorSelector div').css('backgroundColor', '#' + hex)
+#      $("#content_border_color").attr("value", '#' + hex)
+#  })
 
 
 jQuery ->
