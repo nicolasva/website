@@ -2,6 +2,7 @@
   .row
     = f_background.input :border, collection: 0..100
     = f_background.input :border_style, collection: ["none", "solid", "dashed", "dotted", "double", "groove", "ridge", "inset", "outset", "inherit"]
+    = f_background.label :background_color
     = f_background.input :background_color, as: 'hidden'
     #colorSelectorBackgroundColor
       div style="background-color: #{model.new_record? || model.background.nil? ? "transparent" : model.background.background_color}"
