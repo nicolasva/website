@@ -6,7 +6,7 @@ class ContentsController < ApplicationController
   def index
     #@contents = Content.all
     #@contents ? @category.contents : Content.all
-    @contents = category.contents
+    @contents = parent.contents
   end
 
   # GET /contents/1
@@ -73,10 +73,14 @@ class ContentsController < ApplicationController
       @content = Content.find(params[:id])
     end
 
-    def category
-      Category.find_by_title(params[:title_id])
+    def parent
+        return parent? ? Submenu.find_by_title(params[:title_submenu_id]) : Category.find_by_title(params[:title_id])
     end
 
+    def parent?
+      return !request.url.scan(/^.{1,}(submenu).{1,}$/).empty?
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def content_params
       params.require(:content).permit(:description)
