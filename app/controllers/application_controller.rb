@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_sub_menu_background
 
   def load_category
-    @category_all = Category.all
+    @category_all = Category.all.order(:position)
   end
 
   def load_sub_menu_background
