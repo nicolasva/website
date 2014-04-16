@@ -4,7 +4,10 @@ class HeaderBackgroundsController < ApplicationController
   # GET /header_backgrounds
   # GET /header_backgrounds.json
   def index
-    @header_backgrounds = HeaderBackground.all
+    @header_background = HeaderBackground.find_by_activation(true)
+    respond_to do |format|
+      format.json { render json: @header_background.to_json(:include => :background) }
+    end
   end
 
   # GET /header_backgrounds/1

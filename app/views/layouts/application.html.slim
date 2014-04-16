@@ -21,7 +21,8 @@ html lang="en"
     = javascript_include_tag "front/front"
 
   body.background_by_default
-    section#top-bar class='navbar navbar-default navbar-fixed-top' role='navigation'
+    section#top-bar class='navbar navbar-default' role='navigation'
+      header#id_header
       .container
         .navbar-header
           = link_to t(".home"), root_url, class: 'navbar-brand'

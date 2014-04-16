@@ -58,4 +58,14 @@ jQuery ->
         $(".sub_menu").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
     )
 
+    $.getJSON("/header_backgrounds", (data) ->
+      unless _.isNull(data)
+        $("#id_header").show()
+        unless data.background.no_background_image
+          $('#id_header').css("background", "url('"+data.background.background_image.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '')
+          $('#id_header').css("background-position", HASH_ALIGN_CSS[data.background.align])
+        $("#id_header").css("background-color", data.background.background_color)
+        $("#id_header").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
+    )
+
 
