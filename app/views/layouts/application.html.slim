@@ -23,70 +23,108 @@ html lang="en"
   body.background_by_default
     section#top-bar class='navbar navbar-default' role='navigation'
       header#id_header
-      .container
-        .navbar-header
-          = link_to t(".home"), root_url, class: 'navbar-brand'
-        - if @menu_background.align.align.to_i == 0
-          .collapse.navbar-collapse.navbar-ex1-collapse
-            ul.nav.navbar-nav
-              - @category_all.each do |categorie|
-                = content_tag_for :li, categorie do
-                    - if categorie.sub_menu
-                      = link_to categorie.title, "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
-                      - if @sub_menu_background.align.align.to_i == 0
-                        ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
-                          - categorie.submenus.each do |sub_menu|
-                            = content_tag_for :li, sub_menu, role: "sub_menu" do
-                                = link_to sub_menu.title, url_contents_or_annoncments(sub_menu) 
-                    - else
-                      = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
-
+      .menu_color
+        .container
+          .navbar-header
+            = link_to t(".home"), root_url, class: 'navbar-brand'
+          - if @menu_background.align.align.to_i == 0
+            .collapse.navbar-collapse.navbar-ex1-collapse
+              ul.nav.navbar-nav
+                - @category_all.each do |categorie|
+                  = content_tag_for :li, categorie do
+                      - if categorie.sub_menu
+                        = link_to categorie.title, "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
+                        - if @sub_menu_background.align.align.to_i == 0
+                          ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
+                            - categorie.submenus.each do |sub_menu|
+                              = content_tag_for :li, sub_menu, role: "sub_menu" do
+                                = render(:partial => "/partials/link_to_submenu", locals: {sub_menu: sub_menu})
+                      - else
+                        = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+          - else
+            - if submenu?
+              - if @sub_menu_background.align.align.to_i == 0
+                = render(:partial => "/partials/sub_menu_lists")
 
     section class='container content margin-container'
       .row
         - if @menu_background.align.align.to_i == 1
-          .col-lg-3.menu_color
-            .well.sidebar-nav
-              ul.nav.nav-list
-                - @category_all.each do |categorie|
-                  = content_tag_for :li, categorie do
-                      - if categorie.sub_menu
-                        = link_to categorie.title, "#", class: 'dropdown-toggle', "data-toggle" => 'dropdown'
-                        - if @sub_menu_background.align.align.to_i == 1
-                          ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
-                            - categorie.submenus.each do |sub_menu|
-                              = content_tag_for :li, sub_menu, role: "sub_menu" do
-                                  = link_to sub_menu.title, url_contents_or_annoncments(sub_menu) 
-                      - else
+          - if submenu?
+            - if @sub_menu_background.align.align.to_i == 2
+              .col-lg-3.menu_color
+                .well.sidebar-nav
+                  ul.nav.nav-list
+                    - @category_all.each do |categorie|
+                      = content_tag_for :li, categorie do
                         = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
-          .col-lg-9
-            = bootstrap_flash
-            = yield
-        - else
-          - if @menu_background.align.align.to_i == 2
-            .col-lg-9 
-              = bootstrap_flash
-              = yield 
-            .col-lg-3
+              .col-lg-6
+                = bootstrap_flash
+                = yield
+              .col-lg-3
+                = render(:partial => "/partials/sub_menu_lists")
+          - else
+            .col-lg-3.menu_color
               .well.sidebar-nav
                 ul.nav.nav-list
                   - @category_all.each do |categorie|
                     = content_tag_for :li, categorie do
                         - if categorie.sub_menu
-                          = link_to categorie.title, "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
-                          - if @sub_menu_background.align.align.to_i == 2
+                          = link_to categorie.title, "#", class: 'dropdown-toggle', "data-toggle" => 'dropdown'
+                          - if @sub_menu_background.align.align.to_i == 1
                             ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
                               - categorie.submenus.each do |sub_menu|
                                 = content_tag_for :li, sub_menu, role: "sub_menu" do
-                                    = link_to sub_menu.title, url_contents_or_annoncments(sub_menu) 
+                                  = render(:partial => "/partials/link_to_submenu", locals: {sub_menu: sub_menu})
                         - else
                           = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
-          - else
-            - if @sub_menu_background.align.align.to_i == 2
-              .col-lg-9
+            .col-lg-9
+              = bootstrap_flash
+              = yield
+        - else
+          - if @menu_background.align.align.to_i == 2
+            - if submenu?
+              - if @sub_menu_background.align.align.to_i == 1
+                .col-lg-3
+                  = render(:partial => "/partials/sub_menu_lists")
+                .col-lg-6
+                  = bootstrap_flash
+                  = yield
+                .col-lg-3
+                  .well.sidebar-nav
+                    ul.nav.nav-list
+                      - @category_all.each do |categorie|
+                        = content_tag_for :li, categorie do
+                          = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+            - else
+              .col-lg-9 
                 = bootstrap_flash
                 = yield 
               .col-lg-3
+                .well.sidebar-nav
+                  ul.nav.nav-list
+                    - @category_all.each do |categorie|
+                      = content_tag_for :li, categorie do
+                          - if categorie.sub_menu && @sub_menu_background.align.align.to_i == 2
+                            = link_to categorie.title, "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
+                            ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
+                              - categorie.submenus.each do |sub_menu|
+                                = content_tag_for :li, sub_menu, role: "sub_menu" do
+                                  = render(:partial => "/partials/link_to_submenu", locals: {sub_menu: sub_menu})
+                          - else
+                            = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+          - else
+            - if submenu?
+              - if @sub_menu_background.align.align.to_i == 1
+                = render(:partial => "/partials/sub_menu_lists")
+                .col-lg-9
+                  = bootstrap_flash
+                  = yield
+
+
+            - else
+              .col-lg-12
+                = bootstrap_flash
+                = yield
 
       footer
         p &copy; Sailfast 2013

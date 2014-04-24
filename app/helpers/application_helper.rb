@@ -13,4 +13,20 @@ module ApplicationHelper
   def home_page_submenu?(homepage_submenu)
     return homepage_submenu.nil? ? false : homepage_submenu.homepage
   end
+
+  def contents_annoncments?
+    @contents.nil?
+  end
+
+  def get_parent
+    return contents_annoncments? ? @annoncments : @contents
+  end
+
+  def submenu?
+    if contents_annoncments?
+      !@annoncments.first.submenu.nil?
+    else
+      !@contents.first.submenu.nil?
+    end
+  end
 end

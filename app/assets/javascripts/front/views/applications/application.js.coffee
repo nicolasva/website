@@ -24,22 +24,23 @@ jQuery ->
             $('.background_by_default').css("-webkit-background-size", screen.width screen.height)
             $('.background_by_default').css("background-size", screen.width screen.height)
         $('.background_by_default').css("background-color", data.background.background_color)
-        $(".background_by_default").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
+        $(".background_by_default").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
     )
 
     $.getJSON("/menu_backgrounds", (data) ->
       unless _.isNull(data)
-        unless data.background.no_background_image 
+        unless data.background.no_background_image
+          console.log "true"
           $(".menu_color").css("background", "url('"+data.background.background_image.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '') 
           $('.menu_color').css("background-position", HASH_ALIGN_CSS[data.background.align]) 
           $('.menu_color').css("background-size", "cover") 
           if data.background.align == 11
-            $('.menu_color').css("-moz-background-size", screen.width screen.height)
-            $('.menu_color').css("-o-background-size", screen.width screen.height)
-            $('.menu_color').css("-webkit-background-size", screen.width screen.height)
-            $('.menu_color').css("background-size", screen.width screen.height)
+            $(".menu_color").css("-moz-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+            $(".mdenu_color").css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+            $(".menu_color").css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+            $(".menu_color").css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
         $(".menu_color").css("background-color", data.background.background_color)
-        $(".menu_color").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
+        $(".menu_color").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
 
     )
 
@@ -55,7 +56,7 @@ jQuery ->
             $('.sub_menu').css("-webkit-background-size", screen.width screen.height)
             $('.sub_menu').css("background-size", screen.width screen.height)
         $(".sub_menu").css("background-color", data.background.background_color)
-        $(".sub_menu").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
+        $(".sub_menu").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
     )
 
     $.getJSON("/header_backgrounds", (data) ->
@@ -66,12 +67,13 @@ jQuery ->
           $('#id_header').css("background-position", HASH_ALIGN_CSS[data.background.align])
           $("#id_header").css("background-size", "cover")
           if data.background.align == 11
-            $("#id_header").css("-moz-background-size", $('#id_header').css("width") $('#id_header').css("height"))
-            $("#id_header").css("-o-background-size", $('#id_header').css("width") $('#id_header').css("height"))
-            $("#id_header").css("-webkit-background-size", $('#id_header').css("width") $('#id_header').css("height"))
-            $("#id_header").css("background-size", $('#id_header').css("width") $('#id_header').css("height"))
+            $("#id_header").css("-moz-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+            $("#id_header").css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+            $("#id_header").css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+            $("#id_header").css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
         $("#id_header").css("background-color", data.background.background_color)
-        $("#id_header").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
+        console.log data.background.border+"px "+data.background.border_style+" "+data.background.border_color 
+        $("#id_header").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
     )
 
 
