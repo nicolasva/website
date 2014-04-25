@@ -24,9 +24,17 @@ module ApplicationHelper
 
   def submenu?
     if contents_annoncments?
-      !@annoncments.first.submenu.nil?
+      if @annoncments.empty?
+        false
+      else
+        !@annoncments.first.submenu.nil?
+      end
     else
-      !@contents.first.submenu.nil?
+      if @contents.empty?
+        false
+      else
+        !@contents.first.submenu.nil?
+      end
     end
   end
 end

@@ -72,7 +72,6 @@ jQuery ->
             $("#id_header").css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
             $("#id_header").css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
         $("#id_header").css("background-color", data.background.background_color)
-        console.log data.background.border+"px "+data.background.border_style+" "+data.background.border_color 
         $("#id_header").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
     )
 
