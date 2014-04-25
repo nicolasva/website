@@ -36,7 +36,7 @@ jQuery ->
                 annoncment.show()
                 #$(value3).children().last().append("<input class='btn btn-mini btn-warning' type='submit' value='Les annonces' name='annoncment_list_category_title_sqdqsd'>") unless $(value3).children().last().children().last().attr("value") == "Les annonces"
 
-  $(document).bind "click", ".category_sub_menu", (e) ->
+  $(document).on "click", ".category_sub_menu", (e) ->
     content = $(e.target).parent().parent().children().last().children().slice(-2).first() 
     annoncment = $(e.target).parent().parent().children().last().children().last()
     if $(e.target).is(':checked')
