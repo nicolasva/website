@@ -44,11 +44,13 @@ class Category < ActiveRecord::Base
 
   def self.sub_menu(hash_sub_menu)
     Category.update_all(:sub_menu => false)
-    hash_sub_menu.each do |key, value|
-     hash_category = Hash.new
-     hash_category[:sub_menu] = true
-     category = Category.find(key) 
-     category.update(hash_category)
+    unless hash_sub_menu.nil?
+      hash_sub_menu.each do |key, value|
+       hash_category = Hash.new
+       hash_category[:sub_menu] = true
+       category = Category.find(key) 
+       category.update(hash_category)
+      end
     end
   end
 
