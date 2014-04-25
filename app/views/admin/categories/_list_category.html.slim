@@ -4,7 +4,7 @@
       tr
         td= category.title
         td= category.english_title
-        td= check_box_tag "category[sub_menu][#{category.id}]", category.sub_menu, category.sub_menu
+        td= check_box_tag "category[sub_menu][#{category.id}]", category.sub_menu, category.sub_menu, class: "category_sub_menu"
         - unless category.sub_menu
           td= select_tag "category[contents_or_annoncments_attributes][#{category.id}]", options_for_select([["Content", true], ["Annoncment", false]], selected: contents_or_annoncments?(category.contents_or_annoncment)), class: "content_or_annoncment"
           td= radio_button "category[homepage_submenus_attributes]", "", category.id, :checked => home_page_submenu?(category.homepage_submenu)
@@ -16,7 +16,7 @@
           = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_title_path(category), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
           '
           - unless category.sub_menu
-            - if category.contents_or_annoncment.nil? 
+            - if category.contents_or_annoncment.nil? || category.contents_or_annoncment.content_or_annoncment
               = submit_tag "Les contenus", name: "content_list_category_title_#{category.title}", class: 'btn btn-mini btn-warning'
             - else
               = submit_tag "Les annonces", name: "annoncment_list_category_title_#{category.title}", class: 'btn btn-mini btn-warning'
