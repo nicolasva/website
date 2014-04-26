@@ -30,7 +30,6 @@ jQuery ->
     $.getJSON("/menu_backgrounds", (data) ->
       unless _.isNull(data)
         unless data.background.no_background_image
-          console.log "true"
           $(".menu_color").css("background", "url('"+data.background.background_image.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '') 
           $('.menu_color').css("background-position", HASH_ALIGN_CSS[data.background.align]) 
           $('.menu_color').css("background-size", "cover") 
