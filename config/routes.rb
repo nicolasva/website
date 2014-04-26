@@ -1,4 +1,5 @@
 WebsiteFrancisFerrari::Application.routes.draw do
+  devise_for :users
   resources :aligns
 
   mount Ckeditor::Engine => '/ckeditor'

@@ -75,9 +75,6 @@ module Admin
     private
      def set_submenu
        @submenu = @category
-       #@submenu = @submenu
-       #@submenu = @category.submenus.find_by_title(params[:title_submenu_id].nil? ? params[:id] : params[:title_submenu_id])
-       #@submenu = params[:id].nil? || params[:title_submenu_id].nil? ? @category : @submenu
      end
 
      def submenu_params
