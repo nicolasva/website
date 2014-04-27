@@ -53,18 +53,20 @@ module Admin
     def content_or_annoncment_homepage
       Submenu.content_or_annoncment(params[:submenu][:contents_or_annoncments_attributes])
       Submenu.homepage_submenu(params[:submenu][:homepage_submenus_attributes]) unless params[:submenu][:homepage_submenus_attributes].nil?
-      params.keys.each do |k|
+      #params.keys.each do |k|
         #Rails.logger.info k
         #redirection_url(k,notice)
-        notice = "les informations concernants les sous-menus ont bien été mise à jour"
-        params_array = k.split("_")
-        case params_array.first
-          when "content"
-            redirect_to admin_title_title_submenu_contents_path(@category.title, params_array.last), notice: notice
-          when "annoncment"
-            redirect_to admin_title_title_submenu_annoncments_path(@category.title, params_array.last), notice: notice
-        end
-      end
+        #notice = "les informations concernants les sous-menus ont bien été mise à jour"
+        #params_array = k.split("_")
+        #case params_array.first
+        #  when "content"
+        #    redirect_to admin_title_title_submenu_contents_path(@category.title, params_array.last), notice: notice
+        #  when "annoncment"
+        #    redirect_to admin_title_title_submenu_annoncments_path(@category.title, params_array.last), notice: notice
+        #end
+      #end
+
+      redirect_to admin_title_title_submenu_index_path(params[:title_id])
     end
 
     def destroy
