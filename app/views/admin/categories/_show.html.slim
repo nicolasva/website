@@ -12,7 +12,8 @@ table.table.table-striped
         '
         = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_title_path(category), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
         '
-        - if category.contents_or_annoncment.nil? || submenu.contents_or_annoncment.content_or_annoncment
-          = submit_tag "Les contenus", name: "content_list_category_title_#{category.title}", class: 'btn btn-mini btn-warning'
-        - else
-          = submit_tag "Les annonces", name: "annoncment_list_category_title_#{category.title}", class: 'btn btn-mini btn-warning'
+        - unless defined?(submenu).nil?
+          - if category.contents_or_annoncment.nil? || submenu.contents_or_annoncment.content_or_annoncment
+            = submit_tag "Les contenus", name: "content_list_category_title_#{category.title}", class: 'btn btn-mini btn-warning'
+          - else
+            = submit_tag "Les annonces", name: "annoncment_list_category_title_#{category.title}", class: 'btn btn-mini btn-warning'
