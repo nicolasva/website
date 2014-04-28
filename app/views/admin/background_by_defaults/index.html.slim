@@ -15,7 +15,7 @@
           td
             = background_by_default.title
           td
-            = radio_button "background_by_default[activation]", "", background_by_default.id, checked: background_by_default.activation
+            = radio_button "background_by_default[activations]", "", background_by_default.id, checked: background_by_default.activation
           td
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_background_by_default_path(background_by_default.uuid), class: 'btn btn-mini btn-primary'
             '

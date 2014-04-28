@@ -24,7 +24,7 @@ module Admin
       @footer_background = FooterBackground.new(footer_background_params)
       
       if @footer_background.save
-        redirect_to admin_footer_background_path(@footer_background.uuid), notice: 'Footer background was successfully created.'
+        redirect_to admin_footer_background_path, notice: 'Footer background was successfully created.'
       else
         render action: 'new'
       end
@@ -32,7 +32,7 @@ module Admin
 
     def update
       if @footer_background.update(footer_background_params)
-        redirect_to admin_footer_background_path(@footer_background.uuid), notice: 'Footer background was successfully updated.'
+        redirect_to admin_footer_background_path, notice: 'Footer background was successfully updated.'
       else
         render action: 'edit'
       end

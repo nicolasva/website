@@ -32,7 +32,7 @@ module Admin
       @menu_background = MenuBackground.new(menu_background_params)
 
       if @menu_background.save
-        redirect_to admin_menu_background_path(@menu_background.uuid), notice: "Menu background was successfully created."
+        redirect_to admin_menu_background_path, notice: "Menu background was successfully created."
       else
         render action: 'new'
       end
@@ -40,7 +40,7 @@ module Admin
 
     def update
       if @menu_background.update(menu_background_params)
-        redirect_to admin_menu_background_path(@menu_background.uuid), notice: "Menu background was successfully updated"
+        redirect_to admin_menu_background_path, notice: "Menu background was successfully updated"
       else
         render action: 'edit'
       end

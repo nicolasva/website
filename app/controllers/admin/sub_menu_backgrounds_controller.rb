@@ -24,7 +24,7 @@ module Admin
       @sub_menu_background = SubMenuBackground.new(sub_menu_background_params)
       
       if @sub_menu_background.save
-        redirect_to admin_sub_menu_background_path(@sub_menu_background.uuid), notice: "Sub menu background was successfully created."
+        redirect_to admin_sub_menu_background_path, notice: "Sub menu background was successfully created."
       else
         render action: 'new'
       end
@@ -32,7 +32,7 @@ module Admin
 
     def update
       if @sub_menu_background.update(sub_menu_background_params)
-        redirect_to admin_sub_menu_background_path(@sub_menu_background.uuid), notice: "Sub menu background was successfully updated."
+        redirect_to admin_sub_menu_background_path, notice: "Sub menu background was successfully updated."
       else
         render action: 'edit'
       end

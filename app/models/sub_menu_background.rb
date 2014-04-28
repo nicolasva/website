@@ -10,8 +10,8 @@ class SubMenuBackground < ActiveRecord::Base
     hash_activation = Hash.new
     background_by_default_id = activation.first
     hash_activation[:activation] = true
-    background_by_default = SubMenuBackground.find(background_by_default_id)
-    return background_by_default.update(hash_activation)
+    sub_menu_background = SubMenuBackground.find(background_by_default_id)
+    return sub_menu_background.activation == false ? sub_menu_background.update(hash_activation) : sub_menu_background
   end
 
   def generate_uuid
@@ -21,7 +21,8 @@ class SubMenuBackground < ActiveRecord::Base
 
   private
   def set_activation_by_default?
-    set_activation_by_default if self.activation == true 
+    sub_menu_background = SubMenuBackground.find(self.id)
+    set_activation_by_default if self.activation == true && sub_menu_background.activation == false
   end
 
   def set_activation_by_default

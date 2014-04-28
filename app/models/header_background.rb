@@ -10,7 +10,7 @@ class HeaderBackground < ActiveRecord::Base
     header_background_id = activation.first
     hash_activation[:activation] = true
     header_background = HeaderBackground.find(header_background_id)
-    return header_background.update(hash_activation)
+    return header_background.activation == false ? header_background.update(hash_activation) : header_background
   end
 
   def generate_uuid
@@ -20,7 +20,8 @@ class HeaderBackground < ActiveRecord::Base
 
   private
   def set_activation_by_default?
-    set_activation_by_default if self.activation == true 
+    header_background = HeaderBackground.find(self.id)
+    set_activation_by_default if self.activation == true && header_background.activation == false
   end
 
   def set_activation_by_default

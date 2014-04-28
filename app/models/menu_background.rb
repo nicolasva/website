@@ -11,7 +11,7 @@ class MenuBackground < ActiveRecord::Base
     menu_background_id = activation.first
     hash_activation[:activation] = true
     menu_background = MenuBackground.find(menu_background_id)
-    return menu_background.update(hash_activation)
+    return menu_background.activation == false ? menu_background.update(hash_activation) : menu_background
   end
 
   def generate_uuid
