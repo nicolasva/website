@@ -14,64 +14,34 @@ jQuery ->
   $(document).ready ->
     $.getJSON("/background_by_defaults", (data) -> 
       unless _.isNull(data)
-        unless data.background.no_background_image 
-          $('.background_by_default').css("background", "url('"+data.background.background_image.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '')
-          $('.background_by_default').css("background-position", HASH_ALIGN_CSS[data.background.align])
-          $('.background_by_default').css("background-size", "cover")
-          if data.background.align == 11
-            $('.background_by_default').css("-moz-background-size", screen.width screen.height)
-            $('.background_by_default').css("-o-background-size", screen.width screen.height)
-            $('.background_by_default').css("-webkit-background-size", screen.width screen.height)
-            $('.background_by_default').css("background-size", screen.width screen.height)
-        $('.background_by_default').css("background-color", data.background.background_color)
-        $(".background_by_default").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
+        set_properties_css(".background_by_default", data.background)
     )
 
     $.getJSON("/menu_backgrounds", (data) ->
       unless _.isNull(data)
-        unless data.background.no_background_image
-          $(".menu_color").css("background", "url('"+data.background.background_image.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '') 
-          $('.menu_color').css("background-position", HASH_ALIGN_CSS[data.background.align]) 
-          $('.menu_color').css("background-size", "cover") 
-          if data.background.align == 11
-            $(".menu_color").css("-moz-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-            $(".mdenu_color").css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-            $(".menu_color").css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-            $(".menu_color").css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-        $(".menu_color").css("background-color", data.background.background_color)
-        $(".menu_color").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
-
+        set_properties_css(".menu_color", data.background)
     )
 
     $.getJSON("/sub_menu_backgrounds", (data) ->
       unless _.isNull(data)
-        unless data.background.no_background_image
-          $(".sub_menu").css("background", "url('"+data.background.background_image.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '') 
-          $('.sub_menu').css("background-position", HASH_ALIGN_CSS[data.background.align]) 
-          $('.sub_menu').css("background-size", "cover") 
-          if data.background.align == 11
-            $('.sub_menu').css("-moz-background-size", screen.width screen.height)
-            $('.sub_menu').css("-o-background-size", screen.width screen.height)
-            $('.sub_menu').css("-webkit-background-size", screen.width screen.height)
-            $('.sub_menu').css("background-size", screen.width screen.height)
-        $(".sub_menu").css("background-color", data.background.background_color)
-        $(".sub_menu").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
+        set_properties_css(".sub_menu", data.background)
     )
 
     $.getJSON("/header_backgrounds", (data) ->
       unless _.isNull(data)
         $("#id_header").show()
-        unless data.background.no_background_image
-          $('#id_header').css("background", "url('"+data.background.background_image.header.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '')
-          $('#id_header').css("background-position", HASH_ALIGN_CSS[data.background.align])
-          $("#id_header").css("background-size", "cover")
-          if data.background.align == 11
-            $("#id_header").css("-moz-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-            $("#id_header").css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-            $("#id_header").css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-            $("#id_header").css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-        $("#id_header").css("background-color", data.background.background_color)
-        $("#id_header").css("border", data.background.border+"px "+data.background.border_style+" "+data.background.border_color)
+        set_properties_css("#id_header", data.background)
     )
 
-
+set_properties_css = (element, background) ->
+  unless background.no_background_image
+    $(element).css("background", "url('"+background.background_image.header.url+"') " + if background.no_repeat is true then 'no-repeat' else '')
+    $(element).css("background-position", HASH_ALIGN_CSS[background.align])
+    $(element).css("background-size", "cover")
+    if background.align == 11
+      $(element).css("-moz-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+      $(element).css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+      $(element).css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+      $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+  $(element).css("background-color", background.background_color)
+  $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
