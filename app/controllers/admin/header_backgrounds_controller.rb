@@ -25,7 +25,7 @@ module Admin
       @header_background = HeaderBackground.new(header_background_params)
 
       if @header_background.save
-        redirect_to admin_header_background_path, notice: 'Header background was successfully created.'
+        redirect_to admin_header_backgrounds_path, notice: 'Header background was successfully created.'
       else
         render action: 'new'
       end
@@ -33,7 +33,7 @@ module Admin
 
     def update
       if @header_background.update(header_background_params)
-        redirect_to admin_header_background_path, notice: 'Header background was successfully updated.'
+        redirect_to admin_header_backgrounds_path, notice: 'Header background was successfully updated.'
       else
         render action: 'edit'
       end
@@ -59,7 +59,7 @@ module Admin
                                                   :title,
                                                   :activation,
                                                   activation: [],
-                                                  background_attributes: [:border, :border_style, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align]
+                                                  background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align]
                                                  )
       end
   end

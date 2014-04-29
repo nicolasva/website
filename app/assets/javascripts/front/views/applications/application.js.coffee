@@ -62,7 +62,7 @@ jQuery ->
       unless _.isNull(data)
         $("#id_header").show()
         unless data.background.no_background_image
-          $('#id_header').css("background", "url('"+data.background.background_image.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '')
+          $('#id_header').css("background", "url('"+data.background.background_image.header.url+"') " + if data.background.no_repeat is true then 'no-repeat' else '')
           $('#id_header').css("background-position", HASH_ALIGN_CSS[data.background.align])
           $("#id_header").css("background-size", "cover")
           if data.background.align == 11
