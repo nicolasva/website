@@ -1,9 +1,13 @@
 module ApplicationHelper
-  def link_content_or_annoncment?(value, category_title)
+  def link_content_or_annoncment?(value, content_annoncment)
     hash_link_content_or_annoncment = Hash.new
-    hash_link_content_or_annoncment["contents"] = link_to("Retourner a la liste du contenus", @submenu.nil? ? admin_title_contents_path(category_title) : admin_title_title_submenu_contents_path(category_title, @submenu.title), class: "btn btn-default")
-    hash_link_content_or_annoncment["annoncments"] = link_to("Retourner a la liste du annonces", @submenu.nil? ? admin_title_annoncments_path(category_title) : admin_title_title_submenu_annoncments_path(category_title, @submenu.title), class: "btn btn-default") 
+    hash_link_content_or_annoncment["contents"] = link_to("Retourner a la liste du contenus", @submenu.nil? ? admin_title_contents_path(content_annoncment.category.title) : admin_title_title_submenu_contents_path(content_annoncment.submenu.category.title, @submenu.title), class: "btn btn-default")
+    hash_link_content_or_annoncment["annoncments"] = link_to("Retourner a la liste du annonces", @submenu.nil? ? admin_title_annoncments_path(content_annoncment.category.title) : admin_title_title_submenu_annoncments_path(content_annoncment.submenu.category.title, @submenu.title), class: "btn btn-default") 
     return hash_link_content_or_annoncment[value]
+  end
+
+  def get_link_content_or_annoncment
+    return request.path.scan(/^.{1,}(contents|annoncments).{1,}$/)[0][0] == "contents" ? @content : @annoncment
   end
 
   def contents_or_annoncments?(contents_or_annoncment)
