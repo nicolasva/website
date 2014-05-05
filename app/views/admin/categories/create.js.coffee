@@ -1,2 +1,10 @@
 $(".dialog_box").modal('hide')
-$(".category_list").append("<%= escape_javascript(render(:partial => '/admin/categories/list_category', :locals => { :category => @category })) %>")
+if $(".category_list").append("<%= escape_javascript(render(:partial => '/admin/categories/list_category', :locals => { :category => @category })) %>")
+  content = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().slice(-2).first()
+  annoncment = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().slice(-1)
+  sub_menu = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().first()
+  console.log sub_menu
+  if $(".category_list").children().last().children().first().children().first().children().first().children().slice(-4).first().children().first().is(':checked')
+    content.hide() if content.is(':visible')
+    annoncment.hide() if annoncment.is(':visible')
+    sub_menu.show() unless sub_menu.is(':visible')

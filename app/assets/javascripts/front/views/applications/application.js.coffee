@@ -9,29 +9,40 @@ HASH_ALIGN_CSS =
   9 : "center top"
   10 : "center bottom"
   11 : "center center"
-
+  12 : "full screen"
 jQuery ->
   $(document).ready ->
     $.getJSON("/background_by_defaults", (data) -> 
       unless _.isNull(data)
         set_properties_css(".background_by_default", data.background)
+        set_propertie_full_screen_javascript(".content", data.background.align)
     )
 
     $.getJSON("/menu_backgrounds", (data) ->
       unless _.isNull(data)
-        set_properties_css(".menu_color", data.background)
+        set_properties_css(".menu_color", data.background) 
+        set_propertie_full_screen_javascript(".menu_color", data.background.align)
     )
 
     $.getJSON("/sub_menu_backgrounds", (data) ->
       unless _.isNull(data)
-        set_properties_css(".sub_menu", data.background)
+        set_properties_css(".sub_menu", data.background) 
+        set_propertie_full_screen_javascript(".sub_menu", data.background.align)
     )
 
     $.getJSON("/header_backgrounds", (data) ->
       unless _.isNull(data)
         $("#id_header").show()
-        set_properties_css("#id_header", data.background)
+        set_properties_css("#id_header", data.background) 
+        set_propertie_full_screen_javascript("#id_header", data.background.align)
     )
+
+set_propertie_full_screen_javascript = (element, align) ->
+  if align == 12
+    winwidth = $(window).width()
+    winheight = $(window).height()
+    $(element).css("height", winheight + "px")
+    $(element).css("width", winwidth + "px")
 
 set_properties_css = (element, background) ->
   unless background.no_background_image

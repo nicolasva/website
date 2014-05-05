@@ -54,7 +54,7 @@ module Admin
     def update
       respond_to do |format|
         if @category.update(category_params)
-          format.html { redirect_to admin_title_path(@category), :notice => "Category was successfully updated." }
+          format.html { redirect_to admin_title_path(@category.title), :notice => "Category was successfully updated." }
           format.js
         else
           format.html { render action: 'edit' }
@@ -78,7 +78,7 @@ module Admin
 
     private
       def set_category
-        @category= Category.find(params[:id])
+        @category = Category.find_by_title(params[:id])
       end
 
       def category_params
