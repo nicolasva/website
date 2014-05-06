@@ -1,7 +1,12 @@
 module Admin
   class AdminController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user! 
     layout "admin"
+    before_filter :load_footer_legals_mentions
+
+    def load_footer_legals_mentions
+      @footer_legals_mentions = Footer.first
+    end
 
     private
       def redirection_url(params,notice)

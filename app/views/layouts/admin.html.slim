@@ -45,6 +45,13 @@ html lang="en"
                   = link_to "Menu du site", admin_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
                 li(role="presentation")
                   = link_to "Sous-menu su site", admin_sub_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
+            li
+              = link_to "Administer le footer", "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
+              ul.menu_footer.dropdown-menu(aria-labelledby="drop2" role="menu")
+                li(role="presentation")
+                  = link_to "Mentions Legales", edit_admin_footer_path(@footer_legals_mentions), remote: true
+                li(role="presentation")
+                  = link_to "Contactez-nous", "#"
 
     .container
       .row

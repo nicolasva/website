@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426160141) do
+ActiveRecord::Schema.define(version: 20140505105353) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -126,6 +126,12 @@ ActiveRecord::Schema.define(version: 20140426160141) do
     t.string   "uuid",       null: false
     t.string   "title",      null: false
     t.boolean  "activation", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "footers", force: true do |t|
+    t.string   "legal_mention", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,17 @@
+h1 Listing footers
+
+table
+  tr
+    th
+    th
+    th
+
+  - @footers.each do |footer|
+    tr
+      td = link_to 'Show', footer
+      td = link_to 'Edit', edit_footer_path(footer)
+      td = link_to 'Destroy', footer, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Footer', new_footer_path

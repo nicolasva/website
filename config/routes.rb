@@ -1,6 +1,5 @@
 WebsiteFrancisFerrari::Application.routes.draw do
   devise_for :users
-  resources :aligns
 
   mount Ckeditor::Engine => '/ckeditor'
   scope do
@@ -13,6 +12,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   resources :sub_menu_backgrounds
   resources :background_by_defaults
   resources :menu_backgrounds
+  resources :footers
   resources :categories, :as => "title" do
     resources :submenu, :as => "title_submenu" do
       resources :contents, :as => "uuid" do
@@ -32,6 +32,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
+    resources :footers
     resources :sub_menu_backgrounds do
       post :activation, :on => :collection
     end

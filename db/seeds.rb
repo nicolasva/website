@@ -6,6 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+unless Footer.exists?
+  Footer.create({
+                  :legal_mention => "Mention legal website"
+                })
+end
+
 unless MenuBackground.exists?
   MenuBackground.create({
                           :title => "Menu_background by default",

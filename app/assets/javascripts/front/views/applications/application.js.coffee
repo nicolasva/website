@@ -10,6 +10,7 @@ HASH_ALIGN_CSS =
   10 : "center bottom"
   11 : "center center"
   12 : "full screen"
+
 jQuery ->
   $(document).ready ->
     $.getJSON("/background_by_defaults", (data) -> 
