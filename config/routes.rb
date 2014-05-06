@@ -8,6 +8,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
     match "annoncments/:title_annoncment_id/backgrounds" => "backgrounds#index", :via => "GET"
   end
 
+  resources :contact_us
   resources :header_backgrounds
   resources :sub_menu_backgrounds
   resources :background_by_defaults
@@ -32,6 +33,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
+    resources :contact_us
     resources :footers
     resources :sub_menu_backgrounds do
       post :activation, :on => :collection

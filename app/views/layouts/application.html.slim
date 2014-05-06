@@ -127,7 +127,14 @@ html lang="en"
                 = yield
 
       footer
-        p &copy; Sailfast 2013
+        .col-md-3 &copy; Sailfast 2013
+        .col-md-4.col-md-offset-5
+          ul.nav.navbar-nav
+            li
+              = link_to "Mentions légales", footers_path, remote: true
+            li
+              = link_to "Contactez nous", new_contact_u_path, remote: true
+
 
       section.dialog_box.modal
         .modal-dialog

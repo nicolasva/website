@@ -4,7 +4,7 @@ class FootersController < ApplicationController
   # GET /footers
   # GET /footers.json
   def index
-    @footers = Footer.all
+    @footer = Footer.first
   end
 
   # GET /footers/1

@@ -1,0 +1,17 @@
+h1 Listing contact_us
+
+table
+  tr
+    th
+    th
+    th
+
+  - @contact_us.each do |contact_u|
+    tr
+      td = link_to 'Show', contact_u
+      td = link_to 'Edit', edit_contact_u_path(contact_u)
+      td = link_to 'Destroy', contact_u, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Contact u', new_contact_u_path
