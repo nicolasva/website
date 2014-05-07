@@ -26,13 +26,17 @@ class ContactUsController < ApplicationController
   def create
     @contact_u = ContactU.new(contact_u_params)
 
+    @notice = "Contact us was successfully created."
     respond_to do |format|
       if @contact_u.save
-        format.html { redirect_to @contact_u, notice: 'Contact u was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @contact_u }
+        format.html { redirect_to @contact_u, notice: @notice }
+        #format.json { render action: 'show', status: :created, location: @contact_u }
+        format.js
       else
+        @notice = "Contact us was not successfully created."
         format.html { render action: 'new' }
-        format.json { render json: @contact_u.errors, status: :unprocessable_entity }
+        #format.json { render json: @contact_u.errors, status: :unprocessable_entity }
+        format.js { redirect_to(:action => :create_contact_us_error, format: :js) }
       end
     end
   end
@@ -69,6 +73,10 @@ class ContactUsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_u_params
-      params[:contact_u]
+      params.require(:contact_u).permit(:id,
+                                        :title,
+                                        :email,
+                                        :content
+                                       )
     end
 end
