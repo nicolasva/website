@@ -1,5 +1,13 @@
 = simple_form_for [:admin, @category], url: url, method: method, remote: true  do |f|
-  = f.input :title
-  = f.input :english_title
+  .row
+    .col-md-6
+      = f.input :title
+    .col-md-6
+      = f.input :english_title
+  .row
+    = f.label :color_font
+    = f.input :color_font, as: 'hidden'
+    #ColorFont
+      div style="background-color: #{@category.color_font}"
   .form-actions
     = f.button :submit, :class => 'btn-primary'

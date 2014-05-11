@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140506195555) do
+ActiveRecord::Schema.define(version: 20140510175052) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 20140506195555) do
     t.integer  "position",      default: 1
     t.string   "english_title", default: "english title"
     t.boolean  "sub_menu",      default: false
+    t.string   "color_font",    default: "black",         null: false
   end
 
   create_table "ckeditor_assets", force: true do |t|

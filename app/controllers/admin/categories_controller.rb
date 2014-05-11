@@ -87,7 +87,8 @@ module Admin
                                          :english_title,
                                          :homepage,
                                          :position,
-                                         homepage: [],
+                                         :color_font,
+                                         homepage: []
                                         )
       end
   end
