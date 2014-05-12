@@ -24,6 +24,6 @@ module AnnoncmentsHelper
   end
 
   def url_annoncment_show(annoncment)
-    return annoncment.submenu.nil? ? title_annoncment_path(annoncment.category.title, annoncment.title) : title_title_submenu_annoncment_path(annoncment.submenu.category.title, annoncment.submenu.title, annoncment.title)
+    return annoncment.submenu.nil? ? title_annoncment_path(annoncment.category.title, annoncment.title) :  title_title_submenu_title_annoncment_path(annoncment.submenu.category.title, annoncment.submenu.title, annoncment.title)
   end
 end
