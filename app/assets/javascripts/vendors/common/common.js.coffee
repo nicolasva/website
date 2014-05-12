@@ -1,3 +1,4 @@
+#= require ./scan
 #= require ./jquery.placeholder.min
 #= require ./lodash
 #= require ./placeholder

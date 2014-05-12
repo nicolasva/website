@@ -81,7 +81,9 @@ module Admin
 
      def submenu_params
         params.require(:submenu).permit(:id,
-                                       :title)
+                                       :title,
+                                       :english_title,
+                                       :color_font)
      end
   end
 end

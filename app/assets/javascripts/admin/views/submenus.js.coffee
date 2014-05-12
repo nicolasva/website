@@ -9,6 +9,10 @@ jQuery ->
       id_for_add_button.append("<input class='btn btn-mini btn-warning' type='submit' value='Les annonces' name='annoncment_list_submenu_title_"+submenu_title+"'>")
 
 jQuery ->
+  $("#ColorFontSubmenu").ColorPicker({
+    color: $('#ColorFontSubmenu').children().first().css("background-color")
+  })
+jQuery ->
   $(document).ready ->
     regex_for_get_category = new RegExp("^.{1,}categories\/(.{1,})\/.{1,}$","g")
     regex_page_submenu = new RegExp("^.{1,}submenus$","g")

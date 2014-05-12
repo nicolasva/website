@@ -12,19 +12,6 @@ jQuery ->
         })
     })
 
-  $("#ColorFont").ColorPicker({
-    color: $('#ColorFont').children().first().css("background-color")
-    onShow: (colpkr) ->
-      $(colpkr).fadeIn(500)
-      return false
-    onHide: (colpkr) ->
-      $(colpkr).fadeOut(500)
-      return false
-    onChange: (hsb, hex, rgb) ->
-      $('#ColorFont div').css('backgroundColor', '#' +hex)
-      $('#category_color_font').attr("value", '#' + hex)
-  })
-
   $(document).ready ->
     $(".category").each (key, value) ->
       $(value).children().each (key1, value1) ->

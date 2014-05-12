@@ -14,5 +14,4 @@ $("#ColorFont").ColorPicker({
   onChange: (hsb, hex, rgb) ->
     $('#ColorFont div').css('backgroundColor', '#' +hex)
     $('#category_color_font').attr("value", '#' + hex)
-    console.log $('#category_color_font')
 })

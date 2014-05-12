@@ -15,7 +15,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   resources :menu_backgrounds
   resources :footers
   resources :categories, :as => "title" do
-    resources :submenu, :as => "title_submenu" do
+    resources :submenus, :as => "title_submenu" do
       resources :contents, :as => "uuid" do
         resources :backgrounds
       end
