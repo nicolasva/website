@@ -1,5 +1,5 @@
 ul#annoncment_list.row.list-unstyled.annoncments
-  - @annoncments.each do |annoncment|
+  - annoncments.each do |annoncment|
     = content_tag_for :li, annoncment, :class => "row" do
       = link_to(url_annoncment_show(annoncment)) do
         .col-md-3

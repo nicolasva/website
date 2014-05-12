@@ -14,7 +14,7 @@
 .row
   dl.dl-horizontal
     dt= model_class.human_attribute_name(:category_id) + ":"
-    dd= @annoncment.category.title
+    dd= @annoncment.category_load.title
     dt= model_class.human_attribute_name(:title) + ":"
     dd= @annoncment.title
     dt= model_class.human_attribute_name(:description) + ":"

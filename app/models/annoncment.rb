@@ -22,6 +22,10 @@ class Annoncment < ActiveRecord::Base
     end
   end
 
+  def category_load
+    self.submenu.nil? ? self.category : self.submenu.category
+  end
+
 
   def update_with_background_image(annoncment_params)
     update_with_background_background_image(annoncment_params)

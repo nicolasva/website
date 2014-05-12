@@ -119,7 +119,10 @@ html lang="en"
                 .col-lg-9
                   = bootstrap_flash
                   = yield
-
+              - else
+                .col-lg-12
+                  = bootstrap_flash
+                  = yield
 
             - else
               .col-lg-12
