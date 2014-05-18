@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @personalize_background], url: url do |f|
+  = f.input :title
+  = f.input :activation
+  = f.label :font_color
+  = f.input :font_color, as: 'hidden'
+  #FontColor
+    div style="background-color: #{@personalize_background.new_record? || @personalize_background.background.nil? ? "black" : @personalize_background.background}"
+  = render(:partial => "/admin/backgrounds/background", :locals => {f: f, model_init: @personalize_background.new_record? || @personalize_background.background.nil? ? Background.new : @personalize_background.background, model: @personalize_background  })
+  .form_actions
+    = f.button :submit, class: 'btn-primary'

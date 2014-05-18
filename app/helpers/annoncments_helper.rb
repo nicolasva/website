@@ -26,4 +26,8 @@ module AnnoncmentsHelper
   def url_annoncment_show(annoncment)
     return annoncment.submenu.nil? ? title_annoncment_path(annoncment.category.title, annoncment.title) :  title_title_submenu_title_annoncment_path(annoncment.submenu.category.title, annoncment.submenu.title, annoncment.title)
   end
+
+  def helper_time(date)
+    return date.strftime("%d/%m/%Y")
+  end
 end

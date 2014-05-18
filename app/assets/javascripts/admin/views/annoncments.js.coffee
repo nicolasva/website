@@ -15,3 +15,6 @@ jQuery ->
             alert("Problem sortable list annoncment")
         })
     })
+
+    $("#annoncment_date_at_html").datepicker() 
+    $("#annoncment_date_to_html").datepicker()

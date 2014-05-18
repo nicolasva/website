@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512074706) do
+ActiveRecord::Schema.define(version: 20140515165846) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -173,6 +173,15 @@ ActiveRecord::Schema.define(version: 20140512074706) do
     t.boolean  "activation", default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "personalize_backgrounds", force: true do |t|
+    t.string   "title",                        null: false
+    t.string   "uuid",                         null: false
+    t.boolean  "activation", default: false,   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "font_color", default: "black", null: false
   end
 
   create_table "photos", force: true do |t|

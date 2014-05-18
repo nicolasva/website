@@ -9,6 +9,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   end
 
   resources :contact_us
+  resources :personalize_backgrounds
   resources :header_backgrounds
   resources :sub_menu_backgrounds
   resources :background_by_defaults
@@ -33,6 +34,9 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
+    resources :personalize_backgrounds do
+      post :activation, :on => :collection
+    end
     resources :contact_us
     resources :footers
     resources :sub_menu_backgrounds do

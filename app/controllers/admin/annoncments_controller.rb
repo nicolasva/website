@@ -2,6 +2,7 @@ module Admin
   class AnnoncmentsController < AdminController 
     before_action :set_annoncment, only: [:show, :edit, :update, :destroy]
     before_action :load_category_by_title
+    before_action :set_date_at_html_date_to_html, only: [:edit]
 
     def index
       @annoncments = @category.annoncments.order(:position, :created_at)
@@ -27,7 +28,7 @@ module Admin
       @photo_master = @annoncment.photos.where(:master_image => true).first
     end
 
-    def create
+    def create 
       @annoncment = @category.annoncments.new(annoncment_params)
 
       if @annoncment.save
@@ -69,6 +70,10 @@ module Admin
     end
 
     private
+      def set_date_at_html_date_to_html
+        @annoncment.date_at_html = @annoncment.date_at.strftime("%d/%m/%Y")
+        @annoncment.date_to_html = @annoncment.date_to.strftime("%d/%m/%Y")
+      end
 
       def set_annoncment
         @annoncment = Annoncment.find_by_title(params[:id])
@@ -80,6 +85,10 @@ module Admin
                                            :description,
                                            :english_description,
                                            :master_image,
+                                           :date_at,
+                                           :date_to,
+                                           :date_to_html,
+                                           :date_at_html,
                                            photos_attributes: [:photo, :master_image, :photo_cache, :annoncment_id],
                                            photos: [:master_image],
                                            background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color, :align]

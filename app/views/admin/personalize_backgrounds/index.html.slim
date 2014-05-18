@@ -1,0 +1,31 @@
+- model_class = PersonalizeBackground
+
+.page-header
+  h1
+    = t(".title")
+
+= form_tag :action => 'activation', :controller => "personalize_backgrounds"
+  table.table.table-striped
+    tr
+      th= model_class.human_attribute_name(:title)
+      th= model_class.human_attribute_name(:activation)
+      th= t '.actions', :default => t("helpers.actions")
+    - @personalize_backgrounds.each do |personalize_background|
+      tr
+        td
+          = personalize_background.title
+        td
+          = radio_button 'personalize_background[activation]', '', personalize_background.id, checked: personalize_background.activation
+        td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_personalize_background_path(personalize_background.uuid), class: 'btn btn-mini btn-primary'
+          '
+          = link_to "show", admin_personalize_background_path(personalize_background.uuid), class: "btn btn-mini btn-success"
+          '
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_personalize_background_path(personalize_background.uuid), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
+
+  .row
+    .col-md-10
+      = link_to t(".new", :default => t("helpers.links.new")), new_admin_personalize_background_path, class: 'btn btn-primary'
+    .col-md-2
+      = submit_tag t("admin.common.valid"), name: "activation_personalize_backgrounds_activate", class: "btn btn-success"
+

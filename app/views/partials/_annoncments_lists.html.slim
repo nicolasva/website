@@ -3,7 +3,11 @@ ul#annoncment_list.row.list-unstyled.annoncments
     = content_tag_for :li, annoncment, :class => "row" do
       = link_to(url_annoncment_show(annoncment)) do
         .col-md-3
-          = "#{annoncment.date_to} - #{annoncment.date_at}"
+          - unless annoncment.date_to.nil?
+            = helper_time(annoncment.date_to)
+            - unless annoncment.date_at.nil?
+              = "-" 
+              = helper_time(annoncment.date_at)
         .col-md-6
           - if annoncment.photos.exists?
             - if annoncment.photos.where(:master_image => true).exists?

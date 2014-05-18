@@ -1,8 +1,8 @@
 module Admin
   class PhotosController < AdminController
     before_action :set_photo, only: [:show, :edit, :update, :destroy]
-    before_action :load_category_by_title
-    before_action :load_annoncment_by_title
+    before_action :load_category_by_title, except: [:add_form_photo]
+    before_action :load_annoncment_by_titl, except: [:add_form_photo]
 
     def index
       @photos = @annoncment.photos

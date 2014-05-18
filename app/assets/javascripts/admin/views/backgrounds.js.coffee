@@ -9,7 +9,7 @@ jQuery ->
       return false
     onChange: (hsb, hex, rgb) ->
       $('#BackgroundColor div').css('backgroundColor', '#' + hex)
-      $('#background_by_default_background_attributes_background_color').attr("value", '#' + hex)
+      $('.background_color').attr("value", '#' + hex)
   })
 
 jQuery ->
