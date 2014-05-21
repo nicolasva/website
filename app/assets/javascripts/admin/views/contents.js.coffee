@@ -9,7 +9,7 @@ jQuery ->
       return false
     onChange: (hsb, hex, rgb) ->
       $('#colorSelector div').css('backgroundColor', '#' + hex)
-      $("#content_border_color").attr("value", '#' + hex)
+      console.log $(".class_border_color").attr("value", '#' + hex)
   })
 
 jQuery ->

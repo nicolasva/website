@@ -1,4 +1,4 @@
-(function($){
+/*(function($){
 	var initLayout = function() {
 		var hash = window.location.hash.replace('#', '');
 		var currentTab = $('ul.navigationTabs a')
@@ -65,3 +65,4 @@
 	
 	EYE.register(initLayout, 'init');
 })(jQuery)
+*/
