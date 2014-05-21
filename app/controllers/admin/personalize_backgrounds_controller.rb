@@ -27,7 +27,7 @@ module Admin
 
     def update
       if @personalize_background.update(personalize_background_params)
-        redirect_to admin_personalize_background_path, notice: "Personalize background was successfully updated."
+        redirect_to admin_personalize_backgrounds_path, notice: "Personalize background was successfully updated."
       else
         render action: 'edit'
       end
