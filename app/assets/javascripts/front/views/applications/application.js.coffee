@@ -38,6 +38,16 @@ jQuery ->
         set_propertie_full_screen_javascript("#id_header", data.background.align)
     )
 
+    exp_annoncment = new RegExp("^.{1,}(annoncments)$","g")
+    location_href = window.location.href
+
+    if exp_annoncment.test(location_href)
+      $.getJSON("/personalize_backgrounds", (data) ->
+        unless _.isNull(data)
+          console.log $("#annoncment_list").find("a").css("color", data.font_color)
+          set_properties_css("#annoncment_list", data.background)
+      )
+
 set_propertie_full_screen_javascript = (element, align) ->
   if align == 12
     winwidth = $(window).width()
@@ -56,4 +66,5 @@ set_properties_css = (element, background) ->
       $(element).css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
       $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
   $(element).css("background-color", background.background_color)
+  console.log $(element)
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
