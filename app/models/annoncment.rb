@@ -32,8 +32,10 @@ class Annoncment < ActiveRecord::Base
     date_at = self.date_at_html.split("/")
     date_to = self.date_to_html.split("/")
 
-    self.date_at = "#{date_at.last}-#{date_at.first}-#{date_at[date_at.length-2]} 00:00:00"
-    self.date_to = "#{date_to.last}-#{date_to.first}-#{date_to[date_to.length-2]} 00:00:00"
+    Rails.logger.info date_to 
+    Rails.logger.info "#{date_at.last}-#{date_at.first}-#{date_at[date_at.length-2]} 00:00:00"
+    self.date_at = "#{date_at.last}-#{date_at[date_at.length-2]}-#{date_at.first} 00:00:00"
+    self.date_to = "#{date_to.last}-#{date_to[date_to.length-2]}-#{date_to.first} 00:00:00"
   end
 
   def update_with_background_image(annoncment_params)

@@ -1,6 +1,7 @@
 = simple_form_for [:admin, @personalize_background], url: url do |f|
   = f.input :title
   = f.input :activation
+  = f.input :margin_top, collection: 0..100
   = f.label :font_color
   = f.input :font_color, as: 'hidden'
   #FontColor

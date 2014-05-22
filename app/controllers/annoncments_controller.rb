@@ -10,6 +10,10 @@ class AnnoncmentsController < ApplicationController
   # GET /annoncments/1
   # GET /annoncments/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @annoncment.to_json(:include => :background) }
+    end
   end
 
   # GET /annoncments/new

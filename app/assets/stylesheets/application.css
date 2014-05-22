@@ -11,5 +11,6 @@
  *= require_self
  *= require_tree ./boostrap
  *= require_tree ./jquery
+ *= require_tree ./plugins/zoombox
  */
 

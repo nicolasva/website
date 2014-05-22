@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515165846) do
+ActiveRecord::Schema.define(version: 20140521154706) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -182,6 +182,7 @@ ActiveRecord::Schema.define(version: 20140515165846) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "font_color", default: "black", null: false
+    t.integer  "margin_top", default: 0,       null: false
   end
 
   create_table "photos", force: true do |t|

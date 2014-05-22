@@ -2,19 +2,19 @@ ul#annoncment_list.row.list-unstyled.annoncments
   - annoncments.each do |annoncment|
     = content_tag_for :li, annoncment, :class => "row annoncment_#{annoncment.title}" do
       = link_to(url_annoncment_show(annoncment)) do
-        .col-md-3
-          - unless annoncment.date_to.nil?
-            = helper_time(annoncment.date_to)
+        .row
+          .col-md-3
             - unless annoncment.date_at.nil?
-              = "-" 
-              = helper_time(annoncment.date_at)
-        .col-md-6
-          - if annoncment.photos.exists?
-            - if annoncment.photos.where(:master_image => true).exists?
-              = image_tag(annoncment.photos.where(:master_image => true).first.photo.url(:thumb))
+              = time_tag(annoncment.date_at, :format => '%d %B %Y ')
+              - unless annoncment.date_to.nil?
+                = time_tag(annoncment.date_to, :format => ' - %d %B %Y')
+          .col-md-6
+            - if annoncment.photos.exists?
+              - if annoncment.photos.where(:master_image => true).exists?
+                = image_tag(annoncment.photos.where(:master_image => true).first.photo.url(:thumb))
+              - else
+                = image_tag(annoncment.photos.first.photo.url(:thumb))
             - else
-              = image_tag(annoncment.photos.first.photo.url(:thumb))
-          - else
-            = image_tag("/assets/img_by_default/img_by_default.jpg", :width => "130", :height => "130")
-        .col-md-3
-          = annoncment.title
+              = image_tag("/assets/img_by_default/img_by_default.jpg", :width => "130", :height => "130")
+          .col-md-3
+            = annoncment.title

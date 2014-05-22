@@ -44,6 +44,7 @@ jQuery ->
     if exp_annoncment.test(location_href)
       $.getJSON("/personalize_backgrounds", (data) ->
         unless _.isNull(data)
+          $("#annoncment_list").children().css("margin-top", data.margin_top+"%")
           $("#annoncment_list").find("a").css("color", data.font_color)
           set_properties_css("#annoncment_list", data.background)
       )
@@ -66,5 +67,4 @@ set_properties_css = (element, background) ->
       $(element).css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
       $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
   $(element).css("background-color", background.background_color)
-  console.log "border", background.border+"px "+background.border_style+" "+background.border_color
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)

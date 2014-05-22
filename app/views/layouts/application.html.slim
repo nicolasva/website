@@ -22,11 +22,10 @@ html lang="en"
 
   body.background_by_default
     section#top-bar class='navbar navbar-default' role='navigation'
-      header#id_header
+      = link_to content_tag(:header, "" ,id: "id_header"), root_url
       .menu_color
         .container
           .navbar-header
-            = link_to t(".home"), root_url, class: 'navbar-brand'
           - if @menu_background.align.align.to_i == 0
             .collapse.navbar-collapse.navbar-ex1-collapse
               ul.nav.navbar-nav

@@ -5,3 +5,4 @@
 #= require ./select2.min
 #= require ./jquery-ui-timepicker-addon
 #= require ./jquery.dropkick-min
+#= require ./zoombox/zoombox
