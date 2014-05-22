@@ -1,0 +1,29 @@
+- model_class = ContactU
+
+.page_header
+  h1
+    = t(".title")
+
+table.table.table-striped
+  thead
+    tr
+      th= model_class.human_attribute_name(:title)
+      th= model_class.human_attribute_name(:email)
+      th= model_class.human_attribute_name(:content)
+      th= "Envoyé le"
+      th= t '.actions', :default => t("helpers.actions")
+  tbody
+    - @contact_us.each do |contact_u|
+      tr
+        td
+          = contact_u.title
+        td
+          = contact_u.email
+        td
+          = truncate(contact_u.content, length: 90)
+        td
+          = time_tag(contact_u.created_at, :format => "%d %B %Y") 
+        td
+          = link_to "Apperçu du message", admin_contact_u_path(id: contact_u.title), :class => 'btn btn-mini btn-primary', remote: true
+          '
+          = link_to t(".destroy", :default => t("helpers.links.destroy")), admin_contact_us_path(contact_u.title), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'

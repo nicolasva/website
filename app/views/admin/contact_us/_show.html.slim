@@ -1,0 +1,10 @@
+- model_class = ContactU
+
+.row.show-grid.contact_us.classified
+  dl.dl-horizontal
+    dt= model_class.human_attribute_name(:title) + ":"
+    dd= @contact_u.title
+    dt= model_class.human_attribute_name(:email) + ":" 
+    dd= @contact_u.email
+    dt= model_class.human_attribute_name(:content) + ":"
+    dd= @contact_u.content
