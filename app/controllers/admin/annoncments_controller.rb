@@ -82,6 +82,9 @@ module Admin
       def annoncment_params
         params.require(:annoncment).permit(:id,
                                            :title,
+                                           :font_weight_title,
+                                           :font_size_title,
+                                           :text_decoration_title,
                                            :description,
                                            :english_description,
                                            :master_image,

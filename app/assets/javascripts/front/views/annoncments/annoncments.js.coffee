@@ -11,6 +11,19 @@ HASH_ALIGN_CSS =
   11 : "center center"
   12 : "full screen"
 
+HASH_ANNONCMENT_FONT_WEIGHT_TITLE = 
+  0: "normal"
+  1: "lighter"
+  2: "bold"
+  3: "bolder"
+
+HASH_ANNONCMENT_TEXT_DECORATION_TITLE =
+  0: "none"
+  1: "underline"
+  2: "overline"
+  3: "line-through"
+  4: "blink"
+
 jQuery ->
   $(document).ready ->
     exp_annoncment = new RegExp("^.{1,}(annoncments)$","g")
@@ -38,6 +51,9 @@ jQuery ->
       get_url_show_annoncment = location_href.scan(exp_get_url_show_annoncment)[0][0]
       $.getJSON(get_url_show_annoncment+"annoncments/"+get_title_annoncment, (data) ->
         #console.log data
+        $(".title_annoncment").css("font-weight", HASH_ANNONCMENT_FONT_WEIGHT_TITLE[data.font_weight_title])
+        $(".title_annoncment").css("font-size", data.font_size_title+"pt")
+        $(".title_annoncment").css("text-decoration", HASH_ANNONCMENT_TEXT_DECORATION_TITLE[data.text_decoration_title])
         background = data.background 
         element = ".annoncment"
         unless background.no_background_image

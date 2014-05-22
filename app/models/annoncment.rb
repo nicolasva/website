@@ -8,6 +8,8 @@ class Annoncment < ActiveRecord::Base
   has_one :background, as: :backgroundstyles, dependent: :destroy
   has_many :photos
   accepts_nested_attributes_for :background
+  ARRAY_FONT_WEIGHT_TITLE = {"normal" => 0, "lighter" => 1, "bold" => 2, "bolder" => 3}
+  ARRAY_TEXT_DECORATION_TITLE = {"none" => 0, "underline" => 1, "overline" => 2, "line-through" => 3, "blink" => 4}
 
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
 
