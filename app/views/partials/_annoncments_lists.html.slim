@@ -1,6 +1,6 @@
 ul#annoncment_list.row.list-unstyled.annoncments
   - annoncments.each do |annoncment|
-    = content_tag_for :li, annoncment, :class => "row annoncment_#{annoncment.title}" do
+    = content_tag_for :li, annoncment, :class => "annoncment_#{annoncment.title}" do
       = link_to(url_annoncment_show(annoncment)) do
         .row
           .col-md-3
