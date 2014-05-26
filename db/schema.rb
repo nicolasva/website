@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140522141931) do
+ActiveRecord::Schema.define(version: 20140526074739) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20140522141931) do
   add_index "contents", ["submenu_id"], name: "contents_submenu_id_to_submenus"
 
   create_table "contents_or_annoncments", force: true do |t|
-    t.boolean  "content_or_annoncment",        default: true, null: false
+    t.integer  "content_or_annoncment",        default: 1, null: false
     t.integer  "contents_or_annoncments_id"
     t.string   "contents_or_annoncments_type"
     t.datetime "created_at"
@@ -147,6 +147,22 @@ ActiveRecord::Schema.define(version: 20140522141931) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "galery_photos", force: true do |t|
+    t.string   "uuid",                          null: false
+    t.string   "title",                         null: false
+    t.text     "comment",                       null: false
+    t.string   "photogalery"
+    t.string   "photogalery_cache"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id"
+    t.integer  "submenu_id"
+    t.integer  "position",          default: 0, null: false
+  end
+
+  add_index "galery_photos", ["category_id"], name: "galery_photos_category_id_to_category"
+  add_index "galery_photos", ["submenu_id"], name: "galery_photos_submenu_id_to_submenu"
 
   create_table "header_backgrounds", force: true do |t|
     t.string   "title",                      null: false

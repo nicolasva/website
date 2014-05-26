@@ -51,8 +51,12 @@ module Admin
     end
 
     def destroy
-      @content.destroy
-      redirect_to admin_title_contents_path(@content.category.title), notice: "Content was successfully destroyed"
+      notice = @content.destroy ? "Content was successfully destroyed" : "Content was not successfully destroyed"
+      if @submenu.nil?
+        redirect_to admin_title_contents_path(@content.category.title), notice: notice 
+      else
+        redirect_to admin_title_title_submenu_contents_path(@content.category.title, @submenu.title), notice: notice
+      end
     end
 
     def sort

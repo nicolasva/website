@@ -1,0 +1,21 @@
+- model_class = GaleryPhoto
+
+.page-header
+  h1
+    = t(".title")
+
+ul#Galery_photo.row.list-inline.galery_photo 
+  - @galery_photos.each do |galery_photo|
+    = content_tag_for :li, galery_photo do
+      h3
+        = galery_photo.title
+      .row
+        = image_tag(galery_photo.photogalery.url(:preview))
+      .row
+        = truncate(galery_photo.comment.html_safe, length: 90)
+      .row
+        = link_to t(".edit", :default => t("helpers.links.edit")), edit_admin_galery_photo_path(galery_photo), class: 'btn btn-mini btn-primary'
+        = link_to t('.destroy', default: t("helpers.links.destroy")), destroy_admin_galery_photo_path(galery_photo), method: :delete, data: { confirm: t(".confirm", default: t("admin.common.confirm_delete"))) }, class: 'btn btn-mini btn-danger'
+
+.row
+  = link_to t(".new", default: t("helpers.links.new")), new_admin_galery_photo_path, class: 'btn btn-primary'

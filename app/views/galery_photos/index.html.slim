@@ -1,0 +1,17 @@
+h1 Listing galery_photos
+
+table
+  tr
+    th
+    th
+    th
+
+  - @galery_photos.each do |galery_photo|
+    tr
+      td = link_to 'Show', galery_photo
+      td = link_to 'Edit', edit_galery_photo_path(galery_photo)
+      td = link_to 'Destroy', galery_photo, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Galery photo', new_galery_photo_path

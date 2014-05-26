@@ -17,6 +17,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   resources :footers
   resources :categories, :as => "title" do
     resources :submenus, :as => "title_submenu" do
+      resources :galery_photos
       resources :contents, :as => "uuid" do
         resources :backgrounds
       end
@@ -25,6 +26,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
         resources :photos
       end
     end
+    resources :galery_photos
     resources :contents
     resources :annoncments do
       resources :photos
@@ -66,6 +68,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
         get :sort, :on => :collection
         post :content_or_annoncment_homepage, :on => :collection
         get :update_success, :on => :member
+        resources :galery_photos
         resources :contents do
           get :sort, :on => :collection
         end
@@ -76,6 +79,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
           end
         end
       end 
+      resources :galery_photos
       resources :contents do
         get :sort, :on => :collection
       end

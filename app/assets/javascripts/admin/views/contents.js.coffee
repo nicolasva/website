@@ -62,11 +62,31 @@ jQuery ->
         if $('#content_no_background_image').is(':checked') is true then $(".background_image").hide() else $(".background_image").show()
 
 jQuery ->
-  $(document).on 'change', '.content_or_annoncment', (e) ->  
-    category_title = $(e.target).parent().parent().children().last().children().last().attr("name").split("_").slice(-1)[0]
-    $(e.target).parent().parent().children().last().children().last().remove() 
-    id_for_add_button = $(e.target).parent().parent().children().last()
-    if $(e.target).val() == 'true'
-      id_for_add_button.append("<input class='btn btn-mini btn-warning' type='submit' value='Les contenus' name='content_list_category_title_"+category_title+"'>")
-    else
-      id_for_add_button.append("<input class='btn btn-mini btn-warning' type='submit' value='Les annonces' name='annoncment_list_category_title_"+category_title+"'>")
+  $(document).on 'change', '.content_or_annoncment', (e) ->   
+    location_href = window.location.href
+    regex_categories = new RegExp("^.{1,}\/(categories)$","g")
+    if regex_categories.test(location_href)
+      category_title = $(e.target).parent().parent().children().last().children().last().attr("name").split("_").slice(-1)[0]
+      #$(e.target).parent().parent().children().last().children().last().remove() 
+      #console.log $(e.target).parent().parent().children().last().children().last()
+      id_for_add_button = $(e.target).parent().parent().children().last()
+      content = id_for_add_button.children().slice(-3).first()
+      annoncment = id_for_add_button.children().slice(-2).first()
+      image_galery = id_for_add_button.children().last()
+      switch parseInt($(e.target).val()) 
+        when 0
+          #id_for_add_button.append("<input class='btn btn-mini btn-warning' type='submit' value='Les annonces' name='annoncment_list_category_title_"+category_title+"'>")
+          content.hide()
+          image_galery.hide()
+          annoncment.show()
+        when 1
+          #id_for_add_button.append("<input class='btn btn-mini btn-warning' type='submit' value='Les contenus' name='content_list_category_title_"+category_title+"'>")
+          content.show()
+          annoncment.hide()
+          image_galery.hide()
+        when 2
+          content.hide()
+          annoncment.hide()
+          image_galery.show()
+
+
