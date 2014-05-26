@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @category, @galery_photo], url: url do |f|
+  .row
+    = f.input :title
+  .row
+    = f.input :comment, as: :ckeditor
+  .row
+    = f.input :photogalery
+    = f.input :photogalery_cache, as: :hidden
+  .form-actions
+    = f.button :submit, class: 'btn-primary'

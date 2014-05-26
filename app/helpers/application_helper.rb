@@ -7,7 +7,16 @@ module ApplicationHelper
   end
 
   def get_link_content_or_annoncment
-    return request.path.scan(/^.{1,}(contents|annoncments).{1,}$/)[0][0] == "contents" ? @content : @annoncment
+    case request.path.scan(/^.{1,}(contents|annoncments|galery_photos).{1,}$/)[0][0]
+      when "contents"
+        link = @content
+      when "annoncments"
+        link = @annoncment
+      when "galery_photos"
+        link = @galery_photo
+    end
+
+    return link
   end
 
   def contents_or_annoncments?(contents_or_annoncment)
@@ -23,19 +32,35 @@ module ApplicationHelper
   end
 
   def get_parent
-    return contents_annoncments? ? @annoncments : @contents
+    if contents_annoncments?
+      if @annoncments.nil?
+        @galery_photos
+      else
+        @annoncments
+      end
+    else
+      @contents
+    end
   end
 
   def submenu?
     if contents_annoncments?
       if @annoncments.nil? || @annoncments.empty?
-        false
+        if @galery_photos.nil? || @galery_photos.empty?
+          !@galery_photos.first.submenu.nil?
+        else
+          false
+        end
       else
         !@annoncments.first.submenu.nil?
       end
     else
       if @contents.nil? || @contents.empty?
-        false
+        if @galery_photos.nil? || @galery_photos.empty?
+          !@galery_photos.first.submenu.nil?
+        else
+          false
+        end
       else
         !@contents.first.submenu.nil?
       end

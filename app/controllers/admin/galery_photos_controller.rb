@@ -24,7 +24,7 @@ module Admin
         if @submenu.nil?
           redirect_to admin_title_galery_photos_path(@category.title), notice: "Galery photo was successfully created."
         else
-          redirect_to admin_title_title_submenu_galery_photos_path(@category.title, @submenu.title)
+          redirect_to admin_title_title_submenu_galery_photos_path(@category.title, @submenu.title), notice: "Galery photo was successfully created."
         end
       else
         render action: "new"

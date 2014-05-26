@@ -63,6 +63,8 @@ module Admin
             redirect_to admin_title_title_submenu_contents_path(@category.title, params_array.last), notice: notice
           when "annoncment"
             redirect_to admin_title_title_submenu_annoncments_path(@category.title, params_array.last), notice: notice
+          when "imagegalery"
+            redirect_to admin_title_title_submenu_galery_photos_path(@category.title, params_array.last), notice: notice
           when "allsubmenu"
             redirect_to admin_title_title_submenu_annoncments_path(params[:title_id]), notice: notice
         end

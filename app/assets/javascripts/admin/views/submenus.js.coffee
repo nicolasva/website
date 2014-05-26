@@ -45,3 +45,24 @@ jQuery ->
           })
       })
 
+    $(".submenus_list").children().each (key, value) ->
+      $(value).children().each (key, value_1) ->
+        $(value_1).children().each (key, value_2) ->
+          #$(value_2).first().children().first().children().last().children().each (key, value_3) ->
+          #console.log $(value_3)
+          content = $(value_2).first().children().first().children().last().children().slice(-3).first()
+          annoncment = $(value_2).first().children().first().children().last().children().slice(-2).first()
+          image_galery = $(value_2).first().children().first().children().last().children().last()
+          switch parseInt($(value_2).first().children().first().children().slice(-3).first().children().first().children().filter(':selected').attr("value"))
+            when 0
+              content.hide()
+              image_galery.hide()
+              annoncment.show()
+            when 1
+              content.show()
+              annoncment.hide()
+              image_galery.hide()
+            when 2
+              content.hide()
+              annoncment.hide()
+              image_galery.show()

@@ -2,7 +2,7 @@ class GaleryPhoto < ActiveRecord::Base
   before_save :generate_uuid
   belongs_to :category
   belongs_to :submenu
-  mount_uploader :photo_galery, PhotogaleryUploader
+  mount_uploader :photogalery, PhotogaleryUploader
 
   def generate_uuid
     uuid = UUID.new
