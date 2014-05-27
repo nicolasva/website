@@ -7,16 +7,16 @@
 = form_tag :action => "activation", :controller => "header_backgrounds"
   table.table.table-striped
     tr
-      th= model_class.human_attribute_name(:title)
-      th= model_class.human_attribute_name(:activation)
-      th= t '.actions', :default => t("helpers.actions")
+      th.col-md-4= model_class.human_attribute_name(:title)
+      th.col-md-4= model_class.human_attribute_name(:activation)
+      th.col-md-4= t '.actions', :default => t("helpers.actions")
     - @header_backgrounds.each do |header_background|
-        tr
-          td
+        tr.tr_content_common
+          td.col-md-4
             = header_background.title
-          td
+          td.col-md-4
             = radio_button "header_background[activation]", "", header_background.id, checked: header_background.activation
-          td
+          td.col-md-4
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_header_background_path(header_background.uuid), class: 'btn btn-mini btn-primary'
             '
             = link_to "Show", admin_header_background_path(header_background.uuid), class: "btn btn-mini btn-success"

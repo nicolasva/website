@@ -1,4 +1,7 @@
 - unless @contents.nil?
   = render(:partial => "/partials/contents_lists", locals: {contents: @contents})
 - else
-  = render(:partial => "/partials/annoncments_lists", locals: {annoncments: @annoncments})
+  - unless @annoncments.nil?
+    = render(:partial => "/partials/annoncments_lists", locals: {annoncments: @annoncments})
+  - else
+    = render(:partial => "/partials/galery_photos", locals: {galery_photos: @galery_photos})

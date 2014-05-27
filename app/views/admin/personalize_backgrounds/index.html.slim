@@ -7,16 +7,16 @@
 = form_tag :action => 'activation', :controller => "personalize_backgrounds"
   table.table.table-striped
     tr
-      th= model_class.human_attribute_name(:title)
-      th= model_class.human_attribute_name(:activation)
-      th= t '.actions', :default => t("helpers.actions")
+      th.col-md-4= model_class.human_attribute_name(:title)
+      th.col-md-4= model_class.human_attribute_name(:activation)
+      th.col-md-4= t '.actions', :default => t("helpers.actions")
     - @personalize_backgrounds.each do |personalize_background|
-      tr
-        td
+      tr.tr_content_common
+        td.col-md-4
           = personalize_background.title
-        td
+        td.col-md-4
           = radio_button 'personalize_background[activation]', '', personalize_background.id, checked: personalize_background.activation
-        td
+        td.col-md-4
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_personalize_background_path(personalize_background.uuid), class: 'btn btn-mini btn-primary'
           '
           = link_to "show", admin_personalize_background_path(personalize_background.uuid), class: "btn btn-mini btn-success"

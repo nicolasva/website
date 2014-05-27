@@ -71,8 +71,8 @@ module Admin
 
     private
       def set_date_at_html_date_to_html
-        @annoncment.date_at_html = @annoncment.date_at.strftime("%d/%m/%Y")
-        @annoncment.date_to_html = @annoncment.date_to.strftime("%d/%m/%Y")
+        @annoncment.date_at_html = @annoncment.date_at.nil? ? Time.now.strftime("%d/%m/%Y") : @annoncment.date_at.strftime("%d/%m/%Y")
+        @annoncment.date_to_html = @annoncment.date_to.nil? ? Time.now.strftime("%d/%m/%Y") : @annoncment.date_to.strftime("%d/%m/%Y")
       end
 
       def set_annoncment

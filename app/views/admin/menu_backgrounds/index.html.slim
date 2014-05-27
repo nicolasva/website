@@ -7,16 +7,16 @@
 = form_tag :action => 'activation', :controller => "menu_backgrounds"
   table.table.table-striped
     tr
-      th= model_class.human_attribute_name(:title)
-      th= model_class.human_attribute_name(:activation)
-      th= t '.actions', :default => t("helpers.actions")
+      th.col-md-4= model_class.human_attribute_name(:title)
+      th.col-md-4= model_class.human_attribute_name(:activation)
+      th.col-md-4= t '.actions', :default => t("helpers.actions")
     - @menu_backgrounds.each do |menu_background|
-      tr
-        td
+      tr.tr_content_common
+        td.col-md-4
           = menu_background.title
-        td
+        td.col-md-4
           = radio_button 'menu_background[activation]', '', menu_background.id, checked: menu_background.activation
-        td
+        td.col-md-4
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_menu_background_path(menu_background.uuid), class: 'btn btn-mini btn-primary'
           '
           = link_to "Show", admin_menu_background_path(menu_background.uuid), class: "btn btn-mini btn-success"

@@ -8,14 +8,13 @@
       = f_photo.input :uuid, as: :hidden
       = f_photo.input :photo
   - unless @annoncment.new_record? || @annoncment.photos.empty?
-    - @annoncment.photos.each do |photo|
+    .col-md-3
+      .row
+        = t(".show_photo")
+      .row
+         = image_tag(photo.photo.url(:thumb))
       .col-md-3
-        .row
-          = t(".show_photo")
-        .row
-           = image_tag(photo.photo.url(:thumb))
-        .col-md-3
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_title_annoncment_photo_path(@category.title, @annoncment.title, photo.uuid), :confirm => t("admin.common.confirm_delete"), :method => :delete, :class => "btn btn-mini btn-danger"
+        = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_title_annoncment_photo_path(@category.title, @annoncment.title, photo.uuid), :confirm => t("admin.common.confirm_delete"), :method => :delete, :class => "btn btn-mini btn-danger"
     .col-md-3
       = render(:partial => "/admin/photos/templates/form_photo_master")
   - else

@@ -47,9 +47,9 @@ module ApplicationHelper
     if contents_annoncments?
       if @annoncments.nil? || @annoncments.empty?
         if @galery_photos.nil? || @galery_photos.empty?
-          !@galery_photos.first.submenu.nil?
-        else
           false
+        else
+          !@galery_photos.first.submenu.nil?
         end
       else
         !@annoncments.first.submenu.nil?
@@ -57,9 +57,9 @@ module ApplicationHelper
     else
       if @contents.nil? || @contents.empty?
         if @galery_photos.nil? || @galery_photos.empty?
-          !@galery_photos.first.submenu.nil?
-        else
           false
+        else
+          !@galery_photos.first.submenu.nil?
         end
       else
         !@contents.first.submenu.nil?

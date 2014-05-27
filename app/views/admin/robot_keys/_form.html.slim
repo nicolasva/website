@@ -1,0 +1,11 @@
+= simple_form_for [:admin, @robot_key], remote: true do |f|
+  .row
+    .col-md-3
+      = f.input :name
+    .col-md-3
+      = f.input :lang
+    .col-md-3
+      = f.input :content
+    .col-md-3
+      = f.button :submit, class: 'btn-primary'
+

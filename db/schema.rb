@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526074739) do
+ActiveRecord::Schema.define(version: 20140527161438) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -213,6 +213,13 @@ ActiveRecord::Schema.define(version: 20140526074739) do
   end
 
   add_index "photos", ["annoncment_id"], name: "photos_annoncment_id_to_photo"
+
+  create_table "robot_keys", force: true do |t|
+    t.string  "uuid",    null: false
+    t.string  "name",    null: false
+    t.integer "lang",    null: false
+    t.text    "content", null: false
+  end
 
   create_table "sub_menu_backgrounds", force: true do |t|
     t.string   "uuid",                       null: false

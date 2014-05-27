@@ -8,11 +8,11 @@
   table.table.table-striped
     thead
       tr
-        th= model_class.human_attribute_name(:title)
-        th= ContentsOrAnnoncment.human_attribute_name(:content_or_annoncment)
-        th= HomepageSubmenu.human_attribute_name(:homepage)
-        th= t '.actions', :default => t("helpers.actions")
-  ul#sortable.list-unstyled.submenus_list
+        th.col-md-3= model_class.human_attribute_name(:title)
+        th.col-md-3= ContentsOrAnnoncment.human_attribute_name(:content_or_annoncment)
+        th.col-md-3= HomepageSubmenu.human_attribute_name(:homepage)
+        th.col-md-3= t '.actions', :default => t("helpers.actions")
+  ul#sortable.list-unstyled.submenus_list.common_table
     - @submenus.each do |submenu|
       = render(:partial => '/admin/submenus/show', :locals => { :submenu => submenu})
   .row

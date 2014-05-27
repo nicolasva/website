@@ -7,16 +7,16 @@
 = form_tag :action => 'activation', :controller => "background_by_defaults"
   table.table.table-striped
       tr
-        th= model_class.human_attribute_name(:title)
-        th= model_class.human_attribute_name(:activation)
-        th= t '.actions', :default => t("helpers.actions")
+        th.col-md-4= model_class.human_attribute_name(:title)
+        th.col-md-4= model_class.human_attribute_name(:activation)
+        th.col-md-4= t '.actions', :default => t("helpers.actions")
       - @background_by_defaults.each do |background_by_default|
-        tr
-          td
+        tr.tr_content_common
+          td.col-md-4
             = background_by_default.title
-          td
+          td.col-md-4
             = radio_button "background_by_default[activations]", "", background_by_default.id, checked: background_by_default.activation
-          td
+          td.col-md-4
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_background_by_default_path(background_by_default.uuid), class: 'btn btn-mini btn-primary'
             '
             = link_to "Show", admin_background_by_default_path(background_by_default.uuid), class: "btn btn-mini btn-success"

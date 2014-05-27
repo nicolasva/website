@@ -36,6 +36,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
+    resources :robot_keys
     resources :personalize_backgrounds do
       post :activation, :on => :collection
     end

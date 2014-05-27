@@ -5,18 +5,20 @@
 table.table.table-striped
   thead
     tr
-      th= model_class.human_attribute_name(:title)
-      th= model_class.human_attribute_name(:description)
+      th.col-md-3= model_class.human_attribute_name(:title)
+      th.col-md-3= model_class.human_attribute_name(:description)
+      th.col-md-3= model_class.human_attribute_name(:english_description)
+      th.col-md-3= t '.actions', :default => t("helpers.actions")
 
-ul#sortable_annoncments_list.list-unstyled.annoncments_list
+ul#sortable_annoncments_list.list-unstyled.annoncments_list.common_table
   - @annoncments.each do |annoncment|
     = content_tag_for :li, annoncment do
       table.table.table-striped
         tr
-          td= annoncment.title
-          td= truncate(annoncment.description, length: 90)
-          td= truncate(annoncment.english_description, length: 90)
-          td
+          td.col-md-3= annoncment.title
+          td.col-md-3= truncate(annoncment.description, length: 90)
+          td.col-md-3= truncate(annoncment.english_description, length: 90)
+          td.col-md-3
             = link_to t('.edit', :default => t("helpers.links.edit")), link_edit_admin_annoncment_path(annoncment), :class => 'btn btn-mini btn-primary'
             '
             = link_to t('.destroy', :default => t("helpers.links.destroy")), link_destroy_admin_annoncment_path(annoncment), :confirm => t("admin.common.confirm_delete"), :method => :delete, :class => "btn btn-mini btn-danger"

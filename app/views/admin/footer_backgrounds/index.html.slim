@@ -7,16 +7,16 @@
 = form_tag :action => "activation", :controller => "footer_backgrounds"
   table.table.table-striped
     tr
-      th= model_class.human_attribute_name(:title)
-      th= model_class.human_attribute_name(:activation)
-      th= t '.actions', :default => t("helpers.actions")
+      th.col-md-4= model_class.human_attribute_name(:title)
+      th.col-md-4= model_class.human_attribute_name(:activation)
+      th.col-md-4= t '.actions', :default => t("helpers.actions")
     - @footer_backgrounds.each do |footer_background|
-      = content_tag_for :tr, footer_background do
-        td
+      = content_tag_for :tr, footer_background, class: "tr_content_common" do
+        td.col-md-4
           = footer_background.title 
-        td
+        td.col-md-4
           = radio_button "footer_background[activation]", "", footer_background.id, checked: footer_background.activation
-        td
+        td.col-md-4
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_footer_background_path(footer_background.uuid), class: 'btn btn-mini btn-primary'
           '
           = link_to "Show", admin_footer_background_path(footer_background.uuid), class: "btn btn-mini btn-success"
