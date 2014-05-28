@@ -1,7 +1,7 @@
 td.col-md-3
   = robot_key.name
 td.col-md-3
-  = robot_key.lang
+  = Robot::Key::LANG.key(robot_key.lang)
 td.col-md-3
   = truncate(robot_key.content, length: 90)
 td.col-md-3

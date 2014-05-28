@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_category
   before_filter :load_menu_background
   before_filter :load_sub_menu_background
+  before_filter :load_robot_keys
 
   def load_category
     @category_all = Category.all.order(:position)
@@ -18,6 +19,9 @@ class ApplicationController < ActionController::Base
     @menu_background = MenuBackground.exists?(:activation => true) ? MenuBackground.find_by_activation(true) : MenuBackground.order(:id).first
   end
 
+  def load_robot_keys
+    @robot_keys = Robot::Key.all
+  end
 
   def load_category_by_title
     #@category = params[:title_submenu_id].nil? ? Category.find_by_title(params[:title_id]) : Category.find_by_title(params[:title_id]).submenus.find_by_title(params[:title_submenu_id])
