@@ -19,18 +19,30 @@ module Admin
     def create
       @robot_key = Robot::Key.new(robot_key_params)
 
-      if @robot_key.save
-        redirect_to admin_robot_keys_path, notice: "Robot Key was successfully created"
-      else
-        render action: 'new'
+      @notice = "Robot Key was successfully created" 
+      respond_to do |format|
+        if @robot_key.save
+          format.html { redirect_to admin_robot_keys_path, notice: @notice }
+          format.js
+        else
+          @notice = "Robot Key was not successfully created"
+          format.html { render action: 'new' }
+          format.js { redirect_to(:action => :create_error_robot_key, :format => :js) } 
+        end
       end
     end
 
     def update
-      if @robot_key.update(robot_key_params)
-        redirect_to admin_robot_keys_path, notice: "Robot Key was successfully updated"
-      else
-        render action: 'edit'
+      @notice = "Robot Key was successfully updated"
+      respond_to do |format|
+        if @robot_key.update(robot_key_params)
+          format.html { redirect_to admin_robot_keys_path, notice: @notice }
+          format.js
+        else
+          @notice = "Robot Key was not successfully updated"
+          format.html { render action: 'edit' }
+          format.js { redirect_to(:action => :edit_error_robot_key, :format => :js)}
+        end
       end
     end
 

@@ -1,0 +1,9 @@
+.row
+  .col-md-3
+    = f.input :name
+  .col-md-3
+    = f.input :lang, collection: Robot::Key::LANG
+  .col-md-3
+    = f.input :content
+  .col-md-3
+    = f.button :submit, class: 'btn-primary'

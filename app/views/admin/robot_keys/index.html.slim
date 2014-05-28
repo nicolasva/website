@@ -3,7 +3,7 @@
   h1
     = t(".title")
 
-table.table.table-striped
+table.table.table-striped.robot_keys
   thead
     tr
       th.col-md-3= model_class.human_attribute_name(:name)
@@ -12,17 +12,8 @@ table.table.table-striped
       th.col-md-3= t '.actions', :default => t("helpers.actions")
   tbody
     - @robot_keys.each do |robot_key|
-      - content_tag_for :tr, robot_key do
-        td.col-md-3
-          = robot_key.name
-        td.col-md-3
-          = robot_key.lang
-        td.col-md-3
-          = truncate(robot_key.content, length: 90)
-        td.col-md-3
-          = link_to t('.edit', :default => t("helpers.links.edit")), admin_robot_key_path(uuid: robot_key.uuid), :class => 'btn btn-mini btn-primary', remote: true
-          '
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_robot_key_path(uuid: robot_key.uuid), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
+      = content_tag_for :tr, robot_key do
+        - render(:partial => '/admin/robot_keys/list_robot_keys', :locals => { robot_key: robot_key})
 
 .row
   = link_to t(".new", :default => t("helpers.links.new")), new_admin_robot_key_path, class: 'btn btn-primary', remote: true

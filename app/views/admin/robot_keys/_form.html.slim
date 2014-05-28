@@ -1,11 +1,6 @@
-= simple_form_for [:admin, @robot_key], remote: true do |f|
-  .row
-    .col-md-3
-      = f.input :name
-    .col-md-3
-      = f.input :lang
-    .col-md-3
-      = f.input :content
-    .col-md-3
-      = f.button :submit, class: 'btn-primary'
-
+- if defined? url
+  = simple_form_for [:admin, @robot_key], url: url, method: method, remote: true do |f|
+    - render(:partial => "/admin/robot_keys/input_form_robot_keys", :locals => {f: f})
+- else
+  = simple_form_for [:admin, @robot_key], remote: true do |f|
+    - render(:partial => "/admin/robot_keys/input_form_robot_keys", :locals => {f: f})
