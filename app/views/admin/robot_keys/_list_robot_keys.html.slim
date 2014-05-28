@@ -1,2 +1,2 @@
-= content_tag_for :tr, robot_key, class: robot_key.uuid do
+= content_tag_for :tr, robot_key, class: "#{robot_key.uuid} tr_content_common" do
   = render(:partial => '/admin/robot_keys/td_list_robot_keys', :locals => { :robot_key => robot_key })
