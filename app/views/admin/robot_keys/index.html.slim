@@ -12,8 +12,7 @@ table.table.table-striped.robot_keys
       th.col-md-3= t '.actions', :default => t("helpers.actions")
   tbody
     - @robot_keys.each do |robot_key|
-      = content_tag_for :tr, robot_key do
-        - render(:partial => '/admin/robot_keys/list_robot_keys', :locals => { robot_key: robot_key})
+      = render(:partial => '/admin/robot_keys/list_robot_keys', :locals => { robot_key: robot_key})
 
 .row
   = link_to t(".new", :default => t("helpers.links.new")), new_admin_robot_key_path, class: 'btn btn-primary', remote: true
