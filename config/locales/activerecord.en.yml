@@ -14,7 +14,12 @@ en:
       menu_background: Background menu
       sub_menu_background: Background sub-menu
       personalize_background: Personalize background announcement
+      footer: Footer
     attributes:
+      footer:
+        legal_mention: Legal mention
+        created_at: Created at
+        updated_at: Updated at
       personalize_background:
         title: Title
         uuid: Uuid

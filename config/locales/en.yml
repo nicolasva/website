@@ -7,6 +7,10 @@ en:
       destroy: Destroy
       show: See
   admin:
+    footers:
+      edit:
+        button:
+          valid_edit_footer: Register this legal mention
     personalize_backgrounds:
       new:
         button:

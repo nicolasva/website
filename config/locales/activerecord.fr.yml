@@ -14,7 +14,12 @@ fr:
       menu_background: Arriere plan pour le menu
       sub_menu_background: Arrière plan pour le sous-menu
       personalize_background: Style de l'arrière plan des annonces
+      footer: Pied de page
     attributes:
+      footer:
+        legal_mention: Mention légale
+        created_at: Crée le
+        updated_at: Mise à jour le
       personalize_background:
         title: Titre
         uuid: Uuid
