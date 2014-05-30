@@ -9,8 +9,7 @@
         .btn-toolbar
           = render(:partial => "/admin/common_panel/panel")
           .btn-group
-            = link_to "Editer ce contenu", edit_admin_title_content_path(@content.category.title, @content.uuid), class: "btn btn-default"
-
+            = link_to "Editer ce contenu", @submenu.nil? ? edit_admin_title_content_path(@content.category.title, @content.uuid) : edit_admin_title_title_submenu_content_path(@content.submenu.category.title, @content.submenu.title, @content.uuid), class: "btn btn-default"
 .row
   dl.dl-horizontal 
     dt= model_class.human_attribute_name(:category_id) + ":"

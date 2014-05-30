@@ -19,8 +19,6 @@
         td.col-md-4
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_admin_footer_background_path(footer_background.uuid), class: 'btn btn-mini btn-primary'
           '
-          = link_to "Show", admin_footer_background_path(footer_background.uuid), class: "btn btn-mini btn-success"
-          '
           = link_to t('.destroy', :default => t("helpers.links.destroy")), admin_footer_background_path(footer_background.uuid), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
 
   .row

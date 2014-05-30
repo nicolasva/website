@@ -1,1 +1,1 @@
-= render(:partial => "/admin/submenus/form", locals: {:url => "/admin/categories/#{@category.title}/submenus", :method => :post})
+= render(:partial => "/admin/submenus/form", locals: {submit_value_submenus: t(".submit_value_new_submenus"), :url => "/admin/categories/#{@category.title}/submenus", :method => :post})

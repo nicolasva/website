@@ -3,4 +3,4 @@
   = f.input :english_description, :as => :ckeditor
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @content.new_record? || @content.background.nil? ? Background.new : @content.background, model: @content })
   .form-actions
-    = f.button :submit, :class => 'btn-primary'
+    = f.button :submit, value: value_submit_content, :class => 'btn-primary'

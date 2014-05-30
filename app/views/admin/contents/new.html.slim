@@ -10,4 +10,4 @@
           = render(:partial => "/admin/common_panel/panel")
 
 .row
-  = render(:partial => "/admin/contents/form", :locals => { :url => url_form_new_content })
+  = render(:partial => "/admin/contents/form", :locals => { value_submit_content: t(".button.valid_new_content"), :url => url_form_new_content })

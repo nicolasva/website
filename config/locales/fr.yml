@@ -1,5 +1,64 @@
 fr:
+  helpers:
+    actions: Edition
+    links:
+      new: Nouveau
+      edit: Editer
+      destroy: Supprimer
+      show: Voir
   admin:
+    personalize_backgrounds:
+      new:
+        button:
+          valid_new_personalize_background: Enregistrer le style pour les annonces
+      edit:
+        button:
+          valid_edit_personalize_background: Mettre à jour ce style pour les annonces
+      index:
+        title: Personaliser le style des annonces
+    sub_menu_backgrounds:
+      new:
+        button:
+          valid_new_sub_menu_background: Enregistrer ce nouveau sous-menu
+      edit:
+        button:
+          valid_edit_sub_menu_background: Mettre à jour ce nouveau sous-menu
+      index:
+        title: Arrière plan du sous-menu
+    menu_backgrounds:
+      new:
+        button:
+          valid_new_menu_background: Enregistrer ce nouvelle arrière plan pour le menu
+      edit:
+        button:
+          valid_edit_menu_background: Mettre à jour ce nouvelle arrière plan pour le menu
+      index:
+        title: Arrière plan pour le menu
+    footer_backgrounds:
+      new:
+        button:
+          valid_new_footer_background: Enregistrer ce nouvelle arrière plan pour le pied de page
+      edit:
+        button:
+          valid_edit_footer_background: Mettre à jour ce nouvelle arrière plan pour le pied de page
+    header_backgrounds:
+      new:
+        button:
+          valid_new_header_background: Enregistrer ce nouvelle arrière plan pour l'entête
+      edit:
+        button:
+          valid_edit_header_background: Mettre à jour ce nouvelle arrière plan pour l'entête
+      index:
+        title: Personalisation de l'entête du site
+    background_by_defaults:
+      new:
+        button:
+          valid_new_background_by_default: Creer ce nouvelle arrière plan
+      edit:
+        button:
+          valid_edit_background_by_default: Mettre à jour cette arrière plan
+      index:
+        title: Liste des personalisations d'arrière plan disponible
     common: 
       confirm_delete: Etes vous sur ?
       valid: Valider
@@ -9,15 +68,49 @@ fr:
           show_photo: Aperçu de la photo
         form_photo_master:
           image_master: Image par défaut ?
+    submenus:
+      new:
+        submit_value_new_submenus: Creer le nouveau sous-menu
+      edit:
+        submit_value_edit_submenus: Editer ce sous-menu
+      index:
+        title: Liste des sous-menus
+      show:
+        links:
+          annoncment: Les annonces
+          content: Les contenus
+          image_galery: La galerie d'image
+          sub_menu: Les sous-menus
     categories:
+      list_category:
+        links:
+          annoncment: Les annonces
+          content: Les contenus
+          image_galery: La galerie d'image
+          sub_menu: Les sous-menus
       index:
         title: Liste des catégories pour le menu
     annoncments:
+      edit:
+        button:
+          valid_edit_annoncment: Mettre à jour cette annonce
+      new:
+        button:
+          valid_new_annoncment: Enregistrer cette nouvelle annonce
       index:
         title: Liste des annonces
+    contents:
+      new:
+        button:
+          valid_new_content: Ajouter ce nouveau contenu
+      edit:
+        button:
+          valid_edit_content: Mettre à jour ce contenu
   layouts:
     application:
       home: Accueil
+      contact_us: Contactez nous
+      legal_mention: Mention légales
   devise:
     confirmations:
       confirmed: Votre compte a été confirmé avec succès. Vous êtes désormais connecté(e).

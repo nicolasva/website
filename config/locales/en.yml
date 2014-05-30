@@ -1,5 +1,64 @@
 en:
+  helpers:
+    actions: Edit
+    links:
+      new: New
+      edit: Edit
+      destroy: Destroy
+      show: See
   admin:
+    personalize_backgrounds:
+      new:
+        button:
+          valid_new_personalize_background: Register the style for the new announcment
+      edit:
+        button:
+          valid_edit_personalize_background: Update the style for this announcment
+      index:
+        title: Personalize style of the announcment
+    sub_menu_backgrounds:
+      new:
+        button:
+          valid_new_sub_menu_background: Register this new sub-menu
+      edit:
+        button:
+          valid_edit_sub_menu_background: Update this new sub-menu
+      index:
+        title: Background sub-menu
+    menu_backgrounds:
+      new:
+        button:
+          valid_new_menu_background: Register this new background for the menu
+      edit:
+        button:
+          valid_edit_menu_background: Update this new background for the menu
+      index:
+        title: Background for the menu
+    footer_backgrounds:
+      new:
+        button:
+          valid_new_footer_background: Register this new footer background
+      edit:
+        button:
+          valid_edit_footer_background: Update this header background
+    header_backgrounds:
+      new:
+        button:
+          valid_new_header_background: Register this new header background
+      edit:
+        button:
+          valid_edit_header_background: Update this header background
+      index:
+        title: Header personalisation
+    background_by_defaults:
+      new:
+        button:
+          valid_new_background_by_default: Create this new background
+      edit:
+        button:
+          valid_edit_background_by_default: Update this background 
+      index:
+        title: Background list for personalisation
     common:
       confirm_delete: Are you sure ?
       valid: Submit
@@ -9,15 +68,49 @@ en:
           show_photo: Show photo
         form_photo_master:
           image_master: Master image ?
+    submenus:
+      new:
+        submit_value_new_submenus: Create the new sub-menu
+      edit:
+        submit_value_edit_submenus: Edit this sub-menu
+      index:
+        title: Sub-menus list
+      show:
+        links:
+          annoncment: THe announcement
+          content: the content
+          image_galery: The Image galery
+          sub_menu: The Sub menu
     categories:
+      list_category:
+        links:
+          annoncment: THe announcement
+          content: the content
+          image_galery: The Image galery
+          sub_menu: The Sub menu
       index:
         title: Category list for the menu
     annoncments:
+      edit:
+        button:
+          valid_edit_annoncment: Update this announcement
+      new:
+        button:
+          valid_new_annoncment: Register this new announcement
       index:
         title: Annoncments list
+    contents:
+      new:
+        button:
+          valid_new_content: Add this new content
+      edit:
+        button:
+          valid_edit_content: Update this content
   layouts:
     application:
       home: Home
+      contact_us: Contact us
+      legal_mention: Legal mention
   devise:
     confirmations:
       confirmed: Your account was successfully confirmed. You are now signed in.

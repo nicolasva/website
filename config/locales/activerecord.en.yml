@@ -2,15 +2,94 @@ en:
   activerecord:
     models:
       category: Category
-      context: Context
+      content: Content
+      submenu: sub menu
+      contents_or_annoncment: Contents or announcement
+      homepage_submenu: Website homepage
+      background: Background
+      annoncment: Announcement
+      background_by_default: Background by default
+      header_background: Header background
+      footer_background: Footer background
+      menu_background: Background menu
+      sub_menu_background: Background sub-menu
+      personalize_background: Personalize background announcement
     attributes:
+      personalize_background:
+        title: Title
+        uuid: Uuid
+        activation: Activation
+        font_color: Font Color
+        margin-top: Margin between the announcment
+      sub_menu_background:
+        uuid: Uuid
+        title: Title
+        activation: Activation
+        created_at: Created at
+        updated_at: Updated at
+      menu_background:
+        uuid: Uuid
+        title: Title
+        activation: Activation
+        created_at: Created at
+        updated_at: Updated at
+      footer_background:
+        uuid: Uuid
+        title: Title
+        activation: Activation
+        created_at: Created at
+        updated_at: Mise à jour le
+      header_background:
+        title: title
+        uuid: uuid
+        created_at: Created at
+        updated_at: Updated at
+        activation: activation
+      background_by_default:
+        title: Title
+        activation: Activation
+        created_at: Crée le
+        updated_at: Mise à jour le
+        uuid: uuid
+      annoncment:
+        title: Title
+        description: Description
+        created_at: Created at
+        updated_at: Updated at
+        english_description: English description
+        category_id: Category id
+        position: Position
+        submenu_id: Submenu id
+        date_at: at
+        date_at_html: at
+        date_to: to
+        date_to_html: to
+        font_weight_title: Font weight title
+        font_size_title: Font size title
+        text_decoration_title: text decoration title
       category:
         title: Title 
         created_at: Created at
         updated_at: Updated at
         homepage: Principal Page
         position: Position
+        sub_menu: Sub menu
         english_title: English title
+      submenu:
+        title: Title
+        english_title: English title 
+        color_font: Font color 
+        position: position
+        category_id: Category Id
+      contents_or_annoncment:
+        content_or_annoncment: Content choice
+        content_or_annoncment_choice_annoncment: Annoncment
+        content_or_annoncment_choice_content: Content
+        content_or_annoncment_choice_galery_image: Image galery
+      homepage_submenu:
+        homepage: Home page
+        homepage_submenus_id: sub-menu id of the home page
+        homepage_submenus_type: Sub-menu type of the home page
       content:
         description: Description
         category_id: Category Id
@@ -19,10 +98,15 @@ en:
         english_description: English description
         position: Position
         uuid: Uuid
+      background:
         border: Border
         border_style: Border style
         border_color: Border color
         background_color: Background color
         background_image: Background image
-        bckground_image_cache: Background image cache
-
+        cached_path: Background image cache
+        backgroundstyles_id: Background style id
+        backgroundstyles_type: Background Type
+        no_repeat: No repeat
+        align: Align
+        no_background_image: Not background image
