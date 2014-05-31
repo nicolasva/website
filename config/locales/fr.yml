@@ -11,6 +11,20 @@ fr:
       destroy: Supprimer
       show: Voir
   admin:
+    robot_keys:
+      destroy:
+        robot_key_success_destroy: Les clefs pour les moteurs de recherches sur internet a bien été supprimé
+        robot_key_not_success_destroy: Les clefs pour les moteurs de recherches sur internet n'a pas été correctement supprimé
+      update:
+        robot_key_success_updated: Les clefs pour les moteurs de recherches sur internet a bien été mise à jour
+        robot_key_success_not_updated: Les clef pour les moteurs de rcherches sur internet n'a pas été correctement mise à jour
+      create:
+        robot_key_success_create: Les clefs pour les moteurs de recherches sur internet a bien été crée
+        robot_key_success_not_create: Les clefs pour les moteurs de recherches sur internet n'a pas été correctement crée
+    contact_us:
+      destroy:
+        contact_us_was_successfully_destroy: Ce message a bien été supprimé
+        contact_us_was_not_successfully_destroy: Ce message n'a pas été correctement détruit
     galery_photos:
       create:
         galery_photo_was_successfully_created: La photo pour la galérie a bien été crée
@@ -20,10 +34,23 @@ fr:
         photo_was_successfully_destroyed: Cette photo a bien été détruit
         photo_was_not_successfully_destroyed: Cette photo n'a pas été détruit correctement
     footers:
+      update:
+        footer_update_success: Le pied de page a bien été mise à jour
+        footer_was_not_update_success: Le pied de page n'a pas été mise à jour correctement
       edit:
         button:
           valid_edit_footer: Enregistrer cette mention légale
     personalize_backgrounds:
+      activation:
+        personalize_background_success_defined: L'arrière plan pour les annonces a bien été définis
+        personalize_background_was_not_success_defined: L'arrière plan pour les annonces n'a pas été définis correctement
+      destroy:
+        personalize_background_success_destroyed: L'arrière plan pour les annonces a bien été supprimé
+        personalize_background_not_success_destroyed: L'arrière plan pour les annonces n'a pas été correctement supprimé
+      create:
+        personalize_background_success_created: L'arrière plan pour les annonces a bien été crée
+      update:
+        personalize_background_success_updated: L'arrière plan pour les annonces a bien été mise à jour
       new:
         button:
           valid_new_personalize_background: Enregistrer le style pour les annonces
@@ -33,6 +60,16 @@ fr:
       index:
         title: Personaliser le style des annonces
     sub_menu_backgrounds:
+      activation:
+        sub_menu_background_success_defined: L'arrière plan pour ce sous-menu a bien été définis
+        sub_menu_background_not_success_defined: L'arrière plan pour ce sous-menu n'a pas été définis correctement
+      destroy:
+        sub_menu_background_success_deleted: L'arrière plan pour ce sous-menu a bien été supprimé
+        sub_menu_background_not_success_deleted: L'arrière plan pour ce sous-menu n'a pas été correctement supprimé
+      create:
+        sub_menu_background_success_created: L'arrière plan pour ce sous-menu a bien été crée
+      update:
+        sub_menu_background_success_updated: L'arrière plan pour ce sous-menu a été correctement mise à jour 
       new:
         button:
           valid_new_sub_menu_background: Enregistrer ce nouveau sous-menu
@@ -42,6 +79,16 @@ fr:
       index:
         title: Arrière plan du sous-menu
     menu_backgrounds:
+      create:
+        menu_background_success_created: L'arrière plan pour ce menu a bien été crée
+      update:
+        menu_background_success_updated: L'arrière plan pour ce menu à bien été mise à jour
+      destroy:
+        menu_background_success_destroy: L'arrière plan pour ce menu a bien été supprimé
+        menu_background_not_success_destroy: L'arrière plan pour ce menu n'a pas été correctement supprimé
+      activation:
+        menu_background_success_defined: L'arrière plan pour ce menu a bien été définis
+        menu_background_not_success_defined: L'arrière plan pour ce menu n'a pas été correctement définis
       new:
         button:
           valid_new_menu_background: Enregistrer ce nouvelle arrière plan pour le menu
@@ -51,6 +98,16 @@ fr:
       index:
         title: Arrière plan pour le menu
     footer_backgrounds:
+      activation:
+        activation_was_success_defined: L'arrière plan pour ce pied de page a bien été définis
+        activation_was_not_success_defined: L'arrière plan pour ce pied de page n'a pas été correctement définis
+      destroy:
+        footer_background_success_destroy: L'arrière plan pour le pied de page a bien été supprimé
+        footer_background_was_not_success_destroy: L'arrière plan pour le pied de page n'a pas été supprimé
+      create:
+        footer_background_success_created: L'arrière plan pour le pied de page a bien été crée
+      update:
+        footer_background_success_updated: L'arrière plan pour ce pied de page a bien été mise à jour
       new:
         button:
           valid_new_footer_background: Enregistrer ce nouvelle arrière plan pour le pied de page
@@ -58,6 +115,15 @@ fr:
         button:
           valid_edit_footer_background: Mettre à jour ce nouvelle arrière plan pour le pied de page
     header_backgrounds:
+      activation:
+        header_background_success_defined: L'arrière plan pour l'entête a bien été définis
+        header_background_not_success_desfined: L'arrière plan pour l'entête n'a pas été correctement définis
+      destroy:
+        header_background_success_destroy: L'arrière plan pour l'entête a bien été supprimé
+        header_background_not_success_destroy: L'arrière plan pour l'entête n'a pas été correctement supprimé
+      create: 
+        header_background_success_created: L'arrière plan pour l'entête a bien été crée
+        header_background_sucsess_updated: L'arrière plan a bien été mise à jour
       new:
         button:
           valid_new_header_background: Enregistrer ce nouvelle arrière plan pour l'entête
@@ -95,6 +161,15 @@ fr:
         form_photo_master:
           image_master: Image par défaut ?
     submenus:
+      destroy:
+        sub_menus_destroy_success: Ce sous-menu a été supprimé avec succès
+        sub_menus_destroy_not_success: Ce sous-emnu n'a pas été correctement succès
+      content_or_annoncment_homepage:
+        informations_sub_menu_updated: Les informations concernants les sous-menus ont bien été mise à jour
+      create:
+        submenu_success_create: Le sous-menu a bien été crée
+      update:
+        submenu_success_updated: Le sous-menu a bien été mise à jour
       new:
         submit_value_new_submenus: Creer le nouveau sous-menu
       edit:

@@ -19,7 +19,7 @@ module Admin
       @personalize_background = PersonalizeBackground.new(personalize_background_params)
 
       if @personalize_background.save
-        redirect_to admin_personalize_backgrounds_path, notice: "Personalize background was successfully created."
+        redirect_to admin_personalize_backgrounds_path, notice: t(".personalize_background_success_created")
       else
         render action: 'new'
       end
@@ -27,19 +27,19 @@ module Admin
 
     def update
       if @personalize_background.update(personalize_background_params)
-        redirect_to admin_personalize_backgrounds_path, notice: "Personalize background was successfully updated."
+        redirect_to admin_personalize_backgrounds_path, notice: t(".personalize_background_success_updated")
       else
         render action: 'edit'
       end
     end
 
     def destroy
-      notice = @personalize_background.destroy ? "Personalize background was successfully deleted" : "Personalize background was not successfully deleted"
+      notice = @personalize_background.destroy ? t(".personalize_background_success_destroyed") : t(".personalize_background_not_success_destroyed")
       redirect_to admin_personalize_background_path, notice: notice
     end
 
     def activation
-      notice = PersonalizeBackground.activation!(params[:personalize_background][:activation]) ? "Personalize background was successfully defined" : "Personalize background was not successfully defined"
+      notice = PersonalizeBackground.activation!(params[:personalize_background][:activation]) ? t(".personalize_background_success_defined") : t(".personalize_background_was_not_success_defined")
       redirect_to admin_personalize_background_path, notice: notice
     end
 

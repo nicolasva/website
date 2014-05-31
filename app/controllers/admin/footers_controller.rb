@@ -5,13 +5,13 @@ module Admin
     end
 
     def update
-      @notice = "Footer was successfully updated."
+      @notice = t(".footer_update_success") 
       respond_to do |format|
         if @footer.update(footer_params)
           format.html { redirect_to @footer, notice: @notice}
           format.js
         else
-          @notice = "Footer was not successfully updated."
+          @notice = t(".footer_was_not_update_success")
           format.html { render action: "edit" }
           format.js { redirect_to(:action => :update_error_footer, :format => :js) }
         end

@@ -24,7 +24,7 @@ module Admin
       @footer_background = FooterBackground.new(footer_background_params)
       
       if @footer_background.save
-        redirect_to admin_footer_background_path, notice: 'Footer background was successfully created.'
+        redirect_to admin_footer_background_path, notice: t(".footer_background_success_created")
       else
         render action: 'new'
       end
@@ -32,19 +32,19 @@ module Admin
 
     def update
       if @footer_background.update(footer_background_params)
-        redirect_to admin_footer_background_path, notice: 'Footer background was successfully updated.'
+        redirect_to admin_footer_background_path, notice: t(".footer_background_success_updated")
       else
         render action: 'edit'
       end
     end
 
     def destroy
-      @footer_background.destroy ? "Footer background was successfully deleted." : "Footer background was not successfully deleted."
+      @footer_background.destroy ? t(".footer_background_success_destroy") : t(".footer_background_was_not_success_destroy")
       redirect_to admin_footer_backgrounds_path
     end
 
     def activation
-      notice = FooterBackground.activation!(params[:footer_background][:activation]) ? "Footer Background was successfully defined" : "Footer Background was not successfully defined"
+      notice = FooterBackground.activation!(params[:footer_background][:activation]) ? t(".activation_was_success_defined") : t(".activation_was_not_success_defined") 
       redirect_to admin_footer_backgrounds_path, notice: notice
     end
 

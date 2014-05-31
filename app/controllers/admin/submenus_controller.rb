@@ -29,7 +29,7 @@ module Admin
       @submenu = @category.submenus.new(submenu_params)
 
       if @submenu.save
-        redirect_to admin_title_title_submenu_path(@category.title, @submenu.title), notice: "Submenu was successfully created."
+        redirect_to admin_title_title_submenu_path(@category.title, @submenu.title), notice: t(".submenu_success_created")
       else
         render action: 'new'
       end
@@ -42,7 +42,7 @@ module Admin
     def update
       respond_to do |format|
         if @submenu.update(submenu_params)
-          format.html { redirect_to admin_title_title_submenu_path(@category.title, @submenu.title), notice: "Submenu was successfully updated" }
+          format.html { redirect_to admin_title_title_submenu_path(@category.title, @submenu.title), notice: t(".submenu_success_updated") }
           format.js { redirect_to(:action => :update_success, :title_id => @category.title, :title_submenu_id => @submenu.title, :format => :js) }
         else
           format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ module Admin
       params.keys.each do |k|
         #Rails.logger.info k
         #redirection_url(k,notice)
-        notice = "les informations concernants les sous-menus ont bien été mise à jour"
+        notice = t(".informations_sub_menu_updated")
         params_array = k.split("_")
         case params_array.first
           when "content"
@@ -72,8 +72,8 @@ module Admin
     end
 
     def destroy
-      @submenu.destroy
-      redirect_to admin_title_title_submenu_index_path(@submenu.category.title), notice: "Submenu was successfully destroyed"
+      notice = @submenu.destroy ? t(".sub_menus_destroy_success") : t(".sub_menus_destroy_not_success")
+      redirect_to admin_title_title_submenu_index_path(@submenu.category.title), notice: notice
     end
 
     private

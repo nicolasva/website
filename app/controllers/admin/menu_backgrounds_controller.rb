@@ -32,7 +32,7 @@ module Admin
       @menu_background = MenuBackground.new(menu_background_params)
 
       if @menu_background.save
-        redirect_to admin_menu_background_path, notice: "Menu background was successfully created."
+        redirect_to admin_menu_background_path, notice: t(".menu_background_success_created")
       else
         render action: 'new'
       end
@@ -40,19 +40,19 @@ module Admin
 
     def update
       if @menu_background.update(menu_background_params)
-        redirect_to admin_menu_background_path, notice: "Menu background was successfully updated"
+        redirect_to admin_menu_background_path, notice: t(".menu_background_success_updated") 
       else
         render action: 'edit'
       end
     end
 
     def destroy
-      notice = @menu_background.destroy ? "Menu background was successfully deleted" : "Menu background was not successfully deleted"
+      notice = @menu_background.destroy ? t(".menu_background_success_destroy") : t(".menu_background_not_success_destroy")
       redirect_to admin_menu_backgrounds_path, notice: notice
     end
 
     def activation
-      notice = MenuBackground.activation!(params[:menu_background][:activation]) ? "The Menu Background was successfully defined" : "The Menu Background was not successfully defined"
+      notice = MenuBackground.activation!(params[:menu_background][:activation]) ? t(".menu_background_success_defined") : t(".menu_background_not_success_defined")
       redirect_to admin_menu_backgrounds_path, notice: notice
     end
 

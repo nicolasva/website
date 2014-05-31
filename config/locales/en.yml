@@ -11,6 +11,20 @@ en:
       destroy: Destroy
       show: See
   admin:
+    robot_keys:
+      destroy:
+        robot_key_success_destroy: Robot key for the internet search motor was successfully destroyed
+        robot_key_not_success_destroy: Robot key the internet search motor was not successfully destroyed
+      update:
+        robot_key_success_updated: Robot key for the internet search motor was successfully updated
+        robot_key_success_not_updated: Robot key for the internet search motor was not successfully updated
+      create:
+        robot_key_success_create: Robot key for the internet search motor was successfully created
+        robot_key_success_not_create: Robot key for the internet search motor was not successfully created 
+    contact_us:
+      destroy:
+        contact_us_was_successfully_destroy: This message was successfully destroyed
+        contact_us_was_not_successfully_destroy: This message was not successfully destroyed
     galery_photos:
       create:
         galery_photo_was_successfully_created: The photo for the galery was successfully created
@@ -28,10 +42,23 @@ en:
       create:
         announcment_was_successfully_created: Announcment was successfully created
     footers:
+      update:
+        footer_update_success: Footer was successfully updated
+        footer_was_not_update_success: Footer was not successfully updated
       edit:
         button:
           valid_edit_footer: Register this legal mention
     personalize_backgrounds:
+      activation:
+        personalize_background_success_defined: Background for the announcement was successfully defined
+        personalize_background_was_not_success_defined: Background for the announcement was not successfully defined
+      destroy:
+        personalize_background_success_destroyed: background for the announcement was successfully destroyed
+        personalize_background_not_success_destroyed: Background for the announcement was not successfully destroyed
+      create:
+        personalize_background_success_created: Background for the announcement was successfully created
+      update:
+        personalize_background_success_updated: Background for the announcement was not successfully updated
       new:
         button:
           valid_new_personalize_background: Register the style for the new announcment
@@ -41,6 +68,16 @@ en:
       index:
         title: Personalize style of the announcment
     sub_menu_backgrounds:
+      activation:
+        sub_menu_background_success_defined: Background for the sub-menu was successfully desfined
+        sub_menu_background_not_success_defined: Background for the sub-menu was not successfully defined
+      destroy:
+        sub_menu_background_success_deleted: Background for the sub-menu was successfully destroyed
+        sub_menu_background_not_success_deleted: Background for the sub-menu was not successfully destroyed
+      create:
+        sub_menu_background_success_created: Background for the sub-menu was successfully created
+      update:
+        sub_menu_background_success_updated: Background for the sub-menu was successfully updated
       new:
         button:
           valid_new_sub_menu_background: Register this new sub-menu
@@ -50,6 +87,16 @@ en:
       index:
         title: Background sub-menu
     menu_backgrounds:
+      create:
+        menu_background_success_created: Menu Background was successfully created
+      update:
+        menu_background_success_updated: Menu background was successfully updated
+      destroy:
+        menu_background_success_destroy: Menu background was successfully destroyed
+        menu_background_not_success_destroy: Menu background was not successfully destroyed
+      activation:
+        menu_background_success_defined: Menu background was successfully defined
+        menu_background_not_success_defined: Menu background was not successfully defined
       new:
         button:
           valid_new_menu_background: Register this new background for the menu
@@ -59,6 +106,16 @@ en:
       index:
         title: Background for the menu
     footer_backgrounds:
+      activation:
+        activation_was_success_defined: Footer background was successfully defined
+        activation_was_not_success_defined: Footer background was not successfully defined
+      destroy:
+        footer_background_success_destroy: Footer background was successfully destroyed
+        footer_background_was_not_success_destroy: Footer background was not destroyed
+      create:
+        footer_background_success_created: Footer background was successfully created
+      update:
+        footer_background_success_updated: Footer background was successfully updated
       new:
         button:
           valid_new_footer_background: Register this new footer background
@@ -66,6 +123,15 @@ en:
         button:
           valid_edit_footer_background: Update this header background
     header_backgrounds:
+      activation:
+        header_background_success_defined: Header background wass successfully defined
+        header_background_not_success_desfined: Header background was not successfully defined
+      destroy:
+        header_background_success_destroy: Header background was successfully destroyed
+        header_background_not_success_destroy: Header background was not successfully destroyed
+      create:
+        header_background_success_created: The background for the header was successfully created
+        header_background_success_updated: The background for the header was successfully updated
       new:
         button:
           valid_new_header_background: Register this new header background
@@ -103,6 +169,15 @@ en:
         form_photo_master:
           image_master: Master image ?
     submenus:
+      destroy:
+        sub_menus_destroy_success: This sub-menu was successfully destroyed
+        sub_menus_destroy_not_success: This sub-menu was not successfully destroyed
+      content_or_annoncment_homepage:
+        informations_sub_menu_updated: The informations of this sub-menu was successfully updated
+      create:
+        submenu_success_created: The sub-menu was successfully created
+      update:
+        submenu_success_updated: The sub-menu was successfully updated
       new:
         submit_value_new_submenus: Create the new sub-menu
       edit:

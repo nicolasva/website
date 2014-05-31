@@ -19,13 +19,13 @@ module Admin
     def create
       @robot_key = Robot::Key.new(robot_key_params)
 
-      @notice = "Robot Key was successfully created" 
+      @notice = t(".robot_key_success_create") 
       respond_to do |format|
         if @robot_key.save
           format.html { redirect_to admin_robot_keys_path, notice: @notice }
           format.js
         else
-          @notice = "Robot Key was not successfully created"
+          @notice = t(".robot_key_success_not_create")
           format.html { render action: 'new' }
           format.js { redirect_to(:action => :create_error_robot_key, :format => :js) } 
         end
@@ -33,13 +33,13 @@ module Admin
     end
 
     def update
-      @notice = "Robot Key was successfully updated"
+      @notice = t(".robot_key_success_updated") 
       respond_to do |format|
         if @robot_key.update(robot_key_params)
           format.html { redirect_to admin_robot_keys_path, notice: @notice }
           format.js
         else
-          @notice = "Robot Key was not successfully updated"
+          @notice = t(".robot_key_success_not_updated")
           format.html { render action: 'edit' }
           format.js { redirect_to(:action => :edit_error_robot_key, :format => :js)}
         end
@@ -47,7 +47,7 @@ module Admin
     end
 
     def destroy
-      notice =  @robot_key.destroy ? "Robot Key was successfully destroyed" : "Robot key was not successfully destroyed"
+      notice =  @robot_key.destroy ? t(".robot_key_success_destroy") : t(".robot_key_not_success_destroy")
       redirect_to admin_robot_keys_path, notice: notice
     end
 

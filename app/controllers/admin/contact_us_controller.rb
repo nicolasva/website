@@ -10,7 +10,7 @@ module Admin
     end
 
     def destroy
-      @contact_u.destroy
+      notice = @contact_u.destroy ? t(".contact_us_was_successfully_destroy") : t("contact_us_was_not_successfully_destroy")
       redirect_to admin_contact_us_path
     end
 

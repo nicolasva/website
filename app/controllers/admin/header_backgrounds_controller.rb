@@ -25,7 +25,7 @@ module Admin
       @header_background = HeaderBackground.new(header_background_params)
 
       if @header_background.save
-        redirect_to admin_header_backgrounds_path, notice: 'Header background was successfully created.'
+        redirect_to admin_header_backgrounds_path, notice: t(".header_background_success_created")
       else
         render action: 'new'
       end
@@ -33,19 +33,19 @@ module Admin
 
     def update
       if @header_background.update(header_background_params)
-        redirect_to admin_header_backgrounds_path, notice: 'Header background was successfully updated.'
+        redirect_to admin_header_backgrounds_path, notice: t(".header_background_success_updated")
       else
         render action: 'edit'
       end
     end
 
     def destroy
-      notice = @header_background.destroy ? "Header background was successfully deleted" : "Header background was not successfully deleted"
+      notice = @header_background.destroy ? (".header_background_success_destroy") : t(".header_background_not_success_destroy")
       redirect_to admin_header_backgrounds_path, notice: notice
     end
 
     def activation
-      notice = HeaderBackground.activation!(params[:header_background][:activation]) ? "Header background was successfully defined" : "Header background was not successfully defined"
+      notice = HeaderBackground.activation!(params[:header_background][:activation]) ? t(".header_background_success_defined") : (".header_background_not_success_desfined")
       redirect_to admin_header_backgrounds_path, notice: notice
     end
 
