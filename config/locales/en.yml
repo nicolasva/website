@@ -1,4 +1,8 @@
 en:
+  contact_us:
+    form:
+      button:
+        send_contact_us: Send message
   helpers:
     actions: Edit
     links:
@@ -7,6 +11,22 @@ en:
       destroy: Destroy
       show: See
   admin:
+    galery_photos:
+      create:
+        galery_photo_was_successfully_created: The photo for the galery was successfully created
+      update:
+        galery_photo_was_successfully_updated: The photo for the galery was successfully updated
+      destroy:
+        photo_was_successfully_destroyed: This photo was successfully destroyed
+        photo_was_not_successfully_destroyed: This photo was not successfully destroyed
+    annoncments:
+      destroy:
+        announcment_was_successfully_destroyed: Announcment was successfully destroyed
+        announcment_was_not_successfully_destroyed: Announcment was not successfully destroyed
+      update:
+        announcment_was_successfully_updated: Announcment was successfully updated
+      create:
+        announcment_was_successfully_created: Announcment was successfully created
     footers:
       edit:
         button:
@@ -55,6 +75,16 @@ en:
       index:
         title: Header personalisation
     background_by_defaults:
+      activation:
+        background_default_success_defined: This background by default was successfully defined
+        background_default_was_not_success_defined: This background was not successfully defined
+      destroy:
+        background_default_success_destroy: This Background was successfully destroyed
+        background_default_was_not_success_destroy: This Background was not successfully destroyed
+      update:
+        background_default_success_updated: The personalization of the default background was successfully updated
+      create:
+        background_default_success_created: The personalization of the default background was successfully created
       new:
         button:
           valid_new_background_by_default: Create this new background
@@ -86,6 +116,13 @@ en:
           image_galery: The Image galery
           sub_menu: The Sub menu
     categories:
+      destroy:
+        category_was_successfully_destroyed: Category was successfully destroyed
+        category_was_not_successfully_destroyed: Category was not successfully destroyed
+      update:
+        category_was_successfully_updated: Category was successfully updated
+      create:
+        category_successfully_created: Category was successfully created
       list_category:
         links:
           annoncment: THe announcement
@@ -104,6 +141,13 @@ en:
       index:
         title: Annoncments list
     contents:
+      destroy:
+        content_successfully_destroy: Content was successfully destroyed
+        content_was_not_successfully_destroy: Content was not successfully destroyed
+      update:
+        content_successfully_updated: Content was successfully updated
+      create:
+        content_successfully_created: Content was successfully created
       new:
         button:
           valid_new_content: Add this new content
@@ -111,6 +155,21 @@ en:
         button:
           valid_edit_content: Update this content
   layouts:
+    admin:
+      admin_content_website: Admin content website
+      web_page_personalize: Personalize web page
+      footer_admin: Admin Footer
+      submenu:
+        web_page_personalize:
+          background_website: Website background
+          website_header: Website header
+          website_footer: Website footer
+          website_menu: Website menu
+          sub_title_website: Submenu website
+          announcement_list_style: Announcment list style
+        footer_admin:
+          legal_mention: Legals mentions
+          contact_us: Contact us
     application:
       home: Home
       contact_us: Contact us

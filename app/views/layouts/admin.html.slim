@@ -30,29 +30,29 @@ html lang="en"
             span.icon-bar
           ul
             li
-              = link_to "Administrer le contenu du site", admin_title_index_path, class: 'navbar-brand'
+              = link_to t(".admin_content_website"), admin_title_index_path, class: 'navbar-brand'
             li
-              = link_to "Personnaliser la page web", "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
+              = link_to t(".web_page_personalize"), "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
               ul.menu_look.dropdown-menu(aria-labelledby="drop2" role="menu")
                 li(role="presentation")
-                  = link_to "Arrière plan du site", admin_background_by_defaults_path, "tabindex" => "-1", "role" => "menuitem"
+                  = link_to t(".submenu.web_page_personalize.background_website"), admin_background_by_defaults_path, "tabindex" => "-1", "role" => "menuitem"
                 li(role="presentation")
-                  = link_to "Header du site", admin_header_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
+                  = link_to t(".submenu.web_page_personalize.website_header"), admin_header_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
                 li(role="presentation")
-                  = link_to "Footer du site", admin_footer_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
+                  = link_to t(".submenu.web_page_personalize.website_footer"), admin_footer_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
                 li(role="presentation")
-                  = link_to "Menu du site", admin_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
+                  = link_to t(".submenu.web_page_personalize.website_menu"), admin_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
                 li(role="presentation")
-                  = link_to "Sous-menu su site", admin_sub_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
+                  = link_to t(".submenu.web_page_personalize.sub_title_website"), admin_sub_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
                 li(role="presentation")
-                  = link_to "Style de la liste des annonces", admin_personalize_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
+                  = link_to t(".submenu.web_page_personalize.announcement_list_style"), admin_personalize_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
             li
-              = link_to "Administer le footer", "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
+              = link_to t(".footer_admin"), "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
               ul.menu_footer.dropdown-menu(aria-labelledby="drop2" role="menu")
                 li(role="presentation")
-                  = link_to "Mentions Legales", edit_admin_footer_path(@footer_legals_mentions), remote: true
+                  = link_to t(".submenu.footer_admin.legal_mention"), edit_admin_footer_path(@footer_legals_mentions), remote: true
                 li(role="presentation")
-                  = link_to "Contactez-nous", admin_contact_us_path
+                  = link_to t(".submenu.footer_admin.contact_us"), admin_contact_us_path
 
     .container
       .row

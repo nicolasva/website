@@ -15,7 +15,7 @@ module Admin
 
       respond_to do |format|
         if @category.save
-          format.html { redirect_to admin_title_path(@category), :notice => "Category was successfully created." }
+          format.html { redirect_to admin_title_path(@category), :notice => t(".category_successfully_created") }
           format.js
         else
           format.html { render action: "new" }
@@ -54,7 +54,7 @@ module Admin
     def update
       respond_to do |format|
         if @category.update(category_params)
-          format.html { redirect_to admin_title_path(@category.title), :notice => "Category was successfully updated." }
+          format.html { redirect_to admin_title_path(@category.title), :notice => t(".category_was_successfully_updated") }
           format.js
         else
           format.html { render action: 'edit' }
@@ -64,8 +64,8 @@ module Admin
     end
 
     def destroy
-      @category.destroy
-      redirect_to admin_title_index_path, notice: "Category was successfully destroyed."
+      notice = @category.destroy ? t(".category_was_successfully_destroyed") : t(".category_was_not_successfully_destroyed")
+      redirect_to admin_title_index_path, notice: notice
     end
 
     def sort

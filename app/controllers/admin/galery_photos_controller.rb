@@ -22,9 +22,9 @@ module Admin
 
       if @galery_photo.save
         if @submenu.nil?
-          redirect_to admin_title_galery_photos_path(@category.title), notice: "Galery photo was successfully created."
+          redirect_to admin_title_galery_photos_path(@category.title), notice: t(".galery_photo_was_successfully_created")
         else
-          redirect_to admin_title_title_submenu_galery_photos_path(@category.title, @submenu.title), notice: "Galery photo was successfully created."
+          redirect_to admin_title_title_submenu_galery_photos_path(@category.title, @submenu.title), notice: t(".galery_photo_was_successfully_created")
         end
       else
         render action: "new"
@@ -34,9 +34,9 @@ module Admin
     def update
       if @galery_photo.update(galery_photo_params)
         if @submenu.nil?
-          redirect_to admin_title_galery_photos_path(@category.title), notice: "Galery photo was successfully updated."
+          redirect_to admin_title_galery_photos_path(@category.title), notice: t(".galery_photo_was_successfully_updated")
         else
-          redirect_to admin_title_title_submenu_galery_photos_path(@category.title, @submenu.title), notice: "Galery photo was successfully updated"
+          redirect_to admin_title_title_submenu_galery_photos_path(@category.title, @submenu.title), notice: t(".galery_photo_was_successfully_updated")
         end
       else
         render action: "edit"
@@ -48,7 +48,7 @@ module Admin
     end
 
     def destroy
-      notice = @galery_photo.destroy ? "This photo was successfully destroyed" : "This photo was not successfully destroyed"
+      notice = @galery_photo.destroy ? t(".photo_was_successfully_destroyed") : t(".photo_was_not_successfully_destroyed")
       
       if @submenu.nil?
         redirect_to admin_title_galery_photos_path(@category.title), notice: notice

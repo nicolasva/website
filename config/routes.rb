@@ -8,6 +8,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
     match "annoncments/:title_annoncment_id/backgrounds" => "backgrounds#index", :via => "GET"
   end
 
+  resources :languages, :only => :show
   resources :contact_us
   resources :personalize_backgrounds
   resources :header_backgrounds

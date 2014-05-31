@@ -24,7 +24,7 @@ module Admin
       @background_by_default = BackgroundByDefault.new(background_by_default_params)
     
       if @background_by_default.save
-        redirect_to admin_background_by_defaults_path, notice: 'Background by default was successfully created.'
+        redirect_to admin_background_by_defaults_path, notice: t(".background_default_success_created") 
       else
         render action: 'new'
       end
@@ -32,20 +32,19 @@ module Admin
 
     def update
       if @background_by_default.update(background_by_default_params)
-        redirect_to admin_background_by_defaults_path, notice: 'Background by default was successfully updated.'
+        redirect_to admin_background_by_defaults_path, notice: t(".background_default_success_updated")
       else
         render action: 'edit'
       end
     end
 
     def destroy
-      if @background_by_default.destroy
-        redirect_to  admin_background_by_defaults_path, notice: "Background by default was successfully destroyed"
-      end
+      notice = @background_by_default.destroy ? t(".background_default_success_destroy") : t(".background_default_was_not_success_destroy")
+      redirect_to  admin_background_by_defaults_path, notice: notice 
     end
 
     def activation
-      notice = BackgroundByDefault.activation!(params[:background_by_default][:activations]) ? "The Background was successfully defined" : "The Background was not successfully defined"
+      notice = BackgroundByDefault.activation!(params[:background_by_default][:activations]) ? t(".background_default_success_defined") : t(".background_default_was_not_success_defined")
       redirect_to admin_background_by_defaults_path, notice: notice
     end
 

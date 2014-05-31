@@ -1,4 +1,8 @@
 fr:
+  contact_us:
+    form:
+      button:
+        send_contact_us: Envoyer le message
   helpers:
     actions: Edition
     links:
@@ -7,6 +11,14 @@ fr:
       destroy: Supprimer
       show: Voir
   admin:
+    galery_photos:
+      create:
+        galery_photo_was_successfully_created: La photo pour la galérie a bien été crée
+      update:
+        galery_photo_was_successfully_updated: La photo pour cette galérie a bien été mise à jour
+      destroy:
+        photo_was_successfully_destroyed: Cette photo a bien été détruit
+        photo_was_not_successfully_destroyed: Cette photo n'a pas été détruit correctement
     footers:
       edit:
         button:
@@ -55,6 +67,16 @@ fr:
       index:
         title: Personalisation de l'entête du site
     background_by_defaults:
+      activation:
+        background_default_success_defined: L'arrière plan par défaut a bien été définis
+        background_default_was_not_success_defined: L'arrière plan par défaut n'a pas été correctement définis
+      destroy:
+        background_default_success_destroy: Cette arrière plan a bien été supprimé
+        background_default_was_not_success_destroy: Cette arrière plan n'a pas été supprimé
+      update:
+        background_default_success_updated: La personalisation de cette arrière plan par défaut a bien été mise à jour
+      create:
+        background_default_success_created: La personalisation de cette arrière plan par défaut a bien été crée 
       new:
         button:
           valid_new_background_by_default: Creer ce nouvelle arrière plan
@@ -86,6 +108,13 @@ fr:
           image_galery: La galerie d'image
           sub_menu: Les sous-menus
     categories:
+      destroy:
+        category_was_successfully_destroyed: La catégorie a bien été détruit
+        category_was_not_successfully_destroyed: La catégorie n'a pas été detruit correctement
+      update:
+        category_was_successfully_updated: La catégorie a bien été mise à jour
+      create:
+        category_successfully_created: La catégorie a bien été crée
       list_category:
         links:
           annoncment: Les annonces
@@ -95,6 +124,13 @@ fr:
       index:
         title: Liste des catégories pour le menu
     annoncments:
+      destroy:
+        announcment_was_successfully_destroyed: L'annonce a bien été supprimé
+        announcment_was_not_successfully_destroyed: L'annonce n'a pas été supprimé correctement
+      update:
+        announcment_was_successfully_updated: L'annonce a bien été mise à jour
+      create:
+        announcment_was_successfully_created: L'annonce a été correctement crée
       edit:
         button:
           valid_edit_annoncment: Mettre à jour cette annonce
@@ -104,6 +140,13 @@ fr:
       index:
         title: Liste des annonces
     contents:
+      destroy:
+        content_successfully_destroy: Le contenu a bien été détruit
+        content_was_not_successfully_destroy: Le contenu a bien été détruit 
+      update:
+        content_successfully_updated: Le contenu a bien été mise à jour
+      create:
+        content_successfully_created: Le contenu a bien été crée
       new:
         button:
           valid_new_content: Ajouter ce nouveau contenu
@@ -111,6 +154,21 @@ fr:
         button:
           valid_edit_content: Mettre à jour ce contenu
   layouts:
+    admin:
+      admin_content_website: Administrer le contenu du site
+      web_page_personalize: Personnaliser la page web
+      footer_admin: Administrer le footer
+      submenu:
+        web_page_personalize:
+          background_website: Arrière plan du site
+          website_header: en tête du site
+          website_footer: Pied de page du site
+          website_menu: Menu du site
+          sub_title_website: Sous-menu du site
+          announcement_list_style: Style de la liste des annonces
+        footer_admin:
+          legal_mention: Mentions légales
+          contact_us: Contactez-nous
     application:
       home: Accueil
       contact_us: Contactez nous
