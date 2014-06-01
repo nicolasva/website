@@ -16,5 +16,5 @@ jQuery ->
         })
     })
 
-    $("#annoncment_date_at_html").datepicker() 
-    $("#annoncment_date_to_html").datepicker()
+    $("#annoncment_date_at_html").datepicker({ dateFormat: 'dd/mm/yy' }) 
+    $("#annoncment_date_to_html").datepicker({ dateFormat: 'dd/mm/yy' })
