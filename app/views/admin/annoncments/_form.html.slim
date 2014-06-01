@@ -1,5 +1,6 @@
 = simple_form_for [:admin, @category, @annoncment], url: url do |f|
   = f.input :title
+  = f.input :english_title
   = f.input :font_weight_title, collection: Annoncment::ARRAY_FONT_WEIGHT_TITLE
   = f.input :font_size_title, collection: 0..100
   = f.input :text_decoration_title, collection: Annoncment::ARRAY_TEXT_DECORATION_TITLE

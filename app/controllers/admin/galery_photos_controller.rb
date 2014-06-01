@@ -73,7 +73,9 @@ module Admin
       def galery_photo_params
         params.require(:galery_photo).permit(:id,
                                              :title,
+                                             :english_title,
                                              :comment,
+                                             :english_comment,
                                              :photogalery,
                                              :photogalery_cache,
                                              :submenu_id,

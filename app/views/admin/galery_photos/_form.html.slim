@@ -2,7 +2,11 @@
   .row
     = f.input :title
   .row
+    = f.input :english_title
+  .row
     = f.input :comment, as: :ckeditor
+  .row
+    = f.input :english_comment, as: :ckeditor
   .row
     = f.input :photogalery
     = f.input :photogalery_cache, as: :hidden
