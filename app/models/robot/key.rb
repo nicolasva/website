@@ -1,4 +1,8 @@
 class Robot::Key < Robot
+  validates_presence_of :uuid
+  validates_presence_of :name
+  validates_presence_of :lang
+  validates_presence_of :content
   before_save :generate_uuid
   self.table_name = 'robot_keys'
   LANG = {"fr" => 0, "en" => 1}

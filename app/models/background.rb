@@ -1,5 +1,10 @@
 class Background < ActiveRecord::Base
   attr_accessor :delete_background_image
+  validates_presence_of :border
+  validates_presence_of :border_style
+  validates_presence_of :border_color
+  validates_presence_of :background_color
+  validates_presence_of :align
   belongs_to :backgroundstyles, :polymorphic => true
   before_save :delete_image?
   before_update :delete_image?

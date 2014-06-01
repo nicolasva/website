@@ -1,4 +1,8 @@
 class Submenu < ActiveRecord::Base
+  validates_presence_of :title
+  validates_presence_of :category_id
+  validates_presence_of :color_font
+  validates_presence_of :english_title
   belongs_to :category
   has_many :annoncments, dependent: :destroy
   has_many :contents, dependent: :destroy

@@ -1,4 +1,6 @@
 class SubMenuBackground < ActiveRecord::Base
+  validates_presence_of :uuid
+  validates_presence_of :title
   before_save :generate_uuid  
   has_one :background, as: :backgroundstyles, dependent: :destroy 
   has_one :align, as: :aligns, dependent: :destroy

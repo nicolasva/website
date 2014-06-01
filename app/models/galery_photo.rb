@@ -1,4 +1,9 @@
 class GaleryPhoto < ActiveRecord::Base
+  validates_presence_of :uuid
+  validates_presence_of :title
+  validates_presence_of :comment
+  validates_presence_of :position
+  validates_presence_of :english_title
   before_save :generate_uuid
   belongs_to :category
   belongs_to :submenu

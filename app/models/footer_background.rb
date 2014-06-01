@@ -1,4 +1,6 @@
 class FooterBackground < ActiveRecord::Base
+  validates_presence_of :uuid
+  validates_presence_of :title
   before_save :generate_uuid
   has_one :background, as: :backgroundstyles, dependent: :destroy
   before_save :set_activation_by_default?
