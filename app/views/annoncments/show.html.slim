@@ -1,14 +1,14 @@
 .row.show-grid.annoncment.classified
   .title_annoncment
-    = @annoncment.title
+    = annoncment_title(@annoncment)
   .date_annoncment
-    = time_tag(@annoncment.date_at, :format=>'%d %B %Y')
-    = "-" 
-    = time_tag(@annoncment.date_to, :format=>'%d %B %Y')
+    = time_tag(@annoncment.date_at, :format=> time_tag_helper_date_format)
+    = " - " 
+    = time_tag(@annoncment.date_to, :format=> time_tag_helper_date_format)
   .description_annoncment
-    = @annoncment.description.html_safe
+    = annoncment_description(@annoncment).html_safe
   ul#annoncment_photos.list-inline
     - @annoncment.photos.each do |photo|
       = content_tag :li, photo do 
-        = link_to(photo.photo.url(:preview), class: "zoombox zgallery1", title: @annoncment.title) do
+        = link_to(photo.photo.url(:preview), class: "zoombox zgallery1", title: annoncment_title(@annoncment)) do
           = image_tag(photo.photo.url(:thumb))

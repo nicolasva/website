@@ -1,4 +1,4 @@
 ul#content_list.row.list-inline.contents
   - contents.each do |content|
     = content_tag_for :li, content, class: "#{col_boostrap(contents)} #{content.uuid}" do
-      = content.description.html_safe
+      = I18n.locale == "fr" ? content.description.html_safe : content.english_description.html_safe

@@ -2,9 +2,9 @@ ul#Galery_photo.row.list-inline.galery_photo
   - @galery_photos.each do |galery_photo|
     = content_tag_for :li, galery_photo, class: "col-md-4" do
       h3
-        = galery_photo.title
+        = galery_photo_title(galery_photo)
       .row
         = link_to(galery_photo.photogalery.url(:preview), class: "zoombox zgallery1", title: "#{galery_photo.comment.html_safe}") do
           = image_tag(galery_photo.photogalery.url(:thumb))
       .row
-        = truncate(galery_photo.comment.html_safe, length: 90)
+        = truncate(galery_photo_comment(galery_photo).html_safe, length: 90)

@@ -38,14 +38,14 @@ html lang="en"
                 - @category_all.each do |categorie|
                   = content_tag_for :li, categorie, class: "_#{categorie.title}" do
                       - if categorie.sub_menu
-                        = link_to categorie.title, "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
+                        = link_to categorie_title(categorie), "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
                         - if @sub_menu_background.align.align.to_i == 0
                           ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
                             - categorie.submenus.each do |sub_menu|
                               = content_tag_for :li, sub_menu, role: "sub_menu", class: "_#{sub_menu.title}" do
                                 = render(:partial => "/partials/link_to_submenu", locals: {sub_menu: sub_menu})
                       - else
-                        = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+                        = link_to categorie_title(categorie), url_contents_or_annoncments_directly_category(categorie)
           - else
             - if submenu?
               - if @sub_menu_background.align.align.to_i == 0
@@ -61,7 +61,7 @@ html lang="en"
                   ul.nav.nav-list
                     - @category_all.each do |categorie|
                       = content_tag_for :li, categorie, class: "_#{categorie.title}" do
-                        = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+                        = link_to categorie_title(categorie), url_contents_or_annoncments_directly_category(categorie)
               .col-lg-6
                 = bootstrap_flash
                 = yield
@@ -74,14 +74,14 @@ html lang="en"
                   - @category_all.each do |categorie|
                     = content_tag_for :li, categorie, class: "_#{categorie.title}" do
                         - if categorie.sub_menu
-                          = link_to categorie.title, "#", class: 'dropdown-toggle', "data-toggle" => 'dropdown'
+                          = link_to categorie_title(categorie), "#", class: 'dropdown-toggle', "data-toggle" => 'dropdown'
                           - if @sub_menu_background.align.align.to_i == 1
                             ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
                               - categorie.submenus.each do |sub_menu|
                                 = content_tag_for :li, sub_menu, role: "sub_menu", class: "_#{sub_menu.title}" do
                                   = render(:partial => "/partials/link_to_submenu", locals: {sub_menu: sub_menu})
                         - else
-                          = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+                          = link_to categorie_title(categorie), url_contents_or_annoncments_directly_category(categorie)
             .col-lg-9
               = bootstrap_flash
               = yield
@@ -99,7 +99,7 @@ html lang="en"
                     ul.nav.nav-list
                       - @category_all.each do |categorie|
                         = content_tag_for :li, categorie, class: "_#{categorie.title}" do
-                          = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+                          = link_to categorie_title(categorie), url_contents_or_annoncments_directly_category(categorie)
             - else
               .col-lg-9 
                 = bootstrap_flash
@@ -110,13 +110,13 @@ html lang="en"
                     - @category_all.each do |categorie|
                       = content_tag_for :li, categorie, class: "_#{categorie.title}" do
                           - if categorie.sub_menu && @sub_menu_background.align.align.to_i == 2
-                            = link_to categorie.title, "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
+                            = link_to categorie_title(categorie), "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
                             ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
                               - categorie.submenus.each do |sub_menu|
                                 = content_tag_for :li, sub_menu, role: "sub_menu", class: "_#{sub_menu.title}" do
                                   = render(:partial => "/partials/link_to_submenu", locals: {sub_menu: sub_menu})
                           - else
-                            = link_to categorie.title, url_contents_or_annoncments_directly_category(categorie)
+                            = link_to categorie_title(categorie), url_contents_or_annoncments_directly_category(categorie)
           - else
             - if submenu?
               - if @sub_menu_background.align.align.to_i == 1
