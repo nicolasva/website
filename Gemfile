@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 gem 'breadcrumbs_on_rails'
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: 'master'
+gem 'bootstrap-sass', branch: 'master'
 gem 'devise'
 gem 'kaminari'
 gem 'simple_form', github: "plataformatec/simple_form", branch: "master"
