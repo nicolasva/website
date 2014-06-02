@@ -1,10 +1,11 @@
 GIT
   remote: git://github.com/galetahub/ckeditor.git
-  revision: 6ac7f1eb21cbf439fabeccc63ea804fd8589d68a
+  revision: 7e61c976e13e29524adee76355e34e525905c582
+  branch: master
   specs:
-    ckeditor (4.0.6)
+    ckeditor (4.0.11)
       mime-types
-      orm_adapter
+      orm_adapter (~> 0.5.0)
 
 GIT
   remote: git://github.com/plataformatec/simple_form.git

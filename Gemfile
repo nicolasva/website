@@ -23,7 +23,7 @@ gem 'slim-rails'
 gem "select2-rails"
 gem 'mini_magick'
 gem 'carrierwave'
-gem 'ckeditor', github: "galetahub/ckeditor"
+gem 'ckeditor', github: "galetahub/ckeditor", branch: "master"
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
