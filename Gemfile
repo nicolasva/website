@@ -46,7 +46,7 @@ group :development do
   gem 'faker'
   gem 'less-rails'
   gem 'recipient_interceptor'
-  gem 'pg'
+  #gem 'pg'
   gem 'quiet_assets'
   gem 'therubyracer'
   gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'

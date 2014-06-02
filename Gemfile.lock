@@ -1,13 +1,4 @@
 GIT
-  remote: git://github.com/galetahub/ckeditor.git
-  revision: 7e61c976e13e29524adee76355e34e525905c582
-  branch: master
-  specs:
-    ckeditor (4.0.11)
-      mime-types
-      orm_adapter (~> 0.5.0)
-
-GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 18c3cecedc8a6ef09f56684fa8efb6e84ac9ea7e
   branch: master
@@ -79,6 +70,9 @@ GEM
       json (>= 1.7)
     celluloid (0.15.2)
       timers (~> 1.1.0)
+    ckeditor (4.0.11)
+      mime-types
+      orm_adapter (~> 0.5.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -293,7 +287,7 @@ DEPENDENCIES
   breadcrumbs_on_rails
   capybara
   carrierwave
-  ckeditor!
+  ckeditor
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
