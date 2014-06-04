@@ -35,6 +35,8 @@
                           #:background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                         })
 
+  Rails.logger.info @Menu_background.id
+
   Align.create({
                 :align => 0,
                 :aligns_id => @menu_background.id,
