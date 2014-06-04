@@ -20,6 +20,11 @@ unless Category.exists?
                           :homepage_submenus_id => @category.id,
                           :homepage_submenus_type => "Category"
                         })
+  ContentsOrAnnoncment.create({
+                                :content_or_annoncment => 1,
+                                :contents_or_annoncments_id => @category.id,
+                                :contents_or_annoncments_type => "Category"
+                              })
 end 
 unless Footer.exists?
   Footer.create({
