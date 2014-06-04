@@ -13,7 +13,6 @@
 *.swn
 .jhw-cache/*
 .sass-cache/*
-public/*
 .powrc
 config/database.yml
 /spec/controllers/admin/coverage/*
