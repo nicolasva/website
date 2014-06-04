@@ -32,7 +32,7 @@
                           :title => "Menu_background by default",
                           :activation => true,
                           :align_attributes => { :align => 1 },
-                          :background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
+                          #:background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                         })
 
   Align.create({
@@ -46,7 +46,7 @@
                             :title => "sub_menu_background by default",
                             :activation => true,
                             :align_attributes => { :align => 1 },
-                            :background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
+                            #:background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                            })
 
   Align.create({
@@ -58,11 +58,11 @@
                           :uuid => UUID.new.generate,
                           :title => "home_page_submenu by default",
                           :activation => true,
-                          :background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
+                          #:background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                           })
   HeaderBackground.create({
                           :uuid => UUID.new.generate,
                           :title => "Header Background by default",
                           :activation => true,
-                          :background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
+                          #:background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                           })
