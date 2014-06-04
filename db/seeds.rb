@@ -33,21 +33,34 @@ unless Footer.exists?
 end
 
 unless MenuBackground.exists?
-  MenuBackground.create({
+  @menu_background = MenuBackground.create({
                           :title => "Menu_background by default",
                           :activation => true,
                           :align_attributes => { :align => 1 },
                           :background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                         })
+
+  Align.create({
+                :align => 0,
+                :aligns_id => @menu_background.id,
+                :aligns_type => "MenuBackground"
+              })
+
 end
 
 unless SubMenuBackground.exists?
-  SubMenuBackground.create({
+  @sub_menu_background = SubMenuBackground.create({
                             :title => "sub_menu_background by default",
                             :activation => true,
                             :align_attributes => { :align => 1 },
                             :background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                            })
+
+  Align.create({
+                :align => 0,
+                :aligns_id => @sub_menu_background.id,
+                :aligns_type => "SubMenuBackground"
+              })
 end
 
 unless FooterBackground.exists?
