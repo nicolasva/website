@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601125555) do
+ActiveRecord::Schema.define(version: 20140604094933) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false

@@ -1,10 +1,17 @@
 $(".dialog_box").modal('hide')
 if $(".category_list").append("<%= escape_javascript(render(:partial => '/admin/categories/list_category', :locals => { :category => @category })) %>")
-  content = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().slice(-2).first()
-  annoncment = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().slice(-1)
+  content = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().slice(-3).first()
+  annoncment = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().slice(-2).first()
   sub_menu = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().first()
-  console.log sub_menu
+  image_galery = $(".category_list").children().last().children().first().children().first().children().first().children().last().children().slice(-1).first()
   if $(".category_list").children().last().children().first().children().first().children().first().children().slice(-4).first().children().first().is(':checked')
     content.hide() if content.is(':visible')
     annoncment.hide() if annoncment.is(':visible')
     sub_menu.show() unless sub_menu.is(':visible')
+    image_galery.hide() if image_galery.is(':visible')
+  else
+    annoncment.show() unless annoncment.is(':visible')
+    content.hide() if content.is(':visible')
+    sub_menu.hide() if sub_menu.is(':visible')
+    image_galery.hide() if image_galery.is(':visible')
+
