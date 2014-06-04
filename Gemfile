@@ -40,6 +40,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'uuid'
 
+gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -49,7 +51,6 @@ group :development do
   #gem 'pg'
   gem 'quiet_assets'
   gem 'therubyracer'
-  gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
 end
 
 group :development, :test do 
