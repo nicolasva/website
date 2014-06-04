@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-unless Category.exists?
   @category = Category.create({
                     :title => "title by default",
                     :position => 1,
@@ -25,14 +24,9 @@ unless Category.exists?
                                 :contents_or_annoncments_id => @category.id,
                                 :contents_or_annoncments_type => "Category"
                               })
-end 
-unless Footer.exists?
   Footer.create({
                   :legal_mention => "Mention legal website"
                 })
-end
-
-unless MenuBackground.exists?
   @menu_background = MenuBackground.create({
                           :title => "Menu_background by default",
                           :activation => true,
@@ -46,9 +40,6 @@ unless MenuBackground.exists?
                 :aligns_type => "MenuBackground"
               })
 
-end
-
-unless SubMenuBackground.exists?
   @sub_menu_background = SubMenuBackground.create({
                             :title => "sub_menu_background by default",
                             :activation => true,
@@ -61,20 +52,13 @@ unless SubMenuBackground.exists?
                 :aligns_id => @sub_menu_background.id,
                 :aligns_type => "SubMenuBackground"
               })
-end
-
-unless FooterBackground.exists?
   FooterBackground.create({
                           :title => "home_page_submenu by default",
                           :activation => true,
                           :background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                           })
-end
-
-unless HeaderBackground.exists?
   HeaderBackground.create({
                           :title => "Header Background by default",
                           :activation => true,
                           :background_attributes => { :border => 0, :border_style => "solid", :no_background_image => 1, :background_image_cache => "", :no_repeat => 0, :border_color => "transparent"}
                           })
-end
