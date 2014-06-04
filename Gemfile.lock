@@ -165,7 +165,6 @@ GEM
       daemon_controller (>= 1.1.0)
       rack
       rake (>= 0.8.1)
-    pg (0.17.0)
     polyglot (0.3.3)
     pry (0.9.12.3)
       coderay (~> 1.0)
@@ -305,7 +304,6 @@ DEPENDENCIES
   memcache-client
   mini_magick
   passenger
-  pg
   quiet_assets
   rails (= 4.0.1)
   rb-fsevent

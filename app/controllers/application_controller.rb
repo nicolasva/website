@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_menu_background
-    @menu_background = MenuBackground.exists?(:activation => true) ? MenuBackground.find_by_activation(true) : MenuBackground.order(:id).first
+    @menu_background = MenuBackground.exists?(:activation => true) ? MenuBackground.find_by_activation(true) : MenuBackground.order(:id).first unless MenuBackground.all.nil?
   end
 
   def load_robot_keys
