@@ -13,7 +13,7 @@
         th.col-md-2= ContentsOrAnnoncment.human_attribute_name(:content_or_annoncment)
         th.col-md-2= HomepageSubmenu.human_attribute_name(:homepage)
         th.col-md-2= t '.actions', :default => t("helpers.actions")
-  ul#sortable.list-unstyled.common_table
+  ul#sortable.list-unstyled.common_table.category_list
     - @categories.each do |category|
       = render(:partial => "/admin/categories/list_category", :locals => { :category => category })
   .row
