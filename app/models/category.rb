@@ -1,7 +1,6 @@
 class Category < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :english_title
-  validates_presence_of :sub_menu
   validates_presence_of :color_font
   has_many :contents, dependent: :destroy
   has_many :annoncments, dependent: :destroy
