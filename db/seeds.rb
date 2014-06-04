@@ -6,6 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+unless Category.exists?
+  @category = Category.create({
+                    :title => "title by default",
+                    :position => 1,
+                    :english_title => "english title by default",
+                    :sub_menu => false,
+                    :color_font => "white"
+                  })
+
+  HomepageSubmenu.create({
+                          :homepage => true,
+                          :homepage_submenus_id => @category.id,
+                          :homepage_submenus_type => "Category"
+                        })
+end 
 unless Footer.exists?
   Footer.create({
                   :legal_mention => "Mention legal website"
