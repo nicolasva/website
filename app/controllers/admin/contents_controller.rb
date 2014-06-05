@@ -51,7 +51,10 @@ module Admin
     end
 
     def copy
-      
+     @content = Content.find_by_uuid(params[:content_uuid_for_copy])
+     @background = Background.find_by_backgroundstyles_id(@content.id)
+
+     @content = Content.new(:description => @content.description, :category_id => @content.category_id, :english_description => @content.english_description, :submenu_id => @content.submenu_id, :background_attributes => { :border => @content.background.border, :border_style => @content.background.border_style, :border_color => @content.background.border_color, :background_color => @content.background.background_color })
     end
 
     def destroy
