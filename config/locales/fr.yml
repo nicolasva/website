@@ -233,6 +233,7 @@ fr:
       admin_content_website: Administrer le contenu du site
       web_page_personalize: Personnaliser la page web
       footer_admin: Administrer le footer
+      robot_key_google_search: Référencement sur internet
       submenu:
         web_page_personalize:
           background_website: Arrière plan du site

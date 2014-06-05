@@ -53,6 +53,8 @@ html lang="en"
                   = link_to t(".submenu.footer_admin.legal_mention"), edit_admin_footer_path(@footer_legals_mentions), remote: true
                 li(role="presentation")
                   = link_to t(".submenu.footer_admin.contact_us"), admin_contact_us_path
+            li
+              = link_to t(".robot_key_google_search"), admin_robot_keys_path, class: 'navbar-brand'
 
     .container
       .row
