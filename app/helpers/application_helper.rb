@@ -7,35 +7,35 @@ module ApplicationHelper
   end
 
   def time_tag_helper_date_format
-    I18n.locale == "fr" ? '%d %B %Y' : '%Y %B %d'
+    I18n.locale == :fr ? '%d %B %Y' : '%Y %B %d'
   end
 
   def categorie_title(categorie)
-    return I18n.locale == "fr" ? categorie.title : categorie.english_title
+    return I18n.locale == :fr ? categorie.title : categorie.english_title
   end
   
   def annoncment_title(annoncment)
-    return I18n.locale == "fr" ? annoncment.title : annoncment.english_title
+    return I18n.locale == :fr ? annoncment.title : annoncment.english_title
   end
 
   def galery_photo_title(galery_photo)
-    return I18n.locale == "fr" ? galery_photo.title : galery_photo.english_title
+    return I18n.locale == :fr ? galery_photo.title : galery_photo.english_title
   end
 
   def galery_photo_comment(galery_photo)
-    return I18n.locale == "fr" ? galery_photo.comment : galery_photo.english_comment
+    return I18n.locale == :fr ? galery_photo.comment : galery_photo.english_comment
   end
 
   def sub_menu_title(sub_menu)
-    return I18n.locale == "fr" ? sub_menu.title : sub_menu.english_title
+    return I18n.locale == :fr ? sub_menu.title : sub_menu.english_title
   end
 
   def annoncment_title(annoncment)
-    return I18n.locale == "fr" ? annoncment.title : annoncment.english_title
+    return I18n.locale == :fr ? annoncment.title : annoncment.english_title
   end
 
   def annoncment_description(annoncment)
-    return I18n.locale == "fr" ? annoncment.description : annoncment.english_description
+    return I18n.locale == :fr ? annoncment.description : annoncment.english_description
   end
 
   def get_link_content_or_annoncment
