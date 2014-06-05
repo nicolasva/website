@@ -18,7 +18,13 @@ module WebsiteFrancisFerrari
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.enabled = true
-    config.assets.paths << Rails.root.join('app', 'assets', 'fonts', 'flash')
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts', 'flash') 
+    config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'front') 
+    config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'plugins')
+    config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'jquery')
+    config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'boostrap') 
+    config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'common') 
+    config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'admin', 'admin')
     config.assets.version = '1.0'
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

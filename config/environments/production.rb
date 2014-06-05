@@ -8,12 +8,21 @@ WebsiteFrancisFerrari::Application.configure do
   # your application in memory, allowing both thread web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  #config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
+  config.assets.compress = true 
+  #if defined? Uglifier
+  #  config.assets.js_compressor = Uglifier.new(
+  #    :toplevel => true,
+  #    :beautify => false,
+  #    :copyright => false,
+  #    :beautify_options => {:indent_level => 0, :space_colon => false}
+  #  )
+  #end
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
@@ -27,7 +36,8 @@ WebsiteFrancisFerrari::Application.configure do
    config.assets.css_compressor = :scss
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  #config.assets.compile = false
+  config.assets.precompile = ['*.js', '*.css', '**/*.js', '**/*.css']
 
   # Generate digests for assets URLs.
   config.assets.digest = true
