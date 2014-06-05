@@ -33,9 +33,9 @@ module Admin
 
       if @annoncment.save
         if @submenu.nil?
-          redirect_to admin_title_annoncment_path(@category.title, @annoncment.title), notice: t(".announcment_was_successfully_created")
+          redirect_to admin_title_annoncment_path(@annoncment.category.title, @annoncment.title), notice: t(".announcment_was_successfully_created")
         else
-          redirect_to admin_title_title_submenu_annoncment_path(@category.title, @submenu.title, @annoncment.title), notice: t(".announcment_was_successfully_created")
+          redirect_to admin_title_title_submenu_annoncment_path(@annoncment.submenu.category.title, @annoncment.submenu.title, @annoncment.title), notice: t(".announcment_was_successfully_created")
         end  
       else
         render action: 'new'
@@ -45,9 +45,9 @@ module Admin
     def update
       if @annoncment.update_with_background_image(annoncment_params)
         if @submenu.nil?
-          redirect_to admin_title_annoncment_path(@category.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
+          redirect_to admin_title_annoncment_path(@annoncment.category.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
         else
-          redirect_to admin_title_title_submenu_annoncment_path(@category.title, @submenu.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
+          redirect_to admin_title_title_submenu_annoncment_path(@annoncment.submenu.category.title, @annoncment.submenu.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
         end
       else
         render action: 'edit'
@@ -57,9 +57,9 @@ module Admin
     def destroy
       notice = @annoncment.destroy ? t(".announcment_was_successfully_destroyed") : t(".announcment_was_not_successfully_destroyed")
       if @submenu.nil?
-        redirect_to admin_title_annoncments_path(@category.title), notice: notice 
+        redirect_to admin_title_annoncments_path(@annoncment.category.title), notice: notice 
       else
-        redirect_to admin_title_title_submenu_annoncments_path(@category.title, @submenu.title), notice: notice
+        redirect_to admin_title_title_submenu_annoncments_path(@annoncment.submenu.category.title, @annoncment.submenu.title), notice: notice
       end
     end
 

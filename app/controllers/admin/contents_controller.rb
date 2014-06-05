@@ -20,9 +20,9 @@ module Admin
 
       if @content.save
         if @submenu.nil?
-          redirect_to admin_title_content_path(@category.title, @content.uuid), notice: t(".content_successfully_created")
+          redirect_to admin_title_content_path(@content.category.title, @content.uuid), notice: t(".content_successfully_created")
         else
-          redirect_to admin_title_title_submenu_content_path(@category.title, @submenu.title, @content.uuid), notice: t(".content_successfully_created")
+          redirect_to admin_title_title_submenu_content_path(@content.submenu.category.title, @content.submenu.title, @content.uuid), notice: t(".content_successfully_created")
         end
       else
         render action: 'new'
@@ -32,9 +32,9 @@ module Admin
     def update
       if @content.update(content_params)
         if @submenu.nil?
-          redirect_to admin_title_content_path(@category.title, @content.uuid), notice: t(".content_successfully_updated")
+          redirect_to admin_title_content_path(@content.category.title, @content.uuid), notice: t(".content_successfully_updated")
         else
-          redirect_to admin_title_title_submenu_content_path(@category.title, @submenu.title, @content.uuid), notice: t(".content_successfully_updated")
+          redirect_to admin_title_title_submenu_content_path(@content.submenu.category.title, @content.submenu.title, @content.uuid), notice: t(".content_successfully_updated")
         end
       else
         render action: 'edit'
