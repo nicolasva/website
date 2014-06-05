@@ -1,5 +1,4 @@
 class SubMenuBackground < ActiveRecord::Base
-  validates_presence_of :uuid
   validates_presence_of :title
   before_save :generate_uuid  
   has_one :background, as: :backgroundstyles, dependent: :destroy 
@@ -23,8 +22,12 @@ class SubMenuBackground < ActiveRecord::Base
 
   private
   def set_activation_by_default?
-    sub_menu_background = SubMenuBackground.find(self.id)
-    set_activation_by_default if self.activation == true && sub_menu_background.activation == false
+    if self.id
+      sub_menu_background = SubMenuBackground.find(self.id)
+      set_activation_by_default if self.activation == true && sub_menu_background.activation == false
+    else
+      set_activation_by_default
+    end
   end
 
   def set_activation_by_default
