@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def get_link_content_or_annoncment
-    case request.path.scan(/^.{1,}(contents|annoncments|galery_photos).{1,}$/)[0][0]
+    case request.path.scan(/^.{1,}(contents|annoncments|galery_photos)|.{1,}$/)[0][0]
       when "contents"
         link = @content
       when "annoncments"

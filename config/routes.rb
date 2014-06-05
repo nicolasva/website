@@ -71,7 +71,11 @@ WebsiteFrancisFerrari::Application.routes.draw do
         post :content_or_annoncment_homepage, :on => :collection
         get :update_success, :on => :member
         resources :galery_photos
+        scope do
+          match "contents/:content_uuid_for_copy/copy" => "contents#copy", :via => "GET"
+        end
         resources :contents do
+          get :copy, :on => :collection
           get :sort, :on => :collection
         end
         resources :annoncments do

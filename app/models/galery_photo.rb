@@ -1,5 +1,4 @@
 class GaleryPhoto < ActiveRecord::Base
-  validates_presence_of :uuid
   validates_presence_of :title
   validates_presence_of :comment
   validates_presence_of :position

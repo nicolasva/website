@@ -50,6 +50,10 @@ module Admin
         end
     end
 
+    def copy
+      
+    end
+
     def destroy
       notice = @content.destroy ? t(".content_successfully_destroy") : t(".content_was_not_successfully_destroy")
       if @submenu.nil?
