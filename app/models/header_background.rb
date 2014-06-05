@@ -1,7 +1,7 @@
 class HeaderBackground < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :uuid
-  validates_presence_of :activation
+  #validates_presence_of :activation
   before_save :generate_uuid
   has_one :background, as: :backgroundstyles, dependent: :destroy 
   before_save :set_activation_by_default? 
