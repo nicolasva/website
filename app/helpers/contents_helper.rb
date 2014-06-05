@@ -24,6 +24,6 @@ module ContentsHelper
   end
 
   def url_admin_edit_form_contents
-    return @submenu.nil? ? "/admin/categories/#{@category.title}/contents/#{@content.uuid}" : "/admin/categories/#{@category.title}/submenus/#{@submenu.title}/contents/#{@content.uuid}"
+    return @submenu.nil? ? "/admin/categories/#{@content.category.title}/contents/#{@content.uuid}" : "/admin/categories/#{@content.submenu.category.title}/submenus/#{@content.submenu.title}/contents/#{@content.uuid}"
   end
 end
