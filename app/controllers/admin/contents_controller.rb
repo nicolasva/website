@@ -51,10 +51,20 @@ module Admin
     end
 
     def copy
-     @content = Content.find_by_uuid(params[:content_uuid_for_copy])
-     @background = Background.find_by_backgroundstyles_id(@content.id)
+     @content = @category.contents.find_by_uuid(params[:content_uuid_for_copy])
 
-     @content = Content.new(:description => @content.description, :category_id => @content.category_id, :english_description => @content.english_description, :submenu_id => @content.submenu_id, :background_attributes => { :border => @content.background.border, :border_style => @content.background.border_style, :border_color => @content.background.border_color, :background_color => @content.background.background_color })
+     @content = Content.new(:description => @content.description, :category_id => @content.category_id, :english_description => @content.english_description, :submenu_id => @content.submenu_id, :background_attributes => { :border => @content.background.border, :border_style => @content.background.border_style, :border_color => @content.background.border_color, :background_color => @content.background.background_color, :background_image => @content.background.background_image, :cached_path => @content.background.cached_path, :backgroundstyles_id => @content.background.backgroundstyles_id, :backgroundstyles_type => @content.background.backgroundstyles_type, :no_background_image => @content.background.no_background_image, :no_repeat => @content.background.no_repeat, :background_image_cache => @content.background.background_image_cache, :align => @content.background.align})
+     if @content.save
+       notice = "La copie de ce nouveau contenu s'est bien déroulé"
+     else
+       notice = "La copie de ce nouveau contenu ne s'est pas correctement déroulé"
+     end
+
+     if @submenu.nil? 
+       redirect_to admin_title_contents_path(@content.category.title), notice: notice 
+     else
+        redirect_to admin_title_title_submenu_contents_path(@content.category.title, @submenu.title), notice: notice
+     end
     end
 
     def destroy

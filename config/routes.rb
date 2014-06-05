@@ -65,6 +65,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
     resources :categories, :as => "title" do
       scope do
         match "submenus/:title_submenu_id/update_success" => "submenus#update_success", :via => "GET"
+        match "contents/:content_uuid_for_copy/copy" => "contents#copy", :via => "GET"
       end
       resources :submenus, :as => "title_submenu" do
         get :sort, :on => :collection
