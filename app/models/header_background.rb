@@ -22,8 +22,12 @@ class HeaderBackground < ActiveRecord::Base
 
   private
   def set_activation_by_default?
-    header_background = HeaderBackground.find(self.id)
-    set_activation_by_default if self.activation == true && header_background.activation == false
+    if self.id
+      header_background = HeaderBackground.find(self.id)
+      set_activation_by_default if self.activation == true && header_background.activation == false
+    else
+      set_activation_by_default
+    end
   end
 
   def set_activation_by_default

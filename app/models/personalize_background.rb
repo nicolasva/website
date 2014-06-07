@@ -1,6 +1,5 @@
 class PersonalizeBackground < ActiveRecord::Base
   validates_presence_of :title
-  validates_presence_of :uuid
   validates_presence_of :font_color
   validates_presence_of :margin_top
   before_save :generate_uuid

@@ -1,5 +1,4 @@
 class Robot::Key < Robot
-  validates_presence_of :uuid
   validates_presence_of :name
   validates_presence_of :lang
   validates_presence_of :content
