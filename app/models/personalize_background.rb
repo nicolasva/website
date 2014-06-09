@@ -6,7 +6,11 @@ class PersonalizeBackground < ActiveRecord::Base
   has_one :background, as: :backgroundstyles, dependent: :destroy
   before_save :set_activation_by_default?
   before_update :set_activation_by_default?
-  accepts_nested_attributes_for :background
+  accepts_nested_attributes_for :background,
+                                :allow_destroy => true,
+                                :reject_if => lambda {
+                                  |a| a['background_image'].blank?
+                                }
 
   def self.activation!(activation)
     hash_activation = Hash.new

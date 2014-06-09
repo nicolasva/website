@@ -7,7 +7,11 @@ class Annoncment < ActiveRecord::Base
   belongs_to :submenu
   has_one :background, as: :backgroundstyles, dependent: :destroy
   has_many :photos
-  accepts_nested_attributes_for :background
+  accepts_nested_attributes_for :background,
+                                :allow_destroy => true,
+                                :reject_if => lambda {
+                                  |a| a['background_image'].blank?
+                                }
   ARRAY_FONT_WEIGHT_TITLE = {"normal" => 0, "lighter" => 1, "bold" => 2, "bolder" => 3}
   ARRAY_TEXT_DECORATION_TITLE = {"none" => 0, "underline" => 1, "overline" => 2, "line-through" => 3, "blink" => 4}
 

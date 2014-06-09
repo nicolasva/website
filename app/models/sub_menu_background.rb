@@ -4,7 +4,11 @@ class SubMenuBackground < ActiveRecord::Base
   has_one :background, as: :backgroundstyles, dependent: :destroy 
   has_one :align, as: :aligns, dependent: :destroy
   before_save :set_activation_by_default?
-  accepts_nested_attributes_for :background
+  accepts_nested_attributes_for :background,
+                                :allow_destroy => true,
+                                :reject_if => lambda {
+                                  |a| a['background_image'].blank?
+                                }
   accepts_nested_attributes_for :align
 
   def self.activation!(activation)
