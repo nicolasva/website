@@ -58,7 +58,7 @@ set_propertie_full_screen_javascript = (element, align) ->
 
 set_properties_css = (element, background) ->
   unless background.no_background_image
-    $(element).css("background", "url('"+background.background_image.header.url+"') " + if background.no_repeat is true then 'no-repeat' else '')
+    $(element).css("background", "url('"+background_image_size(background.background_image, background.background_image_size)+"') " + if background.no_repeat is true then 'no-repeat' else '')
     $(element).css("background-position", HASH_ALIGN_CSS[background.align])
     $(element).css("background-size", "cover")
     if background.align == 11
@@ -68,3 +68,13 @@ set_properties_css = (element, background) ->
       $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
   $(element).css("background-color", background.background_color)
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
+
+background_image_size = (background_image, background_image_size) ->
+  switch background_image_size
+    when 0
+      return background_image.url
+    when 1
+      return background_image.thumb.url
+    when 2
+      return background_image.header.url
+
