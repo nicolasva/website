@@ -11,6 +11,10 @@ class HeaderBackground < ActiveRecord::Base
                                   |a| a['background_image'].blank?
                                 }
 
+  def update_with_set_background_image
+
+  end
+
   def self.activation!(activation)
     hash_activation = Hash.new
     header_background_id = activation.first

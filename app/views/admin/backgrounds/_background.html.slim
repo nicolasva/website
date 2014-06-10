@@ -10,15 +10,17 @@
       = f_background.input :no_background_image, input_html: { class: "no_background_image" }
       .background_image
         .row
-          .col-md-3
+          .col-md-2
             = f_background.input :background_image
             = f_background.input :cached_path, as: :hidden
-          .col-md-3
+          .col-md-2
             = f_background.input :no_repeat
-          .col-md-3
+          .col-md-2
             = f_background.input :align, collection: Background::ARRAY_ALIGN 
-          .col-md-3
+          .col-md-2
             = f_background.input :background_image_size, collection: Background::ARRAY_ALIGN_BACKGROUND_IMAGE_SIZE
+          .col-md-2
+            = f_background.input :cover
         - if !model.new_record? && !model.background.nil? && !model.background.background_image.url(:thumb).nil?
           .row
             .col-md-5
