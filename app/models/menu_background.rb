@@ -11,6 +11,17 @@ class MenuBackground < ActiveRecord::Base
                                 }
   accepts_nested_attributes_for :align
 
+  def update_with_image(menu_background_params)
+    update_menu_background = self.update(menu_background_params)
+
+    if update_menu_background
+      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "MenuBackground").first
+      return background.update(menu_background_params["background_attributes"])
+    else
+      return update_menu_background
+    end
+  end
+
   def self.activation!(activation)
     hash_activation = Hash.new
     menu_background_id = activation.first

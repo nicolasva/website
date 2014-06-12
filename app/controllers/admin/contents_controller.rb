@@ -30,7 +30,7 @@ module Admin
     end
 
     def update
-      if @content.update(content_params)
+      if @content.update_with_image(content_params)
         if @submenu.nil?
           redirect_to admin_title_content_path(@content.category.title, @content.uuid), notice: t(".content_successfully_updated")
         else

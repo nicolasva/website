@@ -1,4 +1,5 @@
-class HeaderBackground < ActiveRecord::Base
+class HeaderBackground < ActiveRecord::Base 
+  attr_accessor :delete_background_image
   validates_presence_of :title
   #validates_presence_of :activation
   before_save :generate_uuid
@@ -11,9 +12,17 @@ class HeaderBackground < ActiveRecord::Base
                                   |a| a['background_image'].blank?
                                 }
 
-  def update_with_set_background_image
-
+  def update_with_image(header_background_params)
+    update_header_background = self.update(header_background_params)
+    if update_header_background
+      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "HeaderBackground").first
+      return background.update(header_background_params["background_attributes"])
+    else
+      return update_header_background
+    end
   end
+
+
 
   def self.activation!(activation)
     hash_activation = Hash.new

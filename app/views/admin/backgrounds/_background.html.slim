@@ -27,7 +27,7 @@
               = image_tag(model.background.background_image.url(:thumb))
             .col-md-2
               #id_hide
-                = f_background.input :delete_background_image, as: :boolean, :input_html => { :value => false }
+                = f_background.input :delete_background_image, as: :hidden, :input_html => { :value => false, class: "input_delete_backgorund_image" }
               = link_to "", "#", id: "id_drop_background_image", class: "grid_button_not_delete"
               = link_to "", "#", id: "id_drop_background_image", class: "grid_button_delete" 
   .row

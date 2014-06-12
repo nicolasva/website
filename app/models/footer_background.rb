@@ -10,6 +10,16 @@ class FooterBackground < ActiveRecord::Base
                                   |a| a['background_image'].blank?
                                 }
 
+  def update_with_image(footer_background_params)
+    update_footer_background = self.update(footer_background_params)
+    if update_footer_background 
+      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "FooterBackground").first
+      return background.update(footer_background_params["background_attributes"])
+    else
+      return update_footer_background
+    end
+  end
+
   def self.activation!(activation)
     hash_activation = Hash.new
     footer_background_id = activation.first

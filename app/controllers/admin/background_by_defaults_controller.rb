@@ -31,7 +31,7 @@ module Admin
     end
 
     def update
-      if @background_by_default.update(background_by_default_params)
+      if @background_by_default.update_with_image(background_by_default_params)
         redirect_to admin_background_by_defaults_path, notice: t(".background_default_success_updated")
       else
         render action: 'edit'

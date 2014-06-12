@@ -14,14 +14,14 @@ jQuery ->
 
 jQuery ->
   $(document).on  'click', '.grid_button_not_delete', (e) ->
-    $("#content_delete_background_image").attr("value", true)
+    $(".input_delete_backgorund_image").attr("value", true)
     $(e.target).hide()
     $(".grid_button_delete").show()
     return false
 
 jQuery ->
   $(document).on  'click', '.grid_button_delete', (e) ->
-    $("#content_delete_background_image").attr("value", false)
+    $(".input_delete_backgorund_image").attr("value", false)
     $(e.target).hide()
     $(".grid_button_not_delete").show()
     return false

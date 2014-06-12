@@ -11,6 +11,16 @@ class BackgroundByDefault < ActiveRecord::Base
                                   |a| a['background_image'].blank?
                                 }
 
+  def update_with_image(background_by_default_params)
+    update_background_by_default = self.update(background_by_default_params)
+    if update_background_by_default
+      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "BackgroundByDefault").first
+      return background.update(background_by_default_params["background_attributes"])
+    else
+      return update_background_by_default
+    end
+  end
+
   def self.activation!(activations)
     hash_activation = Hash.new
     background_by_default_id = activations.first

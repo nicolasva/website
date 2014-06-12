@@ -31,7 +31,7 @@ module Admin
     end
 
     def update
-      if @footer_background.update(footer_background_params)
+      if @footer_background.update_with_image(footer_background_params)
         redirect_to admin_footer_background_path, notice: t(".footer_background_success_updated")
       else
         render action: 'edit'

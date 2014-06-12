@@ -12,6 +12,16 @@ class PersonalizeBackground < ActiveRecord::Base
                                   |a| a['background_image'].blank?
                                 }
 
+  def update_with_image(personalize_background_params)
+    update_personalize_background = self.update(personalize_background_params)
+    if update_personalize_background
+      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "PersonalizeBackground").first
+      return background.update(personalize_background_params["background_attributes"])
+    else
+      return update_personalize_background
+    end
+  end
+
   def self.activation!(activation)
     hash_activation = Hash.new
     personalize_background_id = activation.id

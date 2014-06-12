@@ -17,6 +17,9 @@ class Annoncment < ActiveRecord::Base
 
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
 
+  def update_with_image()
+
+  end
   def save_with_image_master
     self.photos_attributes.each do |key, value|
       value["master_image"] = self.photos_master["master_image"].include?(key.to_s)
@@ -53,6 +56,12 @@ class Annoncment < ActiveRecord::Base
         photo.destroy
       end
     end
-    self.update(annoncment_params)
+    update_annoncment = self.update(annoncment_params)
+    if update_annoncment
+      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "Annoncment").first
+      return background.update(annoncment_params["background_attributes"])
+    else
+      return update_annoncment
+    end
   end
 end

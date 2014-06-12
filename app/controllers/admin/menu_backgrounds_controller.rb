@@ -39,7 +39,7 @@ module Admin
     end
 
     def update
-      if @menu_background.update(menu_background_params)
+      if @menu_background.update_with_image(menu_background_params)
         redirect_to admin_menu_background_path, notice: t(".menu_background_success_updated") 
       else
         render action: 'edit'
