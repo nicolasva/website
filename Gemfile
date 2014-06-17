@@ -71,7 +71,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'passenger'
+  gem 'passenger', '4.0.29'
   gem 'memcache-client'
 end
 
