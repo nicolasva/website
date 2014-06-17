@@ -190,7 +190,7 @@ fr:
         category_was_successfully_updated: La catégorie a bien été mise à jour
       create:
         category_successfully_created: La catégorie a bien été crée
-      list_category:
+      show:
         links:
           annoncment: Les annonces
           content: Les contenus

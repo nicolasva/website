@@ -198,7 +198,7 @@ en:
         category_was_successfully_updated: Category was successfully updated
       create:
         category_successfully_created: Category was successfully created
-      list_category:
+      show:
         links:
           annoncment: THe announcement
           content: the content
