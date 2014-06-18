@@ -14,13 +14,13 @@ class Content < ActiveRecord::Base
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
 
   def update_with_image(content_params)
-    update_content = self.update(content_params)
-    if update_content
+    #update_content = self.update(content_params)
+    #if update_content
       background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "Content").first
       return background.update(content_params["background_attributes"])
-    else
-      return update_content
-    end
+    #else
+    #  return update_content
+    #end
   end
 
   def generate_uuid
