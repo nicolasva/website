@@ -37,8 +37,12 @@ class PersonalizeBackground < ActiveRecord::Base
 
   private
   def set_activation_by_default?
-    personalize_background = PersonalizeBackground.find(self.id)
-    set_activation_by_default if self.activation == true && personalize_background.activation == false
+    if self.id
+      personalize_background = PersonalizeBackground.find(self.id)
+      set_activation_by_default if self.activation == true && personalize_background.activation == false
+    else
+      set_activation_by_default
+    end
   end
 
   def set_activation_by_default
