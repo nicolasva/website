@@ -7,10 +7,10 @@ class Content < ActiveRecord::Base
   belongs_to :submenu
   has_one :background, as: :backgroundstyles, dependent: :destroy
   accepts_nested_attributes_for :background,
-                                :allow_destroy => true,
-                                :reject_if => lambda {
-                                  |a| a['background_image'].blank?
-                                }
+                                :allow_destroy => true
+                                #:reject_if => lambda {
+                                #  |a| a['background_image'].blank?
+                                #}
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
 
   def update_with_image(content_params)

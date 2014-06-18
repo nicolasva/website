@@ -30,11 +30,15 @@ module Admin
     end
 
     def update
-      if @content.update_with_image(content_params)
-        if @submenu.nil?
-          redirect_to admin_title_content_path(@content.category.title, @content.uuid), notice: t(".content_successfully_updated")
+      if @content.update(content_params)
+        if @content.update_with_image(content_params)
+          if @submenu.nil?
+            redirect_to admin_title_content_path(@content.category.title, @content.uuid), notice: t(".content_successfully_updated")
+          else
+            redirect_to admin_title_title_submenu_content_path(@content.submenu.category.title, @content.submenu.title, @content.uuid), notice: t(".content_successfully_updated")
+          end
         else
-          redirect_to admin_title_title_submenu_content_path(@content.submenu.category.title, @content.submenu.title, @content.uuid), notice: t(".content_successfully_updated")
+          render action: 'edit'
         end
       else
         render action: 'edit'
