@@ -5,20 +5,17 @@ class MenuBackground < ActiveRecord::Base
   has_one :align, as: :aligns, dependent: :destroy
   before_save :set_activation_by_default?
   accepts_nested_attributes_for :background,
-                                :allow_destroy => true,
-                                :reject_if => lambda {
-                                  |a| a['background_image'].blank?
-                                }
+                                :allow_destroy => true
+  
   accepts_nested_attributes_for :align
 
   def update_with_image(menu_background_params)
-    update_menu_background = self.update(menu_background_params)
-
-    if update_menu_background
-      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "MenuBackground").first
+    background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "MenuBackground").first
+    if background
       return background.update(menu_background_params["background_attributes"])
     else
-      return update_menu_background
+      background = Backgrouund.new(menu_background_params["background_attributes"])
+      return background
     end
   end
 

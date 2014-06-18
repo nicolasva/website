@@ -7,18 +7,15 @@ class PersonalizeBackground < ActiveRecord::Base
   before_save :set_activation_by_default?
   before_update :set_activation_by_default?
   accepts_nested_attributes_for :background,
-                                :allow_destroy => true,
-                                :reject_if => lambda {
-                                  |a| a['background_image'].blank?
-                                }
+                                :allow_destroy => true
 
   def update_with_image(personalize_background_params)
-    update_personalize_background = self.update(personalize_background_params)
-    if update_personalize_background
-      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "PersonalizeBackground").first
+    background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "PersonalizeBackground").first
+    if background
       return background.update(personalize_background_params["background_attributes"])
     else
-      return update_personalize_background
+      background = Background.new(personalize_background_params["background_attributes"])
+      return background.save
     end
   end
 

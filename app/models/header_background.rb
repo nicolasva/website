@@ -7,18 +7,16 @@ class HeaderBackground < ActiveRecord::Base
   before_save :set_activation_by_default? 
   before_update :set_activation_by_default?
   accepts_nested_attributes_for :background,
-                                :allow_destroy => true,
-                                :reject_if => lambda {
-                                  |a| a['background_image'].blank?
-                                }
+                                :allow_destroy => true
 
   def update_with_image(header_background_params)
-    update_header_background = self.update(header_background_params)
-    if update_header_background
-      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "HeaderBackground").first
+    ##update_header_background = self.update(header_background_params)
+    background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "HeaderBackground").first
+    if background
       return background.update(header_background_params["background_attributes"])
     else
-      return update_header_background
+      background = Background.new(header_background_params["background_attributes"])
+      return background.save
     end
   end
 

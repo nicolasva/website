@@ -43,11 +43,15 @@ module Admin
     end
 
     def update
-      if @annoncment.update_with_background_image(annoncment_params)
-        if @submenu.nil?
-          redirect_to admin_title_annoncment_path(@annoncment.category.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
+      if @annoncment.update(annoncment_params)
+        if @annoncment.update_with_background_image(annoncment_params)
+          if @submenu.nil?
+            redirect_to admin_title_annoncment_path(@annoncment.category.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
+          else
+            redirect_to admin_title_title_submenu_annoncment_path(@annoncment.submenu.category.title, @annoncment.submenu.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
+          end
         else
-          redirect_to admin_title_title_submenu_annoncment_path(@annoncment.submenu.category.title, @annoncment.submenu.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
+          render action: 'edit'
         end
       else
         render action: 'edit'

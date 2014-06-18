@@ -6,18 +6,17 @@ class BackgroundByDefault < ActiveRecord::Base
   before_save :set_activation_by_default?
   before_update :set_activation_by_default?
   accepts_nested_attributes_for :background,
-                                :allow_destroy => true,
-                                :reject_if => lambda {
-                                  |a| a['background_image'].blank?
-                                }
+                                :allow_destroy => true
 
   def update_with_image(background_by_default_params)
-    update_background_by_default = self.update(background_by_default_params)
-    if update_background_by_default
-      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "BackgroundByDefault").first
+    #update_background_by_default = self.update(background_by_default_params)
+    #if update_background_by_default
+    background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "BackgroundByDefault").first
+    if background
       return background.update(background_by_default_params["background_attributes"])
     else
-      return update_background_by_default
+      background = Backgrouund.new(background_by_default_params["background_attributes"])
+      return background.save
     end
   end
 

@@ -8,10 +8,8 @@ class Annoncment < ActiveRecord::Base
   has_one :background, as: :backgroundstyles, dependent: :destroy
   has_many :photos
   accepts_nested_attributes_for :background,
-                                :allow_destroy => true,
-                                :reject_if => lambda {
-                                  |a| a['background_image'].blank?
-                                }
+                                :allow_destroy => true
+  
   ARRAY_FONT_WEIGHT_TITLE = {"normal" => 0, "lighter" => 1, "bold" => 2, "bolder" => 3}
   ARRAY_TEXT_DECORATION_TITLE = {"none" => 0, "underline" => 1, "overline" => 2, "line-through" => 3, "blink" => 4}
 
@@ -41,8 +39,6 @@ class Annoncment < ActiveRecord::Base
     date_at = self.date_at_html.split("/")
     date_to = self.date_to_html.split("/")
 
-    Rails.logger.info date_to 
-    Rails.logger.info "#{date_at.last}-#{date_at.first}-#{date_at[date_at.length-2]} 00:00:00"
     self.date_at = "#{date_at.last}-#{date_at[date_at.length-2]}-#{date_at.first} 00:00:00"
     self.date_to = "#{date_to.last}-#{date_to[date_to.length-2]}-#{date_to.first} 00:00:00"
   end
@@ -59,7 +55,12 @@ class Annoncment < ActiveRecord::Base
     update_annoncment = self.update(annoncment_params)
     if update_annoncment
       background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "Annoncment").first
-      return background.update(annoncment_params["background_attributes"])
+      if background
+        return background.update(annoncment_params["background_attributes"])
+      else
+        background = Background.new(annoncment_params["background_attributes"])
+        return background.save
+      end
     else
       return update_annoncment
     end

@@ -32,8 +32,12 @@ module Admin
     end
 
     def update
-      if @header_background.update_with_image(header_background_params)
-        redirect_to admin_header_backgrounds_path, notice: t(".header_background_success_updated")
+      if @header_background.update(header_background_params)
+        if @header_background.update_with_image(header_background_params)
+          redirect_to admin_header_backgrounds_path, notice: t(".header_background_success_updated")
+        else
+          render action: 'edit'
+        end
       else
         render action: 'edit'
       end

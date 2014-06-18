@@ -31,8 +31,12 @@ module Admin
     end
 
     def update
-      if @sub_menu_background.update_with_image(sub_menu_background_params)
-        redirect_to admin_sub_menu_backgrounds_path, notice: t(".sub_menu_background_success_updated")
+      if @sub_menu_background.update(sub_menu_background_params)
+        if @sub_menu_background.update_with_image(sub_menu_background_params)
+          redirect_to admin_sub_menu_backgrounds_path, notice: t(".sub_menu_background_success_updated")
+        else
+          render action: 'edit'
+        end
       else
         render action: 'edit'
       end
