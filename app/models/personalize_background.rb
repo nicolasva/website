@@ -13,16 +13,6 @@ class PersonalizeBackground < ActiveRecord::Base
   accepts_nested_attributes_for :height_screen,
                                 :allow_destroy => true
 
-  def update_with_image(personalize_background_params)
-    background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "PersonalizeBackground").first
-    if background
-      return background.update(personalize_background_params["background_attributes"])
-    else
-      background = Background.new(personalize_background_params["background_attributes"])
-      return background.save
-    end
-  end
-
   def self.activation!(activation)
     hash_activation = Hash.new
     personalize_background_id = activation.id

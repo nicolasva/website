@@ -32,11 +32,7 @@ module Admin
 
     def update
       if @background_by_default.update(background_by_default_params)
-        if @background_by_default.update_with_image(background_by_default_params)
           redirect_to admin_background_by_defaults_path, notice: t(".background_default_success_updated")
-        else
-          render action: 'edit'
-        end
       else
         render action: 'edit'
       end
@@ -62,7 +58,7 @@ module Admin
                                                       :title,
                                                       :activation,
                                                       activations: [],
-                                                      background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover]
+                                                      background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover, :id]
                                                      )
       end
   end

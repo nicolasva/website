@@ -33,11 +33,7 @@ module Admin
 
     def update
       if @header_background.update(header_background_params)
-        if @header_background.update_with_image(header_background_params)
-          redirect_to admin_header_backgrounds_path, notice: t(".header_background_success_updated")
-        else
-          render action: 'edit'
-        end
+        redirect_to admin_header_backgrounds_path, notice: t(".header_background_success_updated")
       else
         render action: 'edit'
       end
@@ -63,7 +59,7 @@ module Admin
                                                   :title,
                                                   :activation,
                                                   activation: [],
-                                                  background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover]
+                                                  background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover, :id]
                                                  )
       end
   end

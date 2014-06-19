@@ -40,11 +40,7 @@ module Admin
 
     def update
       if @menu_background.update(menu_background_params)
-        if @menu_background.update_with_image(menu_background_params)
-          redirect_to admin_menu_backgrounds_path, notice: t(".menu_background_success_updated") 
-        else
-          render action: 'edit'
-        end
+        redirect_to admin_menu_backgrounds_path, notice: t(".menu_background_success_updated") 
       else
         render action: 'edit'
       end
@@ -71,7 +67,7 @@ module Admin
                                                 :activation,
                                                 activation: [],
                                                 align_attributes: [:align],
-                                                background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover]
+                                                background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover, :id]
                                                )
       end
   end

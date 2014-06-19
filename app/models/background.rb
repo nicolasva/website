@@ -6,8 +6,8 @@ class Background < ActiveRecord::Base
   #validates_presence_of :background_color
   #validates_presence_of :align
   belongs_to :backgroundstyles, :polymorphic => true
-  before_save :delete_image?
-  before_update :delete_image?
+  #before_save :delete_image?
+  #before_update :delete_image?
   mount_uploader :background_image, BackgroundImageUploader
   ARRAY_ALIGN = {"center" => 0, "right-bottom" => 3, "right-top" => 4, "right-center" => 5, "left-top" => 6, "left-center" => 7, "left-bottom" => 8, "center-top" => 9, "center-bottom" => 10, "stretch" => 11, "full-screen" => 12}
   ARRAY_ALIGN_CSS = {"center center" => 0, "right bottom" => 3, "right top" => 4, "right center" => 5, "left top" => 6, "left center" => 7, "left bottom" => 8, "center top" => 9, "center bottom" => 10, "stretch" => 11, "full screen" => 12}

@@ -57,16 +57,6 @@ class Annoncment < ActiveRecord::Base
       end
     end
     update_annoncment = self.update(annoncment_params)
-    if update_annoncment
-      background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "Annoncment").first
-      if background
-        return background.update(annoncment_params["background_attributes"])
-      else
-        background = Background.new(annoncment_params["background_attributes"])
-        return background.save
-      end
-    else
-      return update_annoncment
-    end
+    return update_annoncment
   end
 end

@@ -7,16 +7,6 @@ class FooterBackground < ActiveRecord::Base
   accepts_nested_attributes_for :background,
                                 :allow_destroy => true
 
-  def update_with_image(footer_background_params)
-    background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "FooterBackground").first
-    if background
-      return background.update(footer_background_params["background_attributes"])
-    else
-      background = Background.new(footer_background_params["background_attributes"])
-      return background.save
-    end
-  end
-
   def self.activation!(activation)
     hash_activation = Hash.new
     footer_background_id = activation.first

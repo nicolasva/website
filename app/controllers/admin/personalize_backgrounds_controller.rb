@@ -27,11 +27,7 @@ module Admin
 
     def update
       if @personalize_background.update(personalize_background_params)
-        if @personalize_background.update_with_image(personalize_background_params)
-          redirect_to admin_personalize_backgrounds_path, notice: t(".personalize_background_success_updated")
-        else
-          render action: 'edit'
-        end
+        redirect_to admin_personalize_backgrounds_path, notice: t(".personalize_background_success_updated")
       else
         render action: 'edit'
       end
@@ -59,7 +55,7 @@ module Admin
                                                        :activation,
                                                        :margin_top,
                                                        height_screen_attributes: [:height],
-                                                       background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :background_image_size, :cover]
+                                                       background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :background_image_size, :cover, :id]
                                                       )
       end
   end

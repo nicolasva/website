@@ -44,15 +44,11 @@ module Admin
 
     def update
       if @annoncment.update(annoncment_params)
-        if @annoncment.update_with_background_image(annoncment_params)
           if @submenu.nil?
             redirect_to admin_title_annoncment_path(@annoncment.category.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
           else
             redirect_to admin_title_title_submenu_annoncment_path(@annoncment.submenu.category.title, @annoncment.submenu.title, @annoncment.title), notice: t(".announcment_was_successfully_updated")
           end
-        else
-          render action: 'edit'
-        end
       else
         render action: 'edit'
       end
@@ -99,7 +95,7 @@ module Admin
                                            :date_at_html,
                                            photos_attributes: [:photo, :master_image, :photo_cache, :annoncment_id],
                                            photos: [:master_image],
-                                           background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color, :align, :background_image_size, :cover],
+                                           background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color, :align, :background_image_size, :cover, :id],
                                            height_screen_attributes: [:height]
                                           ).tap do |annoncment|
                                             annoncment[:photos_attributes] = params[:annoncment][:photos_attributes]

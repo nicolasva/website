@@ -8,18 +8,6 @@ class BackgroundByDefault < ActiveRecord::Base
   accepts_nested_attributes_for :background,
                                 :allow_destroy => true
 
-  def update_with_image(background_by_default_params)
-    #update_background_by_default = self.update(background_by_default_params)
-    #if update_background_by_default
-    background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "BackgroundByDefault").first
-    if background
-      return background.update(background_by_default_params["background_attributes"])
-    else
-      background = Backgrouund.new(background_by_default_params["background_attributes"])
-      return background.save
-    end
-  end
-
   def self.activation!(activations)
     hash_activation = Hash.new
     background_by_default_id = activations.first
@@ -29,8 +17,7 @@ class BackgroundByDefault < ActiveRecord::Base
   end
 
   def generate_uuid
-    uuid = UUID.new
-    self.uuid = uuid.generate
+    uuid = UUID.new    self.uuid = uuid.generate
   end
 
   private

@@ -32,11 +32,7 @@ module Admin
 
     def update
       if @footer_background.update(footer_background_params)
-        if @footer_background.update_with_image(footer_background_params)
-          redirect_to admin_footer_background_path, notice: t(".footer_background_success_updated")
-        else
-          render action: 'edit'
-        end
+        redirect_to admin_footer_background_path, notice: t(".footer_background_success_updated")
       else
         render actions: 'edit'
       end
@@ -62,7 +58,7 @@ module Admin
                                                 :title,
                                                 :activation,
                                                 activation: [],
-                                                background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :background_image_size, :cover]
+                                                background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :background_image_size, :cover, :id]
                                                )
     end
   end

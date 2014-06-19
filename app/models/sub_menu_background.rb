@@ -8,17 +8,6 @@ class SubMenuBackground < ActiveRecord::Base
                                 :allow_destroy => true
   accepts_nested_attributes_for :align
 
-
-  def update_with_image(sub_menu_background_params) 
-    background = Background.where(backgroundstyles_id: self.id, backgroundstyles_type: "SubMenuBackground").first
-    if background
-      return background.update(sub_menu_background_params["background_attributes"])
-    else
-      background = Background.new(sub_menu_background_params["background_attributes"])
-      return background.save
-    end
-  end
-
   def self.activation!(activation)
     hash_activation = Hash.new
     background_by_default_id = activation.first
