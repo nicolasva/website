@@ -1,5 +1,5 @@
 = f.fields_for(:align, model_init) do |f_align|
   .row
-    = f_align.input :align, collection: Align::ARRAY_ALIGN
+    = f_align.input :align, collection: Align::ARRAY_ALIGN, include_blank: false
 
 

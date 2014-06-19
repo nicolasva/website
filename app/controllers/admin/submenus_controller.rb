@@ -58,8 +58,6 @@ module Admin
         #redirection_url(k,notice)
         notice = t(".informations_sub_menu_updated")
         params_array = k.split("_")
-        puts "params-=-=-=-=-=-=-#{params_array.last}-=-=-=-=-=-"
-        #fsfdsfdsfd
         case params_array.first
           when "content"
             redirect_to admin_title_title_submenu_contents_path(@category.title, params_array.last), notice: notice
