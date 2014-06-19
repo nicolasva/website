@@ -58,6 +58,8 @@ module Admin
         #redirection_url(k,notice)
         notice = t(".informations_sub_menu_updated")
         params_array = k.split("_")
+        puts "params-=-=-=-=-=-=-#{params_array.last}-=-=-=-=-=-"
+        #fsfdsfdsfd
         case params_array.first
           when "content"
             redirect_to admin_title_title_submenu_contents_path(@category.title, params_array.last), notice: notice
@@ -66,7 +68,7 @@ module Admin
           when "imagegalery"
             redirect_to admin_title_title_submenu_galery_photos_path(@category.title, params_array.last), notice: notice
           when "allsubmenu"
-            redirect_to admin_title_title_submenu_annoncments_path(params[:title_id]), notice: notice
+            redirect_to admin_title_title_submenu_index_path(@category.title), notice: notice
         end
       end
     end
