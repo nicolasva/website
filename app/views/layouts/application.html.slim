@@ -135,7 +135,7 @@ html lang="en"
                 = yield
 
       footer
-        .col-md-3 &copy; #{@title_website.title} 2013
+        .col-md-3 &copy; #{@title_website.title} #{Time.now.strftime("%Y")}
         .col-md-4.col-md-offset-5
           ul.nav.navbar-nav
             li
