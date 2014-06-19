@@ -14,7 +14,7 @@ class ContentsController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @content }
+      format.json { render json: @content.to_json(:include => [:background, :height_screen]) }
     end
   end
 
@@ -70,7 +70,7 @@ class ContentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_content
-      @content = Content.find(params[:id])
+      @content = Content.find_by_uuid(params[:uuid])
     end
 
     def parent

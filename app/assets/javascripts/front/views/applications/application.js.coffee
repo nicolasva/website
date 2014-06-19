@@ -46,6 +46,7 @@ jQuery ->
         unless _.isNull(data)
           $("#annoncment_list").children().css("margin-top", data.margin_top+"%")
           $("#annoncment_list").find("a").css("color", data.font_color)
+          $("#annoncment_list").css("height", window.screen.height) if data.height_screen.height
           set_properties_css("#annoncment_list", data.background)
       )
 

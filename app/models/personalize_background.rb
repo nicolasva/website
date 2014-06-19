@@ -4,9 +4,13 @@ class PersonalizeBackground < ActiveRecord::Base
   validates_presence_of :margin_top
   before_save :generate_uuid
   has_one :background, as: :backgroundstyles, dependent: :destroy
+  has_one :height_screen, as: :height_screenstyles, dependent: :destroy
   before_save :set_activation_by_default?
   before_update :set_activation_by_default?
   accepts_nested_attributes_for :background,
+                                :allow_destroy => true
+
+  accepts_nested_attributes_for :height_screen,
                                 :allow_destroy => true
 
   def update_with_image(personalize_background_params)

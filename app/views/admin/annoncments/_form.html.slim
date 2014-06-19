@@ -25,6 +25,8 @@
   .row
     = link_to "Ajouter une autre photo", admin_title_photos_add_form_photo_path(@category.title), class: 'btn btn-mini btn-warning', remote: true
   .row
+    = render(:partial => "/admin/height_screens/form", :locals => { f: f, model_init: @annoncment.new_record? || @annoncment.height_screen.nil? ? HeightScreen.new : @annoncment.height_screen, model: @annoncmemnt })
+  .row
     = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @annoncment.new_record? || @annoncment.background.nil? ? Background.new : @annoncment.background, model: @annoncment })
   .form-actions
     = f.button :submit, value: button_valid_annoncment, :class => 'btn-primary'

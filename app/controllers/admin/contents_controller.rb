@@ -50,7 +50,7 @@ module Admin
     
         respond_to do |format|
           format.html
-          format.json { render json: @content}
+          format.json { render json: @content.to_json(:include => [:background, :height_screen]) }
         end
     end
 
@@ -106,7 +106,8 @@ module Admin
                                         :background_image_cache, 
                                         :no_repeat,
                                         :no_background_image,
-                                        background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color, :align, :background_image_size, :cover]
+                                        background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color, :align, :background_image_size, :cover],
+                                        height_screen_attributes: [:height]
                                        )
       end
   end

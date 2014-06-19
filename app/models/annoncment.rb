@@ -5,9 +5,13 @@ class Annoncment < ActiveRecord::Base
   after_save :save_with_image_master
   belongs_to :category
   belongs_to :submenu
-  has_one :background, as: :backgroundstyles, dependent: :destroy
+  has_one :background, as: :backgroundstyles, dependent: :destroy 
+  has_one :height_screen, as: :height_screenstyles, dependent: :destroy
   has_many :photos
   accepts_nested_attributes_for :background,
+                                :allow_destroy => true
+
+  accepts_nested_attributes_for :height_screen,
                                 :allow_destroy => true
   
   ARRAY_FONT_WEIGHT_TITLE = {"normal" => 0, "lighter" => 1, "bold" => 2, "bolder" => 3}

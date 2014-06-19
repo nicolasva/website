@@ -6,11 +6,16 @@ class Content < ActiveRecord::Base
   belongs_to :category
   belongs_to :submenu
   has_one :background, as: :backgroundstyles, dependent: :destroy
+  has_one :height_screen, as: :height_screenstyles, dependent: :destroy
   accepts_nested_attributes_for :background,
                                 :allow_destroy => true
-                                #:reject_if => lambda {
+                                #:reject_if => lambda 
                                 #  |a| a['background_image'].blank?
                                 #}
+
+  accepts_nested_attributes_for :height_screen,
+                                :allow_destroy => true
+
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
 
   def update_with_image(content_params)

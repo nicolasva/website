@@ -3,9 +3,9 @@ WebsiteFrancisFerrari::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   scope do
-    match "contents/:id" => "contents#show", :via => "GET"
     match "contents/:uuid/backgrounds" => "backgrounds#index", :via => "GET"
     match "annoncments/:title_annoncment_id/backgrounds" => "backgrounds#index", :via => "GET"
+    match "contents/:uuid" => "contents#show", :via => "GET"
   end
 
   resources :languages, :only => :show

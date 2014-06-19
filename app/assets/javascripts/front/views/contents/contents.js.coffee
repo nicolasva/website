@@ -4,9 +4,11 @@ jQuery ->
       id_value_content = $(value).attr("id")
       if id_value_content.split("_")[0] == "content"
         uuid = $(value).attr("class").split(" ")[$(value).attr("class").split(" ").length - 1]
-        $.getJSON("/contents/"+uuid+"/backgrounds", (data) ->
+        $.getJSON("/contents/"+uuid, (data) ->
           unless _.isNull(data)
-            $(value).css("background-color", data.background_color)
-            $(value).css("background", "url('"+data.background_image.url+"') "+ if data.no_repeat is true then  'no-repeat' else '') unless data.no_background_image
-            $(value).css("border", data.border+" "+data.border_style+" "+data.border_color)
+            console.log $(value)
+            $(value).css("height", window.screen.height + "px") if data.height_screen.height
+            $(value).css("background-color", data.background.background_color)
+            $(value).css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then  'no-repeat' else '') unless data.background.no_background_image
+            $(value).css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
         )

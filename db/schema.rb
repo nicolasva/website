@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610132612) do
+ActiveRecord::Schema.define(version: 20140618143531) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -175,6 +175,12 @@ ActiveRecord::Schema.define(version: 20140610132612) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "activation", default: false
+  end
+
+  create_table "height_screens", force: true do |t|
+    t.boolean "height",                   default: true, null: false
+    t.integer "height_screenstyles_id",                  null: false
+    t.string  "height_screenstyles_type",                null: false
   end
 
   create_table "homepage_submenus", force: true do |t|

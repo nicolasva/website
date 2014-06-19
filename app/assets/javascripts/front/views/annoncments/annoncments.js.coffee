@@ -29,20 +29,22 @@ jQuery ->
     exp_annoncment = new RegExp("^.{1,}(annoncments)$","g")
     location_href  = window.location.href
 
-    exp_get_url = new RegExp("(^.{1,})annoncments$","g") 
+    exp_get_url = new RegExp("(^.{1,})annoncments$","g")
     unless _.isEmpty(location_href.scan(exp_annoncment))
       get_url = location_href.scan(exp_annoncment)[0][0]
       if exp_annoncment.test(location_href)
         $(".annoncment").each (key, value) ->
           annoncment_id = $(value).attr("class").split(" ").slice(-1)[0].split("_").slice(-1)[0]
+          console.log get_url
           $.getJSON(get_url+"/"+annoncment_id, (data) ->
             unless _.isNull(data)
               $(".annoncment").css("background-color", data.background.background_color)
               $(".annoncment").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then 'no-repeat' else '') unless data.background.no_background_image
               $(".annoncment").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
+              $(".annoncment").css("height", window.screen.height + "px") if data.height_screen.height
           )
       
-          #Set attribute css
+    #Set attribute css
     get_title_annoncment = location_href.split("/").slice(-1)
     exp_get_url_show_annoncment = new RegExp("(^.{1,})annoncments.{1,}$","g")
     unless _.isEmpty(location_href.scan(exp_get_url_show_annoncment)) 
@@ -55,11 +57,13 @@ jQuery ->
         $(".title_annoncment").css("font-size", data.font_size_title+"pt")
         $(".title_annoncment").css("text-decoration", HASH_ANNONCMENT_TEXT_DECORATION_TITLE[data.text_decoration_title])
         background = data.background 
+        height_screen = data.height_screen
         element = ".annoncment"
         unless background.no_background_image
           $(element).css("background", "url('"+background.background_image.header.url+"') " + if background.no_repeat is true then 'no-repeat' else '')
           $(element).css("background-position", HASH_ALIGN_CSS[background.align])
           $(element).css("background-size", "cover")
+          $(element).css("height", window.screen.height) if height_screen.height
           if background.align == 11
             $(element).css("-moz-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
             $(element).css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
