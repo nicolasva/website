@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @title_website] do |f|
+  .row
+    .col-md-6
+      = f.input :title
+    .col-md-6
+      = f.input :activation
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+

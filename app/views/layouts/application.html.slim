@@ -4,7 +4,7 @@ html lang="en"
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
-    title= content_for?(:title) ? yield(:title) : "WebsiteFrancisFerrari"
+    title= @title_website.title 
     = render(:partial => "/partials/robot_keys")
     = csrf_meta_tags
 

@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   before_filter :load_menu_background
   before_filter :load_sub_menu_background
   before_filter :load_robot_keys
+  before_filter :load_title_website
+
+  def load_title_website
+    @title_website = TitleWebsite.exists?(activation: true) ? TitleWebsite.find_by_activation(true) : TitleWebsite.order(:id).first
+  end
 
   def load_category
     @category_all = Category.all.order(:position)

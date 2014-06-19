@@ -8,6 +8,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
     match "contents/:uuid" => "contents#show", :via => "GET"
   end
 
+  resources :title_websites
   resources :languages, :only => :show
   resources :contact_us
   resources :personalize_backgrounds
@@ -37,6 +38,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
+    resources :title_websites
     resources :robot_keys
     resources :personalize_backgrounds do
       post :activation, :on => :collection

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140618143531) do
+ActiveRecord::Schema.define(version: 20140619174726) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -251,6 +251,13 @@ ActiveRecord::Schema.define(version: 20140618143531) do
   end
 
   add_index "submenus", ["category_id"], name: "submenus_category_id_to_category"
+
+  create_table "title_websites", force: true do |t|
+    t.string   "title"
+    t.boolean  "activation", default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "login",                  default: "", null: false
