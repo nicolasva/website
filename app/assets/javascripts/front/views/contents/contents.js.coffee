@@ -1,3 +1,16 @@
+HASH_ALIGN_CSS =
+  0 : "center center"
+  3 : "right bottom"
+  4 : "right top"
+  5 : "right center"
+  6 : "left top"
+  7 : "left center"
+  8 : "left bottom"
+  9 : "center top"
+  10 : "center bottom"
+  11 : "center center"
+  12 : "full screen"
+
 jQuery ->
   $(document).ready ->
     $(".container.content.margin-container").children().first().children().first().children().first().children().each (key, value) ->
