@@ -72,7 +72,7 @@ module Admin
       if @submenu.nil?
         redirect_to admin_title_contents_path(@content.category.title), notice: notice 
       else
-        redirect_to admin_title_title_submenu_contents_path(@content.category.title, @submenu.title), notice: notice
+        redirect_to admin_title_title_submenu_contents_path(@content.submenu.category.title, @submenu.title), notice: notice
       end
     end
 
