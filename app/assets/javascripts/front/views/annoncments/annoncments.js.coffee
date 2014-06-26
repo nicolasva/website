@@ -42,6 +42,7 @@ jQuery ->
               $(".annoncment").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then 'no-repeat' else '') unless data.background.no_background_image
               $(".annoncment").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
               $(".annoncment").css("height", window.screen.height + "px") if data.height_screen.height
+              set_nifty_corner(".annoncment", data)
           )
       
     #Set attribute css
@@ -69,6 +70,14 @@ jQuery ->
             $(element).css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
             $(element).css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
             $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+        set_nifty_corner(element, data)
         $(element).css("background-color", background.background_color)
         $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
       )
+
+set_nifty_corner = (element, data) ->
+  unless _.isUndefined(data.nifty_corner)
+    if data.nifty_corner.nifty_corner
+      $(element).css("-moz-border-radius", data.nifty_corner.border_radius + "px")
+      $(element).css("-webkit-border-radius", data.nifty_corner.border_radius + "px")
+      $(element).css("border-radius", data.nifty_corner.border_radius + "px")

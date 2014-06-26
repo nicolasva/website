@@ -5,12 +5,16 @@ class PersonalizeBackground < ActiveRecord::Base
   before_save :generate_uuid
   has_one :background, as: :backgroundstyles, dependent: :destroy
   has_one :height_screen, as: :height_screenstyles, dependent: :destroy
+  has_one :nifty_corner, as: :nifty_cornerstyles, dependent: :destroy
   before_save :set_activation_by_default?
   before_update :set_activation_by_default?
   accepts_nested_attributes_for :background,
                                 :allow_destroy => true
 
   accepts_nested_attributes_for :height_screen,
+                                :allow_destroy => true
+
+  accepts_nested_attributes_for :nifty_corner,
                                 :allow_destroy => true
 
   def self.activation!(activation)

@@ -21,6 +21,12 @@ jQuery ->
           unless _.isNull(data)
             #console.log $(value)
             $(value).css("height", window.screen.height + "px") if data.height_screen.height
+            unless _.isUndefined(data.nifty_corner)
+              if data.nifty_corner.nifty_corner
+                $(value).css("-moz-border-radius", data.nifty_corner.border_radius + "px")
+                $(value).css("-webkit-border-radius", data.nifty_corner.border_radius + "px")
+                $(value).css("border-radius", data.nifty_corner.border_radius + "px")
+
             set_properties_css(value, data.background)
             set_propertie_full_screen_javascript(value, data.background.align)
             #$(value).css("background-color", data.background.background_color)
@@ -36,7 +42,7 @@ set_propertie_full_screen_javascript = (element, align) ->
     $(element).css("width", winwidth + "px")
 
 set_properties_css = (element, background) ->
-  unless background.no_background_image
+  unless background.no_background_image || _.isNull(background.background_image.thumb.url)
     $(element).css("background", "url('"+background_image_size(background.background_image, background.background_image_size)+"') " + if background.no_repeat is true then 'no-repeat' else 'repeat')
     $(element).css("background-position", HASH_ALIGN_CSS[background.align]) 
     $(element).css("background-size", "cover") if background.cover

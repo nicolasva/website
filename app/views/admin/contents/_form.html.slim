@@ -3,5 +3,6 @@
   = f.input :english_description, :as => :ckeditor
   = render(:partial => "/admin/height_screens/form", :locals => { f: f, model_init: @content.new_record? || @content.height_screen.nil? ? HeightScreen.new : @content.height_screen, model: @content })
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @content.new_record? || @content.background.nil? ? Background.new : @content.background, model: @content })
+  = render(:partial => "/admin/nifty_corners/nifty_form", :locals => { f: f, model_init: @content.new_record? || @content.nifty_corner.nil? ? NiftyCorner.new : @content.nifty_corner, model: @content })
   .form-actions
     = f.button :submit, value: value_submit_content, :class => 'btn-primary'

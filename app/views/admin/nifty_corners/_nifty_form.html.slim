@@ -1,0 +1,5 @@
+= f.fields_for(:nifty_corner, model_init) do |f_nifty_corner|
+  .row
+    = f_nifty_corner.input :nifty_corner, input_html: { class: "class_nifty_corner" }
+  .row.class_border_radius
+    = f_nifty_corner.input :border_radius, collection: 0..100

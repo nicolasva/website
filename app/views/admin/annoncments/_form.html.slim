@@ -28,5 +28,6 @@
     = render(:partial => "/admin/height_screens/form", :locals => { f: f, model_init: @annoncment.new_record? || @annoncment.height_screen.nil? ? HeightScreen.new : @annoncment.height_screen, model: @annoncmemnt })
   .row
     = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @annoncment.new_record? || @annoncment.background.nil? ? Background.new : @annoncment.background, model: @annoncment })
+  = render(:partial => "/admin/nifty_corners/nifty_form", :locals => { f: f, model_init: @annoncment.new_record? || @annoncment.nifty_corner.nil? ? NiftyCorner.new : @annoncment.nifty_corner, model: @annoncment })
   .form-actions
     = f.button :submit, value: button_valid_annoncment, :class => 'btn-primary'

@@ -1,0 +1,19 @@
+h1 Listing nifty_corners
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @nifty_corners.each do |nifty_corner|
+      tr
+        td = link_to 'Show', nifty_corner
+        td = link_to 'Edit', edit_nifty_corner_path(nifty_corner)
+        td = link_to 'Destroy', nifty_corner, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Nifty corner', new_nifty_corner_path

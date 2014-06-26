@@ -12,7 +12,7 @@ class AnnoncmentsController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @annoncment.to_json(:include => [:background, :height_screen]) }
+      format.json { render json: @annoncment.to_json(:include => [:background, :height_screen, :nifty_corner]) }
     end
   end
 

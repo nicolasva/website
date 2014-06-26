@@ -47,8 +47,16 @@ jQuery ->
           $("#annoncment_list").children().css("margin-top", data.margin_top+"%")
           $("#annoncment_list").find("a").css("color", data.font_color)
           $("#annoncment_list").css("height", window.screen.height) if data.height_screen.height
+          set_nifty_corner("#annoncment_list", data)
           set_properties_css("#annoncment_list", data.background)
       )
+
+set_nifty_corner = (element, data) ->
+  unless _.isUndefined(data.nifty_corner)
+    if data.nifty_corner.nifty_corner
+      $("#annoncment_list").css("-moz-border-radius", data.nifty_corner.border_radius + "px")
+      $("#annoncment_list").css("-webkit-border-radius", data.nifty_corner.border_radius + "px")
+      $("#annoncment_list").css("border-radius", data.nifty_corner.border_radius + "px")
 
 set_propertie_full_screen_javascript = (element, align) ->
   if align == 12

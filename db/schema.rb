@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619174726) do
+ActiveRecord::Schema.define(version: 20140621093643) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -201,6 +201,15 @@ ActiveRecord::Schema.define(version: 20140619174726) do
     t.string   "uuid",                       null: false
     t.string   "title",                      null: false
     t.boolean  "activation", default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nifty_corners", force: true do |t|
+    t.boolean  "nifty_corner"
+    t.integer  "border_radius"
+    t.integer  "nifty_cornerstyles_id"
+    t.string   "nifty_cornerstyles_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,6 @@
 WebsiteFrancisFerrari::Application.routes.draw do
+  resources :nifty_corners
+
   devise_for :users
 
   mount Ckeditor::Engine => '/ckeditor'

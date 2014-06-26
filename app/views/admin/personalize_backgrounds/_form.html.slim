@@ -10,5 +10,6 @@
     = render(:partial => "/admin/height_screens/form", :locals => { f: f, model_init: @personalize_background.new_record? || @personalize_background.height_screen.nil? ? HeightScreen.new : @personalize_background.height_screen, model: @personalize_background })
   .row
     = render(:partial => "/admin/backgrounds/background", :locals => {f: f, model_init: @personalize_background.new_record? || @personalize_background.background.nil? ? Background.new : @personalize_background.background, model: @personalize_background  })
+  = render(:partial => "/admin/nifty_corners/nifty_form", :locals => { f: f, model_init: @personalize_background.new_record? || @personalize_background.nifty_corner.nil? ? NiftyCorner.new : @personalize_background.nifty_corner, model: @personalize_background })
   .form_actions
     = f.button :submit, value: button_value_personalize_background, class: 'btn-primary'
