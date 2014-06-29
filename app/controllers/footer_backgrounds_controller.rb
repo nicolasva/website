@@ -28,7 +28,7 @@ class FooterBackgroundsController < ApplicationController
 
     respond_to do |format|
       if @footer_background.save
-        format.html { redirect_to @footer_background, notice: 'Footer background was successfully created.' }
+        format.html { redirect_to admin_footer_backgrounds_path, notice: 'Footer background was successfully created.' }
         format.json { render action: 'show', status: :created, location: @footer_background }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class FooterBackgroundsController < ApplicationController
   def update
     respond_to do |format|
       if @footer_background.update(footer_background_params)
-        format.html { redirect_to @footer_background, notice: 'Footer background was successfully updated.' }
+        format.html { redirect_to admin_footer_backgrounds_path, notice: 'Footer background was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

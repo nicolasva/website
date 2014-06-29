@@ -20,7 +20,7 @@ jQuery ->
         $.getJSON("/contents/"+uuid, (data) ->
           unless _.isNull(data)
             #console.log $(value)
-            $(value).css("height", window.screen.height + "px") if data.height_screen.height
+            $(value).css("min-height", window.screen.height + "px") if data.height_screen.height
             unless _.isUndefined(data.nifty_corner)
               if data.nifty_corner.nifty_corner
                 $(value).css("-moz-border-radius", data.nifty_corner.border_radius + "px")
