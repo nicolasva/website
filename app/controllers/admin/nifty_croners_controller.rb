@@ -5,5 +5,10 @@ module Admin
     def index
 
     end
+
+    private
+    def set_nifty_corner
+      @nifty_corner = NiftyCorner.find(params[:id])
+    end
   end
 end
