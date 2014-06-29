@@ -1,6 +1,7 @@
 en:
   activerecord:
     models:
+      contact_u: Contact us
       category: Category
       content: Content
       submenu: sub menu
@@ -16,6 +17,10 @@ en:
       personalize_background: Personalize background announcement
       footer: Footer
     attributes:
+      contact_u:
+        title: Title
+        email: E-mail
+        content: Content
       footer:
         legal_mention: Legal mention
         created_at: Created at

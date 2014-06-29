@@ -1,6 +1,7 @@
 fr:
   activerecord:
     models:
+      contact_u: Contactez nous
       category: Categorie
       content: Contenu
       submenu: Sous-menu
@@ -16,6 +17,10 @@ fr:
       personalize_background: Style de l'arrière plan des annonces
       footer: Pied de page
     attributes:
+      contact_u:
+        title: Titre
+        email: E-mail
+        content: Contenu
       footer:
         legal_mention: Mention légale
         created_at: Crée le
