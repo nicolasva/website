@@ -14,6 +14,10 @@
                     :color_font => "white"
                   })
 
+  TitleWebsite.create({
+                      :title => "Website by default",
+                      :activation => true
+                     })
   HomepageSubmenu.create({
                           :homepage => true,
                           :homepage_submenus_id => @category.id,
