@@ -32,7 +32,7 @@ module Admin
     end
 
     def destroy
-      notice = @title_website.destroy? ? "La supression de ce titre pour ce site s'est bien déroulé" : "La supression de ce titre pour ce site ne s'est pas déroulé correctement"
+      notice = @title_website.destroy ? "La supression de ce titre pour ce site s'est bien déroulé" : "La supression de ce titre pour ce site ne s'est pas déroulé correctement"
       redirect_to admin_title_websites_path, notice: notice
     end
 
