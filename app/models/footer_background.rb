@@ -22,8 +22,12 @@ class FooterBackground < ActiveRecord::Base
 
   private
   def set_activation_by_default?
-    footer_background = FooterBackground.find(self.id)
-    set_activation_by_default if self.activation == true && footer_background.activation == false 
+    if self.id
+      footer_background = FooterBackground.find(self.id)
+      set_activation_by_default if self.activation == true && footer_background.activation == false
+    else
+      set_activation_by_default
+    end
   end
 
   def set_activation_by_default
