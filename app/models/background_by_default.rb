@@ -17,7 +17,8 @@ class BackgroundByDefault < ActiveRecord::Base
   end
 
   def generate_uuid
-    uuid = UUID.new    self.uuid = uuid.generate
+    uuid = UUID.new    
+    self.uuid = uuid.generate
   end
 
   private
