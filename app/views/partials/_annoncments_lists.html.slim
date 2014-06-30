@@ -5,9 +5,11 @@ ul#annoncment_list.row.list-unstyled.annoncments
         .row
           .col-md-3
             - unless annoncment.date_at.nil?
-              = time_tag(annoncment.date_at, :format => "#{time_tag_helper_date_format} ")
+              time
+                = time_tag_helper_month(annoncment.date_at.strftime("#{time_tag_helper_date_format} "))
               - unless annoncment.date_to.nil?
-                = time_tag(annoncment.date_to, :format => " - #{time_tag_helper_date_format}")
+                time
+                  = " - #{time_tag_helper_month(annoncment.date_to.strftime("#{time_tag_helper_date_format} "))}"
           .col-md-6
             - if annoncment.photos.exists?
               - if annoncment.photos.where(:master_image => true).exists?

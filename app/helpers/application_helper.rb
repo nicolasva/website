@@ -6,8 +6,22 @@ module ApplicationHelper
     return hash_link_content_or_annoncment[value]
   end
 
+  def datetime_month
+    array_datetime = Array.new
+  
+  end
+
   def time_tag_helper_date_format
-    I18n.locale == :fr ? '%d %B %Y' : '%Y %B %d'
+    I18n.locale == :fr ? '%d/%m/%Y' : '%Y/%m/%d'
+  end
+
+  def time_tag_helper_month(annoncment_date)
+    annoncment_date_array = annoncment_date.split("/")
+    day_or_year = annoncment_date_array[0]
+    month = t("month_date.#{annoncment_date_array[1].to_i.to_s}")
+    year = annoncment_date_array[2]
+
+    return "#{day_or_year.to_s} #{month.to_s} #{year.to_s}"
   end
 
   def categorie_title(categorie)
