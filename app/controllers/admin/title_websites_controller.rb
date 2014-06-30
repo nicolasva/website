@@ -15,19 +15,30 @@ module Admin
 
     def create
       @title_website = TitleWebsite.new(title_website_params)
-
-      if @title_website.save
-        redirect_to admin_title_websites_path, notice: "Le titre pour le site a bien été crée"
-      else
-        render action: 'new'
+      @notice = "Le titre pour le site a bien été crée"
+      respond_to do |format|
+        if @title_website.save
+          format.html { redirect_to admin_title_websites_path, notice: @notice }
+          format.js
+        else
+          @notice = "Le titre pour le site n'a pas été correctement crée"
+          format.html { render action: 'new' }
+          format.js { redirect_to(:action => :create_error_title_website, :format => :js)}
+        end
       end
     end
 
     def update
-      if @title_website.update(title_website_params)
-        redirect_to admin_title_websites_path, notice: "La mise à jour de ce titre pour ce site s'est bien déroulé"
-      else
-        render action: 'edit'
+      @notice = "Le titre du site a bien été mise à jour"
+      respond_to do |format|
+        if @title_website.update(title_website_params)
+          format.html { redirect_to admin_title_websites_path, notice: @notice }
+          format.js
+        else
+          @notice = "Le titre du site n'a pas été correctement mise à jour"
+          format.html { render action: 'edit' }
+          format.js { redirect_to(:action => :create_error_title_website, :format => :js)}
+        end
       end
     end
 
@@ -38,7 +49,7 @@ module Admin
 
     private
       def set_title_website
-        @title_website = TitleWebsite.find(params[:id])
+        @title_website = TitleWebsite.find_by_title(params[:id])
       end
 
       def title_website_params

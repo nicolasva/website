@@ -1,4 +1,4 @@
-= simple_form_for [:admin, @title_website] do |f|
+= simple_form_for [:admin, @title_website], url: url, method: method, remote: true do |f|
   .row
     .col-md-6
       = f.input :title
