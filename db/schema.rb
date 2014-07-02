@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140621093643) do
+ActiveRecord::Schema.define(version: 20140702094907) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -170,11 +170,16 @@ ActiveRecord::Schema.define(version: 20140621093643) do
   add_index "galery_photos", ["submenu_id"], name: "galery_photos_submenu_id_to_submenu"
 
   create_table "header_backgrounds", force: true do |t|
-    t.string   "title",                      null: false
-    t.string   "uuid",                       null: false
+    t.string   "title",                               null: false
+    t.string   "uuid",                                null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "activation", default: false
+    t.boolean  "activation",        default: false
+    t.boolean  "watch_title",       default: false,   null: false
+    t.integer  "font_family_title", default: 0,       null: false
+    t.integer  "size_title",        default: 12,      null: false
+    t.integer  "align_title",       default: 0,       null: false
+    t.string   "font_color_title",  default: "black", null: false
   end
 
   create_table "height_screens", force: true do |t|

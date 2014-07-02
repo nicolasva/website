@@ -1,4 +1,29 @@
 module ApplicationHelper
+
+  def load_content_header_title
+    array_content_header_title = Array.new
+    array_content_header_title.push("")
+    array_content_header_title.push("font-family:arial,helvetica,sans-serif;")
+    array_content_header_title.push("font-family:comic sans ms,cursive;")
+    array_content_header_title.push("font-family:courier new,courier,monospace;")
+    array_content_header_title.push("font-family:georgia,serif;")
+    array_content_header_title.push("font-family:lucida sans unicode,lucida grande,sans-serif;")
+    array_content_header_title.push("font-family:tahoma,geneva,sans-serif;")
+    array_content_header_title.push("font-family:times new roman,times,serif;")
+    array_content_header_title.push("font-family:trebuchet ms,helvetica,sans-serif;")
+    array_content_header_title.push("font-family:verdana,geneva,sans-serif;")
+
+    array_content_align_title = Array.new
+    array_content_align_title.push("")
+    array_content_align_title.push("text-align:center;")
+    array_content_align_title.push("text-align:left;")
+    array_content_align_title.push("text-align:right;")
+    array_content_align_title.push("text-align:justify;")
+    array_content_align_title.push("text-align:inherit;")
+
+    return @header_background.nil? ? "" : @header_background.watch_title ? "<span style='#{array_content_header_title[@header_background.font_family_title]}#{array_content_align_title[@header_background.align_title]}font-size:#{@header_background.size_title}px;color:#{@header_background.font_color_title};'>#{@header_background.title}</span>".html_safe : ""
+  end
+
   def link_content_or_annoncment?(value, content_annoncment)
     hash_link_content_or_annoncment = Hash.new
     hash_link_content_or_annoncment["contents"] = link_to("Retourner a la liste du contenus", @submenu.nil? ? admin_title_contents_path(content_annoncment.category.title) : admin_title_title_submenu_contents_path(content_annoncment.submenu.category.title, @submenu.title), class: "btn btn-default")
@@ -8,7 +33,6 @@ module ApplicationHelper
 
   def datetime_month
     array_datetime = Array.new
-  
   end
 
   def time_tag_helper_date_format

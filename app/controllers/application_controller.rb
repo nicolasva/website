@@ -7,6 +7,11 @@ class ApplicationController < ActionController::Base
   before_filter :load_sub_menu_background
   before_filter :load_robot_keys
   before_filter :load_title_website
+  before_filter :load_header_background
+
+  def load_header_background
+    @header_background = HeaderBackground.find_by_activation(true) if HeaderBackground.exists?(activation: true, watch_title: true)
+  end
 
   def load_title_website
     @title_website = TitleWebsite.exists?(activation: true) ? TitleWebsite.find_by_activation(true) : TitleWebsite.order(:id).first

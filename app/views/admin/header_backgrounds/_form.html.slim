@@ -1,5 +1,21 @@
 = simple_form_for [:admin, @header_background], url: url do |f|
-  = f.input :title
+  .row
+    .col-md-6
+      = f.input :title
+    .col-md-6
+      = f.input :watch_title
+  .row#personalize_title_header_background
+    .col-md-3
+      = f.input :font_family_title, collection: HeaderBackground::ARRAY_FONT_FAMILY
+    .col-md-3
+      = f.input :size_title, collection: 0..100
+    .col-md-3
+      = f.input :align_title, collection: HeaderBackground::ARRAY_ALIGN
+    .col-md-3
+      = f.label :font_color_title
+      = f.input :font_color_title, as: 'hidden', input_html: { class: "class_font_color_title" }
+      #font_color
+        div style="background-color: #{@header_background.new_record? || @header_background.nil? ? "black" : @header_background.font_color_title}"
   = f.input :activation
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @header_background.new_record? || @header_background.background.nil? ? Background.new : @header_background.background, model: @header_background  })
   .form_actions
