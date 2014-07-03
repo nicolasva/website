@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140702094907) do
+ActiveRecord::Schema.define(version: 20140703093829) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 20140702094907) do
     t.integer  "size_title",        default: 12,      null: false
     t.integer  "align_title",       default: 0,       null: false
     t.string   "font_color_title",  default: "black", null: false
+    t.integer  "text_decoration",   default: 0,       null: false
   end
 
   create_table "height_screens", force: true do |t|

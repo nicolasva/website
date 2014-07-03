@@ -21,7 +21,13 @@ module ApplicationHelper
     array_content_align_title.push("text-align:justify;")
     array_content_align_title.push("text-align:inherit;")
 
-    return @header_background.nil? ? "" : @header_background.watch_title ? "<span style='#{array_content_header_title[@header_background.font_family_title]}#{array_content_align_title[@header_background.align_title]}font-size:#{@header_background.size_title}px;color:#{@header_background.font_color_title};'>#{@header_background.title}</span>".html_safe : ""
+    array_content_text_decoration_title = Array.new
+    array_content_text_decoration_title.push("text-decoration:none;")
+    array_content_text_decoration_title.push("text-decoration:overline;")
+    array_content_text_decoration_title.push("text-decoration:line-through;")
+    array_content_text_decoration_title.push("text-decoration:blink;")
+
+    return @header_background.nil? ? "" : @header_background.watch_title ? "<span style='#{array_content_header_title[@header_background.font_family_title]}#{array_content_align_title[@header_background.align_title]}font-size:#{@header_background.size_title}px;color:#{@header_background.font_color_title};#{array_content_text_decoration_title[@header_background.text_decoration]}'>#{@header_background.title}</span>".html_safe : ""
   end
 
   def link_content_or_annoncment?(value, content_annoncment)

@@ -10,6 +10,7 @@ class HeaderBackground < ActiveRecord::Base
                                 :allow_destroy => true
   ARRAY_FONT_FAMILY = {"" => 0, "Arial" => 1, "Comic Sans MS" => 2, "Courier New" => 3, "Georgia" => 4, "Lucida Sans Unicode" => 5, "Tahoma" => 6, "Times New Roman" => 7, "Trebuchet MS" => 8, "Verdana" => 9}
   ARRAY_ALIGN = {"" => 0, "center" => 1, "left" => 2, "right" => 3, "justify" => 4, "inherit" => 5}
+  ARRAY_TEXT_DECORATION = {"none" => 0, "overline" => 1, "line-through" => 2, "blink" => 3}
 
   def self.activation!(activation)
     hash_activation = Hash.new

@@ -56,6 +56,7 @@ module Admin
 
       def header_background_params
         params.require(:header_background).permit(:id,
+                                                  :text_decoration,
                                                   :font_color_title,
                                                   :watch_title,
                                                   :font_family_title,

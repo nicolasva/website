@@ -6,12 +6,14 @@
       = f.input :watch_title
   .row#personalize_title_header_background
     .col-md-3
+      = f.input :text_decoration, collection: HeaderBackground::ARRAY_TEXT_DECORATION
+    .col-md-3
       = f.input :font_family_title, collection: HeaderBackground::ARRAY_FONT_FAMILY
-    .col-md-3
+    .col-md-2
       = f.input :size_title, collection: 0..100
-    .col-md-3
+    .col-md-2
       = f.input :align_title, collection: HeaderBackground::ARRAY_ALIGN
-    .col-md-3
+    .col-md-2
       = f.label :font_color_title
       = f.input :font_color_title, as: 'hidden', input_html: { class: "class_font_color_title" }
       #font_color
