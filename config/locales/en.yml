@@ -135,16 +135,28 @@ en:
       edit:
         button:
           valid_edit_footer_background: Update this header background
+    title_websites:
+      create:
+        title_website_success_created: Title website was created
+        title_website_not_success_create: Title website was not successfully created
+      destroy:
+        title_website_success_destroy: Title website was removed
+        title_website_success_not_destroy: Title website was not removed
+      update:
+        title_website_success_defined: Title website was successfully updated
+        title_website_success_not_defined: Title website was not successfully updated
     header_backgrounds:
       activation:
-        header_background_success_defined: Header background wass successfully defined
+        header_background_success_defined: Header background was successfully defined
         header_background_not_success_desfined: Header background was not successfully defined
       destroy:
         header_background_success_destroy: Header background was successfully destroyed
         header_background_not_success_destroy: Header background was not successfully destroyed
       create:
         header_background_success_created: The background for the header was successfully created
-        header_background_success_updated: The background for the header was successfully updated
+      update:
+        header_background_success_updated: The background for the header was successfully updated 
+        header_background_not_success_updated: The background for the header was not successfully updated
       new:
         button:
           valid_new_header_background: Register this new header background

@@ -1,6 +1,7 @@
 fr:
   activerecord:
     models:
+      title_website: Titre du site
       contact_u: Contactez nous
       category: Categorie
       content: Contenu
@@ -17,6 +18,9 @@ fr:
       personalize_background: Style de l'arrière plan des annonces
       footer: Pied de page
     attributes:
+      title_website:
+        title: Titre du site
+        activation: Activation
       contact_u:
         title: Titre
         email: E-mail
@@ -50,6 +54,11 @@ fr:
         created_at: Crée le
         updated_at: Mise à jour le
       header_background:
+        font_family_title: Title style
+        size_title: Title size
+        align_title: Title align
+        font_color_title: Title font color
+        text_decoration: Title decoration
         title: Titre
         uuid: Uuid
         created_at: Crée le

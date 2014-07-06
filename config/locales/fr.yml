@@ -127,6 +127,16 @@ fr:
       edit:
         button:
           valid_edit_footer_background: Mettre à jour ce nouvelle arrière plan pour le pied de page
+    title_websites:
+      create:
+        title_website_success_created: Le titre du site a bien été crée
+        title_website_was_not_success_created: Le titre du site n'a pas été correctement crée
+      destroy:
+        title_website_success_destroy: Le titre du site a bien été supprimé
+        title_website_not_success_destroy: Le titre du site n'a pas été correctement supprimé
+      update:
+        title_website_success_defined: Le titre pour le site a bien été mise à jour
+        title_website_success_not_defined: Le titre pour le site n'a pas été correctement mise à jour
     header_backgrounds:
       activation:
         header_background_success_defined: L'arrière plan pour l'entête a bien été définis
@@ -137,6 +147,9 @@ fr:
       create: 
         header_background_success_created: L'arrière plan pour l'entête a bien été crée
         header_background_sucsess_updated: L'arrière plan a bien été mise à jour
+      update:
+        header_background_success_updated: L'arrière plan pour l'entête du site a bien été mise à jour
+        header_background_not_success_updated: L'arrière plan pour l'entête du site n'a pas été correctement mise à jour
       new:
         button:
           valid_new_header_background: Enregistrer ce nouvelle arrière plan pour l'entête

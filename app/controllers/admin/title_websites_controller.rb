@@ -15,13 +15,13 @@ module Admin
 
     def create
       @title_website = TitleWebsite.new(title_website_params)
-      @notice = "Le titre pour le site a bien été crée"
+      @notice = t(".title_websites.create.title_website_success_created") 
       respond_to do |format|
         if @title_website.save
           format.html { redirect_to admin_title_websites_path, notice: @notice }
           format.js
         else
-          @notice = "Le titre pour le site n'a pas été correctement crée"
+          @notice = t(".title_websites.create.title_website_was_not_success_created")
           format.html { render action: 'new' }
           format.js { redirect_to(:action => :create_error_title_website, :format => :js)}
         end
@@ -29,13 +29,13 @@ module Admin
     end
 
     def update
-      @notice = "Le titre du site a bien été mise à jour"
+      @notice = t(".title_websites.update.title_website_success_defined") 
       respond_to do |format|
         if @title_website.update(title_website_params)
           format.html { redirect_to admin_title_websites_path, notice: @notice }
           format.js
         else
-          @notice = "Le titre du site n'a pas été correctement mise à jour"
+          @notice = t(".title_websites.update.title_website_success_not_defined")
           format.html { render action: 'edit' }
           format.js { redirect_to(:action => :create_error_title_website, :format => :js)}
         end
@@ -43,7 +43,7 @@ module Admin
     end
 
     def destroy
-      notice = @title_website.destroy ? "La supression de ce titre pour ce site s'est bien déroulé" : "La supression de ce titre pour ce site ne s'est pas déroulé correctement"
+      notice = @title_website.destroy ? t(".title_websites.destroy.title_website_success_destroy") : t(".title_websites.destroy.title_website_not_success_destroy")
       redirect_to admin_title_websites_path, notice: notice
     end
 
