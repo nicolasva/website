@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703093829) do
+ActiveRecord::Schema.define(version: 20140707172651) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20140703093829) do
     t.integer "align",                  default: 0
     t.integer "background_image_size",  default: 0,             null: false
     t.boolean "cover",                  default: true,          null: false
+    t.float   "opacity",                default: 1.0,           null: false
   end
 
   create_table "categories", force: true do |t|

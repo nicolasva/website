@@ -19,7 +19,6 @@ jQuery ->
         uuid = $(value).attr("class").split(" ")[$(value).attr("class").split(" ").length - 1]
         $.getJSON("/contents/"+uuid, (data) ->
           unless _.isNull(data)
-            #console.log $(value)
             $(value).css("min-height", window.screen.height + "px") if data.height_screen.height
             unless _.isUndefined(data.nifty_corner)
               if data.nifty_corner.nifty_corner
@@ -42,6 +41,7 @@ set_propertie_full_screen_javascript = (element, align) ->
     $(element).css("width", winwidth + "px")
 
 set_properties_css = (element, background) ->
+  $(element).css("opacity", background.opacity)
   unless background.no_background_image || _.isNull(background.background_image.thumb.url)
     $(element).css("background", "url('"+background_image_size(background.background_image, background.background_image_size)+"') " + if background.no_repeat is true then 'no-repeat' else 'repeat')
     $(element).css("background-position", HASH_ALIGN_CSS[background.align]) 

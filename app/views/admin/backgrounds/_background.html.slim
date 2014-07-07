@@ -2,6 +2,7 @@
   .row
     = f_background.input :border, collection: 0..100
     = f_background.input :border_style, collection: ["none", "solid", "dashed", "dotted", "double", "groove", "ridge", "inset", "outset", "inherit"]
+    = f_background.input :opacity, collection: collection_opacity 
     = f_background.label :background_color
     = f_background.input :background_color, as: 'hidden', input_html: { class: "background_color" }
     #BackgroundColor

@@ -70,6 +70,7 @@ set_properties_css = (element, background) ->
     $(element).css("background", "url('"+background_image_size(background.background_image, background.background_image_size)+"') " + if background.no_repeat is true then 'no-repeat' else 'repeat')
     $(element).css("background-position", HASH_ALIGN_CSS[background.align]) 
     $(element).css("background-size", "cover") if background.cover
+    $(element).css("opacity", background.opacity)
     if background.align == 11
       $(element).css("-moz-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
       $(element).css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))

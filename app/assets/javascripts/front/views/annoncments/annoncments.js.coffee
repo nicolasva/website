@@ -35,7 +35,6 @@ jQuery ->
       if exp_annoncment.test(location_href)
         $(".annoncment").each (key, value) ->
           annoncment_id = $(value).attr("class").split(" ").slice(-1)[0].split("_").slice(-1)[0]
-          console.log get_url
           $.getJSON(get_url+"/"+annoncment_id, (data) ->
             unless _.isNull(data)
               $(".annoncment").css("background-color", data.background.background_color)
@@ -43,6 +42,7 @@ jQuery ->
               $(".annoncment").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
               $(".annoncment").css("height", window.screen.height + "px") if data.height_screen.height
               set_nifty_corner(".annoncment", data)
+              set_opacity_background(element, data.background)
           )
       
     #Set attribute css
@@ -71,9 +71,13 @@ jQuery ->
             $(element).css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
             $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
         set_nifty_corner(element, data)
+        set_opacity_background(element, background)
         $(element).css("background-color", background.background_color)
         $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
       )
+
+set_opacity_background = (element, background) ->
+  $(element).css("opacity", background.opacity)
 
 set_nifty_corner = (element, data) ->
   unless _.isUndefined(data.nifty_corner)
