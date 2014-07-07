@@ -14,8 +14,8 @@ ul#sortable_contents_list.list-unstyled.contents_list.common_table
     = content_tag_for :li, content do 
       table.table.table-striped
         tr
-          td.col-md-4= truncate(content.description, length: 90)
-          td.col-md-4= truncate(content.english_description, length: 90)
+          td.col-md-4= truncate(content.description, length: 90, omission: "", escape: false)
+          td.col-md-4= truncate(content.english_description, length: 90, omission: "", escape: false)
           td.col-md-4
             = link_to t('.edit', :default => t("helpers.links.edit")), link_edit_admin_content_path(content), :class => 'btn btn-mini btn-primary'
             '

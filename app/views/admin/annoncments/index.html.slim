@@ -16,8 +16,8 @@ ul#sortable_annoncments_list.list-unstyled.annoncments_list.common_table
       table.table.table-striped
         tr
           td.col-md-3= annoncment.title
-          td.col-md-3= truncate(annoncment.description, length: 90)
-          td.col-md-3= truncate(annoncment.english_description, length: 90)
+          td.col-md-3= truncate(annoncment.description, length: 90, omission: "", escape: false)
+          td.col-md-3= truncate(annoncment.english_description, length: 90, omission: "", escape: false)
           td.col-md-3
             = link_to t('.edit', :default => t("helpers.links.edit")), link_edit_admin_annoncment_path(annoncment), :class => 'btn btn-mini btn-primary'
             '
