@@ -44,11 +44,6 @@ module Admin
           #Rails.logger.info k
         redirection_url(k,notice)
       end
-      #else
-      #  notice = "Homepage was not successfully defined" 
-      #  redirect_to admin_title_index_path, notice: notice 
-      #end
-
     end
 
     def update

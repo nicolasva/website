@@ -1,6 +1,7 @@
 en:
   activerecord:
     models:
+      nifty_corner: Nifty corner
       title_website: Website title
       contact_u: Contact us
       category: Category
@@ -18,6 +19,11 @@ en:
       personalize_background: Personalize background announcement
       footer: Footer
     attributes:
+      nifty_corner:
+        nifty_corner: Nifty corner ?
+        border_radius: Border radius
+        nifty_cornerstyles_id: Nifty corner styles id
+        nifty_cornerstyles_type: Nifty corner styles type
       title_website:
         title: Website title
         activation: Activation
