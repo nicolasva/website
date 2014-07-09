@@ -9,8 +9,12 @@ class Submenu < ActiveRecord::Base
   has_many :submenus, dependent: :destroy
   has_many :galery_photos, dependent: :destroy
   has_one :contents_or_annoncment, as: :contents_or_annoncments, dependent: :destroy
+  has_one :publication, as: :publicationstyles, dependent: :destroy
   validates_presence_of :title
   has_one :homepage_submenu, as: :homepage_submenus, dependent: :destroy
+
+  accepts_nested_attributes_for :publication,
+                                :allow_destroy => true
 
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
   

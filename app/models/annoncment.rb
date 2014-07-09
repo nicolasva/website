@@ -8,6 +8,7 @@ class Annoncment < ActiveRecord::Base
   has_one :background, as: :backgroundstyles, dependent: :destroy 
   has_one :height_screen, as: :height_screenstyles, dependent: :destroy
   has_one :nifty_corner, as: :nifty_cornerstyles, dependent: :destroy
+  has_one :publication, as: :publicationstyles, dependent: :destroy
   has_many :photos
   accepts_nested_attributes_for :background,
                                 :allow_destroy => true
@@ -16,6 +17,9 @@ class Annoncment < ActiveRecord::Base
                                 :allow_destroy => true
 
   accepts_nested_attributes_for :nifty_corner,
+                                :allow_destroy => true
+
+  accepts_nested_attributes_for :publication,
                                 :allow_destroy => true
   
   ARRAY_FONT_WEIGHT_TITLE = {"normal" => 0, "lighter" => 1, "bold" => 2, "bolder" => 3}

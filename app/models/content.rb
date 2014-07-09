@@ -8,6 +8,7 @@ class Content < ActiveRecord::Base
   has_one :background, as: :backgroundstyles, dependent: :destroy
   has_one :height_screen, as: :height_screenstyles, dependent: :destroy
   has_one :nifty_corner, as: :nifty_cornerstyles, dependent: :destroy
+  has_one :publication, as: :publicationstyles, dependent: :destroy
   accepts_nested_attributes_for :background,
                                 :allow_destroy => true
                                 #:reject_if => lambda 
@@ -18,6 +19,9 @@ class Content < ActiveRecord::Base
                                 :allow_destroy => true
 
   accepts_nested_attributes_for :nifty_corner,
+                                :allow_destroy => true
+
+  accepts_nested_attributes_for :publication,
                                 :allow_destroy => true
 
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }

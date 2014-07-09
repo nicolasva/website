@@ -6,6 +6,10 @@ class GaleryPhoto < ActiveRecord::Base
   before_save :generate_uuid
   belongs_to :category
   belongs_to :submenu
+  has_one :publication, as: :publicationstyles, dependent: :destroy
+
+  accepts_nested_attributes_for :publication,
+                                :allow_destroy => true
   mount_uploader :photogalery, PhotogaleryUploader
 
   def generate_uuid

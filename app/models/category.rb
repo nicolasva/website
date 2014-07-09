@@ -8,7 +8,9 @@ class Category < ActiveRecord::Base
   has_many :galery_photos, dependent: :destroy
   has_one :contents_or_annoncment, as: :contents_or_annoncments, dependent: :destroy
   has_one :homepage_submenu, as: :homepage_submenus, dependent: :destroy
-
+  has_one :publication, as: :publicationstyles, dependent: :destroy
+  accepts_nested_attributes_for :publication,
+                                :allow_destroy => true
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
 
   def self.content_or_annoncment(contents_or_annoncments)
