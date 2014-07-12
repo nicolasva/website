@@ -4,7 +4,7 @@ class AnnoncmentsController < ApplicationController
   # GET /annoncments
   # GET /annoncments.json
   def index
-    @annoncments = parent.annoncments
+    @annoncments = parent.annoncments.joins(:publication).where(publications: { publication: true})
   end
 
   # GET /annoncments/1

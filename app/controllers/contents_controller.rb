@@ -6,7 +6,7 @@ class ContentsController < ApplicationController
   def index
     #@contents = Content.all
     #@contents ? @category.contents : Content.all
-    @contents = parent.contents
+    @contents = parent.contents.joins(:publication).where(publications: { publication: true})
   end
 
   # GET /contents/1
