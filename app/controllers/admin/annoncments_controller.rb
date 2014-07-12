@@ -57,7 +57,7 @@ module Admin
     def destroy
       notice = @annoncment.destroy ? t(".announcment_was_successfully_destroyed") : t(".announcment_was_not_successfully_destroyed")
       if @submenu.nil?
-        redirect_to admin_title_annoncments_path(@annoncment.category.title), notice: notice 
+        redirect_to admin_title_annoncments_path(@annoncment.category.title), notice: notice
       else
         redirect_to admin_title_title_submenu_annoncments_path(@annoncment.submenu.category.title, @annoncment.submenu.title), notice: notice
       end
@@ -69,7 +69,6 @@ module Admin
       end
     end
 
-    private
       def set_date_at_html_date_to_html
         @annoncment.date_at_html = @annoncment.date_at.nil? ? Time.now.strftime("%d/%m/%Y") : @annoncment.date_at.strftime("%d/%m/%Y")
         @annoncment.date_to_html = @annoncment.date_to.nil? ? Time.now.strftime("%d/%m/%Y") : @annoncment.date_to.strftime("%d/%m/%Y")
@@ -97,7 +96,8 @@ module Admin
                                            photos: [:master_image],
                                            background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color, :align, :background_image_size, :cover, :opacity, :id],
                                            height_screen_attributes: [:height],
-                                           nifty_corner_attributes: [:nifty_corner, :border_radius]
+                                           nifty_corner_attributes: [:nifty_corner, :border_radius],
+                                           publication_attributes: [:id, :publication]
                                           ).tap do |annoncment|
                                             annoncment[:photos_attributes] = params[:annoncment][:photos_attributes]
                                             annoncment[:photos_master] = params[:annoncment][:photos_master]

@@ -103,8 +103,9 @@ module Admin
                                         :no_repeat,
                                         :no_background_image,
                                         background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :background_image_cache, :no_repeat, :border_color, :align, :background_image_size, :cover, :opacity, :id],
-                                        height_screen_attributes: [:height],
-                                        nifty_corner_attributes: [:nifty_corner, :border_radius]
+                                        height_screen_attributes: [:height, :id],
+                                        nifty_corner_attributes: [:nifty_corner, :border_radius, :id],
+                                        publication_attributes: [:id, :publication]
                                        )
       end
   end

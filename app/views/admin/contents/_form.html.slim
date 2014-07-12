@@ -1,4 +1,5 @@
-= simple_form_for [:admin, @category, @content], url: url  do |f|
+= simple_form_for [:admin, @category, @content], url: url  do |f| 
+  = render(:partial => "/admin/publications/form_publication", :locals => { f: f, model_init: @content.new_record? || @content.publication.nil? ? Publication.new : @content.publication, model: @content })
   = f.input :description, :as => :ckeditor
   = f.input :english_description, :as => :ckeditor
   = render(:partial => "/admin/height_screens/form", :locals => { f: f, model_init: @content.new_record? || @content.height_screen.nil? ? HeightScreen.new : @content.height_screen, model: @content })

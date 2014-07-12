@@ -1,4 +1,5 @@
 = simple_form_for [:admin, @category, @annoncment], url: url do |f|
+  = render(:partial => "/admin/publications/form_publication", :locals => { f: f, model_init: @annoncment.new_record? || @annoncment.publication.nil? ? Publication.new : @annoncment.publication, model: @annoncment })
   = f.input :title
   = f.input :english_title
   = f.input :font_weight_title, collection: Annoncment::ARRAY_FONT_WEIGHT_TITLE

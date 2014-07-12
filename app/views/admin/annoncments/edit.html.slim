@@ -8,7 +8,7 @@
       .pull-right
         .btn-toolbar
           = render(:partial => "/admin/common_panel/panel")
-
-= render(:partial => "/admin/annoncments/form" , :locals => { button_valid_annoncment: t(".button.valid_edit_annoncment"), :url => url_form_edit_annoncment_path })
+.row
+  = render(:partial => "/admin/annoncments/form" , :locals => { button_valid_annoncment: t(".button.valid_edit_annoncment"), :url => url_form_edit_annoncment_path })
 
 
