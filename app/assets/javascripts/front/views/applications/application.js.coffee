@@ -13,6 +13,7 @@ HASH_ALIGN_CSS =
 
 jQuery ->
   $(document).ready ->
+    location_href = window.location.href
     $.getJSON("/background_by_defaults", (data) -> 
       unless _.isNull(data)
         set_properties_css(".background_by_default", data.background)
@@ -38,8 +39,54 @@ jQuery ->
         set_propertie_full_screen_javascript("#id_header", data.background.align)
     )
 
+    regex_for_menu = new RegExp("^.{1,}categories\/(.{1,})\/.{1,}$","g")
+    if _.isEmpty(location_href.scan(regex_for_menu))
+      if ("#content_list").length > 0
+        $.getJSON("/categories_sub_menus", (data) ->
+          unless _.isNull(data)
+            $("#category_#{data.id}").css("background-color", "silver")
+            $.each(data.submenus, (key, val) ->
+              unless _.isUndefined(val.homepage_submenu)
+                $("#submenu_#{val.id}").css("background-color", "silver")
+            )
+
+        )
+    else
+      if $("#content_list").length > 0
+        content_uuid = $("#content_list").children().first().attr("class").split(" ").slice(2)[0]
+        #content_uuid = 
+        $.getJSON("/categories_sub_menus/"+content_uuid, (data) ->
+          unless _.isNull(data)
+            if data.category
+              $("#category_#{data.category.id}").css("background-color", "silver")
+            else
+              $("#submenu_#{data.submenu.id}").css("background-color", "silver")
+              $("#category_#{data.category.id}").css("background-color", "silver")
+        )
+      if $("#annoncment_list").length > 0
+        annoncment_id = $("#annoncment_list").children().first().attr("id").split("_").slice(1)[0]
+        $.getJSON("/categories_sub_menus_annoncments/"+annoncment_id, (data) -> 
+          unless _.isNull(data)
+            if data.category
+              $("#category_#{data.category.id}").css("background-color", "silver")
+            else
+              $("#submenu_#{data.submenu.id}").css("background-color", "silver")
+              $("#category_#{data.category.id}").css("background-color", "silver")
+        )
+      if $("#Galery_photo").length > 0
+        galery_photo_id = $("#Galery_photo").children().first().attr("id").split("_").slice(2)[0]
+        $.getJSON("/categories_sub_menus_galery_photos/"+galery_photo_id, (data) ->
+          unless _.isNull(data)
+            if data.category
+              $("#category_#{data.category.id}").css("background-color", "silver")
+            else
+              $("#submenu_#{data.submenu.id}").css("background-color", "silver")
+              $("#category_#{data.category.id}").css("background-color", "silver")
+        )
+
+
+
     exp_annoncment = new RegExp("^.{1,}(annoncments)$","g")
-    location_href = window.location.href
 
     if exp_annoncment.test(location_href)
       $.getJSON("/personalize_backgrounds", (data) ->

@@ -10,6 +10,9 @@ WebsiteFrancisFerrari::Application.routes.draw do
     match "contents/:uuid" => "contents#show", :via => "GET"
   end
 
+  resources :categories_sub_menus_galery_photos
+  resources :categories_sub_menus_annoncments
+  resources :categories_sub_menus
   resources :title_websites
   resources :languages, :only => :show
   resources :contact_us
