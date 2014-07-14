@@ -56,6 +56,7 @@ jQuery ->
         $.getJSON("/categories_sub_menus/"+content_uuid, (data) ->
           unless _.isNull(data)
             if data.category
+              console.log "test"
               $("#category_#{data.category.id}").css("background-color", "silver")
             else
               $("._#{data.submenu.title}").css("background-color", "silver")
@@ -86,7 +87,7 @@ jQuery ->
 
     exp_annoncment = new RegExp("^.{1,}(annoncments)$","g")
 
-    if exp_annoncment.test(location_href)
+    if exp_annoncment.test(location_href) && !_.isEmpty($("#annoncment_list")) 
       $.getJSON("/personalize_backgrounds", (data) ->
         unless _.isNull(data)
           $("#annoncment_list").children().css("margin-top", data.margin_top+"%")
