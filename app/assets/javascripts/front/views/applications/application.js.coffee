@@ -51,7 +51,8 @@ jQuery ->
             )
         )
     else
-      if $("#content_list").length > 0
+      if $("#content_list").length > 0 && !_.isUndefined($("#content_list").children().first().attr("class"))
+        console.log "test"
         content_uuid = $("#content_list").children().first().attr("class").split(" ").slice(2)[0]
         #content_uuid = 
         $.getJSON("/categories_sub_menus/"+content_uuid, (data) ->
@@ -62,7 +63,7 @@ jQuery ->
               $("._#{data.submenu.title}").css("background-color", "silver")
               $("#category_#{data.id}").css("background-color", "silver")
         )
-      if $("#annoncment_list").length > 0
+      if $("#annoncment_list").length > 0 && !_.isUndefined($("#annoncment_list").children().first().attr("id"))
         annoncment_id = $("#annoncment_list").children().first().attr("id").split("_").slice(1)[0]
         $.getJSON("/categories_sub_menus_annoncments/"+annoncment_id, (data) -> 
           unless _.isNull(data)
@@ -72,7 +73,7 @@ jQuery ->
               $("._#{data.submenu.title}").css("background-color", "silver")
               $("#category_#{data.id}").css("background-color", "silver")
         )
-      if $("#Galery_photo").length > 0
+      if $("#Galery_photo").length > 0 && !_.isUndefined($("#Galery_photo").children().first().attr("id"))
         galery_photo_id = $("#Galery_photo").children().first().attr("id").split("_").slice(2)[0]
         $.getJSON("/categories_sub_menus_galery_photos/"+galery_photo_id, (data) ->
           unless _.isNull(data)
