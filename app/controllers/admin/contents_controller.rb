@@ -94,6 +94,7 @@ module Admin
                                         :description,
                                         :english_description,
                                         :category_id,
+                                        :submenu_id,
                                         :border,
                                         :border_style,
                                         :border_color,

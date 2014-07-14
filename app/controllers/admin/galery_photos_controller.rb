@@ -79,7 +79,8 @@ module Admin
                                              :photogalery,
                                              :photogalery_cache,
                                              :submenu_id,
-                                             :category_id
+                                             :category_id,
+                                             :submenu_id
                                             )
       end
   end
