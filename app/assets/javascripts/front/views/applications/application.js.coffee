@@ -59,7 +59,7 @@ jQuery ->
               $("#category_#{data.category.id}").css("background-color", "silver")
             else
               $("._#{data.submenu.title}").css("background-color", "silver")
-              $("#category_#{data.id}").css("background-color", "silver")
+              $("#category_#{data.submenu.category.id}").css("background-color", "silver")
         )
       if $("#annoncment_list").length > 0 && !_.isUndefined($("#annoncment_list").children().first().attr("id"))
         annoncment_id = $("#annoncment_list").children().first().attr("id").split("_").slice(1)[0]
@@ -69,7 +69,7 @@ jQuery ->
               $("#category_#{data.category.id}").css("background-color", "silver")
             else
               $("._#{data.submenu.title}").css("background-color", "silver")
-              $("#category_#{data.id}").css("background-color", "silver")
+              $("#category_#{data.submenu.category.id}").css("background-color", "silver")
         )
       if $("#Galery_photo").length > 0 && !_.isUndefined($("#Galery_photo").children().first().attr("id"))
         galery_photo_id = $("#Galery_photo").children().first().attr("id").split("_").slice(2)[0]
@@ -79,7 +79,7 @@ jQuery ->
               $("#category_#{data.category.id}").css("background-color", "silver")
             else
               $("._#{data.submenu.title}").css("background-color", "silver")
-              $("#category_#{data.id}").css("background-color", "silver")
+              $("#category_#{data.submenu.category.id}").css("background-color", "silver")
         )
 
 

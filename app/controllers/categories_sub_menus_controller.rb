@@ -17,7 +17,7 @@ class CategoriesSubMenusController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @content.to_json(:include => [:category, :submenu]) }
+      format.json { render json: @content.to_json(:include => [:submenu => { :include => :category}]) }
     end
   end
 

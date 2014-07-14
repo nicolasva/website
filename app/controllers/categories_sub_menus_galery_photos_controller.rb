@@ -4,7 +4,7 @@ class CategoriesSubMenusGaleryPhotosController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @galery_photo.to_json(:include => [:category, :submenu]) }
+      format.json { render json: @galery_photo.to_json(:include => [:submenu => { :include => :category}]) }
     end
   end
 
