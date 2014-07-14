@@ -1,10 +1,10 @@
 class AnnoncmentsController < ApplicationController
   before_action :set_annoncment, only: [:show, :edit, :update, :destroy]
-
+  before_action :parent, only: [:index]
   # GET /annoncments
   # GET /annoncments.json
   def index
-    @annoncments = parent.annoncments.joins(:publication).where(publications: { publication: true})
+    @annoncments = parent.annoncments.where(@hash_params).joins(:publication).where(publications: { publication: true})
   end
 
   # GET /annoncments/1
@@ -72,7 +72,16 @@ class AnnoncmentsController < ApplicationController
     end
 
     def parent
-        return parent? ? Submenu.find_by_title(params[:title_submenu_id]) : Category.find_by_title(params[:title_id])
+        @hash_params = Hash.new
+        if parent?
+          submenu = Submenu.find_by_title(params[:title_submenu_id]) 
+          @hash_params[:submenu_id] = submenu.id
+          return submenu
+        else
+          category = Category.find_by_title(params[:title_id])
+          @hash_params[:category_id] = category.id
+          return category
+        end
     end
 
     def parent?

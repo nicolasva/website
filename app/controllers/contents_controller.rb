@@ -1,12 +1,12 @@
 class ContentsController < ApplicationController
   before_action :set_content, only: [:show, :edit, :update, :destroy]
-
+  before_action :parent, only: [:index]
   # GET /contents
   # GET /contents.json
   def index
     #@contents = Content.all
     #@contents ? @category.contents : Content.all
-    @contents = parent.contents.joins(:publication).where(publications: { publication: true})
+    @contents = Content.where(@hash_params).joins(:publication).where(publications: { publication: true})
   end
 
   # GET /contents/1
@@ -74,7 +74,16 @@ class ContentsController < ApplicationController
     end
 
     def parent
-        return parent? ? Submenu.find_by_title(params[:title_submenu_id]) : Category.find_by_title(params[:title_id])
+        @hash_params = Hash.new
+        if parent?
+          submenu = Submenu.find_by_title(params[:title_submenu_id]) 
+          @hash_params[:submenu_id] = submenu.id
+          return submenu
+        else
+          category = Category.find_by_title(params[:title_id])
+          @hash_params[:category_id] = category.id
+          return category
+        end
     end
 
     def parent?

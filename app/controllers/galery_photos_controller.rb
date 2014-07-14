@@ -1,10 +1,10 @@
 class GaleryPhotosController < ApplicationController
   before_action :set_galery_photo, only: [:show, :edit, :update, :destroy]
-
+  before_action :parent, only: [:index]
   # GET /galery_photos
   # GET /galery_photos.json
   def index
-    @galery_photos = parent.galery_photo.joins(:publication).where(publications: { publication: true})
+    @galery_photos = GaleryPhoto.where(@hash_params).joins(:publication).where(publications: { publication: true})
   end
 
   # GET /galery_photos/1
@@ -65,6 +65,23 @@ class GaleryPhotosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_galery_photo
       @galery_photo = GaleryPhoto.find(params[:id])
+    end
+
+    def parent
+        @hash_params = Hash.new
+        if parent?
+          submenu = Submenu.find_by_title(params[:title_submenu_id]) 
+          @hash_params[:submenu_id] = submenu.id
+          return submenu
+        else
+          category = Category.find_by_title(params[:title_id])
+          @hash_params[:category_id] = category.id
+          return category
+        end
+    end
+
+    def parent?
+      return !request.url.scan(/^.{1,}(submenu).{1,}$/).empty?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
