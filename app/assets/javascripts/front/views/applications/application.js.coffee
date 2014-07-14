@@ -52,9 +52,7 @@ jQuery ->
         )
     else
       if $("#content_list").length > 0 && !_.isUndefined($("#content_list").children().first().attr("class"))
-        console.log "test"
         content_uuid = $("#content_list").children().first().attr("class").split(" ").slice(2)[0]
-        #content_uuid = 
         $.getJSON("/categories_sub_menus/"+content_uuid, (data) ->
           unless _.isNull(data)
             if data.category
