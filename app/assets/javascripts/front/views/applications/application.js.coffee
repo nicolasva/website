@@ -44,12 +44,12 @@ jQuery ->
       if ("#content_list").length > 0
         $.getJSON("/categories_sub_menus", (data) ->
           unless _.isNull(data)
+            console.log data
             $("#category_#{data.id}").css("background-color", "silver")
             $.each(data.submenus, (key, val) ->
               unless _.isUndefined(val.homepage_submenu)
                 $("#submenu_#{val.id}").css("background-color", "silver")
             )
-
         )
     else
       if $("#content_list").length > 0
@@ -61,7 +61,7 @@ jQuery ->
               $("#category_#{data.category.id}").css("background-color", "silver")
             else
               $("#submenu_#{data.submenu.id}").css("background-color", "silver")
-              $("#category_#{data.category.id}").css("background-color", "silver")
+              $("#category_#{data.id}").css("background-color", "silver")
         )
       if $("#annoncment_list").length > 0
         annoncment_id = $("#annoncment_list").children().first().attr("id").split("_").slice(1)[0]
@@ -71,7 +71,7 @@ jQuery ->
               $("#category_#{data.category.id}").css("background-color", "silver")
             else
               $("#submenu_#{data.submenu.id}").css("background-color", "silver")
-              $("#category_#{data.category.id}").css("background-color", "silver")
+              $("#category_#{data.id}").css("background-color", "silver")
         )
       if $("#Galery_photo").length > 0
         galery_photo_id = $("#Galery_photo").children().first().attr("id").split("_").slice(2)[0]
@@ -81,7 +81,7 @@ jQuery ->
               $("#category_#{data.category.id}").css("background-color", "silver")
             else
               $("#submenu_#{data.submenu.id}").css("background-color", "silver")
-              $("#category_#{data.category.id}").css("background-color", "silver")
+              $("#category_#{data.id}").css("background-color", "silver")
         )
 
 
