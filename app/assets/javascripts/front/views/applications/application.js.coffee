@@ -56,7 +56,6 @@ jQuery ->
         $.getJSON("/categories_sub_menus/"+content_uuid, (data) ->
           unless _.isNull(data)
             if data.category
-              console.log "test"
               $("#category_#{data.category.id}").css("background-color", "silver")
             else
               $("._#{data.submenu.title}").css("background-color", "silver")

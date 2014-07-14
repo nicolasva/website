@@ -4,7 +4,15 @@ class CategoriesSubMenusGaleryPhotosController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @galery_photo.to_json(:include => [:submenu => { :include => :category}]) }
+      unless @galery_photo.submenu.nil?
+        if @galery_photo.submenu.category.sub_menu
+          format.json { render json: @galery_photo.to_json(:include => [:submenu => { :include => :category}]) }
+        else
+          format.json { render json: @galery_photo.to_json(:include => :category) }
+        end
+      else
+          format.json { render json: @galery_photo.to_json(:include => :category) }
+      end
     end
   end
 

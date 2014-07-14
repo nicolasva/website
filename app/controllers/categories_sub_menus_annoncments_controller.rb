@@ -4,7 +4,15 @@ class CategoriesSubMenusAnnoncmentsController < ApplicationController
   def show
     respond_to do |format|
       format.html
-      format.json { render json: @annoncment.to_json(:include => [:submenu => { :include => :category}]) }
+      unless @annoncment.submenu.nil?
+        if @annoncment.submenu.category.sub_menu
+          format.json { render json: @annoncment.to_json(:include => [:submenu => { :include => :category}]) }
+        else
+          format.json { render json: @annoncment.to_json(:include => :category) }
+        end
+      else
+          format.json { render json: @annoncment.to_json(:include => :category) }
+      end
     end
   end
 
