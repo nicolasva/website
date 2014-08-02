@@ -1,0 +1,13 @@
+= f.fields_for(:click_link, model_init) do |f_click_link|
+  .row
+    = f_click_link.label :color
+    = f_click_link.input :color, as: 'hidden', input_html: { class: "color_click_link" }
+    #ColorClickLink
+      div style="background-color: #{model.new_record? || model.click_link.nil? ? "black" : model.click_link.color}"
+  .row
+    = f_click_link.label :background_color
+    = f_click_link.input :background_color, as: 'hidden', input_html: { class: "background_color_click_link"}
+    #BackgroundColorClickLink
+      div style="background-color: #{model.new_record? || model.click_link.nil? ? "silver" : model.click_link.background_color}"
+
+

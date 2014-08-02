@@ -2,6 +2,7 @@
   = f.input :title
   = f.input :activation
   = render(:partial => "/admin/aligns/form", :locals => { f: f, model_init: @sub_menu_background.new_record? || @sub_menu_background.align.nil? ? Align.new : @sub_menu_background.align, model: @sub_menu_background })
-  = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @sub_menu_background.new_record? || @sub_menu_background.background.nil? ? Background.new : @sub_menu_background.background, model: @sub_menu_background })
+  = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @sub_menu_background.new_record? || @sub_menu_background.background.nil? ? Background.new : @sub_menu_background.background, model: @sub_menu_background }) 
+  = render(:partial => "/admin/click_links/form", :locals => { f: f, model_init: @sub_menu_background.new_record? || @sub_menu_background.background.nil? ? ClickLink.new : @sub_menu_background.click_link, model: @sub_menu_background})
   .form-actions
     = f.button :submit, value: button_valid_sub_menu_background, :class => 'btn-primary'

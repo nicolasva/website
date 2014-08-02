@@ -44,10 +44,15 @@ jQuery ->
       if ("#content_list").length > 0
         $.getJSON("/categories_sub_menus", (data) ->
           unless _.isNull(data)
-            $("#category_#{data.id}").css("background-color", "silver")
+            $.getJSON("/menu_backgrounds", (data_menu_background) ->
+              click_button("#category_#{data.id}", _.isNull(data_menu_background), data_menu_background.click_link)
+            )
             $.each(data.submenus, (key, val) ->
               unless _.isUndefined(val.homepage_submenu)
-                $("._#{val.title}").css("background-color", "silver")
+
+                $.getJSON("/sub_menu_backgrounds", (data_sub_menu_background) -> 
+                  click_button("._#{val.title}", _.isNull(data), data_sub_menu_background.click_link)
+                )
             )
         )
     else
@@ -56,30 +61,49 @@ jQuery ->
         $.getJSON("/categories_sub_menus/"+content_uuid, (data) ->
           unless _.isNull(data)
             if data.category
-              $("#category_#{data.category.id}").css("background-color", "silver")
+              $.getJSON("/menu_backgrounds", (data_menu_background) ->  
+                click_button("#category_#{data.id}", _.isNull(data_menu_background), data_menu_background.click_link)
+              )
             else
-              $("._#{data.submenu.title}").css("background-color", "silver")
-              $("#category_#{data.submenu.category.id}").css("background-color", "silver")
+              $.getJSON("/menu_backgrounds", (data_menu_background) -> 
+                click_button("#category_#{data.submenu.category.id}", _.isNull(data_menu_background), data_menu_background.click_link)
+              )
+
+              $.getJSON("/sub_menu_backgrounds", (data_sub_menu_background) -> 
+                click_button("._#{data.submenu.title}", _.isNull(data), data_sub_menu_background.click_link)
+              )
         )
       if $("#annoncment_list").length > 0 && !_.isUndefined($("#annoncment_list").children().first().attr("id"))
         annoncment_id = $("#annoncment_list").children().first().attr("id").split("_").slice(1)[0]
         $.getJSON("/categories_sub_menus_annoncments/"+annoncment_id, (data) -> 
           unless _.isNull(data)
             if data.category
-              $("#category_#{data.category.id}").css("background-color", "silver")
+              $.getJSON("/menu_backgrounds", (data_menu_background) -> 
+                click_button("#category_#{data.category.id}", _.isNull(data_menu_background), data_menu_background.click_link)
+              )
             else
-              $("._#{data.submenu.title}").css("background-color", "silver")
-              $("#category_#{data.submenu.category.id}").css("background-color", "silver")
+              $.getJSON("/sub_menu_backgrounds", (data_sub_menu_background) -> 
+                click_button("._#{data.submenu.title}", _.isNull(data_sub_menu_background), data_sub_menu_background.click_link)
+              )
+              $.getJSON("/menu_backgrounds", (data_menu_background) -> 
+                click_button("#category_#{data.submenu.category.id}", _.isNull(data_menu_background), data_menu_background.click_link)
+              )
         )
       if $("#Galery_photo").length > 0 && !_.isUndefined($("#Galery_photo").children().first().attr("id"))
         galery_photo_id = $("#Galery_photo").children().first().attr("id").split("_").slice(2)[0]
         $.getJSON("/categories_sub_menus_galery_photos/"+galery_photo_id, (data) ->
           unless _.isNull(data)
             if data.category
-              $("#category_#{data.category.id}").css("background-color", "silver")
+              $.getJSON("/menu_backgrounds", (data_menu_background) ->
+                click_button("#category_#{data.category.id}", _.isNull(data_menu_background), data_menu_background.click_link)
+              )
             else
-              $("._#{data.submenu.title}").css("background-color", "silver")
-              $("#category_#{data.submenu.category.id}").css("background-color", "silver")
+              $.getJSON("/sub_menu_backgrounds", (data_sub_menu_background) -> 
+                click_button("._#{data.submenu.title}", _.isNull(data_sub_menu_background), data_sub_menu_background.click_link)
+              )
+              $.getJSON("/menu_backgrounds", (data_menu_background) ->
+                click_button("#category_#{data.submenu.category.id}", _.isNull(data_menu_background), data_menu_background.click_link)
+              )
         )
 
 
@@ -95,6 +119,14 @@ jQuery ->
           set_nifty_corner("#annoncment_list", data)
           set_properties_css("#annoncment_list", data.background)
       )
+
+click_button = (element, data_menu_background, click_link) ->
+  unless data_menu_background
+    $(element).css("background-color", click_link.background_color)
+    $(element).css("color", click_link.color)
+  else
+    $(element).css("background-color", "silver")
+    $(element).css("color", "black")
 
 set_nifty_corner = (element, data) ->
   unless _.isUndefined(data.nifty_corner)

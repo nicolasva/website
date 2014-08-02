@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709110570) do
+ActiveRecord::Schema.define(version: 20140717191051) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -108,6 +108,13 @@ ActiveRecord::Schema.define(version: 20140709110570) do
 
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+
+  create_table "click_links", force: true do |t|
+    t.string  "color",                 default: "black", null: false
+    t.string  "background_color",      default: "white", null: false
+    t.integer "click_linkstyles_id"
+    t.string  "click_linkstyles_type"
+  end
 
   create_table "contact_us", force: true do |t|
     t.string   "title",      null: false

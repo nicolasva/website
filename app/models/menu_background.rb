@@ -3,9 +3,12 @@ class MenuBackground < ActiveRecord::Base
   before_save :generate_uuid
   has_one :background, as: :backgroundstyles, dependent: :destroy 
   has_one :align, as: :aligns, dependent: :destroy
+  has_one :click_link, as: :click_linkstyles, dependent: :destroy
   before_save :set_activation_by_default?
   before_update :set_activation_by_default?
   accepts_nested_attributes_for :background,
+                                :allow_destroy => true
+  accepts_nested_attributes_for :click_link,
                                 :allow_destroy => true
   
   accepts_nested_attributes_for :align
