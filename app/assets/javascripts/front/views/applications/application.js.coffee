@@ -58,6 +58,7 @@ jQuery ->
     else
       if $("#content_list").length > 0 && !_.isUndefined($("#content_list").children().first().attr("class"))
         content_uuid = $("#content_list").children().first().attr("class").split(" ").slice(2)[0]
+        console.log $("#content_list").children().first()
         $.getJSON("/categories_sub_menus/"+content_uuid, (data) ->
           unless _.isNull(data)
             if data.category
@@ -122,8 +123,9 @@ jQuery ->
 
 click_button = (element, data_menu_background, click_link) ->
   unless data_menu_background
-    $(element).css("background-color", click_link.background_color)
-    $(element).css("color", click_link.color)
+    console.log click_link.color
+    console.log $(element).css("background-color", click_link.background_color)
+    console.log $(element).css("color", click_link.color)
   else
     $(element).css("background-color", "silver")
     $(element).css("color", "black")

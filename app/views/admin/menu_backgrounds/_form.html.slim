@@ -3,6 +3,6 @@
   = f.input :activation
   = render(:partial => "/admin/aligns/form", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.align.nil? ? Align.new : @menu_background.align, model: @menu_background })
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.background.nil? ? Background.new : @menu_background.background, model: @menu_background })
-  = render(:partial => "/admin/click_links/form", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.background.nil? ? ClickLink.new : @menu_background.click_link, model: @menu_background})
+  = render(:partial => "/admin/click_links/form", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.click_link.nil? ? ClickLink.new : @menu_background.click_link, model: @menu_background})
   .form-actions
     = f.button :submit, :value => button_value_menu_background, :class => 'btn-primary'
