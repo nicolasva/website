@@ -27,7 +27,7 @@ module ApplicationHelper
     array_content_text_decoration_title.push("text-decoration:line-through;")
     array_content_text_decoration_title.push("text-decoration:blink;")
 
-    return @header_background.nil? ? "" : @header_background.watch_title ? "<span style='#{array_content_header_title[@header_background.font_family_title]}#{array_content_align_title[@header_background.align_title]}font-size:#{@header_background.size_title}px;color:#{@header_background.font_color_title};#{array_content_text_decoration_title[@header_background.text_decoration]}'>#{@header_background.title}</span>".html_safe : ""
+    return @header_background.nil? ? "" : @header_background.watch_title ? @header_background.title : ""
   end
 
   def link_content_or_annoncment?(value, content_annoncment)

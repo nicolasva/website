@@ -1,3 +1,29 @@
+HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS =
+  0: ""
+  1: "Arial, helvetica, sans-serif"
+  2: "comic sans ms, cursive"
+  3: "courier new, courier, monospace"
+  4: "georgia, serif"
+  5: "lucida sans unicode, lucida grande, sans-serif"
+  6: "tahoma, geneva,sans-serif"
+  7: "times new roman,times,serif"
+  8: "trebuchet ms,helvetica,sans-serif"
+  9: "verdana,geneva,sans-serif"
+
+HASH_TEXT_DECORATION_HEADER_BACKGROUND_CSS =
+  0: "none"
+  1: "overline"
+  2: "line-through"
+  3: "blink"
+
+HASH_ALIGN_HEADER_BACKGROUND_CSS = 
+  0: ""
+  1: "center"
+  2: "left"
+  3: "right"
+  4: "justify"
+  5: "inherit"
+
 HASH_ALIGN_CSS =
   0 : "center center"
   3 : "right bottom"
@@ -35,6 +61,11 @@ jQuery ->
     $.getJSON("/header_backgrounds", (data) ->
       unless _.isNull(data)
         $("#id_header").show()
+        if !_.isNull(data.watch_title) && data.watch_title
+          $("#id_header").css("color", data.font_color_title)
+          $("#id_header").css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[data.font_family_title])
+          $("#id_header").css("text-align", HASH_ALIGN_HEADER_BACKGROUND_CSS[data.align_title])
+          $("#id_header").css("text-decoration", HASH_TEXT_DECORATION_HEADER_BACKGROUND_CSS[data.text_decoration]) 
         set_properties_css("#id_header", data.background) 
         set_propertie_full_screen_javascript("#id_header", data.background.align)
     )
@@ -58,7 +89,7 @@ jQuery ->
     else
       if $("#content_list").length > 0 && !_.isUndefined($("#content_list").children().first().attr("class"))
         content_uuid = $("#content_list").children().first().attr("class").split(" ").slice(2)[0]
-        console.log $("#content_list").children().first()
+        $("#content_list").children().first()
         $.getJSON("/categories_sub_menus/"+content_uuid, (data) ->
           unless _.isNull(data)
             if data.category
@@ -123,9 +154,9 @@ jQuery ->
 
 click_button = (element, data_menu_background, click_link) ->
   unless data_menu_background
-    console.log click_link.color
-    console.log $(element).css("background-color", click_link.background_color)
-    console.log $(element).css("color", click_link.color)
+    click_link.color
+    $(element).css("background-color", click_link.background_color)
+    $(element).css("color", click_link.color)
   else
     $(element).css("background-color", "silver")
     $(element).css("color", "black")
