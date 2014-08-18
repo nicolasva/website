@@ -76,7 +76,12 @@ class ContentsController < ApplicationController
     def parent
         @hash_params = Hash.new
         if parent?
-          submenu = Submenu.find_by_title(params[:title_submenu_id]) 
+          if params[:title_id]
+            category = Category.find_by_title(params[:title_id])
+            submenu = Submenu.find_by_title(params[:title_submenu_id])
+          else
+            submenu = Submenu.find_by_title(params[:title_submenu_id]) 
+          end
           @hash_params[:submenu_id] = submenu.id
           return submenu
         else

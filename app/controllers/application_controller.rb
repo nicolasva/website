@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_submenu_by_title(model)
-    @submenu = Submenu.find_by_title(params[:title_submenu_id].nil? ? params[:id] : params[:title_submenu_id])
+    @submenu = model.submenus.find_by_title(params[:title_submenu_id].nil? ? params[:id] : params[:title_submenu_id])
   end
 
 
