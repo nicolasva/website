@@ -1,6 +1,6 @@
 module ContentsHelper
   def link_admin_content_path
-    @submenu.nil? ? new_admin_title_content_path(@category.title) : new_admin_title_title_submenu_content_path(@category.title, @submenu.title)
+    @submenu.nil? ? new_admin_title_content_path(@category.category.title) : new_admin_title_title_submenu_content_path(@category.category.title, @submenu.title)
   end
 
   def col_boostrap(contents)
