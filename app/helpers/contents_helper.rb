@@ -16,11 +16,11 @@ module ContentsHelper
   end
 
   def link_edit_admin_content_path(content)
-    return @submenu.nil? ? edit_admin_title_content_path(@category.title, content.uuid) : edit_admin_title_title_submenu_content_path(@category.title, @submenu.title, content.uuid)
+    return @submenu.nil? ? edit_admin_title_content_path(@category.title, content.uuid) : edit_admin_title_title_submenu_content_path(@category.category.title, @submenu.title, content.uuid)
   end
 
   def link_destroy_admin_content_path(content)
-    return @submenu.nil? ? admin_title_content_path(@category.title, content.uuid) : admin_title_title_submenu_content_path(@category.title, @submenu.title, content.uuid)
+    return @submenu.nil? ? admin_title_content_path(@category.title, content.uuid) : admin_title_title_submenu_content_path(@category.category.title, @submenu.title, content.uuid)
   end
 
   def url_admin_edit_form_contents
