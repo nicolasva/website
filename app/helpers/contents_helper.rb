@@ -8,7 +8,7 @@ module ContentsHelper
   end
 
   def url_form_new_content
-    @submenu.nil? ? "/admin/categories/#{@category.title}/contents" : "/admin/categories/#{@category.title}/submenus/#{@submenu.title}/contents"
+    @submenu.nil? ? "/admin/categories/#{@category.title}/contents" : "/admin/categories/#{@category.category.title}/submenus/#{@submenu.title}/contents"
   end
 
   def look_category

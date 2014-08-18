@@ -43,7 +43,6 @@ module Admin
 
     def show
         @content = Content.find_by_uuid(params[:id])
-    
         respond_to do |format|
           format.html
           format.json { render json: @content.to_json(:include => [:background, :height_screen]) }
