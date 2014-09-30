@@ -9,7 +9,8 @@ class GaleryPhoto < ActiveRecord::Base
   has_one :publication, as: :publicationstyles, dependent: :destroy
 
   accepts_nested_attributes_for :publication,
-                                :allow_destroy => true
+                                allow_destroy: true
+
   mount_uploader :photogalery, PhotogaleryUploader
 
   def generate_uuid

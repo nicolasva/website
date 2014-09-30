@@ -80,7 +80,8 @@ module Admin
                                              :photogalery_cache,
                                              :submenu_id,
                                              :category_id,
-                                             :submenu_id
+                                             :submenu_id,
+                                             publication_attributes: [:id, :publication]
                                             )
       end
   end

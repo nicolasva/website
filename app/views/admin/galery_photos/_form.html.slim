@@ -1,5 +1,5 @@
 = simple_form_for [:admin, @category, @galery_photo], url: url do |f| 
-  = render(:partial => "/admin/publications/form_publication", :locals => { f: f, model_init: @galery_photo.new_record? || @galery_photo.publication.nil? ? GaleryPhoto.new : @galery_photo.publication, model: @galery_photo })
+  = render(:partial => "/admin/publications/form_publication", :locals => { f: f, model_init: @galery_photo.new_record? || @galery_photo.publication.nil? ? Publication.new : @galery_photo.publication, model: @galery_photo })
   .row
     = f.input :title
   .row

@@ -1,5 +1,6 @@
 class Annoncment < ActiveRecord::Base
-  attr_accessor :delete_background_image, :photos_attributes, :photos_master, :date_at_html, :date_to_html
+  attr_accessor :delete_background_image, :photos_attributes, :photos_master, :date_at_html, :date_to_html 
+  has_one :publication, as: :publicationstyles, dependent: :destroy
   before_save :format_date_at_date_to
   before_update :format_date_at_date_to
   after_save :save_with_image_master
@@ -8,7 +9,6 @@ class Annoncment < ActiveRecord::Base
   has_one :background, as: :backgroundstyles, dependent: :destroy 
   has_one :height_screen, as: :height_screenstyles, dependent: :destroy
   has_one :nifty_corner, as: :nifty_cornerstyles, dependent: :destroy
-  has_one :publication, as: :publicationstyles, dependent: :destroy
   has_many :photos
   accepts_nested_attributes_for :background,
                                 :allow_destroy => true
