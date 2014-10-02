@@ -24,6 +24,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 #gem 'ckeditor', github: "galetahub/ckeditor", branch: "master"
 gem 'ckeditor'
+gem 'rabl'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
