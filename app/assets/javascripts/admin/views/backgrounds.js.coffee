@@ -13,5 +13,13 @@ jQuery ->
   })
 
 jQuery ->
+  $(document).ready ->
+    if $(".background_transparent").length > 0
+      if $(".background_transparent").is(':checked') is true then $("#backgroundtransparent").hide() else $("#backgroundtransparent").show()
+
+jQuery ->
+  $(document).on 'click', '.background_transparent', (e) ->
+    if $(e.target).is(':checked') is true then $('#backgroundtransparent').hide() else $('#backgroundtransparent').show()
+jQuery ->
   $(document).on 'click', '.no_background_image', (e) ->
     if $(e.target).is(':checked') is true then $('.background_image').hide() else $('.background_image').show()

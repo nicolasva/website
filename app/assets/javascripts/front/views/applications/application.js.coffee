@@ -188,7 +188,7 @@ set_properties_css = (element, background) ->
       $(element).css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
       $(element).css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
       $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-  $(element).css("background-color", background.background_color)
+  $(element).css("background-color", if background.transparent is true then "transparent" else background.background_color)
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
 
 background_image_size = (background_image, background_image_size) ->

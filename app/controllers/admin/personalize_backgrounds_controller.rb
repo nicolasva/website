@@ -55,7 +55,7 @@ module Admin
                                                        :activation,
                                                        :margin_top,
                                                        height_screen_attributes: [:height],
-                                                       background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :background_image_size, :cover, :opacity, :id],
+                                                       background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :background_image_size, :cover, :opacity, :transparent, :id],
                                                        nifty_corner_attributes: [:nifty_corner, :border_radius]
                                                       )
       end

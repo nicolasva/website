@@ -58,7 +58,7 @@ module Admin
                                                       :title,
                                                       :activation,
                                                       activations: [],
-                                                      background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover, :opacity, :id]
+                                                      background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover, :opacity, :transparent, :id]
                                                      )
       end
   end
