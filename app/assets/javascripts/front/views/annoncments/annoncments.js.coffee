@@ -37,6 +37,7 @@ jQuery ->
           annoncment_id = $(value).attr("class").split(" ").slice(-1)[0].split("_").slice(-1)[0]
           $.getJSON(get_url+"/"+annoncment_id, (data) ->
             unless _.isNull(data)
+              $(".annoncment").css("background-color", if data.background.transparent is true then "transparent" else  data.background.background_color)
               $(".annoncment").css("background-color", data.background.background_color)
               $(".annoncment").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then 'no-repeat' else '') unless data.background.no_background_image
               $(".annoncment").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
