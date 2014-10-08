@@ -25,9 +25,13 @@ html lang="en"
     section#top-bar class='navbar navbar-default' role='navigation'
       ul.list-inline.languages
         li
+          = render(partial: "/searchs/search")
+        li
           = link_to image_tag("languages/fr.png"), language_path("fr")
         li
           = link_to image_tag("languages/en.png"), language_path("en")
+        li
+          = 
       = link_to content_tag(:header, load_content_header_title, id: "id_header"), root_url
       .menu_color
         .container

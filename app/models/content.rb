@@ -1,4 +1,10 @@
 class Content < ActiveRecord::Base
+  #include Tire::Model::Search
+  #include Tire::Model::Callbacks
+  
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   attr_accessor :delete_background_image
   before_save :generate_uuid
   validates_presence_of :description
@@ -40,4 +46,19 @@ class Content < ActiveRecord::Base
     uuid = UUID.new
     self.uuid = uuid.generate
   end
+
+  #def self.search(params)
+    #tire.search(load: true) do 
+    #  query { string params } if params.present?
+    #end
+    #__elasticsearch__.search(
+    #  {
+    #    query: {
+    #      multi_match: {
+    #        query: params
+    #      }
+    #    }
+    #  }
+    #)
+  #end
 end

@@ -25,6 +25,11 @@ gem 'carrierwave'
 #gem 'ckeditor', github: "galetahub/ckeditor", branch: "master"
 gem 'ckeditor'
 gem 'rabl'
+gem 'tire'
+gem 'elasticsearch'
+gem 'elasticsearch-extensions'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
