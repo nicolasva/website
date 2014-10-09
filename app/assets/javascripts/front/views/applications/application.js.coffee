@@ -39,6 +39,7 @@ HASH_ALIGN_CSS =
 
 jQuery ->
   $(document).ready ->
+    $("#id_button_search").popover('hide')
     location_href = window.location.href
     $.getJSON("/background_by_defaults", (data) -> 
       unless _.isNull(data)

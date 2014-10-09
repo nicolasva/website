@@ -1,6 +1,5 @@
 = simple_form_for :search, url: searchs_path, method: "POST" do |f|
   .row
-    .col-md-6
-      = f.input :query, label: false
-    .col-md-6
-      = f.button :submit, :class => 'btn-primary'
+    = f.input :query, label: false
+  .row
+    = f.button :submit, :value => "Rechercher" ,:class => 'btn-primary'

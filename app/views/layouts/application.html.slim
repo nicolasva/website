@@ -25,7 +25,7 @@ html lang="en"
     section#top-bar class='navbar navbar-default' role='navigation'
       ul.list-inline.languages
         li
-          = render(partial: "/searchs/search")
+        = link_to raw("<span class='clyphicon glyphicon-search'></span>"), link_load_form_search_searchs_path, :id => "id_button_search", "data-container"=> "body", "data-toggle"=>"popover", "data-placement"=>"bottom", "title" => "Recherche", :rel => 'popover', "data-content" => "", remote: true
         li
           = link_to image_tag("languages/fr.png"), language_path("fr")
         li
