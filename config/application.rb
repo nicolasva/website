@@ -17,7 +17,8 @@ module WebsiteFrancisFerrari
     config.time_zone = 'Paris'
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
-    config.assets.enabled = true
+    config.assets.enabled = true 
+    config.assets.paths << Rails.root.join('public', 'fonts') 
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts', 'flash') 
     config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'front') 
     config.assets.paths << Rails.root.join('app', 'assets', 'stylesheets', 'plugins')
