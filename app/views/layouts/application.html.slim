@@ -69,6 +69,10 @@ html lang="en"
               .col-lg-6
                 = bootstrap_flash
                 = yield
+                .share_social.row
+                  ul.list-inline
+                    li
+                      = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
               .col-lg-3
                 = render(:partial => "/partials/sub_menu_lists")
           - else
@@ -89,6 +93,10 @@ html lang="en"
             .col-lg-9
               = bootstrap_flash
               = yield
+              .share_social.row
+                ul.list-inline
+                  li
+                    = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
         - else
           - if @menu_background.align.align.to_i == 2
             - if submenu?
@@ -98,6 +106,10 @@ html lang="en"
                 .col-lg-6
                   = bootstrap_flash
                   = yield
+                  .share_social.row
+                    ul.list-inline
+                      li
+                        = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
                 .col-lg-3
                   .well.sidebar-nav
                     ul.nav.nav-list
@@ -107,7 +119,11 @@ html lang="en"
             - else
               .col-lg-9 
                 = bootstrap_flash
-                = yield 
+                = yield
+                .share_social.row
+                  ul.list-inline
+                    li
+                      = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
               .col-lg-3
                 .well.sidebar-nav
                   ul.nav.nav-list
@@ -128,15 +144,27 @@ html lang="en"
                 .col-lg-9
                   = bootstrap_flash
                   = yield
+                  .share_social.row
+                    ul.list-inline
+                      li
+                        = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
               - else
                 .col-lg-12
                   = bootstrap_flash
                   = yield
+                  .share_social.row
+                    ul.list-inline
+                      li
+                        = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
 
             - else
               .col-lg-12
                 = bootstrap_flash
                 = yield
+                .share_social.row
+                  ul.list-inline
+                    li
+                      = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
 
       footer
         .col-md-3 &copy; #{@title_website.title} #{Time.now.strftime("%Y")}
