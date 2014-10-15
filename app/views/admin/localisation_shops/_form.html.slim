@@ -1,0 +1,10 @@
+= simple_form_for [:admin, @localisation_shop], url: url, method: method, remote: true do |f|
+  .row
+    .col-md-4
+      = f.input :address
+    .col-md-4
+      = f.input :postal_code
+    .col-md-4
+      = f.input :city
+  .form-actions
+    = f.button :submit, class: 'btn-primary'

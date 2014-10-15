@@ -4,6 +4,6 @@ class SearchsController < ApplicationController
   end
 
   def link_load_form_search
-
+    
   end
 end

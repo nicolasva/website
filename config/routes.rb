@@ -13,6 +13,9 @@ WebsiteFrancisFerrari::Application.routes.draw do
   resources :searchs do
     get :link_load_form_search, :on => :collection
   end
+  resources :localisation_shops do
+    get :localisation_shops_list, on: :collection
+  end
   resources :categories_sub_menus_galery_photos
   resources :categories_sub_menus_annoncments
   resources :categories_sub_menus
@@ -46,6 +49,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
+    resources :localisation_shops
     resources :title_websites
     resources :robot_keys
     resources :personalize_backgrounds do

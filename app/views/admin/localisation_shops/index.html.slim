@@ -1,0 +1,18 @@
+- model_class = LocalisationShop
+
+.page-header
+  h1
+    = t(".title")
+
+table#localisationshops_list.row.list-unstyled.localisation_shops
+  thead
+    tr
+      th.col-md-4= model_class.human_attribute_name(:address)
+      th.col-md-4= model_class.human_attribute_name(:postal_code)
+      th.col-md-4= model_class.human_attribute_name(:city)
+      th.col-md-4= t '.actions', default: t("helpers.actions")
+  tbody
+    - @localisation_shops.each do |localisation_shop|
+      = render(partial: '/admin/localisation_shops/create', locals: {localisation_shop: localisation_shop })
+.row
+  = link_to t(".new", :default => t("helpers.links.new")), new_admin_localisation_shop_path, class: 'btn btn-primary', remote: true
