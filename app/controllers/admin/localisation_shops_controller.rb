@@ -25,6 +25,11 @@ module Admin
       end
     end
 
+    def import_localisation_shops
+      LocalisationShop.import(params[:localisation_shop][:file_import])
+      redirect_to admin_localisation_shops_path, notice: "L'importation des localisation s'est bien déroulé elles sont désormais disponible"
+    end
+
     def show
     end
 

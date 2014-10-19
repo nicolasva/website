@@ -49,7 +49,9 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
-    resources :localisation_shops
+    resources :localisation_shops do
+      post :import_localisation_shops, on: :collection
+    end
     resources :title_websites
     resources :robot_keys
     resources :personalize_backgrounds do

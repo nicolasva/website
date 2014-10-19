@@ -156,7 +156,7 @@ jQuery ->
 
 click_button = (element, data_menu_background, click_link) ->
   unless data_menu_background
-    click_link.color
+    #click_link.color
     $(element).css("background-color", click_link.background_color)
     $(element).css("color", click_link.color)
   else

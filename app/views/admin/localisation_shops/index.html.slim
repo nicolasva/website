@@ -16,3 +16,13 @@ table#localisationshops_list.row.list-unstyled.localisation_shops
       = render(partial: '/admin/localisation_shops/create', locals: {localisation_shop: localisation_shop })
 .row
   = link_to t(".new", :default => t("helpers.links.new")), new_admin_localisation_shop_path, class: 'btn btn-primary', remote: true
+
+.row
+  = simple_form_for :localisation_shop, url: import_localisation_shops_admin_localisation_shops_path, method: "POST", multipart: true do |f|
+    .row
+      .col-md-6
+        = f.input :file_import, as: :file
+      .col-md-6
+        = f.button :submit, class: 'btn-primary'
+
+
