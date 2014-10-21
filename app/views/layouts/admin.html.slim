@@ -46,6 +46,8 @@ html lang="en"
                   = link_to t(".submenu.web_page_personalize.sub_title_website"), admin_sub_menu_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
                 li(role="presentation")
                   = link_to t(".submenu.web_page_personalize.announcement_list_style"), admin_personalize_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
+                li(role="presentation")
+                  = link_to "Style de la galerie d'image", admin_personalize_galery_photo_backgrounds_path, "tabindex" => "-1", "role" => "menuitem"
             li
               = link_to t(".footer_admin"), "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
               ul.menu_footer.dropdown-menu(aria-labelledby="drop2" role="menu")

@@ -10,6 +10,8 @@ WebsiteFrancisFerrari::Application.routes.draw do
     match "contents/:uuid" => "contents#show", :via => "GET"
   end
 
+
+  resources :personalize_galery_photo_backgrounds
   resources :searchs do
     get :link_load_form_search, :on => :collection
   end
@@ -49,6 +51,9 @@ WebsiteFrancisFerrari::Application.routes.draw do
   root :to => "home#index"
 
   namespace :admin do
+    resources :personalize_galery_photo_backgrounds do
+      post :activation, :on => :collection
+    end
     resources :localisation_shops do
       post :import_localisation_shops, on: :collection
     end

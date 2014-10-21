@@ -10,7 +10,7 @@ ul#Galery_photo.row.list-inline.galery_photo
       h3
         = galery_photo.title
       .row
-        = link_to(galery_photo.photogalery.url(:preview), class: "zoombox zgallery1", title: galery_photo.title) do
+        = link_to(galery_photo.photogalery.url, class: "zoombox zgallery1", title: galery_photo.title) do
           = image_tag(galery_photo.photogalery.url(:thumb))
       .row
         = truncate(galery_photo.comment.html_safe, length: 90)
