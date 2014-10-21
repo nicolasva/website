@@ -1,6 +1,6 @@
 ul#Galery_photo.row.list-inline.galery_photo
   - @galery_photos.each do |galery_photo|
-    = content_tag_for :li, galery_photo, class: "col-md-2", style: "height:400px;" do
+    = content_tag_for :li, galery_photo, class: "col-md-2", style: "height:200px;" do
       .row
         = link_to(galery_photo.photogalery.url, class: "fancybox", rel: "gallery1", title: "#{galery_photo.comment.html_safe}") do
           = image_tag(galery_photo.photogalery.url(:thumb))
