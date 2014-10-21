@@ -6,5 +6,4 @@
 #= require ./jquery-ui-timepicker-addon
 #= require ./jquery.dropkick-min
 #= require ./zoombox/zoombox
-#= require ./google_maps/js
 #= require ./fancy/fancy
