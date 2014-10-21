@@ -37,7 +37,7 @@ set_propertie_full_screen_javascript = (element, align) ->
   if align == 12
     winwidth = $(window).width()
     winheight = $(window).height()
-    #$(element).css("height", winheight + "px")
+    $(element).css("height", winheight + "px")
     $(element).css("width", winwidth + "px")
 
 set_properties_css = (element, background) ->
