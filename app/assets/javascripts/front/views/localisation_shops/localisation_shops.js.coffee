@@ -21,7 +21,11 @@ $(document).ready ->
               position: results[0].geometry.location
             })
           else
-            alert("Geocode was not successful for the following reason: " + status)
+            if status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT
+              wait = true
+              setTimeout("wait = true", 2000)
+            else
+              console.log("Geocode was not successful for the following reason: " + status + " with data " + addr)
         )
       )
     )

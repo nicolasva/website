@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019145102) do
+ActiveRecord::Schema.define(version: 20141021170557) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -213,9 +213,9 @@ ActiveRecord::Schema.define(version: 20141019145102) do
   end
 
   create_table "localisation_shops", force: true do |t|
-    t.text    "address",     null: false
-    t.integer "postal_code", null: false
-    t.string  "city",        null: false
+    t.text   "address",     null: false
+    t.string "postal_code", null: false
+    t.string "city",        null: false
   end
 
   create_table "menu_backgrounds", force: true do |t|
