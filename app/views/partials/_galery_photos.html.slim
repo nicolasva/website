@@ -7,4 +7,5 @@ ul#Galery_photo.row.list-inline.galery_photo
         = link_to(galery_photo.photogalery.url, class: "fancybox", rel: "gallery1", title: "#{galery_photo.comment.html_safe}") do
           = image_tag(galery_photo.photogalery.url(:thumb))
       .row
-        = truncate(galery_photo_comment(galery_photo).html_safe, length: 90).html_safe
+        .col-md-3
+          = truncate(galery_photo_comment(galery_photo).html_safe, length: 90).html_safe
