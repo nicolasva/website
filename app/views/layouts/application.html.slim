@@ -166,24 +166,24 @@ html lang="en"
                     li
                       = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
 
-      footer
-        .col-md-3 &copy; #{@title_website.title} #{Time.now.strftime("%Y")}
-        .col-md-5.col-md-offset-4
-          ul.nav.navbar-nav
-            li
-              = link_to "Nous Localiser", localisation_shops_path
-            li
-              = link_to t(".legal_mention"), footers_path, remote: true
-            li
-              = link_to t(".contact_us"), new_contact_u_path, remote: true
+  footer
+    .col-md-3 &copy; #{@title_website.title} #{Time.now.strftime("%Y")}
+    .col-md-5.col-md-offset-4
+      ul.nav.navbar-nav
+        li
+          = link_to "Nous Localiser", localisation_shops_path
+        li
+          = link_to t(".legal_mention"), footers_path, remote: true
+        li
+          = link_to t(".contact_us"), new_contact_u_path, remote: true
 
 
-      section.dialog_box.modal
-        .modal-dialog
-          .modal-content
-            .modal-header
-              button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                = '&times;'.html_safe
-              h4 class="modal-title"
-                = "Modal title"
-            .modal-body
+  section.dialog_box.modal
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            = '&times;'.html_safe
+          h4 class="modal-title"
+            = "Modal title"
+        .modal-body
