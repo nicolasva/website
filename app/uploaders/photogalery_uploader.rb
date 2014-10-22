@@ -27,7 +27,7 @@ class PhotogaleryUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-     process :resize_to_fit => [130, 130]
+     process :resize_to_fit => [260, 260]
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
