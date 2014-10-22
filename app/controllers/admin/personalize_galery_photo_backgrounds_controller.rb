@@ -11,7 +11,7 @@ module Admin
     end
 
     def new
-      @personalize_galery_photo_backgrounds = PersonalizeGaleryPhotoBackground.new
+      @personalize_galery_photo_background = PersonalizeGaleryPhotoBackground.new
     end
 
     def edit

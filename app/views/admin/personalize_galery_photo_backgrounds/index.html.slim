@@ -2,24 +2,25 @@
 .page-header
   h1 = t(".title")
 
-table.table.table-striped
-  thead
-    tr
-      th.col-md-4= model_class.human_attribute_name(:title)
-      th.col-md-4= model_class.human_attribute_name(:activation)
-      th.col-md-4= t '.actions', default: t("helpers.actions")
-  tbody
-    - @personalize_galery_photo_backgrounds.each do |personalize_galery_photo_background|
+= form_tag action: 'activation', controller: "personalize_galery_photo_backgrounds"
+  table.table.table-striped
+    thead
       tr
-        td.col-md-4= personalize_galery_photo_background.title
-        td.col-md-4= radio_button "personalize_galery_photo_background[activation]", "", personalize_galery_photo_background.id, checked: personalize_galery_photo_background.activation
-        td.col-md-4
-          = link_to t('.edit', default: t("helpers.links.edit")), edit_admin_personalize_galery_photo_background_path(personalize_galery_photo_background.uuid), class: 'btn btn-mini btn-primary'
-          '
-          = link_to t('.destroy', default: t("helpers.links.destroy")), admin_personalize_galery_photo_background_path(personalize_galery_photo_background.uuid), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
+        th.col-md-4= model_class.human_attribute_name(:title)
+        th.col-md-4= model_class.human_attribute_name(:activation)
+        th.col-md-4= t '.actions', default: t("helpers.actions")
+    tbody
+      - @personalize_galery_photo_backgrounds.each do |personalize_galery_photo_background|
+        tr
+          td.col-md-4= personalize_galery_photo_background.title
+          td.col-md-4= radio_button "personalize_galery_photo_background[activations]", "", personalize_galery_photo_background.id, checked: personalize_galery_photo_background.activation
+          td.col-md-4
+            = link_to t('.edit', default: t("helpers.links.edit")), edit_admin_personalize_galery_photo_background_path(personalize_galery_photo_background.uuid), class: 'btn btn-mini btn-primary'
+            '
+            = link_to t('.destroy', default: t("helpers.links.destroy")), admin_personalize_galery_photo_background_path(personalize_galery_photo_background.uuid), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => t("admin.common.confirm_delete"))) }, :class => 'btn btn-mini btn-danger'
 
-.row
-  .col-md-10
-    = link_to t(".new", default: t("helpers.links.new")), new_admin_personalize_galery_photo_background_path, class: 'btn btn-primary'
-  .col-md-2
-    = submit_tag t("admin.common.valid"), name: "activation_footer_background_activate", class: "btn btn-success"
+  .row
+    .col-md-10
+      = link_to t(".new", default: t("helpers.links.new")), new_admin_personalize_galery_photo_background_path, class: 'btn btn-primary'
+    .col-md-2
+      = submit_tag t("admin.common.valid"), name: "activation_footer_background_activate", class: "btn btn-success"

@@ -43,7 +43,7 @@ jQuery ->
               $(".annoncment").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
               $(".annoncment").css("height", window.screen.height + "px") if data.height_screen.height
               set_nifty_corner(".annoncment", data)
-              set_opacity_background(element, data.background)
+              set_opacity_background(".annoncment", data.background)
           )
       
     #Set attribute css
