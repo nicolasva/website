@@ -163,23 +163,25 @@ html lang="en"
                 .col-lg-12
                   = bootstrap_flash
                   = yield
+                  .col-lg-12
+                    .share_social.row
+                      ul.list-inline
+                        li
+                          = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
+                        li
+                          = link_to image_tag("social_share/twitter.png", size: "40x40"), "https://twitter.com/intent/tweet?original_referer=#{request.url}%2Fresources%2Fbuttons&tw_p=tweetbutton&url=#{request.url}"
+
+            - else
+              .col-lg-12
+                = bootstrap_flash
+                = yield
+                .col-lg-12
                   .share_social.row
                     ul.list-inline
                       li
                         = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
                       li
                         = link_to image_tag("social_share/twitter.png", size: "40x40"), "https://twitter.com/intent/tweet?original_referer=#{request.url}%2Fresources%2Fbuttons&tw_p=tweetbutton&url=#{request.url}"
-
-            - else
-              .col-lg-12
-                = bootstrap_flash
-                = yield
-                .share_social.row
-                  ul.list-inline
-                    li
-                      = link_to image_tag("social_share/facebook.png"), "https://www.facebook.com/sharer/sharer.php?u=#{request.url}"
-                    li
-                      = link_to image_tag("social_share/twitter.png", size: "40x40"), "https://twitter.com/intent/tweet?original_referer=#{request.url}%2Fresources%2Fbuttons&tw_p=tweetbutton&url=#{request.url}"
 
   footer
     .col-md-3 &copy; #{@title_website.title} #{Time.now.strftime("%Y")}
@@ -202,3 +204,4 @@ html lang="en"
           h4 class="modal-title"
             = "Modal title"
         .modal-body
+

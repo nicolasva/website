@@ -179,7 +179,7 @@ set_propertie_full_screen_javascript = (element, align) ->
 
 set_properties_css = (element, background) ->
   unless background.no_background_image
-    $(element).css("background", "url('"+background_image_size(background.background_image, background.background_image_size)+"') " + if background.no_repeat is true then 'no-repeat' else 'repeat')
+    $(element).css("background", "url('"+background_image_size(background.background_image, background.background_image_size)+"') " + if background.no_repeat is true then 'no-repeat' else 'repeat') unless background.no_background_image || _.isNull(background.background_image.url)
     $(element).css("background-position", HASH_ALIGN_CSS[background.align]) 
     $(element).css("background-size", "cover") if background.cover
     $(element).css("opacity", background.opacity)

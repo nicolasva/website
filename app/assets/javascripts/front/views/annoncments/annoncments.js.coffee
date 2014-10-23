@@ -39,7 +39,7 @@ jQuery ->
             unless _.isNull(data)
               $(".annoncment").css("background-color", if data.background.transparent is true then "transparent" else  data.background.background_color)
               $(".annoncment").css("background-color", data.background.background_color)
-              $(".annoncment").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then 'no-repeat' else '') unless data.background.no_background_image
+              $(".annoncment").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then 'no-repeat' else '') unless data.background.no_background_image || _.isNull(data.background.background_image.url)
               $(".annoncment").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
               $(".annoncment").css("height", window.screen.height + "px") if data.height_screen.height
               set_nifty_corner(".annoncment", data)
@@ -62,7 +62,7 @@ jQuery ->
         height_screen = data.height_screen
         element = ".annoncment"
         unless background.no_background_image
-          $(element).css("background", "url('"+background.background_image.header.url+"') " + if background.no_repeat is true then 'no-repeat' else '')
+          $(element).css("background", "url('"+background.background_image.header.url+"') " + if background.no_repeat is true then 'no-repeat' else '') unless background.no_background_image || _.isNull(background.background_image.url)
           $(element).css("background-position", HASH_ALIGN_CSS[background.align])
           $(element).css("background-size", "cover")
           $(element).css("height", window.screen.height) if height_screen.height

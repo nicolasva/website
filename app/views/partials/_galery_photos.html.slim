@@ -1,6 +1,9 @@
-ul#Galery_photo.row.list-inline.galery_photo
+ul#Galery_photo.list-inline.galery_photo.col-lg-12
   - @galery_photos.each do |galery_photo|
     = content_tag_for :li, galery_photo, class: "col-md-4", style: "height:300px;" do
       .row
         = link_to(galery_photo.photogalery.url, class: "fancybox", rel: "gallery1", title: "#{galery_photo.comment.html_safe}") do
           = image_tag(galery_photo.photogalery.url(:thumb), size: "260x260")
+
+
+= javascript_include_tag "front/views/personalize_galery_photo_backgrounds/index"

@@ -36,15 +36,13 @@ jQuery ->
         $.getJSON("/personalize_galery_photo_backgrounds", (data) ->
           #$("#Galery_photo")
           unless _.isNull(data)
-            $("#Galery_photo").css("background-color", if data.background.transparent is true then "transparent" else  data.background.background_color)
-            $("#Galery_photo").css("background-color", data.background.background_color)
-            $("#Galery_photo").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then 'no-repeat' else '') unless data.background.no_background_image
+            $("#Galery_photo").css("background-color", if data.background.transparent is true then "transparent" else data.background.background_color) 
+            $("#Galery_photo").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then 'no-repeat' else '') unless data.background.no_background_image || _.isNull(data.background.background_image.url)
             $("#Galery_photo").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
             #$("#Galery_photo").css("height", window.screen.height + "px") if data.height_screen.height
             set_nifty_corner("#Galery_photo", data)
             set_opacity_background("#Galery_photo", data.background)
         )
-
 
 set_opacity_background = (element, background) ->
   $(element).css("opacity", background.opacity)
