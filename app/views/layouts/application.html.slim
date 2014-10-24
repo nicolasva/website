@@ -39,7 +39,7 @@ html lang="en"
           .navbar-header 
             - if @menu_background.align.align.to_i == 0
               .collapse.navbar-collapse.navbar-ex1-collapse
-                ul.nav.navbar-nav style='margin-left: 26%;'
+                ul.nav.navbar-nav style='margin-left: 25%;'
                   - @category_all.each do |categorie|
                     = content_tag_for :li, categorie, class: "_#{categorie.title}" do
                         - if categorie.sub_menu
