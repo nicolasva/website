@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024203540) do
+ActiveRecord::Schema.define(version: 20141024204855) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -144,6 +144,14 @@ ActiveRecord::Schema.define(version: 20141024203540) do
     t.string   "contents_or_annoncments_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "fonts", force: true do |t|
+    t.integer "font_family",     default: 0,  null: false
+    t.integer "integer",         default: 12, null: false
+    t.integer "font_size",       default: 12, null: false
+    t.integer "fontstyles_id"
+    t.string  "fontstyles_type"
   end
 
   create_table "footer_backgrounds", force: true do |t|

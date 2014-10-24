@@ -2,6 +2,7 @@
   = f.input :title
   = f.input :activation
   = f.input :margin_right, collection: 0..100
+  = render(partial: "/admin/fonts/form", locals: { f: f, model_init: @menu_background.new_record? || @menu_background.font.nil? ? Font.new : @menu_background.font, model: @menu_background })
   = render(:partial => "/admin/aligns/form", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.align.nil? ? Align.new : @menu_background.align, model: @menu_background })
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.background.nil? ? Background.new : @menu_background.background, model: @menu_background })
   = render(:partial => "/admin/click_links/form", :locals => { f: f, model_init: @menu_background.new_record? || @menu_background.click_link.nil? ? ClickLink.new : @menu_background.click_link, model: @menu_background})

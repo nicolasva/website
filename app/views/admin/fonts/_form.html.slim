@@ -1,0 +1,4 @@
+= f.fields_for(:font, model_init) do |f_font|
+  .row
+    = f_font.input :font_family, collection: Font::ARRAY_FONT_FAMILY
+    = f_font.input :font_size, collection: 0..100

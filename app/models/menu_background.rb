@@ -1,6 +1,7 @@
 class MenuBackground < ActiveRecord::Base
   validates_presence_of :title
   before_save :generate_uuid
+  has_one :font, as: :fontstyles, dependent: :destroy
   has_one :background, as: :backgroundstyles, dependent: :destroy 
   has_one :align, as: :aligns, dependent: :destroy
   has_one :click_link, as: :click_linkstyles, dependent: :destroy
@@ -11,7 +12,11 @@ class MenuBackground < ActiveRecord::Base
   accepts_nested_attributes_for :click_link,
                                 :allow_destroy => true
   
-  accepts_nested_attributes_for :align
+  accepts_nested_attributes_for :align,
+                                :allow_destroy => true
+
+  accepts_nested_attributes_for :font,
+                                :allow_destroy => true
 
   def self.activation!(activation)
     hash_activation = Hash.new

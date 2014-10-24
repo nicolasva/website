@@ -8,7 +8,7 @@ class MenuBackgroundsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @menu_background.to_json(:include => [:background, :click_link]) }
+      format.json { render json: @menu_background.to_json(:include => [:background, :click_link, :font]) }
     end
   end
 

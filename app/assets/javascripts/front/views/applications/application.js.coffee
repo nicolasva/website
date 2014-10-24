@@ -50,7 +50,9 @@ jQuery ->
     $.getJSON("/menu_backgrounds", (data) ->
       unless _.isNull(data)
         set_properties_css(".menu_color", data.background)
-        $(".category").css("margin-right", data.margin_right+"px")
+        $(".category").css("margin-right", data.margin_right+"px") 
+        $(".category").css("font-size", data.font.font_size+"pt")
+        $(".category").css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[data.font.font_family])
         set_propertie_full_screen_javascript(".menu_color", data.background.align)
     )
 
