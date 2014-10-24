@@ -49,7 +49,8 @@ jQuery ->
 
     $.getJSON("/menu_backgrounds", (data) ->
       unless _.isNull(data)
-        set_properties_css(".menu_color", data.background) 
+        set_properties_css(".menu_color", data.background)
+        $(".category").css("margin-right", data.margin_right+"px")
         set_propertie_full_screen_javascript(".menu_color", data.background.align)
     )
 

@@ -65,6 +65,7 @@ module Admin
         params.require(:menu_background).permit(:id,
                                                 :title,
                                                 :activation,
+                                                :margin_right,
                                                 activation: [],
                                                 align_attributes: [:align],
                                                 background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :align, :background_image_size, :cover, :opacity, :transparent, :id],

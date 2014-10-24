@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021170557) do
+ActiveRecord::Schema.define(version: 20141024203540) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -219,11 +219,12 @@ ActiveRecord::Schema.define(version: 20141021170557) do
   end
 
   create_table "menu_backgrounds", force: true do |t|
-    t.string   "uuid",                       null: false
-    t.string   "title",                      null: false
-    t.boolean  "activation", default: false, null: false
+    t.string   "uuid",                         null: false
+    t.string   "title",                        null: false
+    t.boolean  "activation",   default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "margin_right", default: 10,    null: false
   end
 
   create_table "nifty_corners", force: true do |t|
