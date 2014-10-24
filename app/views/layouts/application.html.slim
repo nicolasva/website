@@ -36,25 +36,24 @@ html lang="en"
       = link_to content_tag(:header, load_content_header_title, id: "id_header"), root_url
       .menu_color
         .container
-          .navbar-header 
-            - if @menu_background.align.align.to_i == 0
-              .collapse.navbar-collapse.navbar-ex1-collapse
-                ul.nav.navbar-nav style='text-align: center;'
-                  - @category_all.each do |categorie|
-                    = content_tag_for :li, categorie, class: "_#{categorie.title}" do
-                        - if categorie.sub_menu
-                          = link_to categorie_title(categorie), "#", class: 'navbar-brand dropdown-toggle', "data-toggle" => 'dropdown'
-                          - if @sub_menu_background.align.align.to_i == 0
-                            ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
-                              - categorie.submenus.each do |sub_menu|
-                                = content_tag_for :li, sub_menu, role: "sub_menu", class: "_#{sub_menu.title}" do
-                                  = render(:partial => "/partials/link_to_submenu", locals: {sub_menu: sub_menu})
-                        - else
-                          = link_to categorie_title(categorie), url_contents_or_annoncments_directly_category(categorie)
-            - else
-              - if submenu?
-                - if @sub_menu_background.align.align.to_i == 0
-                  = render(:partial => "/partials/sub_menu_lists")
+          - if @menu_background.align.align.to_i == 0
+            .collapse.navbar-collapse.navbar-ex1-collapse
+              ul.list-inline style='text-align: center;'
+                - @category_all.each do |categorie|
+                  = content_tag_for :li, categorie, class: "dropdown _#{categorie.title}" do
+                      - if categorie.sub_menu
+                        = link_to categorie_title(categorie), "#", class: 'dropdown-toggle', "data-toggle" => 'dropdown'
+                        - if @sub_menu_background.align.align.to_i == 0
+                          ul.sub_menu.dropdown-menu(aria-labelledby="drop2" role="menu")
+                            - categorie.submenus.each do |sub_menu|
+                              = content_tag_for :li, sub_menu, role: "sub_menu", class: "_#{sub_menu.title}" do
+                                = render(:partial => "/partials/link_to_submenu", locals: {sub_menu: sub_menu})
+                      - else
+                        = link_to categorie_title(categorie), url_contents_or_annoncments_directly_category(categorie)
+          - else
+            - if submenu?
+              - if @sub_menu_background.align.align.to_i == 0
+                = render(:partial => "/partials/sub_menu_lists")
 
     section class='container content margin-container'
       .row
