@@ -1,7 +1,7 @@
 jQuery ->
   $(document).ready ->
-    if $(".menu_color").children().first().children().last().children().first().children().length > 0
-      $(".menu_color").children().first().children().last().children().first().children().each (key, value) ->
+    if $(".menu_color").children().first().children().last().children().first().children().first().children().length > 0
+      $(".menu_color").children().first().children().last().children().first().children().first().children().each (key, value) ->
         regex_on_element_category = new RegExp("^category _(.{1,})$", "g")
         category_title = $(value).attr("class").scan(regex_on_element_category)[0][0]
         if parseInt($(value).children().length) == 2
