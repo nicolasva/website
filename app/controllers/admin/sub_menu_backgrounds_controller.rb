@@ -58,7 +58,8 @@ module Admin
                                                   :title,
                                                   :activation,
                                                   activation: [],
-                                                  align_attributes: [:align],
+                                                  align_attributes: [:align, :id],
+                                                  font_attributes: [:font_family, :font_size, :id],
                                                   background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :background_image_size, :cover, :opacity, :transparent, :id],
                                                   click_link_attributes: [:color, :background_color, :id]
                                                  )

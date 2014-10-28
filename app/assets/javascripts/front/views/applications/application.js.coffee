@@ -51,15 +51,21 @@ jQuery ->
       unless _.isNull(data)
         set_properties_css(".menu_color", data.background)
         $(".category").css("margin-right", data.margin_right+"px") 
-        $(".category").css("font-size", data.font.font_size+"pt")
-        $(".category").css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[data.font.font_family])
+        #$(".category").css("font-size", data.font.font_size+"pt")
+        #$(".category").css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[data.font.font_family])
+        set_font_family_css($(".category"), data.font)
         set_propertie_full_screen_javascript(".menu_color", data.background.align)
     )
 
     $.getJSON("/sub_menu_backgrounds", (data) ->
       unless _.isNull(data)
-        set_properties_css(".sub_menu", data.background) 
+        set_properties_css($(".sub_menu"), data.background) 
         set_propertie_full_screen_javascript(".sub_menu", data.background.align)
+        $(".sub_menu").each (key, value) ->
+          $(value).children().each (key, value) ->
+            set_font_family_css($(value), data.font)
+            #$(value).css("font-size", data.font.font_size+"pt")
+            #$(value).css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[data.font.font_family])
     )
 
     $.getJSON("/header_backgrounds", (data) ->
@@ -193,6 +199,10 @@ set_properties_css = (element, background) ->
       $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
   $(element).css("background-color", if background.transparent is true then "transparent" else background.background_color)
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
+
+set_font_family_css = (element, font) ->
+  element.css("font-size", font.font_size+"pt")
+  element.css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[font.font_family])
 
 background_image_size = (background_image, background_image_size) ->
   switch background_image_size

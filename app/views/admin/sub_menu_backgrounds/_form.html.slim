@@ -1,6 +1,7 @@
 = simple_form_for [:admin, @sub_menu_background], url: url do |f|
   = f.input :title
-  = f.input :activation
+  = f.input :activation 
+  = render(partial: "/admin/fonts/form", locals: { f: f, model_init: @sub_menu_background.new_record? || @sub_menu_background.font.nil? ? Font.new : @sub_menu_background.font, model: @sub_menu_background })
   = render(:partial => "/admin/aligns/form", :locals => { f: f, model_init: @sub_menu_background.new_record? || @sub_menu_background.align.nil? ? Align.new : @sub_menu_background.align, model: @sub_menu_background })
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @sub_menu_background.new_record? || @sub_menu_background.background.nil? ? Background.new : @sub_menu_background.background, model: @sub_menu_background }) 
   = render(:partial => "/admin/click_links/form", :locals => { f: f, model_init: @sub_menu_background.new_record? || @sub_menu_background.background.nil? ? ClickLink.new : @sub_menu_background.click_link, model: @sub_menu_background})
