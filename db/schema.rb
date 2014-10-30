@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141024204855) do
+ActiveRecord::Schema.define(version: 20141029090426) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -198,6 +198,11 @@ ActiveRecord::Schema.define(version: 20141024204855) do
     t.integer  "align_title",       default: 0,       null: false
     t.string   "font_color_title",  default: "black", null: false
     t.integer  "text_decoration",   default: 0,       null: false
+    t.boolean  "text_or_image",     default: true,    null: false
+    t.string   "logo"
+    t.string   "cached_path"
+    t.string   "logo_cache"
+    t.integer  "logo_size",         default: 0
   end
 
   create_table "height_screens", force: true do |t|

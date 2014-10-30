@@ -6,18 +6,31 @@
       = f.input :watch_title
   .row#personalize_title_header_background
     .col-md-3
-      = f.input :text_decoration, collection: HeaderBackground::ARRAY_TEXT_DECORATION
-    .col-md-3
-      = f.input :font_family_title, collection: HeaderBackground::ARRAY_FONT_FAMILY
-    .col-md-2
-      = f.input :size_title, collection: 0..100
-    .col-md-2
-      = f.input :align_title, collection: HeaderBackground::ARRAY_ALIGN
-    .col-md-2
-      = f.label :font_color_title
-      = f.input :font_color_title, as: 'hidden', input_html: { class: "class_font_color_title" }
-      #font_color
-        div style="background-color: #{@header_background.new_record? || @header_background.nil? ? "black" : @header_background.font_color_title}"
+      = f.input :text_or_image
+    .row#text
+      .col-md-3
+        = f.input :text_decoration, collection: HeaderBackground::ARRAY_TEXT_DECORATION
+      .col-md-3
+        = f.input :font_family_title, collection: HeaderBackground::ARRAY_FONT_FAMILY
+      .col-md-2
+        = f.input :size_title, collection: 0..100
+      .col-md-2
+        = f.input :align_title, collection: HeaderBackground::ARRAY_ALIGN
+      .col-md-2
+        = f.label :font_color_title
+        = f.input :font_color_title, as: 'hidden', input_html: { class: "class_font_color_title" }
+        #font_color
+          div style="background-color: #{@header_background.new_record? || @header_background.nil? ? "black" : @header_background.font_color_title}"
+    .row#image
+      .col-md-3
+        = f.input :logo, as: :file
+        = f.input :logo_cache, as: :hidden
+        - if !@header_background.new_record? && !@header_background.nil? && !@header_background.logo.url(:thumb).nil?
+          = image_tag(@header_background.logo.url(:thumb))
+            = f.input :delete_logo, as: :hidden, input_html: { value: false, class: "input_delete_logo" }
+          = link_to "", "#", id: "id_drop_logo_not_delete", class: "grid_button_not_delete"
+          = link_to "", "#", id: "id_drop_logo_delete", class: "grid_button_delete"
+
   = f.input :activation
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @header_background.new_record? || @header_background.background.nil? ? Background.new : @header_background.background, model: @header_background  })
   .form_actions

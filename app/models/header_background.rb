@@ -1,5 +1,6 @@
 class HeaderBackground < ActiveRecord::Base 
   attr_accessor :delete_background_image
+  attr_accessor :delete_logo
   validates_presence_of :title
   #validates_presence_of :activation
   before_save :generate_uuid
@@ -8,6 +9,8 @@ class HeaderBackground < ActiveRecord::Base
   before_update :set_activation_by_default?
   accepts_nested_attributes_for :background,
                                 :allow_destroy => true
+  mount_uploader :logo, LogoUploader
+
   ARRAY_FONT_FAMILY = {"" => 0, "Arial" => 1, "Comic Sans MS" => 2, "Courier New" => 3, "Georgia" => 4, "Lucida Sans Unicode" => 5, "Tahoma" => 6, "Times New Roman" => 7, "Trebuchet MS" => 8, "Verdana" => 9}
   ARRAY_ALIGN = {"" => 0, "center" => 1, "left" => 2, "right" => 3, "justify" => 4, "inherit" => 5}
   ARRAY_TEXT_DECORATION = {"none" => 0, "overline" => 1, "line-through" => 2, "blink" => 3}
