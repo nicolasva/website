@@ -27,7 +27,7 @@ module ApplicationHelper
     array_content_text_decoration_title.push("text-decoration:line-through;")
     array_content_text_decoration_title.push("text-decoration:blink;")
 
-    return @header_background.nil? ? "" : @header_background.watch_title ? @header_background.title : ""
+    return @header_background.nil? ? "" : @header_background.watch_title ? @header_background.text_or_image ?  @header_background.title : image_tag(@header_background.logo.url) : ""
   end
 
   def link_content_or_annoncment?(value, content_annoncment)

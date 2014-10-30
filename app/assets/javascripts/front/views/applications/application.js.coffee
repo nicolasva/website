@@ -72,11 +72,12 @@ jQuery ->
       unless _.isNull(data)
         $("#id_header").show()
         if !_.isNull(data.watch_title) && data.watch_title
-          $("#id_header").css("color", data.font_color_title)
-          $("#id_header").css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[data.font_family_title])
+          if data.text_or_image
+            $("#id_header").css("color", data.font_color_title)
+            $("#id_header").css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[data.font_family_title])
+            $("#id_header").css("text-decoration", HASH_TEXT_DECORATION_HEADER_BACKGROUND_CSS[data.text_decoration]) 
+            $("#id_header").css("font-size", data.size_title+"pt")
           $("#id_header").css("text-align", HASH_ALIGN_HEADER_BACKGROUND_CSS[data.align_title])
-          $("#id_header").css("text-decoration", HASH_TEXT_DECORATION_HEADER_BACKGROUND_CSS[data.text_decoration]) 
-          $("#id_header").css("font-size", data.size_title+"pt")
         set_properties_css("#id_header", data.background) 
         set_propertie_full_screen_javascript("#id_header", data.background.align)
     )
