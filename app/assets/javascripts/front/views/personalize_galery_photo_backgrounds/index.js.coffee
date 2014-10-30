@@ -40,6 +40,7 @@ jQuery ->
             $("#Galery_photo").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then 'no-repeat' else '') unless data.background.no_background_image || _.isNull(data.background.background_image.url)
             $("#Galery_photo").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
             #$("#Galery_photo").css("height", window.screen.height + "px") if data.height_screen.height
+            $("#Galery_photo").css("background-size", "cover")
             set_nifty_corner("#Galery_photo", data)
             set_opacity_background("#Galery_photo", data.background)
         )
