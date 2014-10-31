@@ -1,4 +1,8 @@
 fr:
+  views:
+    pagination:
+      next: Suivant
+      last: Précèdent
   month_date:
     "1": Janvier
     "2": Février

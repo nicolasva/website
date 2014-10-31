@@ -1,4 +1,8 @@
 en:
+  views:
+    pagination:
+      next: Next
+      last: Previous
   month_date:
     "1": January
     "2": February
