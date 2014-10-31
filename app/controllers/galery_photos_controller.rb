@@ -4,7 +4,7 @@ class GaleryPhotosController < ApplicationController
   # GET /galery_photos
   # GET /galery_photos.json
   def index
-    @galery_photos = GaleryPhoto.where(@hash_params).joins(:publication).where(publications: { publication: true})
+    @galery_photos = GaleryPhoto.where(@hash_params).joins(:publication).where(publications: { publication: true}).page(params[:page]).per(6)
   end
 
   # GET /galery_photos/1
