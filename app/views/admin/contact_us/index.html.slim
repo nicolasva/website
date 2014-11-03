@@ -20,7 +20,7 @@ table.table.table-striped
         td
           = contact_u.email
         td
-          = truncate(contact_u.content.html_safe, length: 90).html_safe
+          = truncate(contact_u.content, length: 90).html_safe
         td
           = time_tag(contact_u.created_at, :format => "%d %B %Y") 
         td
