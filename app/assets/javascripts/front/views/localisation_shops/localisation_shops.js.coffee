@@ -23,13 +23,14 @@ $(document).ready ->
             #addr = ""
             #addr = 
             #  'address': val.address+", "+val.postal_code+" "+val.city
-            addr = val.address+", "+val.postal_code+" "+val.city
+            addr = val.address+" "+val.postal_code+" "+val.city
             geocoder.geocode( { 'address' : addr }, (results, status) ->
               if status == google.maps.GeocoderStatus.OK
                 #map.setCenter(results[0].geometry.location)
                 marker = new google.maps.Marker({
                   map: map,
                   position: results[0].geometry.location
+                  title: val.address+" "+val.postal_code+" "+val.city
                 })
               else
                 if status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT
