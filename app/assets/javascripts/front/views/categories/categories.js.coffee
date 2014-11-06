@@ -12,6 +12,4 @@ jQuery ->
           success: (val) ->
             unless _.isNull(val)
               $(value).children().first().css("color", val.color_font)
-          error: ->
-            alert("Error load personalize category")
         })
