@@ -13,7 +13,7 @@ HASH_ALIGN_CSS =
 
 jQuery ->
   $(document).ready ->
-    $(".container.content.margin-container").children().first().children().first().children().first().children().each (key, value) ->
+    $("#Galery_photo").children().each (key, value) ->
       id_value_content = $(value).attr("id")
       if id_value_content.split("_")[0] == "content"
         uuid = $(value).attr("class").split(" ")[$(value).attr("class").split(" ").length - 1]
