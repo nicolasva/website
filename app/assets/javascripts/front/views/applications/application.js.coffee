@@ -201,7 +201,7 @@ set_properties_css = (element, background) ->
       $(element).css("-webkit-background-size", width+" "+height)
       $(element).css("background-size", width+" "+height)
   height_header = parseInt($('#id_header').css("height").scan(new RegExp("^(.{1,})(px)$","g"))[0][0])+80+"px"
-  $(element).css("height", height_header)
+  #$(element).css("height", height_header)
   $(element).css("background-color", if background.transparent is true then "transparent" else background.background_color)
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
 
