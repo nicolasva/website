@@ -78,6 +78,9 @@ jQuery ->
             $("#id_header").css("text-decoration", HASH_TEXT_DECORATION_HEADER_BACKGROUND_CSS[data.text_decoration]) 
             $("#id_header").css("font-size", data.size_title+"pt")
           $("#id_header").css("text-align", HASH_ALIGN_HEADER_BACKGROUND_CSS[data.align_title])
+        
+          height_header = parseInt($('#id_header').css("height").scan(new RegExp("^(.{1,})(px)$","g"))[0][0])+80+"px"
+          $(element).css("height", height_header)
         set_properties_css("#id_header", data.background) 
         set_propertie_full_screen_javascript("#id_header", data.background.align)
     )
@@ -200,8 +203,6 @@ set_properties_css = (element, background) ->
       $(element).css("-o-background-size", width+" "+height)
       $(element).css("-webkit-background-size", width+" "+height)
       $(element).css("background-size", width+" "+height)
-  height_header = parseInt($('#id_header').css("height").scan(new RegExp("^(.{1,})(px)$","g"))[0][0])+80+"px"
-  #$(element).css("height", height_header)
   $(element).css("background-color", if background.transparent is true then "transparent" else background.background_color)
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
 
