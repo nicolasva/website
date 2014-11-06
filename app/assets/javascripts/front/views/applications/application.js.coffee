@@ -195,6 +195,7 @@ set_properties_css = (element, background) ->
     $(element).css("opacity", background.opacity)
     if background.align == 11
       height = parseInt($('#id_header').css("height").scan(new RegExp("^(.{1,})(px)$","g"))[0][0])+30+"px"
+      console.log height
       width = $('#id_header').css("width")
       $(element).css("-moz-background-size", width+" "+height)
       $(element).css("-o-background-size", width+" "+height)
