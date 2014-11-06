@@ -17,6 +17,7 @@ jQuery ->
       content = $("#Galery_photo").children()
     else
       content = $(".container.content.margin-container").children().first().children().first().children().first().children()
+    console.log content
     content.each (key, value) ->
       id_value_content = $(value).attr("id")
       if id_value_content.split("_")[0] == "content"
