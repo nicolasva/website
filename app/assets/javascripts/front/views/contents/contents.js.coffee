@@ -30,7 +30,7 @@ jQuery ->
                 $(value).css("-moz-border-radius", data.nifty_corner.border_radius + "px")
                 $(value).css("-webkit-border-radius", data.nifty_corner.border_radius + "px")
                 $(value).css("border-radius", data.nifty_corner.border_radius + "px")
-
+            console.log data.background
             set_properties_css(value, data.background)
             set_propertie_full_screen_javascript(value, data.background.align)
             #$(value).css("background-color", data.background.background_color)
