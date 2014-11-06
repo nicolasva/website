@@ -194,10 +194,12 @@ set_properties_css = (element, background) ->
     $(element).css("background-size", "cover") if background.cover
     $(element).css("opacity", background.opacity)
     if background.align == 11
-      $(element).css("-moz-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-      $(element).css("-o-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-      $(element).css("-webkit-background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
-      $(element).css("background-size", $('#id_header').css("width")+" "+$('#id_header').css("height"))
+      height = parseInt($('#id_header').css("height").scan(new RegExp("^(.{1,})(px)$","g"))[0][0])+30+"px"
+      width = $('#id_header').css("width")
+      $(element).css("-moz-background-size", width+" "+height)
+      $(element).css("-o-background-size", width+" "+height)
+      $(element).css("-webkit-background-size", width+" "+height)
+      $(element).css("background-size", width+" "+height)
   $(element).css("background-color", if background.transparent is true then "transparent" else background.background_color)
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
 
