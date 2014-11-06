@@ -80,7 +80,7 @@ jQuery ->
           $("#id_header").css("text-align", HASH_ALIGN_HEADER_BACKGROUND_CSS[data.align_title])
         
         height_header = parseInt($('#id_header').css("height").scan(new RegExp("^(.{1,})(px)$","g"))[0][0])+80+"px"
-        $(element).css("height", height_header)
+        console.log $(element).css("height", height_header)
         set_properties_css("#id_header", data.background) 
         set_propertie_full_screen_javascript("#id_header", data.background.align)
     )
