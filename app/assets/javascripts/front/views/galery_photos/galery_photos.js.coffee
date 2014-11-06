@@ -10,6 +10,5 @@ jQuery ->
 
         helpers: {
     		  title: { type: 'inside' }
-        }
-    		
+        }	
       )
