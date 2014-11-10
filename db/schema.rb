@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029090426) do
+ActiveRecord::Schema.define(version: 20141110131145) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -215,6 +215,14 @@ ActiveRecord::Schema.define(version: 20141029090426) do
     t.boolean  "homepage",               default: false, null: false
     t.integer  "homepage_submenus_id"
     t.string   "homepage_submenus_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "legendes", force: true do |t|
+    t.text     "legende",           null: false
+    t.integer  "legendstyles_id"
+    t.string   "legendstyles_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

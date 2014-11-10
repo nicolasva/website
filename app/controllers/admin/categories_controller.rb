@@ -83,7 +83,8 @@ module Admin
                                          :homepage,
                                          :position,
                                          :color_font,
-                                         homepage: []
+                                         homepage: [],
+                                         legende_attributes: [:id, :legende]
                                         )
       end
   end

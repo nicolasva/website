@@ -9,5 +9,6 @@
     = f.input :color_font, as: 'hidden'
     #ColorFont
       div style="background-color: #{@category.color_font}"
+  = render(partial: "/admin/legendes/form", locals: { f: f, model_init: @category.new_record? || @category.legende.nil? ? Legende.new : @category.legende, model: @category })
   .form-actions
     = f.button :submit, :class => 'btn-primary'
