@@ -5,6 +5,7 @@ class Submenu < ActiveRecord::Base
   validates_presence_of :english_title
   belongs_to :category
   has_many :annoncments, dependent: :destroy
+  has_one :legende, as: :legendstyles, dependent: :destroy 
   has_many :contents, dependent: :destroy
   has_many :submenus, dependent: :destroy
   has_many :galery_photos, dependent: :destroy
@@ -15,6 +16,9 @@ class Submenu < ActiveRecord::Base
 
   accepts_nested_attributes_for :publication,
                                 :allow_destroy => true
+
+  accepts_nested_attributes_for :legende, 
+                                allow_destroy: true
 
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
   

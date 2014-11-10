@@ -1,1 +1,1 @@
-= link_to sub_menu_title(sub_menu), url_contents_or_annoncments(sub_menu) 
+= link_to sub_menu_title(sub_menu), url_contents_or_annoncments(sub_menu), "title" => sub_menu.legende.nil? ? "" : sub_menu.legende.legende, "data-tooltip-sub-menu" => "tooltip", "data-original-title" => sub_menu.legende.nil? ? "" : sub_menu.legende.legende

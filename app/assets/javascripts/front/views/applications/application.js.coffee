@@ -47,6 +47,8 @@ jQuery ->
         set_propertie_full_screen_javascript(".content", data.background.align)
     )
 
+    $('[data-tooltip-category="tooltip"]').tooltip({'placement': 'top'}) 
+    $('[data-tooltip-sub-menu="tooltip"]').tooltip({'placement': 'left'})
     $.getJSON("/menu_backgrounds", (data) ->
       unless _.isNull(data)
         set_properties_css(".menu_color", data.background)

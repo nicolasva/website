@@ -85,7 +85,8 @@ module Admin
         params.require(:submenu).permit(:id,
                                        :title,
                                        :english_title,
-                                       :color_font)
+                                       :color_font,
+                                       legende_attributes: [:id, :legende])
      end
   end
 end

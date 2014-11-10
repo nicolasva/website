@@ -8,6 +8,7 @@
     = f.label :color_font
     = f.input :color_font, as: 'hidden'
     #ColorFontSubmenu
-      div style="background-color: #{@submenu.color_font}"
+      div style="background-color: #{@submenu.color_font}"      
+  = render(partial: "/admin/legendes/form", locals: { f: f, model_init: @category.new_record? || @category.legende.nil? ? Legende.new : @category.legende, model: @category })
   .form-actions
     = f.button :submit, value: submit_value_submenus, :class => 'btn-primary'
