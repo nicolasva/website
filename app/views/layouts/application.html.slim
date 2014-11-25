@@ -183,15 +183,16 @@ html lang="en"
                         = link_to image_tag("social_share/twitter.png", size: "40x40"), "https://twitter.com/intent/tweet?original_referer=#{request.url}%2Fresources%2Fbuttons&tw_p=tweetbutton&url=#{request.url}"
 
   footer
-    .col-md-3 &copy; #{@title_website.title} #{Time.now.strftime("%Y")}
-    .col-md-5.col-md-offset-4
-      ul.nav.navbar-nav
-        li
-          = link_to "Nous Localiser", localisation_shops_path
-        li
-          = link_to t(".legal_mention"), footers_path, remote: true
-        li
-          = link_to t(".contact_us"), new_contact_u_path, remote: true
+    .row
+      .col-md-3 &copy; #{@title_website.title} #{Time.now.strftime("%Y")}
+      .col-md-5.col-md-offset-4
+        ul.list-inline.navbar-nav
+          li
+            = link_to "Nous Localiser", localisation_shops_path
+          li
+            = link_to t(".legal_mention"), footers_path, remote: true
+          li
+            = link_to t(".contact_us"), new_contact_u_path, remote: true
 
 
   section.dialog_box.modal

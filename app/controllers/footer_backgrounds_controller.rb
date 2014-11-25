@@ -4,7 +4,10 @@ class FooterBackgroundsController < ApplicationController
   # GET /footer_backgrounds
   # GET /footer_backgrounds.json
   def index
-    @footer_backgrounds = FooterBackground.all
+    @footer_background = FooterBackground.find_by_activation(true)
+    respond_to do |format|
+      format.json { render json: @footer_background.to_json(:include => :background) }
+    end
   end
 
   # GET /footer_backgrounds/1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110131145) do
+ActiveRecord::Schema.define(version: 20141116182634) do
 
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
@@ -155,11 +155,12 @@ ActiveRecord::Schema.define(version: 20141110131145) do
   end
 
   create_table "footer_backgrounds", force: true do |t|
-    t.string   "uuid",       null: false
-    t.string   "title",      null: false
-    t.boolean  "activation", null: false
+    t.string   "uuid",                         null: false
+    t.string   "title",                        null: false
+    t.boolean  "activation",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "color_font", default: "black", null: false
   end
 
   create_table "footers", force: true do |t|

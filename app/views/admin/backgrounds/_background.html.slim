@@ -7,7 +7,6 @@
     #backgroundtransparent
       = f_background.label :background_color
       = f_background.input :background_color, as: 'hidden', input_html: { class: "background_color" }
-      
       #BackgroundColor
         div style="background-color: #{model.new_record? || model.background.nil? ? "transparent" : model.background.background_color}"
       .all_background_image

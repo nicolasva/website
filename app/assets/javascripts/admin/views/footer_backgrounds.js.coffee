@@ -13,3 +13,17 @@ jQuery ->
         $(".background_by_default").css("background", "url('"+data.background.background_image.url+"') "+ if data.background.no_repeat is true then + 'no-repeat' else '') unless data.background.no_background_image
         $(".background_by_default").css("border", data.background.border+" "+data.background.border_style+" "+data.background.border_color)
       )
+
+jQuery ->
+  $('#ColorFontToFooterBackgroundsPanel').ColorPicker({
+    color: $("#ColorFontToFooterBackgroundsPanel").children().first().css("background-color"),
+    onShow: (colpkr) ->
+      $(colpkr).fadeIn(500)
+      return false
+    onHide: (colpkr) ->
+      $(colpkr).fadeOut(500)
+      return false
+    onChange: (hsb, hex, rgb) ->
+      $('#ColorFontToFooterBackgroundsPanel div').css('backgroundColor', '#' + hex)
+      $('.color_font').attr("value", '#' + hex)
+  })

@@ -26,6 +26,7 @@ WebsiteFrancisFerrari::Application.routes.draw do
   resources :contact_us
   resources :personalize_backgrounds
   resources :header_backgrounds
+  resources :footer_backgrounds
   resources :sub_menu_backgrounds
   resources :background_by_defaults
   resources :menu_backgrounds

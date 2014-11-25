@@ -1,6 +1,13 @@
 = simple_form_for [:admin, @footer_background], url: url do |f|
   = f.input :title
   = f.input :activation
+  #ColorFontToFooterBackgrounds
+    = f.label :color_font
+    = f.input :color_font, as: 'hidden', input_html: { class: "color_font"}
+    #ColorFontToFooterBackgroundsPanel
+      div style="background-color: #{@footer_background.new_record? || @footer_background.color_font.nil? ? "transparent" : @footer_background.color_font}"
+  = render(partial: "/admin/fonts/form", locals: {f: f, model_init: @footer_background.new_record? || @footer_background.font.nil? ? Font.new : @footer_background.font, model: @footer_background })
+  //render(partial: "/admin/click_links/form", locals: {f: f, model_init: @footer_background.new_record? || @footer_background.click_link.nil? ? ClickLink.new : @footer_background.click_link, model: @footer_background })
   = render(:partial => "/admin/backgrounds/background", :locals => { f: f, model_init: @footer_background.new_record? || @footer_background.background.nil? ? Background.new : @footer_background.background, model: @footer_background })
   .form_actions
     = f.button :submit, value: button_valid_footer_background, :class => 'btn-primary'

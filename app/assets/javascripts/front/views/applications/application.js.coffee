@@ -70,6 +70,14 @@ jQuery ->
             #$(value).css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[data.font.font_family])
     )
 
+    $.getJSON("/footer_backgrounds", (data) ->
+      unless _.isNull(data)
+        set_properties_css("footer", data.background)
+        set_propertie_full_screen_javascript("footer", data.background.align)
+        $("footer").css("color", data.color_font)
+        set_font_family_css($("footer"), data.font)
+    )
+
     $.getJSON("/header_backgrounds", (data) ->
       unless _.isNull(data)
         $("#id_header").show()

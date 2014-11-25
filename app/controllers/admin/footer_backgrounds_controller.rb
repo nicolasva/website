@@ -24,7 +24,7 @@ module Admin
       @footer_background = FooterBackground.new(footer_background_params)
       
       if @footer_background.save
-        redirect_to admin_footer_background_path, notice: t(".footer_background_success_created")
+        redirect_to admin_footer_backgrounds_path, notice: t(".footer_background_success_created")
       else
         render action: 'new'
       end
@@ -32,7 +32,7 @@ module Admin
 
     def update
       if @footer_background.update(footer_background_params)
-        redirect_to admin_footer_background_path, notice: t(".footer_background_success_updated")
+        redirect_to admin_footer_backgrounds_path, notice: t(".footer_background_success_updated")
       else
         render actions: 'edit'
       end
@@ -56,8 +56,11 @@ module Admin
     def footer_background_params
       params.require(:footer_background).permit(:id,
                                                 :title,
+                                                :color_font,
                                                 :activation,
                                                 activation: [],
+                                                font_attributes: [:font_family, :font_size, :id],
+                                                #click_link_attributes: [:color, :background_color, :id],
                                                 background_attributes: [:border, :border_style, :background_color, :delete_background_image, :no_background_image, :background_image, :cached_path, :no_repeat, :border_color, :background_image_size, :cover, :opacity, :transparent, :id]
                                                )
     end
