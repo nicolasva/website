@@ -76,6 +76,9 @@ jQuery ->
         set_propertie_full_screen_javascript("footer", data.background.align)
         $("footer").css("color", data.color_font)
         set_font_family_css($("footer"), data.font)
+        $("footer").children().first().children().last().children().first().children().each (key, value) ->
+          $(value).children().first().css("color", data.color_font)
+          set_font_family_css($(value), data.font)
     )
 
     $.getJSON("/header_backgrounds", (data) ->
@@ -217,8 +220,9 @@ set_properties_css = (element, background) ->
   $(element).css("border", background.border+"px "+background.border_style+" "+background.border_color)
 
 set_font_family_css = (element, font) ->
-  element.css("font-size", font.font_size+"pt")
-  element.css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[font.font_family])
+  unless _.isUndefined(font)
+    element.css("font-size", font.font_size+"pt")
+    element.css("font-family", HASH_FONT_FAMILY_HEADER_BACKGROUND_CSS[font.font_family])
 
 background_image_size = (background_image, background_image_size) ->
   switch background_image_size
