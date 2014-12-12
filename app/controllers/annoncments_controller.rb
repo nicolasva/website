@@ -4,7 +4,7 @@ class AnnoncmentsController < ApplicationController
   # GET /annoncments
   # GET /annoncments.json
   def index
-    @annoncments = parent.annoncments.where(@hash_params).joins(:publication).where(publications: { publication: true})
+    @annoncments = parent.annoncments.where(@array_params).joins(:publication).where(publications: { publication: true})
   end
 
   # GET /annoncments/1
@@ -72,14 +72,22 @@ class AnnoncmentsController < ApplicationController
     end
 
     def parent
+      #["date_at >= :date or date_to < :date", {date: '2014-12-19 14:33:25.522623'}]
         @hash_params = Hash.new
+        @hash_params[:date] = Time.now
+        
+        @array_params = Array.new
         if parent?
           submenu = Submenu.find_by_title(params[:title_submenu_id]) 
           @hash_params[:submenu_id] = submenu.id
+          @array_params.push("date_at >= :date or date_to < :date and submenu_id = :submenu_id")
+          @array_params.push(@hash_params)
           return submenu
         else
           category = Category.find_by_title(params[:title_id])
-          @hash_params[:category_id] = category.id
+          @hash_params[:category_id] = category.id 
+          @array_params.push("date_at >= :date or date_to < :date and category_id = :category_id")
+          @array_params.push(@hash_params)
           return category
         end
     end
