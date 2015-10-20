@@ -21,7 +21,7 @@ class Submenu < ActiveRecord::Base
                                 allow_destroy: true
 
   scope :position, ->(index, id) { update_all(['position=?', index], ['id=?', id]) }
-  
+
   def self.content_or_annoncment(contents_or_annoncments)
     contents_or_annoncments_type = "Submenu"
     contents_or_annoncments.each do |key, value|
