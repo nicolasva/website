@@ -20,6 +20,7 @@ test:
 
 production:
   adapter: postgresql
+  host: ec2-54-83-52-144.compute-1.amazonaws.com
   database: d8va0ai5b9gpg2
   user: mapnnweagiebft
   port: 5432
