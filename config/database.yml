@@ -18,10 +18,10 @@ test:
   pool: 5
   timeout: 5000
 
-production:
-  adapter: postgresql
+#production:
+  #adapter: postgresql
   #host: ec2-54-195-252-202.eu-west-1.compute.amazonaws.com
-  database: esgl93 
+  #database: esgl93 
   #user: idjllzeukszpox
   #port: 5432
   #password: sZz4Zu92L2x1gGBjUk_n_DBEuQ
