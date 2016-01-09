@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141116182634) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "aligns", force: true do |t|
     t.integer  "align",       null: false
     t.datetime "created_at"
@@ -38,8 +41,8 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.string   "english_title",         default: "English title", null: false
   end
 
-  add_index "annoncments", ["category_id"], name: "annoncments_category_id_to_category"
-  add_index "annoncments", ["submenu_id"], name: "annoncments_submenu_id_to_submenus"
+  add_index "annoncments", ["category_id"], name: "annoncments_category_id_to_category", using: :btree
+  add_index "annoncments", ["submenu_id"], name: "annoncments_submenu_id_to_submenus", using: :btree
 
   create_table "background_annoncments", force: true do |t|
     t.integer  "annoncment_id"
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.datetime "updated_at"
   end
 
-  add_index "background_annoncments", ["annoncment_id"], name: "background_annoncment_id_to_annoncments"
+  add_index "background_annoncments", ["annoncment_id"], name: "background_annoncment_id_to_annoncments", using: :btree
 
   create_table "background_by_defaults", force: true do |t|
     t.string   "title",                      null: false
@@ -63,7 +66,7 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.datetime "updated_at"
   end
 
-  add_index "background_contents", ["content_id"], name: "background_content_id_to_contents"
+  add_index "background_contents", ["content_id"], name: "background_content_id_to_contents", using: :btree
 
   create_table "backgrounds", force: true do |t|
     t.integer "border",                 default: 0,             null: false
@@ -107,8 +110,8 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.datetime "updated_at"
   end
 
-  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable"
-  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "click_links", force: true do |t|
     t.string  "color",                 default: "black", null: false
@@ -136,7 +139,7 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.integer  "submenu_id"
   end
 
-  add_index "contents", ["submenu_id"], name: "contents_submenu_id_to_submenus"
+  add_index "contents", ["submenu_id"], name: "contents_submenu_id_to_submenus", using: :btree
 
   create_table "contents_or_annoncments", force: true do |t|
     t.integer  "content_or_annoncment",        default: 1, null: false
@@ -184,8 +187,8 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.text     "english_comment",   default: "English comment", null: false
   end
 
-  add_index "galery_photos", ["category_id"], name: "galery_photos_category_id_to_category"
-  add_index "galery_photos", ["submenu_id"], name: "galery_photos_submenu_id_to_submenu"
+  add_index "galery_photos", ["category_id"], name: "galery_photos_category_id_to_category", using: :btree
+  add_index "galery_photos", ["submenu_id"], name: "galery_photos_submenu_id_to_submenu", using: :btree
 
   create_table "header_backgrounds", force: true do |t|
     t.string   "title",                               null: false
@@ -284,7 +287,7 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.string  "uuid",          default: "0",   null: false
   end
 
-  add_index "photos", ["annoncment_id"], name: "photos_annoncment_id_to_photo"
+  add_index "photos", ["annoncment_id"], name: "photos_annoncment_id_to_photo", using: :btree
 
   create_table "publications", force: true do |t|
     t.boolean  "publication",            default: true, null: false
@@ -319,7 +322,7 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.string   "english_title", default: "English title submenu", null: false
   end
 
-  add_index "submenus", ["category_id"], name: "submenus_category_id_to_category"
+  add_index "submenus", ["category_id"], name: "submenus_category_id_to_category", using: :btree
 
   create_table "title_websites", force: true do |t|
     t.string   "title"
@@ -344,7 +347,7 @@ ActiveRecord::Schema.define(version: 20141116182634) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
